@@ -31,7 +31,7 @@ import {
   BottomNavigationTab,
 } from "@ui-kitten/components";
 import * as eva from "@eva-design/eva";
-import { default as theme } from "./theme.json";
+import { default as theme } from "./theme4.json";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const { Navigator: StackNavigator, Screen: StackScreen } =
