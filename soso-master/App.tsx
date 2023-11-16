@@ -7,9 +7,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from "./src/screens/home";
 import Events from "./src/screens/events";
-import Feed from "./src/screens/feed";
 import Notifications from "./src/screens/notifications";
 import Menu from "./src/screens/menu";
+
+import Feed from "./src/screens/feed/feed";
+import NewPost from "./src/screens/feed/newPost";
 
 import Login from "./src/screens/auth/login";
 import Register from "./src/screens/auth/register";
@@ -31,7 +33,7 @@ import {
   BottomNavigationTab,
 } from "@ui-kitten/components";
 import * as eva from "@eva-design/eva";
-import { default as theme } from "./theme.json";
+import { default as theme } from "./theme4.json";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const { Navigator: StackNavigator, Screen: StackScreen } =
@@ -92,6 +94,7 @@ const AppNavigator = () => (
     <StackScreen name="VerifyID" component={VerifyID} />
     <StackScreen name="VerifyIDSubmitted" component={VerifyIDSubmitted} />
     <StackScreen name="SuccessDone" component={SuccessDone} />
+    <StackScreen name="NewPost" component={NewPost} />
   </StackNavigator>
 );
 

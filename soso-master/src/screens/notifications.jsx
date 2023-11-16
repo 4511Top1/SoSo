@@ -41,7 +41,7 @@ export const NotificationTabs = () => {
         onSelect={index => setSelectedIndex(index)}
       >
         {['All', 'Events', 'People', 'Feed'].map((title, index) => (
-          <Tab key={title} title={title}>
+          <Tab key={title} title={evaProps => <Text {...evaProps} style={[evaProps.style, styles.tabTitle]}>{title}</Text>}>
             <List
               data={visibleNotifications(index)}
               renderItem={renderNotification}
@@ -57,7 +57,7 @@ export const NotificationTabs = () => {
 const Notifications = () => {
   return (
     <View style={styles.container}>
-      <Text category="h4" status="primary">
+      <Text category="h3" status="primary">
         Notifications
       </Text>
       <NotificationTabs />
@@ -74,5 +74,8 @@ const styles = StyleSheet.create({
   },
   tabContainer: {
     alignItems: "center",
+  },
+  tabTitle: {
+    fontSize: 16, 
   },
 });
