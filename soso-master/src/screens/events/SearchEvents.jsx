@@ -76,12 +76,7 @@ const SearchEvents = ({ navigation }) => {
         accessoryRight={renderDeleteIcon}
         // onFocus={() => navigation.navigate("SearchScreen")}
       />
-      {/* <Layout name="historyList" style={styles.historyList}>
-        <Layout name="oneHistory">
-          <SearchSVG />
-          <Text>Kanga Festival</Text>
-        </Layout>
-      </Layout> */}
+
       <List
         data={data}
         ItemSeparatorComponent={Divider}
@@ -96,13 +91,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    // alignItems: "center",
-    // justifyContent: "center",
+
   },
   historyList: {
     flexDirection: "row",
-    // justifyContent: "center",
-    // alignItems: "center",
+   
   },
   historyItem: {
     marginLeft: 10,
