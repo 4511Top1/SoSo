@@ -15,9 +15,7 @@ import {
   ListItem,
   Divider,
 } from "@ui-kitten/components";
-
-import { EvaIconsPack } from "@ui-kitten/eva-icons";
-import { BackAction } from "../../generalComponent/backAction";
+import { BackAction } from "../../components/backAction";
 
 import SearchIconSVG from "../../assets/svg/searchIcon.svg";
 
@@ -40,7 +38,6 @@ const renderItemAccessory = (props) => <SearchSVG />;
 const renderItem = ({ item, index }) => (
   <ListItem
     title={() => <Text style={styles.historyItem}>{item.title}</Text>}
-
     accessoryLeft={renderItemAccessory}
   />
 );
@@ -66,7 +63,7 @@ const SearchEvents = ({ navigation }) => {
   const [value, setValue] = React.useState("");
   return (
     <View style={styles.container}>
-      <IconRegistry icons={EvaIconsPack} />
+      {/* <IconRegistry icons={EvaIconsPack} /> */}
       <TopNavigation title={renderTitle} alignment="start" />
 
       <Input
