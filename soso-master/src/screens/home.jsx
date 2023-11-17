@@ -3,6 +3,7 @@ import { Button, StyleSheet, Text, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 import { useFirstLaunch } from "../hook/FirstLaunchContext";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Home = ({ navigation }) => {
   const { isFirstLaunch } = useFirstLaunch();

@@ -2,10 +2,11 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Iconify } from "react-native-iconify";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import Home from "./screens/home";
 import Events from "./screens/events";
-import Feed from "./screens/feed";
+import Feed from "./screens/feed/feed";
 import Notifications from "./screens/notifications";
 import Menu from "./screens/menu";
 import Login from "./screens/auth/login";
@@ -70,18 +71,20 @@ const TabNavigator = () => (
 
 export const AppNavigator = () => {
   return (
-    <StackNavigator screenOptions={{ headerShown: false }}>
-      <StackScreen name="Splash" component={Splash} />
-      <StackScreen name="Tabs" component={TabNavigator} />
-      <StackScreen name="Login" component={Login} />
-      <StackScreen name="Register" component={Register} />
-      <StackScreen name="Reset" component={Reset} />
-      <StackScreen name="ResetSuccess" component={ResetSuccess} />
-      <StackScreen name="Interest" component={Interest} />
-      <StackScreen name="Verify" component={Verify} />
-      <StackScreen name="VerifyID" component={VerifyID} />
-      <StackScreen name="VerifyIDSubmitted" component={VerifyIDSubmitted} />
-      <StackScreen name="SuccessDone" component={SuccessDone} />
-    </StackNavigator>
+    <SafeAreaView style={{ flex: 1 }}>
+      <StackNavigator screenOptions={{ headerShown: false }}>
+        <StackScreen name="Splash" component={Splash} />
+        <StackScreen name="Tabs" component={TabNavigator} />
+        <StackScreen name="Login" component={Login} />
+        <StackScreen name="Register" component={Register} />
+        <StackScreen name="Reset" component={Reset} />
+        <StackScreen name="ResetSuccess" component={ResetSuccess} />
+        <StackScreen name="Interest" component={Interest} />
+        <StackScreen name="Verify" component={Verify} />
+        <StackScreen name="VerifyID" component={VerifyID} />
+        <StackScreen name="VerifyIDSubmitted" component={VerifyIDSubmitted} />
+        <StackScreen name="SuccessDone" component={SuccessDone} />
+      </StackNavigator>
+    </SafeAreaView>
   );
 };
