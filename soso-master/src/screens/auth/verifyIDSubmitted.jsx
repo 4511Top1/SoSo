@@ -11,7 +11,7 @@ const VerifyIDSubmitted = ({ navigation }) => {
       </Text>
       <Image
         style={styles.image}
-        source={require("../../assets/Submitted.png")}
+        source={require("../../assets/images/Submitted.png")}
       />
       <Button onPress={() => navigation.navigate("SuccessDone")}>
         Continue

@@ -36,7 +36,7 @@ export const NotificationTabs = () => {
 
 const Notifications = () => {
   return (
-    <View style={styles.container}>
+    <View style={styles.title}>
       <Text category="h4" status="primary">
         Notifications
       </Text>
