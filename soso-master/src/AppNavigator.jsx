@@ -7,6 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Home from "./screens/home";
 import Events from "./screens/events";
 import Feed from "./screens/feed/feed";
+import NewPost from "./screens/feed/newPost";
 import Notifications from "./screens/notifications";
 import Menu from "./screens/menu";
 import Login from "./screens/auth/login";
@@ -84,6 +85,7 @@ export const AppNavigator = () => {
         <StackScreen name="VerifyID" component={VerifyID} />
         <StackScreen name="VerifyIDSubmitted" component={VerifyIDSubmitted} />
         <StackScreen name="SuccessDone" component={SuccessDone} />
+        <StackScreen name="NewPost" component={NewPost} />
       </StackNavigator>
     </SafeAreaView>
   );
