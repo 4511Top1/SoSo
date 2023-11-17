@@ -1,7 +1,9 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
+import { SafeView } from "./components/CustomView";
 
 import Home from "./screens/home";
 import Events from "./screens/events";
@@ -18,8 +20,6 @@ import VerifyID from "./screens/auth/verifyID";
 import VerifyIDSubmitted from "./screens/auth/verifyIDSubmitted";
 import SuccessDone from "./screens/auth/successDone";
 import Splash from "./screens/onboarding/splash";
-
-import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const { Navigator: StackNavigator, Screen: StackScreen } =
@@ -70,18 +70,20 @@ const TabNavigator = () => (
 
 export const AppNavigator = () => {
   return (
-    <StackNavigator screenOptions={{ headerShown: false }}>
-      <StackScreen name="Splash" component={Splash} />
-      <StackScreen name="Tabs" component={TabNavigator} />
-      <StackScreen name="Login" component={Login} />
-      <StackScreen name="Register" component={Register} />
-      <StackScreen name="Reset" component={Reset} />
-      <StackScreen name="ResetSuccess" component={ResetSuccess} />
-      <StackScreen name="Interest" component={Interest} />
-      <StackScreen name="Verify" component={Verify} />
-      <StackScreen name="VerifyID" component={VerifyID} />
-      <StackScreen name="VerifyIDSubmitted" component={VerifyIDSubmitted} />
-      <StackScreen name="SuccessDone" component={SuccessDone} />
-    </StackNavigator>
+    <SafeView>
+      <StackNavigator screenOptions={{ headerShown: false }}>
+        <StackScreen name="Splash" component={Splash} />
+        <StackScreen name="Tabs" component={TabNavigator} />
+        <StackScreen name="Login" component={Login} />
+        <StackScreen name="Register" component={Register} />
+        <StackScreen name="Reset" component={Reset} />
+        <StackScreen name="ResetSuccess" component={ResetSuccess} />
+        <StackScreen name="Interest" component={Interest} />
+        <StackScreen name="Verify" component={Verify} />
+        <StackScreen name="VerifyID" component={VerifyID} />
+        <StackScreen name="VerifyIDSubmitted" component={VerifyIDSubmitted} />
+        <StackScreen name="SuccessDone" component={SuccessDone} />
+      </StackNavigator>
+    </SafeView>
   );
 };
