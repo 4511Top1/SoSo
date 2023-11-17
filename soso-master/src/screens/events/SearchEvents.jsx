@@ -15,6 +15,8 @@ import {
   ListItem,
   Divider,
 } from "@ui-kitten/components";
+
+import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import { BackAction } from "../../components/backAction";
 
 import SearchIconSVG from "../../assets/svg/searchIcon.svg";
@@ -92,7 +94,7 @@ const styles = StyleSheet.create({
   },
   historyList: {
     flexDirection: "row",
-   
+
   },
   historyItem: {
     marginLeft: 10,
