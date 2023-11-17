@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "npm": "^10.2.4",
+    "typescript": "^5.2.2"
+  }
+}
