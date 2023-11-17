@@ -13,7 +13,7 @@ const Register = ({ navigation }) => {
     <View style={styles.container}>
       <Image
         style={styles.image}
-        source={require("../../assets/SoSo_white.png")}
+        source={require("../../assets/images/SoSo_white.png")}
       />
       <View>
         <Layout style={styles.center}>

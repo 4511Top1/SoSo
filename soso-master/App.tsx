@@ -29,9 +29,12 @@ import {
   ApplicationProvider,
   BottomNavigation,
   BottomNavigationTab,
+  IconRegistry,
 } from "@ui-kitten/components";
+import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import * as eva from "@eva-design/eva";
 import { default as theme } from "./theme4.json";
+import SearchEvents from "./src/screens/events/SearchEvents";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const { Navigator: StackNavigator, Screen: StackScreen } =
@@ -92,12 +95,14 @@ const AppNavigator = () => (
     <StackScreen name="VerifyID" component={VerifyID} />
     <StackScreen name="VerifyIDSubmitted" component={VerifyIDSubmitted} />
     <StackScreen name="SuccessDone" component={SuccessDone} />
+    <StackScreen name="SearchEvents" component={SearchEvents} />
   </StackNavigator>
 );
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
+      <IconRegistry icons={EvaIconsPack} />
       <ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }}>
         <NavigationContainer>
           <AppNavigator />
