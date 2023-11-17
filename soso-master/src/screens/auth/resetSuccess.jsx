@@ -12,7 +12,7 @@ const ResetSuccess = () => {
 
       <Image
         style={styles.image}
-        source={require("../../assets/Reset_Success.png")}
+        source={require("../../assets/images/Reset_Success.png")}
       />
       <Button>Back to login</Button>
     </View>
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   image: {
-   
+
     alignSelf: "center",
     marginTop: 52,
   },
