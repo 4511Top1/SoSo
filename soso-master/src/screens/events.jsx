@@ -1,19 +1,11 @@
 import React, { useRef } from "react";
-import { StyleSheet, View } from "react-native";
-import {
-  ButtonGroup,
-  Text,
-  Button,
-  Input,
-  IconRegistry,
-  Icon,
-  Layout,
-} from "@ui-kitten/components";
-import { EvaIconsPack } from "@ui-kitten/eva-icons";
-
-const SearchIcon = (props) => <Icon {...props} name="search" />;
+import { View, StyleSheet } from "react-native";
+import { ScreenView } from "../components/CustomView";
+import { useTheme, Text, Input } from "@ui-kitten/components";
+import { Iconify } from "react-native-iconify";
 
 const Events = ({ navigation }) => {
+  const theme = useTheme();
   const inputRef = useRef(null);
   const [value, setValue] = React.useState("");
 
@@ -25,29 +17,37 @@ const Events = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <IconRegistry icons={EvaIconsPack} />
-      <Text category="h5" status="primary">
+    <ScreenView>
+      <Text category="h2" status="primary">
         Events
       </Text>
       <Input
         placeholder="Search"
         value={value}
         onChangeText={(nextValue) => setValue(nextValue)}
-        accessoryLeft={SearchIcon}
+        accessoryLeft={
+          <Iconify
+            color={theme["color-basic-500"]}
+            size={20}
+            icon={"solar:minimalistic-magnifer-linear"}
+          />
+        }
         onFocus={handleFocus}
         ref={inputRef}
       />
-      <Text category="h6">Discovery weekly</Text>
-    </View>
+      <Text category="h4">Discovery weekly</Text>
+    </ScreenView>
   );
 };
 export default Events;
+
 const styles = StyleSheet.create({
-  container: {
+  search: {
+    gap: 20,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  input: {
     flex: 1,
-    backgroundColor: "#fff",
-    // alignItems: "center",
-    // justifyContent: "center",
   },
 });
