@@ -4,14 +4,20 @@ import { StatusBar } from "expo-status-bar";
 
 import { useFirstLaunch } from "../hook/FirstLaunchContext";
 
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
   const { isFirstLaunch } = useFirstLaunch();
   return (
     <View style={styles.container}>
       <Text>I am home page!</Text>
       {isFirstLaunch && <Text>This is the first launch!</Text>}
-      <Button title="Click me to login" onPress={() => navigation.navigate("Login")}></Button>
-      <Button title="Click me to luach" onPress={() => navigation.navigate("FirstLaunch")}></Button>
+      <Button
+        title="Click me to login"
+        onPress={() => navigation.navigate("Login")}
+      ></Button>
+      <Button
+        title="Click me to launch"
+        onPress={() => navigation.navigate("Splash")}
+      ></Button>
       <StatusBar style="auto" />
     </View>
   );
@@ -19,10 +25,10 @@ const Home = ({navigation}) => {
 
 export default Home;
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: "#fff",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-  });
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
