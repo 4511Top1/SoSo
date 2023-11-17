@@ -43,12 +43,6 @@ const Events = ({ navigation }) => {
   const inputRef = useRef(null);
   const [value, setValue] = React.useState("");
 
-
-
-
-
-
-
   const handleFocus = () => {
     navigation.navigate("SearchEvents");
     if (inputRef.current) {
