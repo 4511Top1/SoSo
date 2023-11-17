@@ -7,7 +7,7 @@ import { SafeView } from "./components/CustomView";
 
 import Home from "./screens/home";
 import Events from "./screens/events";
-import Feed from "./screens/feed";
+import Feed from "./screens/feed/feed";
 import Notifications from "./screens/notifications";
 import Menu from "./screens/menu";
 import Login from "./screens/auth/login";
