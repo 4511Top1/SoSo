@@ -1,11 +1,11 @@
-import { View } from "react-native";
+import { Layout } from "@ui-kitten/components";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export const SafeView = ({ children }) => {
   const insets = useSafeAreaInsets();
 
   return (
-    <View
+    <Layout
       style={{
         flex: 1,
         paddingTop: insets.top,
@@ -15,20 +15,20 @@ export const SafeView = ({ children }) => {
       }}
     >
       {children}
-    </View>
+    </Layout>
   );
 };
 
 export const ScreenView = ({ children }) => {
   return (
-    <View
+    <Layout
       style={{
         flex: 1,
-        backgroundColor: "#fff",
+        // backgroundColor: "#fff",
         paddingHorizontal: 20,
       }}
     >
       {children}
-    </View>
+    </Layout>
   );
 };

@@ -8,6 +8,7 @@ import { SafeView } from "./components/CustomView";
 import Home from "./screens/home";
 import Events from "./screens/events";
 import Feed from "./screens/feed/feed";
+import Chat from "./screens/Chat";
 import Notifications from "./screens/notifications";
 import Menu from "./screens/menu";
 import Login from "./screens/auth/login";
@@ -43,9 +44,14 @@ const BottomTabBar = ({ navigation, state }) => {
         title="Feed"
         icon={<Iconify size={25} icon="solar:feed-linear" />}
       />
-      <BottomNavigationTab
+      {/* <BottomNavigationTab
         title="Notification"
         icon={<Iconify size={25} icon={"solar:bell-linear"} />}
+      /> */}
+      <BottomNavigationTab
+        title="Chat"
+        // icon={<Iconify size={25} icon="solar:chat-round-linear" />}
+        icon={<Iconify size={25} icon="iconoir:chat-bubble-empty" />}
       />
       <BottomNavigationTab
         title="Menus"
@@ -63,7 +69,8 @@ const TabNavigator = () => (
     <Screen name="Home" component={Home} />
     <Screen name="Events" component={Events} />
     <Screen name="Feed" component={Feed} />
-    <Screen name="Notification" component={Notifications} />
+    {/* <Screen name="Notification" component={Notifications} /> */}
+    <Screen name="Chat" component={Chat} />
     <Screen name="Menu" component={Menu} />
   </Navigator>
 );
