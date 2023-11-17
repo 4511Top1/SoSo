@@ -11,6 +11,11 @@ import {
 } from "@ui-kitten/components";
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
 
+import { ScreenView } from "../components/CustomView";
+import { useTheme,  } from "@ui-kitten/components";
+import { Iconify } from "react-native-iconify";
+import DiscoveryWeekly from "./events/DiscoveryWeekly";
+
 const SearchIcon = (props) => <Icon {...props} name="search" />;
 
 const eventData = [

@@ -65,7 +65,8 @@ const SearchEvents = ({ navigation }) => {
   const [value, setValue] = React.useState("");
   return (
     <View style={styles.container}>
-      {/* <IconRegistry icons={EvaIconsPack} /> */}
+      <IconRegistry icons={EvaIconsPack} />
+      
       <TopNavigation title={renderTitle} alignment="start" />
 
       <Input
