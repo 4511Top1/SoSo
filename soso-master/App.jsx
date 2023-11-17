@@ -60,7 +60,7 @@ const BottomTabBar = ({ navigation, state }) => {
         icon={<Iconify size={25} icon={"solar:bell-linear"} />}
       />
       <BottomNavigationTab
-        title="Menu"
+        title="Menus"
         icon={<Iconify size={25} icon="solar:hamburger-menu-linear" />}
       />
     </BottomNavigation>
