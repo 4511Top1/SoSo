@@ -4,11 +4,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import { SafeView } from "./components/CustomView";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import Home from "./screens/home";
 import Events from "./screens/events";
 import Feed from "./screens/feed/feed";
 import Chat from "./screens/Chat";
+import NewPost from "./screens/feed/newPost";
 import Notifications from "./screens/notifications";
 import Menu from "./screens/menu";
 import Login from "./screens/auth/login";
@@ -77,7 +79,7 @@ const TabNavigator = () => (
 
 export const AppNavigator = () => {
   return (
-    <SafeView>
+    <SafeAreaView style={{ flex: 1 }}>
       <StackNavigator screenOptions={{ headerShown: false }}>
         <StackScreen name="Splash" component={Splash} />
         <StackScreen name="Tabs" component={TabNavigator} />
@@ -90,7 +92,8 @@ export const AppNavigator = () => {
         <StackScreen name="VerifyID" component={VerifyID} />
         <StackScreen name="VerifyIDSubmitted" component={VerifyIDSubmitted} />
         <StackScreen name="SuccessDone" component={SuccessDone} />
+        <StackScreen name="NewPost" component={NewPost} />
       </StackNavigator>
-    </SafeView>
+    </SafeAreaView>
   );
 };
