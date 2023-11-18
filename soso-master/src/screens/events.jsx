@@ -15,7 +15,7 @@ import { ScreenView } from "../components/CustomView";
 import { useTheme,  } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import DiscoveryWeekly from "./events/DiscoveryWeekly";
-import DiscoveryWeekly from "./events/DiscoveryWeekly";
+
 const SearchIcon = (props) => <Icon {...props} name="search" />;
 
 const eventData = [
@@ -38,6 +38,7 @@ const eventData = [
     location: "Central Park",
   },
 ];
+
 const Events = ({ navigation }) => {
   const theme = useTheme();
   const inputRef = useRef(null);

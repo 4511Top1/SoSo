@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   bookmarkButton: {
     position: "absolute",
     top: 320,
-    right: 5,
+    right: 20,
   },
   imageBackground: {
     width: '100%',
