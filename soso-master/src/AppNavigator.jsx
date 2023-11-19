@@ -95,11 +95,11 @@ export const AppNavigator = () => {
         <StackScreen name="VerifyID" component={VerifyID} />
         <StackScreen name="VerifyIDSubmitted" component={VerifyIDSubmitted} />
         <StackScreen name="SuccessDone" component={SuccessDone} />
-        <StackScreen name="Notification" component={Notifications} />
         <StackScreen name="SearchEvents" component={SearchEvents} />
         <StackScreen name="SearchResults" component={SearchResults} />
         <StackScreen name="Details" component={Details} />
         <StackScreen name="NewPost" component={NewPost} />
+        <StackScreen name="Notification" component={Notifications} />
       </StackNavigator>
     </SafeAreaView>
   );
