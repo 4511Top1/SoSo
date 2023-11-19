@@ -70,13 +70,11 @@ import { default as theme } from "./theme4.json";
 export default function App() {
   return (
     <SafeAreaProvider>
-      <FirstLaunchProvider>
-        <ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }}>
-          <NavigationContainer>
-            <AppNavigator />
-          </NavigationContainer>
-        </ApplicationProvider>
-      </FirstLaunchProvider>
+      <ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }}>
+        <NavigationContainer>
+          <AppNavigator />
+        </NavigationContainer>
+      </ApplicationProvider>
     </SafeAreaProvider>
   );
 }
