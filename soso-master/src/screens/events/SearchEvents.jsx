@@ -23,12 +23,7 @@ import { Iconify } from "react-native-iconify";
 import { ScreenView } from "../../components/CustomView";
 import SearchIconSVG from "../../assets/svg/searchIcon.svg";
 
-const SearchIcon = (props) => <Icon {...props} name="search" />;
 const DeleteIcon = (props) => <Icon {...props} name="close-outline" />;
-
-const SearchSVG = (props) => (
-  <SearchIconSVG {...props} width={19} height={19} />
-);
 
 const data = [
   { title: "kangaroo" },

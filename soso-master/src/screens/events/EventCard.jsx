@@ -1,15 +1,14 @@
 import React from "react";
-import { Image, StyleSheet } from "react-native";
+import { Image, StyleSheet, TouchableOpacity } from "react-native";
 import { Card, Text, Layout, List } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 
 import BookMarkIcon from "../../assets/svg/bookmarkIcon.svg";
 import LocationIcon from "../../assets/svg/locationIcon.svg";
 
-export const EventCard = ({ event }) => {
-
+export const EventCard = ({ event, onPress }) => {
   return (
-    <Card style={styles.card}>
+    <Card style={styles.card} onPress={onPress}>
       <Layout style={styles.headerContainer}>
         <Image source={event.imageUri} style={styles.image} />
         <Layout style={styles.textContainer}>
@@ -74,4 +73,3 @@ const styles = StyleSheet.create({
     height: 32, // Adjust as needed
   },
 });
-

@@ -15,6 +15,7 @@ const TextDivider = ({ text }) => (
 const styles = StyleSheet.create({
   textDividerContainer: {
     flexDirection: "row",
+    marginTop: 20,
     alignItems: "center",
     justifyContent: "center",
   },
