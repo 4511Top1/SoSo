@@ -23,6 +23,8 @@ import VerifyID from "./screens/auth/verifyID";
 import VerifyIDSubmitted from "./screens/auth/verifyIDSubmitted";
 import SuccessDone from "./screens/auth/successDone";
 import Splash from "./screens/onboarding/splash";
+import SearchEvents from "./screens/events/SearchEvents";
+import SearchResults from "./screens/events/SearchResults";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const { Navigator: StackNavigator, Screen: StackScreen } =
@@ -92,6 +94,8 @@ export const AppNavigator = () => {
         <StackScreen name="VerifyID" component={VerifyID} />
         <StackScreen name="VerifyIDSubmitted" component={VerifyIDSubmitted} />
         <StackScreen name="SuccessDone" component={SuccessDone} />
+        <StackScreen name="SearchEvents" component={SearchEvents} />
+        <StackScreen name="SearchResults" component={SearchResults}/>
         <StackScreen name="NewPost" component={NewPost} />
       </StackNavigator>
     </SafeAreaView>

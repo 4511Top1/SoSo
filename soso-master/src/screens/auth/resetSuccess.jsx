@@ -12,7 +12,7 @@ const ResetSuccess = () => {
 
       <Image
         style={styles.image}
-        source={require("../../assets/images/Reset_Success.png")}
+        source={require("../../assets/images/ResetSuccess.png")}
       />
       <Button>Back to login</Button>
     </View>
