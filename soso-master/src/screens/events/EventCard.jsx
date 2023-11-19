@@ -1,29 +1,30 @@
 import React from "react";
-import { Image, StyleSheet } from "react-native";
+import { Image, StyleSheet, TouchableOpacity } from "react-native";
 import { Card, Text, Layout, List } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 
 import BookMarkIcon from "../../assets/svg/bookmarkIcon.svg";
 import LocationIcon from "../../assets/svg/locationIcon.svg";
 
-export const EventCard = ({ event }) => {
-
+export const EventCard = ({ event, onPress }) => {
   return (
-    <Card style={styles.card}>
-      <Layout style={styles.headerContainer}>
-        <Image source={event.imageUri} style={styles.image} />
-        <Layout style={styles.textContainer}>
-          <Text style={styles.headerSubtitle}>{event.dateTime}</Text>
-          <Text style={styles.headerTitle}>{event.title}</Text>
+    <TouchableOpacity onPress={onPress}>
+      <Layout style={styles.card} onPress={onPress}>
+        <Layout style={styles.headerContainer}>
+          <Image source={event.imageUri} style={styles.image} />
+          <Layout style={styles.textContainer}>
+            <Text style={styles.headerSubtitle}>{event.dateTime}</Text>
+            <Text style={styles.headerTitle}>{event.title}</Text>
+          </Layout>
         </Layout>
-      </Layout>
-      <Layout style={styles.locationContainer}>
-        <LocationIcon width={24} height={24} style={styles.locationIcon} />
-        <Text style={styles.locationText}>{event.locationName}</Text>
-      </Layout>
+        <Layout style={styles.locationContainer}>
+          <LocationIcon width={24} height={24} style={styles.locationIcon} />
+          <Text style={styles.locationText}>{event.locationName}</Text>
+        </Layout>
 
-      <BookMarkIcon width={24} height={24} style={styles.bookmarkButton} />
-    </Card>
+        <BookMarkIcon width={24} height={24} style={styles.bookmarkButton} />
+      </Layout>
+    </TouchableOpacity>
   );
 };
 
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
     margin: 4,
     borderRadius: 8,
     position: "relative",
+    border: "1px solid #E4E9F2",
   },
   headerContainer: {
     flexDirection: "row",
@@ -74,4 +76,3 @@ const styles = StyleSheet.create({
     height: 32, // Adjust as needed
   },
 });
-

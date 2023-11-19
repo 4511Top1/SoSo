@@ -20,44 +20,37 @@ import { Iconify } from "react-native-iconify";
 
 import { BackAction } from "../../components/backAction";
 import { ScreenView } from "../../components/CustomView";
-import { EventCard } from "./EventResultCard";
+import { EventCard } from "./EventCard";
 
-import FilterModal from "./FilterModal";
-// import { TextDivider } from "../../components/TextDivider";
+
+import TextDivider from "../../components/TextDivider";
 
 import FilterIconSvg from "../../assets/svg/filterIcon.svg";
-import LocationIcon from "../../assets/svg/locationIcon.svg";
+
 
 const eventDetails = [
   {
     title: "Who's That Kangaroo",
     dateTime: "WED, 28 OCT • 04:30 PM",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum.",
     locationName: "Taronga Zoo",
     imageUri: require("../../assets/images/SearchResultsImage1.png"),
   },
   {
     title: "Real Life Roo Sighting",
     dateTime: "WED, 28 OCT • 07:00 PM",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum.",
     locationName: "Dharawal National Park",
     imageUri: require("../../assets/images/SearchResultsImage2.png"),
   },
   {
     title: "Whinnie The Roo Musical",
     dateTime: "THU, 29 OCT • 05:00 PM",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum.",
     locationName: "Sydney Opera House",
     imageUri: require("../../assets/images/SearchResultsImage3.png"),
   },
 ];
-
-const TextDivider = ({ text }) => (
-  <View style={styles.textDividerContainer}>
-    <Divider style={styles.divider} />
-    <View style={styles.textContainer}>
-      <Text style={styles.text}>{text}</Text>
-    </View>
-    <Divider style={styles.divider} />
-  </View>
-);
 
 const FilterIcon = ({ onPress, style }) => (
   <TouchableOpacity onPress={onPress} style={style}>
@@ -65,17 +58,22 @@ const FilterIcon = ({ onPress, style }) => (
   </TouchableOpacity>
 );
 
-const renderLocationIcon = () => (
-  <Iconify icon="fluent:location-20-regular"/>
-);
+const renderLocationIcon = () => <Iconify icon="fluent:location-20-regular" />;
+
 const SearchResults = ({ navigation }) => {
   const [location, setLocation] = React.useState("");
   const [date, setDate] = React.useState(new Date());
   const [time, setTime] = React.useState("");
   const [isModalVisible, setModalVisible] = React.useState(false);
+  const [filteredEvents, setFilteredEvents] = React.useState(eventDetails);
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
+  };
+
+  const handleApply = () => {
+    setFilteredEvents([eventDetails[2]]);
+    toggleModal();
   };
 
   const renderTitle = () => (
@@ -84,10 +82,18 @@ const SearchResults = ({ navigation }) => {
     >
       <BackAction navigation={navigation} />
       <Text category="h4" status="primary">
-        Search Results
+        Search Events
       </Text>
     </Layout>
   );
+
+  const navigateToDetails = (event) => {
+    console.log('Navigating to details with event:', event);
+    navigation.navigate("Details", {
+      event: event,
+      fromScreen: "SearchResults",
+    });
+  };
 
   return (
     <ScreenView>
@@ -96,13 +102,16 @@ const SearchResults = ({ navigation }) => {
         <Text category="h4">Results for "kangaroo"</Text>
         <FilterIcon onPress={toggleModal} style={styles.filterButton} />
       </Layout>
-      {eventDetails.map((event) => (
-        <EventCard event={event} />
+      {filteredEvents.map((event, index) => (
+        <EventCard
+          key={index}
+          event={event}
+          onPress={() => navigateToDetails(event)}
+        />
       ))}
       <TextDivider text="End of search results" />
 
       <View style={{ flex: 1 }}>
-        {/* <FilterModal isVisible={isModalVisible} toggleModal={toggleModal} /> */}
         <Modal
           isVisible={isModalVisible}
           style={styles.modal}
@@ -133,7 +142,7 @@ const SearchResults = ({ navigation }) => {
               <Button onPress={toggleModal} style={styles.button}>
                 Reset
               </Button>
-              <Button onPress={toggleModal} style={styles.button} onPressIn={() => navigation.navigate("FilterResults")}>
+              <Button style={styles.button} onPress={handleApply}>
                 Apply
               </Button>
             </View>
@@ -155,20 +164,7 @@ const styles = StyleSheet.create({
     top: 0,
     right: 0,
   },
-  textDividerContainer: {
-    marginTop: 20,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  divider: {
-    flex: 1,
-    marginHorizontal: 10,
-  },
-  textContainer: {
-    paddingHorizontal: 10,
-    backgroundColor: "white", // Adjust to match the background color of your app
-  },
+
   modal: {
     justifyContent: "flex-end",
     margin: 0,

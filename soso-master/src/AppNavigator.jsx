@@ -25,6 +25,7 @@ import SuccessDone from "./screens/auth/successDone";
 import Splash from "./screens/onboarding/splash";
 import SearchEvents from "./screens/events/SearchEvents";
 import SearchResults from "./screens/events/SearchResults";
+import Details from "./screens/events/Details";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const { Navigator: StackNavigator, Screen: StackScreen } =
@@ -96,6 +97,7 @@ export const AppNavigator = () => {
         <StackScreen name="SuccessDone" component={SuccessDone} />
         <StackScreen name="SearchEvents" component={SearchEvents} />
         <StackScreen name="SearchResults" component={SearchResults}/>
+        <StackScreen name="Details" component={Details} />
         <StackScreen name="NewPost" component={NewPost} />
         <StackScreen name="Notification" component={Notifications} />
       </StackNavigator>
