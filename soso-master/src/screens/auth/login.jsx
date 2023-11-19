@@ -12,7 +12,7 @@ const Login = ({ navigation }) => {
     <View style={styles.container}>
       <Image
         style={styles.image}
-        source={require("../../assets/images/SoSo_white.png")}
+        source={require("../../assets/images/SoSoWhite.png")}
       />
       <View>
         <Layout style={styles.center}>
