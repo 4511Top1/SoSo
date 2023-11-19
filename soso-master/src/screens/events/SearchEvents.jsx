@@ -20,6 +20,7 @@ import {
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import { BackAction } from "../../components/backAction";
 import { Iconify } from "react-native-iconify";
+import { ScreenView } from "../../components/CustomView";
 import SearchIconSVG from "../../assets/svg/searchIcon.svg";
 
 const SearchIcon = (props) => <Icon {...props} name="search" />;
@@ -37,7 +38,6 @@ const data = [
   { title: "kanga winnie the pooh" },
 ];
 
-
 const SearchEvents = ({ navigation }) => {
   const theme = useTheme();
 
@@ -48,7 +48,7 @@ const SearchEvents = ({ navigation }) => {
       icon={"solar:minimalistic-magnifer-linear"}
     />
   );
-  
+
   const renderItem = ({ item, index }) => (
     <ListItem
       title={() => <Text style={styles.historyItem}>{item.title}</Text>}
@@ -76,22 +76,24 @@ const SearchEvents = ({ navigation }) => {
 
   const [value, setValue] = React.useState("");
   return (
-    <View style={styles.container}>
-      <IconRegistry icons={EvaIconsPack} />
-      <TopNavigation title={renderTitle} alignment="start" />
-      <Input
-        placeholder="Search"
-        value={value}
-        onChangeText={(nextValue) => setValue(nextValue)}
-        accessoryRight={renderDeleteIcon}
-      />
+    <ScreenView>
+      <View style={styles.container}>
+        <IconRegistry icons={EvaIconsPack} />
+        <TopNavigation title={renderTitle} alignment="start" />
+        <Input
+          placeholder="Search"
+          value={value}
+          onChangeText={(nextValue) => setValue(nextValue)}
+          accessoryRight={renderDeleteIcon}
+        />
 
-      <List
-        data={data}
-        ItemSeparatorComponent={Divider}
-        renderItem={renderItem}
-      />
-    </View>
+        <List
+          data={data}
+          ItemSeparatorComponent={Divider}
+          renderItem={renderItem}
+        />
+      </View>
+    </ScreenView>
   );
 };
 export default SearchEvents;
