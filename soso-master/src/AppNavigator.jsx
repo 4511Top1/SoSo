@@ -90,6 +90,7 @@ export const AppNavigator = () => {
         <StackScreen name="VerifyID" component={VerifyID} />
         <StackScreen name="VerifyIDSubmitted" component={VerifyIDSubmitted} />
         <StackScreen name="SuccessDone" component={SuccessDone} />
+        <StackScreen name="Notification" component={Notifications} />
       </StackNavigator>
     </SafeView>
   );
