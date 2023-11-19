@@ -14,17 +14,16 @@ import {
   List,
   ListItem,
   Divider,
+  useTheme,
 } from "@ui-kitten/components";
-import { BackAction } from "../../components/backAction";
 
+import { EvaIconsPack } from "@ui-kitten/eva-icons";
+import { BackAction } from "../../components/backAction";
+import { Iconify } from "react-native-iconify";
+import { ScreenView } from "../../components/CustomView";
 import SearchIconSVG from "../../assets/svg/searchIcon.svg";
 
-const SearchIcon = (props) => <Icon {...props} name="search" />;
 const DeleteIcon = (props) => <Icon {...props} name="close-outline" />;
-
-const SearchSVG = (props) => (
-  <SearchIconSVG {...props} width={19} height={19} />
-);
 
 const data = [
   { title: "kangaroo" },
@@ -33,16 +32,26 @@ const data = [
   { title: "kanga training" },
   { title: "kanga winnie the pooh" },
 ];
-const renderItemAccessory = (props) => <SearchSVG />;
-
-const renderItem = ({ item, index }) => (
-  <ListItem
-    title={() => <Text style={styles.historyItem}>{item.title}</Text>}
-    accessoryLeft={renderItemAccessory}
-  />
-);
 
 const SearchEvents = ({ navigation }) => {
+  const theme = useTheme();
+
+  const renderItemAccessory = (props) => (
+    <Iconify
+      color={theme["color-basic-500"]}
+      size={20}
+      icon={"solar:minimalistic-magnifer-linear"}
+    />
+  );
+
+  const renderItem = ({ item, index }) => (
+    <ListItem
+      title={() => <Text style={styles.historyItem}>{item.title}</Text>}
+      accessoryLeft={renderItemAccessory}
+      onPress={() => navigation.navigate("SearchResults")}
+    />
+  );
+
   const renderDeleteIcon = (props) => (
     <TouchableOpacity onPress={() => setValue("")}>
       <DeleteIcon {...props} />
@@ -62,30 +71,24 @@ const SearchEvents = ({ navigation }) => {
 
   const [value, setValue] = React.useState("");
   return (
-    <View style={styles.container}>
-      {/* <IconRegistry icons={EvaIconsPack} /> */}
-      <TopNavigation title={renderTitle} alignment="start" />
+    <ScreenView>
+      <View style={styles.container}>
+        <IconRegistry icons={EvaIconsPack} />
+        <TopNavigation title={renderTitle} alignment="start" />
+        <Input
+          placeholder="Search"
+          value={value}
+          onChangeText={(nextValue) => setValue(nextValue)}
+          accessoryRight={renderDeleteIcon}
+        />
 
-      <Input
-        placeholder="Search"
-        value={value}
-        onChangeText={(nextValue) => setValue(nextValue)}
-        accessoryRight={renderDeleteIcon}
-        // onFocus={() => navigation.navigate("SearchScreen")}
-      />
-      {/* <Layout name="historyList" style={styles.historyList}>
-        <Layout name="oneHistory">
-          <SearchSVG />
-          <Text>Kanga Festival</Text>
-        </Layout>
-      </Layout> */}
-      <List
-        data={data}
-        ItemSeparatorComponent={Divider}
-        renderItem={renderItem}
-      />
-      {/* <Button></Button> */}
-    </View>
+        <List
+          data={data}
+          ItemSeparatorComponent={Divider}
+          renderItem={renderItem}
+        />
+      </View>
+    </ScreenView>
   );
 };
 export default SearchEvents;
@@ -93,13 +96,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    // alignItems: "center",
-    // justifyContent: "center",
   },
   historyList: {
     flexDirection: "row",
-    // justifyContent: "center",
-    // alignItems: "center",
   },
   historyItem: {
     marginLeft: 10,
