@@ -12,6 +12,7 @@ import { Iconify } from "react-native-iconify";
 import { ScreenView } from "../../components/CustomView";
 import { BackAction } from "../../components/backAction";
 import { EventCard } from "./EventCard";
+import { ScreenNoSaveView } from "../../components/CustomView";
 
 const ProgressBar = () => {
   const theme = useTheme();
@@ -58,22 +59,24 @@ const Details = ({ navigation, route }) => {
   );
 
   return (
-    <ScreenView>
+    <ScreenNoSaveView>
       <TopNavigation title={renderTitle} alignment="start" />
       <ScrollView>
+        <View>
+          <Image source={imageUri} />
+        </View>
         <View style={styles.container}>
-          <View >
-            <Image source={imageUri} />
-          </View>
-
           <View style={styles.titleContainer}>
-            <Text category="h6" >Winnie The Roo Musical</Text>
+            <Text category="h6">Winnie The Roo Musical</Text>
             <TouchableOpacity onPress={toggleBookmark}>
               <Iconify
                 color={theme["color-primary-500"]}
                 size={27}
                 icon={"iconamoon:bookmark-thin"}
-                style={[styles.bookmarkIcon, isBookmarked ? styles.bookmarked : styles.notBookmarked]}
+                style={[
+                  styles.bookmarkIcon,
+                  isBookmarked ? styles.bookmarked : styles.notBookmarked,
+                ]}
               />
             </TouchableOpacity>
           </View>
@@ -141,7 +144,7 @@ const Details = ({ navigation, route }) => {
           </View>
         </View>
       </ScrollView>
-    </ScreenView>
+    </ScreenNoSaveView>
   );
 };
 
@@ -149,6 +152,7 @@ export default Details;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    margin: 16,
     // position: "relative",
     // backgroundColor: "#fff",
   },
@@ -159,13 +163,13 @@ const styles = StyleSheet.create({
     paddingRight: 40,
   },
   titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'flex-end', // Aligns the title and the bookmark icon vertically
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "flex-end", // Aligns the title and the bookmark icon vertically
+    justifyContent: "space-between",
     // If you have padding or margins, adjust them here
   },
   showMoreButton: {
-    position: 'absolute',
+    position: "absolute",
     right: 0,
     bottom: 0,
   },
@@ -216,9 +220,9 @@ const styles = StyleSheet.create({
     marginRight: 10, // Spacing from the right edge of the progress bar
   },
   bookmarked: {
-    tintColor: 'purple', // Or any color when the item is bookmarked
+    tintColor: "purple", // Or any color when the item is bookmarked
   },
   notBookmarked: {
-    tintColor: 'gray', // Or any color when the item is not bookmarked
+    tintColor: "gray", // Or any color when the item is not bookmarked
   },
 });
