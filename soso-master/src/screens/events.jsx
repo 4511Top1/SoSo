@@ -73,6 +73,7 @@ const Events = ({ navigation }) => {
       />
       <Text category="h4">Discovery weekly</Text>
       <DiscoveryWeekly data={eventData} />
+      
     </ScreenView>
   );
 };
