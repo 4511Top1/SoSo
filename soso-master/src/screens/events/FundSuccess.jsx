@@ -10,13 +10,13 @@ const FundSuccess = ({ navigation, route }) => {
   const [email, setEmail] = React.useState("");
   const { event, fromScreen } = route.params;
 
-//   const navigateToDetails = (event) => {
-//     console.log("Navigating to details with event:", event);
-//     navigation.navigate("Details", {
-//       event: event,
-//       fromScreen: "FundSuccess",
-//     });
-//   };
+  //   const navigateToDetails = (event) => {
+  //     console.log("Navigating to details with event:", event);
+  //     navigation.navigate("Details", {
+  //       event: event,
+  //       fromScreen: "FundSuccess",
+  //     });
+  //   };
 
   return (
     <ScreenView>
@@ -31,11 +31,20 @@ const FundSuccess = ({ navigation, route }) => {
         <Layout style={styles.buttonGroup}>
           <Button
             style={styles.viewEventButton}
-
+            onPress={() => {
+              navigation.pop(2);
+            }}
           >
             View event
           </Button>
-          <Button style={styles.viewEventButton}>Browse other events</Button>
+          <Button
+            style={styles.viewEventButton}
+            onPress={() => {
+              navigation.pop(5);
+            }}
+          >
+            Browse other events
+          </Button>
         </Layout>
       </View>
     </ScreenView>
