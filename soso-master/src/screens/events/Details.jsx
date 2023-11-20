@@ -142,6 +142,12 @@ const Details = ({ navigation, route }) => {
             <Text category="s1">Similar Events</Text>
             <EventCard event={event} onPress={() => {}} />
           </View>
+
+          <TouchableOpacity onPress={()=>navigation.navigate("FundEvent")}>
+            <Layout style={styles.fundButton}>
+              <Text> Fund</Text>
+            </Layout>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </ScreenNoSaveView>
@@ -173,6 +179,21 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
   },
+  fundButton: {
+    display: "flex",
+    width: 348,
+    height: 48,
+    // padding: 10 14,
+    justifyContent: "center",
+    alignItems: "center",
+    gap: -30,
+
+    borderRadius: "15px",
+    background: "#4D4352",
+    boxShadow: "0px 10px 35px 0px #4D4352",
+  },
+  /* Super-Shadow */
+
   bookmarkButton: {
     position: "absolute",
     top: 0, // Adjust as necessary

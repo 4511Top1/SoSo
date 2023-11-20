@@ -4,7 +4,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import { SafeView } from "./components/CustomView";
-import { SafeAreaView } from "react-native-safe-area-context";
+// import { SafeAreaView } from "react-native-safe-area-context";
+
 
 import Home from "./screens/home";
 import Events from "./screens/events";
@@ -26,6 +27,8 @@ import Splash from "./screens/onboarding/splash";
 import SearchEvents from "./screens/events/SearchEvents";
 import SearchResults from "./screens/events/SearchResults";
 import Details from "./screens/events/Details";
+import FundEvent from "./screens/events/FundEvent";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const { Navigator: StackNavigator, Screen: StackScreen } =
@@ -99,7 +102,11 @@ export const AppNavigator = () => {
         <StackScreen name="SearchResults" component={SearchResults}/>
         <StackScreen name="Details" component={Details} />
         <StackScreen name="NewPost" component={NewPost} />
+<<<<<<< HEAD
         <StackScreen name="Notification" component={Notifications} />
+=======
+        <StackScreen name="FundEvent" component={FundEvent} />
+>>>>>>> ac490900 (add fund event)
       </StackNavigator>
     </SafeAreaView>
   );

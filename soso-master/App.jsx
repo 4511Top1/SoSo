@@ -5,6 +5,7 @@ import { FirstLaunchProvider } from "./src/hook/FirstLaunchContext";
 import { AppNavigator } from "./src/AppNavigator";
 import { ApplicationProvider } from "@ui-kitten/components";
 import * as eva from "@eva-design/eva";
+import { default as mapping } from "@eva-design/eva/mapping.json";
 import { default as theme } from "./theme4.json";
 
 // const BottomTabBar = ({ navigation, state }) => {
@@ -70,7 +71,11 @@ import { default as theme } from "./theme4.json";
 export default function App() {
   return (
     <SafeAreaProvider>
-      <ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }}>
+      <ApplicationProvider
+        {...eva}
+        theme={{ ...eva.light, ...theme }}
+        customMapping={mapping}
+      >
         <NavigationContainer>
           <AppNavigator />
         </NavigationContainer>

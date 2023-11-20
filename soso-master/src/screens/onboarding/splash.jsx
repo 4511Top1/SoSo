@@ -2,23 +2,29 @@ import { Layout, Text, Button } from "@ui-kitten/components";
 import { StyleSheet, View, Image } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useFirstLaunch } from "../../hook/FirstLaunchContext";
+import { ScreenNoSaveView } from "../../components/CustomView";
 
 const Splash = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      {/* <Text>Welcome to the First Launch Page!</Text> */}
-      <Image style={styles.image} source={require("../../assets/images/SoSo.png")} />
-      <Button
-        onPress={() =>
-          navigation.navigate("Tabs", {
-            screen: "Tabs",
-            initial: true,
-          })
-        }
-      >
-        Go
-      </Button>
-    </View>
+
+      <View style={styles.container}>
+        {/* <Text>Welcome to the First Launch Page!</Text> */}
+        <Image
+          style={styles.image}
+          source={require("../../assets/images/SoSo.png")}
+        />
+        <Button
+          onPress={() =>
+            navigation.navigate("Tabs", {
+              screen: "Tabs",
+              initial: true,
+            })
+          }
+        >
+          Go
+        </Button>
+      </View>
+  
   );
 };
 export default Splash;
