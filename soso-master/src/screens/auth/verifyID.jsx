@@ -2,10 +2,12 @@ import React from "react";
 import { View, Text } from "react-native";
 import { Button, Input } from "@ui-kitten/components";
 import { StyleSheet } from "react-native";
+
 const VerifyID = ({ navigation }) => {
   const [name, setName] = React.useState("");
   const [number, setNumber] = React.useState("");
   return (
+    
     <View style={styles.container}>
       <Text>Identity verification</Text>
 

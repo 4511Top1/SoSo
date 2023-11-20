@@ -1,19 +1,23 @@
 import { Layout, Text, Button } from "@ui-kitten/components";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image,TouchableWithoutFeedback } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useFirstLaunch } from "../../hook/FirstLaunchContext";
 import { ScreenNoSaveView } from "../../components/CustomView";
 
 const Splash = ({ navigation }) => {
-  return (
+  const handleScreenPress = () => {
 
-      <View style={styles.container}>
+    navigation.navigate('Login');
+  };
+  return (
+    <TouchableWithoutFeedback onPress={handleScreenPress}>
+        <View style={styles.container}>
         {/* <Text>Welcome to the First Launch Page!</Text> */}
         <Image
           style={styles.image}
-          source={require("../../assets/images/SoSo.png")}
+          source={require("../../assets/images/SoSoWhite.png")}
         />
-        <Button
+        {/* <Button
           onPress={() =>
             navigation.navigate("Tabs", {
               screen: "Tabs",
@@ -22,9 +26,11 @@ const Splash = ({ navigation }) => {
           }
         >
           Go
-        </Button>
+        </Button> */}
       </View>
-  
+    </TouchableWithoutFeedback>
+
+
   );
 };
 export default Splash;
@@ -34,7 +40,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     padding: 20,
-    backgroundColor: "#C870FF",
+    backgroundColor: "#fff",
   },
   image: {
     alignSelf: "center",

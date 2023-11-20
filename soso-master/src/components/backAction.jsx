@@ -4,8 +4,10 @@ import {
   TopNavigationAction,
   Icon,
 } from "@ui-kitten/components";
-
-const BackIcon = (props) => <Icon {...props} name="arrow-back" />;
+import { Iconify } from "react-native-iconify";
+const BackIcon = (props) => (
+  <Iconify size={28} icon={"solar:arrow-left-linear"} />
+);
 
 export const BackAction = ({ navigation }) => (
   <TopNavigationAction icon={BackIcon} onPress={() => navigation.goBack()} />

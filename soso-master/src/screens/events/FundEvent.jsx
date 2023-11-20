@@ -68,9 +68,10 @@ const FundEvent = ({ navigation, route }) => {
             checked={checked}
             onChange={onCheckedChange}
           >
-            <Text category="s2">Use saved details</Text>
+            <Text category="s1">Use saved details</Text>
             {/* {`Use saved details`} */}
           </Toggle>
+
         </Layout>
         <Layout style={styles.billContainer}>
           <Input
@@ -125,9 +126,9 @@ const FundEvent = ({ navigation, route }) => {
             onChangeText={(nextValue) => setEmail(nextValue)}
           />
           <Input
-            placeholder="Amound to Fund"
+            placeholder="Amount to Fund"
             value={email}
-            accessoryLeft={<Text category="c1">AUD</Text>}
+            accessoryLeft={<Text category="p2">AUD</Text>}
             onChangeText={(nextValue) => setEmail(nextValue)}
           />
           <CheckBox
@@ -139,7 +140,7 @@ const FundEvent = ({ navigation, route }) => {
         </Layout>
         <Button
           style={styles.button}
-          onPress={navigateToSuccess(event)}
+          onPress={()=>navigateToSuccess(event)}
         >
           <Text style={styles.fundText}>Pay</Text>
         </Button>
