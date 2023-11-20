@@ -4,12 +4,14 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import { SafeView } from "./components/CustomView";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import Home from "./screens/home";
 import Events from "./screens/events";
 import Feed from "./screens/feed/feed";
 import Chat from "./screens/Chat";
 import UserChat from "./screens/chat/UserChat";
+import NewPost from "./screens/feed/newPost";
 import Notifications from "./screens/notifications";
 import Menu from "./screens/menu";
 import Login from "./screens/auth/login";
@@ -22,6 +24,9 @@ import VerifyID from "./screens/auth/verifyID";
 import VerifyIDSubmitted from "./screens/auth/verifyIDSubmitted";
 import SuccessDone from "./screens/auth/successDone";
 import Splash from "./screens/onboarding/splash";
+import SearchEvents from "./screens/events/SearchEvents";
+import SearchResults from "./screens/events/SearchResults";
+import Details from "./screens/events/Details";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const { Navigator: StackNavigator, Screen: StackScreen } =
@@ -93,6 +98,11 @@ export const AppNavigator = () => {
         <StackScreen name="VerifyID" component={VerifyID} />
         <StackScreen name="VerifyIDSubmitted" component={VerifyIDSubmitted} />
         <StackScreen name="SuccessDone" component={SuccessDone} />
+        <StackScreen name="SearchEvents" component={SearchEvents} />
+        <StackScreen name="SearchResults" component={SearchResults} />
+        <StackScreen name="Details" component={Details} />
+        <StackScreen name="NewPost" component={NewPost} />
+        <StackScreen name="Notification" component={Notifications} />
 
         {/* Tabs */}
         <StackScreen name="Tabs" component={TabNavigator} />
