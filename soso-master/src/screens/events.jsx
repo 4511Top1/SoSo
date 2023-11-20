@@ -57,6 +57,7 @@ const Events = ({ navigation }) => {
       <Input
         placeholder="Search"
         value={value}
+        style={{ marginTop: 20 }}
         onChangeText={(nextValue) => setValue(nextValue)}
         accessoryLeft={
           <Iconify
@@ -68,7 +69,9 @@ const Events = ({ navigation }) => {
         onFocus={handleFocus}
         ref={inputRef}
       />
-      <Text category="h4">Discovery weekly</Text>
+      <Text category="h4" style={{ marginTop: 20 }}>
+        Discovery weekly
+      </Text>
       <DiscoveryWeekly data={eventData} />
     </ScreenView>
   );

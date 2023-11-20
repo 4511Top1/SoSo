@@ -86,7 +86,7 @@ const Details = ({ navigation, route }) => {
               <Iconify
                 color={theme["color-primary-500"]}
                 size={27}
-                icon={"iconamoon:bookmark-thin"}
+                icon={"iconoir:bookmark"}
                 style={[
                   styles.bookmarkIcon,
                   isBookmarked ? styles.bookmarked : styles.notBookmarked,
