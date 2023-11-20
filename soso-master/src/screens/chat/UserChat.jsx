@@ -11,6 +11,7 @@ import {
 import { BackAction } from "../../components/backAction";
 import { ScreenNormalView, ScreenView } from "../../components/CustomView";
 import {
+  Avatar,
   useTheme,
   Text,
   Input,
@@ -48,11 +49,16 @@ const UserChat = ({ route, navigation }) => {
       <TopNavigation
         accessoryLeft={<BackAction navigation={navigation} />}
         title={
-          <View>
-            <Text category="h2" status="primary" style={styles.name}>
-              {username}
-            </Text>
-          </View>
+          <TouchableOpacity>
+            <View style={{ flexDirection: "row", gap: 10 }}>
+              <Avatar
+                source={require("../../assets/pfp/profile_placeholder.jpeg")}
+              />
+              <Text category="h2" status="primary" style={styles.name}>
+                {username}
+              </Text>
+            </View>
+          </TouchableOpacity>
         }
         alignment="start"
       />
