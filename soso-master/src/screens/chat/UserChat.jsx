@@ -23,11 +23,12 @@ const ChatBubble = ({ message, sender }) => {
 
   return (
     <View
-      style={
+      style={[
+        styles.bubble,
         sender == 0
           ? [styles.myBubble, { backgroundColor: theme["color-primary-100"] }]
-          : [styles.otherBubble, { backgroundColor: theme["color-basic-500"] }]
-      }
+          : [styles.otherBubble, { backgroundColor: theme["color-basic-500"] }],
+      ]}
     >
       <Text>{message}</Text>
     </View>
@@ -66,26 +67,21 @@ const UserChat = ({ route, navigation }) => {
 export default UserChat;
 
 const styles = StyleSheet.create({
-  myBubble: {
-    backgroundColor: "#e1e1e1",
+  bubble: {
     padding: 10,
     borderRadius: 10,
+    maxWidth: "80%",
+    marginVertical: 5,
+  },
+  myBubble: {
+    backgroundColor: "#e1e1e1",
     borderBottomRightRadius: 0,
     alignSelf: "flex-end",
-    marginVertical: 5,
   },
   otherBubble: {
     backgroundColor: "#ccc",
-    padding: 10,
-    borderRadius: 10,
     borderBottomLeftRadius: 0,
     alignSelf: "flex-start",
-    marginVertical: 5,
-  },
-  container: {
-    gap: 20,
-    flexDirection: "row",
-    alignItems: "center",
   },
   input: {
     flex: 1,
@@ -95,41 +91,7 @@ const styles = StyleSheet.create({
     width: 40,
     borderRadius: 40 / 2,
   },
-  nameDate: {
-    // flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
   name: {
     textTransform: "capitalize",
-  },
-  list: {
-    // maxHeight: 180,
-    // flex: 1,
-    gap: 15,
-    marginVertical: 20,
-  },
-  card: {
-    flex: 1,
-    backgroundColor: "white",
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 10,
-
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-
-    // borderStyle: "solid",
-    // borderWidth: 1,
-    borderRadius: 5,
-
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-    shadowOffset: { width: 0, height: 4 },
-    // borderColor: "#ccc",
-  },
-  info: {
-    flex: 1,
-    gap: 5,
   },
 });
