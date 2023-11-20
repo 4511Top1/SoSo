@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { StyleSheet, View, TouchableOpacity, Image } from "react-native";
-import { MaterialCommunityIcons, Fontisto } from '@expo/vector-icons';
-import { Layout, Avatar, TabView, Text, List, Input } from "@ui-kitten/components";
-import * as ImagePicker from 'expo-image-picker';
+import { StyleSheet, View } from "react-native";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Avatar, Divider, Text } from "@ui-kitten/components";
 import colors from '../../theme2.json'; 
 import PostButtons from "../components/postButtons";
 
@@ -27,7 +26,7 @@ const ViewPost = ({ navigation }) => {
         <Avatar
           source={ require("../assets/images/viewPostIcon1.png") }
           style={styles.avatar}
-          size="medium"
+          size="large"
         />
         <View style={styles.textContainer}>
           <Text category='s1'>Zoe</Text>
@@ -36,9 +35,10 @@ const ViewPost = ({ navigation }) => {
       </View>
 
       <View style={styles.postArea}>
-          <Text style={{ marginHorizontal: 15, marginTop: 10}} category='p1'>
+          <Text style={{ marginHorizontal: 15, marginVertical: 10}} category='p1'>
             Everyone is welcomed to join the pottery event I just created!
           </Text>
+          <Divider style={{ marginHorizontal: 15, marginVertical:10 }}/>
           <PostButtons/>
         </View>
     </View>
@@ -57,14 +57,14 @@ const styles = StyleSheet.create({
   },
 
   topContainer:{
-    flexDirection:"row",
+    flexDirection: "row",
     justifyContent: 'flex-start', 
     alignItems: 'center', 
-    paddingVertical:5,
+    paddingVertical: 5,
   },
   
   backArrow: {
-    marginRight:10,
+    marginRight: 10,
   },
   
   avatar: {
@@ -82,10 +82,6 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     borderRadius: 15,
     overflow:"hidden",
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    borderWidth:0,
+    backgroundColor:"white",
   },
 });

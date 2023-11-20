@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         flex:1,
         flexDirection:"row",
         justifyContent:'center',
-        marginTop:30,
+        // marginTop:30,
         // borderWidth:1,
         // borderColor:"#4D4352",
     },

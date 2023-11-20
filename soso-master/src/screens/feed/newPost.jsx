@@ -41,7 +41,7 @@ const NewPost = ({ navigation }) => {
         <Avatar
           source={require("../../assets/images/viewPostIcon1.png")} 
           style={styles.avatar}
-          size="medium"
+          size="large"
         />
         <Text category="s1">Zoe</Text>
       </View>
