@@ -25,7 +25,13 @@ const NewPost = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}>
-        <MaterialCommunityIcons name="keyboard-backspace" size={24} color="black" onPress={() => navigation.goBack()} style={styles.backArrow}/>
+        <MaterialCommunityIcons 
+          name="keyboard-backspace" 
+          size={24} 
+          color="black" 
+          onPress={() => navigation.goBack()} 
+          style={styles.backArrow}
+        />
         <Text category="h3" status="primary">
           New Post
         </Text>
