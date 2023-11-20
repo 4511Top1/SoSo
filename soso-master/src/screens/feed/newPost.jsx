@@ -39,7 +39,7 @@ const NewPost = ({ navigation }) => {
 
       <View style={styles.nameTag}>
         <Avatar
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/3/32/Zoe_Kravitz_2020_dvna_studio.jpg' }} 
+          source={require("../../assets/images/viewPostIcon1.png")} 
           style={styles.avatar}
           size="medium"
         />

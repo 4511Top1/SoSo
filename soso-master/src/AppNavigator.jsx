@@ -11,7 +11,8 @@ import Events from "./screens/events";
 import Feed from "./screens/feed/feed";
 import Chat from "./screens/Chat";
 import NewPost from "./screens/feed/newPost";
-import Notifications from "./screens/notifications";
+import ViewPost from "./screens/viewPost"
+import Notifications from "./screens/notifications/notifications";
 import Menu from "./screens/menu";
 import Login from "./screens/auth/login";
 import Register from "./screens/auth/register";
@@ -99,6 +100,7 @@ export const AppNavigator = () => {
         <StackScreen name="SearchResults" component={SearchResults}/>
         <StackScreen name="Details" component={Details} />
         <StackScreen name="NewPost" component={NewPost} />
+        <StackScreen name="ViewPost" component={ViewPost} />
         <StackScreen name="Notification" component={Notifications} />
       </StackNavigator>
     </SafeAreaView>

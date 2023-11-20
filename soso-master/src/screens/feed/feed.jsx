@@ -28,7 +28,7 @@ const Feed = ( {navigation} ) => {
         <View style={styles.contentContainer}>
           <View style={ {flexDirection:"row"}}>
             <Avatar
-              source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/3/32/Zoe_Kravitz_2020_dvna_studio.jpg' }} 
+              source={require("../../assets/images/feedIcon1.png")} 
               style={styles.avatar}
               size="medium"
             />
@@ -42,7 +42,7 @@ const Feed = ( {navigation} ) => {
         <View style={styles.postArea}>
           <Image
             style={{ width: "100%", height: 192 }}
-            source={{ uri: "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"}}
+            source={require("../../assets/images/feedImage1.png")}
           />
           <Text style={{ marginHorizontal: 15, marginTop: 10}} category='p1'>
             Went back to the swamp with Fiona. It was fun!
