@@ -7,7 +7,7 @@ import {
   Image,
 } from "react-native";
 import { BackAction } from "../../components/backAction";
-import { ScreenView } from "../../components/CustomView";
+import { ScreenNormalView, ScreenView } from "../../components/CustomView";
 import {
   useTheme,
   Text,
@@ -38,7 +38,7 @@ const UserChat = ({ route, navigation }) => {
   const { username, messages } = route.params;
 
   return (
-    <Layout style={{ flex: 1 }}>
+    <ScreenNormalView>
       <TopNavigation
         accessoryLeft={<BackAction navigation={navigation} />}
         title={
@@ -59,7 +59,7 @@ const UserChat = ({ route, navigation }) => {
           })}
         </View>
       </ScreenView>
-    </Layout>
+    </ScreenNormalView>
   );
 };
 

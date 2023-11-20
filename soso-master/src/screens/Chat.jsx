@@ -7,8 +7,15 @@ import {
   Image,
 } from "react-native";
 import UserChat from "./chat/UserChat";
-import { ScreenView } from "../components/CustomView";
-import { useTheme, Text, Input, Layout, Card } from "@ui-kitten/components";
+import { ScreenNormalView, ScreenView } from "../components/CustomView";
+import {
+  useTheme,
+  Text,
+  Input,
+  Layout,
+  Card,
+  TopNavigation,
+} from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 
 const ChatListItem = ({ username, messages, lastMessage, navigation }) => {
@@ -79,44 +86,53 @@ const Chat = ({ navigation }) => {
   ]);
 
   return (
-    <ScreenView>
-      <Text category="h2" status="primary">
-        Messages
-      </Text>
-
-      <ScrollView style={{ overflow: "visible" }}>
-        <View style={styles.container}>
-          <Input
-            style={styles.input}
-            accessoryLeft={
-              <Iconify
-                color={theme["color-basic-500"]}
-                size={20}
-                icon={"solar:minimalistic-magnifer-linear"}
-              />
-            }
-            placeholder="Search for messages"
-            // value={value}
-            // onChangeText={(nextValue) => setValue(nextValue)}
-          />
-          <TouchableOpacity>
-            <Iconify size={30} icon={"fluent:chat-add-20-regular"} />
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.list}>
-          {chatList.map((item) => (
-            <ChatListItem
-              key={item.id}
-              username={item.name}
-              messages={item.messages}
-              lastMessage={item.messages.at(-1).message}
-              navigation={navigation}
+    <ScreenNormalView>
+      <TopNavigation
+        style={{ marginLeft: 10 }}
+        title={
+          <Layout>
+            <Text category="h2" status="primary" style={styles.name}>
+              Chat
+            </Text>
+          </Layout>
+        }
+        alignment="start"
+      />
+      <ScreenView>
+        <ScrollView style={{ overflow: "visible" }}>
+          <View style={styles.container}>
+            <Input
+              style={styles.input}
+              accessoryLeft={
+                <Iconify
+                  color={theme["color-basic-500"]}
+                  size={20}
+                  icon={"solar:minimalistic-magnifer-linear"}
+                />
+              }
+              placeholder="Search for messages"
+              // value={value}
+              // onChangeText={(nextValue) => setValue(nextValue)}
             />
-          ))}
-        </View>
-      </ScrollView>
-    </ScreenView>
+            <TouchableOpacity>
+              <Iconify size={30} icon={"fluent:chat-add-20-regular"} />
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.list}>
+            {chatList.map((item) => (
+              <ChatListItem
+                key={item.id}
+                username={item.name}
+                messages={item.messages}
+                lastMessage={item.messages.at(-1).message}
+                navigation={navigation}
+              />
+            ))}
+          </View>
+        </ScrollView>
+      </ScreenView>
+    </ScreenNormalView>
   );
 };
 

@@ -32,13 +32,11 @@ export const ScreenView = ({ children }) => {
   );
 };
 
-export const ScreenNoSaveView = ({ children }) => {
+export const ScreenNormalView = ({ children }) => {
   return (
     <Layout
       style={{
         flex: 1,
-        // backgroundColor: "#fff",
-        // paddingHorizontal: 20,
       }}
     >
       {children}
