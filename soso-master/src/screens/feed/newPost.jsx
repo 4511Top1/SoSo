@@ -78,7 +78,7 @@ const NewPost = ({ navigation }) => {
       <View style={{ alignItems:"center" }}>
         <LoginButton
           navigation={navigation}
-          navigateTo="feed"
+          navigateTo="Feed"
           title="Post"
         />
       </View>

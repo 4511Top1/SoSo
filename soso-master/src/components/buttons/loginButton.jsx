@@ -6,12 +6,6 @@ const LoginButton = ({ navigation, navigateTo, title }) => (
   <Button
     style={styles.button}
     onPress={() => navigation.navigate(navigateTo)}
-    // accessoryRight={
-    //   <Image
-    //     source={require('../../assets/images/buttonArrow.png')} // 使用正确的图片路径
-    //     style={styles.arrowImage}
-    //   />
-    // } 
   >
     {title}
     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
