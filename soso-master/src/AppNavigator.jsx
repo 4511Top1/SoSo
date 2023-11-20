@@ -14,6 +14,7 @@ import Home from "./screens/home";
 import Events from "./screens/events";
 import Feed from "./screens/feed/feed";
 import Chat from "./screens/Chat";
+import UserChat from "./screens/chat/UserChat";
 import NewPost from "./screens/feed/newPost";
 import Notifications from "./screens/notifications";
 import Menu from "./screens/menu";
@@ -91,10 +92,12 @@ const TabNavigator = () => (
 
 export const AppNavigator = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeView>
       <StackNavigator screenOptions={{ headerShown: false }}>
+        {/* Onboarding */}
         <StackScreen name="Splash" component={Splash} />
-        <StackScreen name="Tabs" component={TabNavigator} />
+
+        {/* Auth */}
         <StackScreen name="Login" component={Login} />
         <StackScreen name="Register" component={Register} />
         <StackScreen name="Reset" component={Reset} />
@@ -105,15 +108,17 @@ export const AppNavigator = () => {
         <StackScreen name="VerifyIDSubmitted" component={VerifyIDSubmitted} />
         <StackScreen name="SuccessDone" component={SuccessDone} />
         <StackScreen name="SearchEvents" component={SearchEvents} />
-        <StackScreen name="SearchResults" component={SearchResults}/>
+        <StackScreen name="SearchResults" component={SearchResults} />
         <StackScreen name="Details" component={Details} />
         <StackScreen name="NewPost" component={NewPost} />
         <StackScreen name="FundEvent" component={FundEvent} />
         <StackScreen name="Notification" component={Notifications} />
-        <StackScreen name="FundSuccess" component={FundSuccess} />
-        <StackScreen name="RegisterEvent" component={RegisterEvent} />
-        <StackScreen name="RegistrationSuccess" component={RegistraionSuccess} />
+
+        {/* Tabs */}
+        <StackScreen name="Tabs" component={TabNavigator} />
+
+        <StackScreen name="UserChat" component={UserChat} />
       </StackNavigator>
-    </SafeAreaView>
+    </SafeView>
   );
 };

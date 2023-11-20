@@ -5,7 +5,6 @@ import {
   Text,
   Button,
   Input,
-  IconRegistry,
   Icon,
   Datepicker,
   TopNavigation,

@@ -7,8 +7,7 @@ import {
   Dimensions,
   ImageBackground,
 } from "react-native";
-import { Text, Input, IconRegistry, Card } from "@ui-kitten/components";
-import { EvaIconsPack } from "@ui-kitten/eva-icons";
+import { Text, Input, Card } from "@ui-kitten/components";
 import LocationIcon from "../../assets/svg/locationIcon.svg";
 import BookMarkIcon from "../../assets/svg/bookmarkIcon.svg";
 const { width } = Dimensions.get("window");
@@ -112,7 +111,7 @@ const styles = StyleSheet.create({
     right: 20,
   },
   imageBackground: {
-    width: '100%',
+    width: "100%",
     height: 200,
   },
   image: {
