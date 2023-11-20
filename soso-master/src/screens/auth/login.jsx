@@ -1,19 +1,38 @@
 import React from "react";
-import { View, SafeAreaView, Image, TextInput } from "react-native";
+import {
+  View,
+  SafeAreaView,
+  Image,
+  TextInput,
+  TouchableWithoutFeedback,
+} from "react-native";
 import { StyleSheet } from "react-native";
 import { Iconify } from "react-native-iconify";
+import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import { Layout, useTheme } from "@ui-kitten/components";
-import { Input } from "@ui-kitten/components";
-import { Text, Button } from "@ui-kitten/components";
+import { Input, IconRegistry } from "@ui-kitten/components";
+import { Text, Button, Icon } from "@ui-kitten/components";
 import { ScreenView } from "../../components/CustomView";
 
 const Login = ({ navigation }) => {
   const theme = useTheme();
   const [password, setPassword] = React.useState("");
   const [username, setUsername] = React.useState("");
+  const [secureTextEntry, setSecureTextEntry] = React.useState(true);
+
+  const toggleSecureEntry = () => {
+    setSecureTextEntry(!secureTextEntry);
+  };
+
+  const renderIcon = (props) => (
+    <TouchableWithoutFeedback onPress={toggleSecureEntry}>
+      <Icon {...props} name={secureTextEntry ? "eye-off" : "eye"} />
+    </TouchableWithoutFeedback>
+  );
 
   return (
     <ScreenView>
+      <IconRegistry icons={EvaIconsPack} />
       <View style={styles.container}>
         <Image
           style={styles.image}
@@ -41,6 +60,8 @@ const Login = ({ navigation }) => {
               style={styles.password}
               placeholder="Password"
               value={password}
+              secureTextEntry={secureTextEntry}
+              accessoryRight={renderIcon}
               accessoryLeft={
                 <Iconify
                   color={theme["color-basic-500"]}
@@ -61,15 +82,19 @@ const Login = ({ navigation }) => {
           </Layout>
 
           <Layout style={styles.buttonGroup}>
-          <Button style={styles.button} onPress={() => navigation.navigate("Tabs")}>Login</Button>
-            <Text>
-              Don't have account?{'  '}
-
+            <Button
+              style={styles.button}
+              onPress={() => navigation.navigate("Tabs")}
+            >
+              Login
+            </Button>
+            <Text style={styles.dontHave}>
+              Don't have account?{"  "}
               <Text
                 status="primary"
                 onPress={() => navigation.navigate("Register")}
               >
-                 Register
+                Register
               </Text>
             </Text>
           </Layout>
@@ -121,10 +146,12 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     width: 271,
     // height:29,
-    padding: "10 14",
+    // padding: "10 14",
   },
   buttonGroup: {
     justifyContent: "center",
     alignItems: "center",
-  },
+  },dontHave:{
+    marginTop:20,
+  }
 });

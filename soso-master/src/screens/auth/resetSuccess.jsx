@@ -8,6 +8,7 @@ import { ScreenView } from "../../components/CustomView";
 
 const ResetSuccess = ({navigation}) => {
   const [email, setEmail] = React.useState("");
+  
   return (
     <ScreenView>
       <View style={styles.container}>

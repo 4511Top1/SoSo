@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     width: 271,
     // height:29,
-    padding: "10 14",
+    // padding: "10 14",
     marginBottom:20,
   }
 });

@@ -1,8 +1,16 @@
 import React from "react";
-import { View, SafeAreaView, Image, TextInput } from "react-native";
+import {
+  View,
+  SafeAreaView,
+  Image,
+  TextInput,
+  TouchableWithoutFeedback,
+  
+} from "react-native";
 import { StyleSheet } from "react-native";
-import { Layout, useTheme } from "@ui-kitten/components";
+import { Layout, useTheme, IconRegistry, Icon } from "@ui-kitten/components";
 import { Input } from "@ui-kitten/components";
+import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import { Text, Button } from "@ui-kitten/components";
 import { ScreenView } from "../../components/CustomView";
 import { Iconify } from "react-native-iconify";
@@ -13,8 +21,21 @@ const Register = ({ navigation }) => {
   const [username, setUsername] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [email, setEmail] = React.useState("");
+  const [secureTextEntry, setSecureTextEntry] = React.useState(true);
+
+  const toggleSecureEntry = () => {
+    setSecureTextEntry(!secureTextEntry);
+  };
+
+  const renderIcon = (props) => (
+    <TouchableWithoutFeedback onPress={toggleSecureEntry}>
+      <Icon {...props} name={secureTextEntry ? "eye-off" : "eye"} />
+    </TouchableWithoutFeedback>
+  );
+
   return (
     <ScreenView>
+      <IconRegistry icons={EvaIconsPack} />
       <View style={styles.container}>
         <Image
           style={styles.image}
@@ -42,7 +63,6 @@ const Register = ({ navigation }) => {
               style={styles.input}
               placeholder="Password Input"
               value={password}
-              label='Password'
               accessoryLeft={
                 <Iconify
                   color={theme["color-basic-500"]}
@@ -50,13 +70,16 @@ const Register = ({ navigation }) => {
                   icon={"solar:lock-keyhole-outline"}
                 />
               }
-              accessoryRight={
-                <Iconify
-                  color={theme["color-basic-500"]}
-                  size={20}
-                  icon={"formkit:hidden"}
-                />
-              }
+              secureTextEntry={secureTextEntry}
+              accessoryRight={renderIcon}
+              // accessoryRight={
+              // <Iconify
+              //   color={theme["color-basic-500"]}
+              //   size={20}
+              //   icon={"formkit:hidden"}
+              // />
+
+              // }
               onChangeText={(nextValue) => setPassword(nextValue)}
             />
             <Input
@@ -70,13 +93,15 @@ const Register = ({ navigation }) => {
                   icon={"solar:lock-keyhole-outline"}
                 />
               }
-              accessoryRight={
-                <Iconify
-                  color={theme["color-basic-500"]}
-                  size={20}
-                  icon={"formkit:hidden"}
-                />
-              }
+              // accessoryRight={
+              //   <Iconify
+              //     color={theme["color-basic-500"]}
+              //     size={20}
+              //     icon={"formkit:hidden"}
+              //   />
+              // }
+              secureTextEntry={secureTextEntry}
+              accessoryRight={renderIcon}
               onChangeText={(nextValue) => setConfirmPassword(nextValue)}
             />
             <Input
@@ -101,7 +126,7 @@ const Register = ({ navigation }) => {
             >
               Register
             </Button>
-            <Text>
+            <Text style={styles.already}>
               Already have an account?{" "}
               <Text
                 status="primary"
@@ -159,6 +184,9 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     width: 271,
     // height:29,
-    padding: "10 14",
+    // padding: "10 14",
   },
+  already:{
+    marginTop:20,
+  }
 });
