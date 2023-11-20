@@ -9,8 +9,14 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Home from "./screens/home";
 import Events from "./screens/events";
 import Feed from "./screens/feed/feed";
+
+// Chat
 import Chat from "./screens/Chat";
 import UserChat from "./screens/chat/UserChat";
+
+// User Profile
+import UserProfile from "./screens/profile/UserProfile";
+
 import NewPost from "./screens/feed/newPost";
 import Notifications from "./screens/notifications";
 import Menu from "./screens/menu";
@@ -107,7 +113,9 @@ export const AppNavigator = () => {
         {/* Tabs */}
         <StackScreen name="Tabs" component={TabNavigator} />
 
+        {/* Users */}
         <StackScreen name="UserChat" component={UserChat} />
+        <StackScreen name="UserProfile" component={UserProfile} />
       </StackNavigator>
     </SafeView>
   );

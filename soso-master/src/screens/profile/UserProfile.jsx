@@ -21,3 +21,26 @@ import {
   Icon,
 } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
+
+const UserProfile = ({ route, navigation }) => {
+  return (
+    <ScreenNormalView>
+      <TopNavigation
+        accessoryLeft={<BackAction navigation={navigation} />}
+        title={
+          <View>
+            <Text category="h2" status="primary">
+              Profile
+            </Text>
+          </View>
+        }
+        alignment="start"
+      />
+      <ScreenView>
+        <ScrollView style={{ flex: 1 }}></ScrollView>
+      </ScreenView>
+    </ScreenNormalView>
+  );
+};
+
+export default UserProfile;
