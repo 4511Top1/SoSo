@@ -18,32 +18,7 @@ import {
   TopNavigation,
 } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
-
-const ChatListItem = ({ username, messages, lastMessage, navigation }) => {
-  return (
-    <TouchableOpacity
-      onPress={() => {
-        navigation.navigate("UserChat", {
-          username: username,
-          messages: messages,
-        });
-      }}
-    >
-      <View style={styles.card}>
-        <Avatar source={require("../assets/pfp/profile_placeholder.jpeg")} />
-        <View style={styles.info}>
-          <View style={styles.nameDate}>
-            <Text category="s1" status="primary" style={styles.name}>
-              {username}
-            </Text>
-            <Text appearance="hint">02:00 PM</Text>
-          </View>
-          <Text>{lastMessage}</Text>
-        </View>
-      </View>
-    </TouchableOpacity>
-  );
-};
+import { ChatListItem } from "../components/chat/ChatList";
 
 const Chat = ({ navigation }) => {
   const theme = useTheme();
@@ -109,8 +84,7 @@ const Chat = ({ navigation }) => {
                 />
               }
               placeholder="Search for messages"
-              // value={value}
-              // onChangeText={(nextValue) => setValue(nextValue)}
+              onChangeText={(nextValue) => setValue(nextValue)}
             />
             <TouchableOpacity>
               <Iconify size={30} icon={"fluent:chat-add-20-regular"} />
@@ -145,46 +119,8 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
   },
-  image: {
-    height: 40,
-    width: 40,
-    borderRadius: 40 / 2,
-  },
-  nameDate: {
-    // flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  name: {
-    textTransform: "capitalize",
-  },
   list: {
-    // maxHeight: 180,
-    // flex: 1,
     gap: 15,
     marginVertical: 20,
-  },
-  card: {
-    flex: 1,
-    backgroundColor: "white",
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 10,
-
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-
-    // borderStyle: "solid",
-    // borderWidth: 1,
-    borderRadius: 5,
-
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-    shadowOffset: { width: 0, height: 4 },
-    // borderColor: "#ccc",
-  },
-  info: {
-    flex: 1,
-    gap: 5,
   },
 });

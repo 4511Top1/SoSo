@@ -22,27 +22,28 @@ import {
   Icon,
 } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
-
-const ChatBubble = ({ message, sender }) => {
-  const theme = useTheme();
-
-  return (
-    <View
-      style={[
-        styles.bubble,
-        sender == 0
-          ? [styles.myBubble, { backgroundColor: theme["color-primary-100"] }]
-          : [styles.otherBubble, { backgroundColor: theme["color-basic-500"] }],
-      ]}
-    >
-      <Text>{message}</Text>
-    </View>
-  );
-};
+import { ChatBubble } from "../../components/chat/ChatBubble";
 
 const UserChat = ({ route, navigation }) => {
   const theme = useTheme();
   const { username, messages } = route.params;
+  const [newMessage, setNewMessage] = React.useState("");
+
+  const handleMessage = ({ message }) => {
+    let tempMessages = messages;
+
+    console.log(tempMessages);
+
+    tempMessages.push({
+      id: tempMessages.length,
+      sender: 0,
+      message: message,
+    });
+
+    messages = tempMessages;
+
+    setNewMessage("");
+  };
 
   return (
     <ScreenNormalView>
@@ -50,7 +51,7 @@ const UserChat = ({ route, navigation }) => {
         accessoryLeft={<BackAction navigation={navigation} />}
         title={
           <TouchableOpacity>
-            <View style={{ flexDirection: "row", gap: 10 }}>
+            <View style={styles.userProfile}>
               <Avatar
                 source={require("../../assets/pfp/profile_placeholder.jpeg")}
               />
@@ -81,35 +82,30 @@ const UserChat = ({ route, navigation }) => {
           </ScrollView>
         </ScreenView>
         <Layout
-          style={{
-            paddingVertical: 8,
-            borderStyle: "solid",
-            borderColor: theme["color-basic-400"],
-            borderTopWidth: 1,
-          }}
+          style={[
+            styles.inputContainer,
+            { borderColor: theme["color-basic-400"] },
+          ]}
         >
-          <View
-            style={{
-              gap: 10,
-              paddingHorizontal: 10,
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
+          <View style={styles.inputGroup}>
             <Input
-              style={{ flex: 1, borderRadius: 20 }}
+              style={styles.input}
               placeholder="Message"
+              onChangeText={(v) => {
+                setNewMessage(v);
+              }}
             />
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                newMessage.trim().length &&
+                  handleMessage({ message: newMessage });
+              }}
+            >
               <View
-                style={{
-                  backgroundColor: theme["color-primary-500"],
-                  height: 38,
-                  width: 38,
-                  borderRadius: 50,
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
+                style={[
+                  styles.sendButton,
+                  { backgroundColor: theme["color-primary-500"] },
+                ]}
               >
                 <Iconify
                   size={25}
@@ -128,24 +124,9 @@ const UserChat = ({ route, navigation }) => {
 export default UserChat;
 
 const styles = StyleSheet.create({
-  bubble: {
-    padding: 10,
-    borderRadius: 10,
-    maxWidth: "80%",
-    marginVertical: 5,
-  },
-  myBubble: {
-    backgroundColor: "#e1e1e1",
-    borderBottomRightRadius: 0,
-    alignSelf: "flex-end",
-  },
-  otherBubble: {
-    backgroundColor: "#ccc",
-    borderBottomLeftRadius: 0,
-    alignSelf: "flex-start",
-  },
   input: {
     flex: 1,
+    borderRadius: 20,
   },
   image: {
     height: 40,
@@ -154,5 +135,27 @@ const styles = StyleSheet.create({
   },
   name: {
     textTransform: "capitalize",
+  },
+  sendButton: {
+    height: 38,
+    width: 38,
+    borderRadius: 50,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  inputContainer: {
+    paddingVertical: 8,
+    borderStyle: "solid",
+    borderTopWidth: 1,
+  },
+  inputGroup: {
+    gap: 10,
+    paddingHorizontal: 10,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  userProfile: {
+    flexDirection: "row",
+    gap: 10,
   },
 });
