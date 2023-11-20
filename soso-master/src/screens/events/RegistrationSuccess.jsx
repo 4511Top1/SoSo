@@ -29,7 +29,7 @@ const RegistraionSuccess = ({ navigation}) => {
         </Text>
         <RegistrationSuccessIcon style={styles.svg} />
         <Layout style={styles.buttonGroup}>
-          <Button style={styles.viewEventButton}>View ticket</Button>
+          <Button style={styles.viewEventButton} >View ticket</Button>
           <Button style={styles.viewEventButton}>Browse other events</Button>
         </Layout>
       </View>
