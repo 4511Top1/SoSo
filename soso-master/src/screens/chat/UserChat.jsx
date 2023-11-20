@@ -16,6 +16,7 @@ import {
   Card,
   Button,
   TopNavigation,
+  Icon,
 } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 
@@ -37,6 +38,7 @@ const ChatBubble = ({ message, sender }) => {
 };
 
 const UserChat = ({ route, navigation }) => {
+  const theme = useTheme();
   const { username, messages } = route.params;
 
   return (
@@ -67,7 +69,25 @@ const UserChat = ({ route, navigation }) => {
           placeholder="Message"
           accessoryRight={
             <TouchableOpacity>
-              <Text>asdf</Text>
+              <Icon status="primary" name="paper-plane-outline" />
+
+              <View
+                style={
+                  {
+                    // backgroundColor: theme["color-primary-500"],
+                    // borderRadius: 100,
+                    // flex: 1,
+                    // justifyContent: "center",
+                    // alignItems: "center",
+                  }
+                }
+              >
+                {/* <Iconify
+                  size={20}
+                  color={theme["color-basic-100"]}
+                  icon="solar:arrow-up-linear"
+                /> */}
+              </View>
             </TouchableOpacity>
           }
         />
