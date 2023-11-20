@@ -3,7 +3,7 @@ import { StyleSheet, View, Image } from "react-native";
 import { FontAwesome5, Entypo, MaterialCommunityIcons } from '@expo/vector-icons';
 import { Avatar, Divider, TabView, Text, Button, Card } from "@ui-kitten/components";
 import { TopNavigation } from '@ui-kitten/components';
-import PostButtons from "../../components/postButtons";
+import PostButtons from "../../components/buttons/postButtons";
 // import BackIcon from '../backArrow';
 
 const Feed = ( {navigation} ) => {

@@ -4,7 +4,9 @@ import { MaterialCommunityIcons, Fontisto } from '@expo/vector-icons';
 import { Layout, Avatar, TabView, Text, List, Input } from "@ui-kitten/components";
 import * as ImagePicker from 'expo-image-picker';
 import colors from '../../../theme2.json'; 
+
 import { BackAction } from "../../components/backAction";
+import LoginButton from "../../components/buttons/loginButton";
 
 const NewPost = ({ navigation }) => {
   const [photoUri, setPhotoUri] = useState(null);  
@@ -72,6 +74,13 @@ const NewPost = ({ navigation }) => {
             </View>
           </View>
         </View>
+      </View>
+      <View style={{ alignItems:"center" }}>
+        <LoginButton
+          navigation={navigation}
+          navigateTo="feed"
+          title="Post"
+        />
       </View>
     </View>
   );

@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Avatar, Divider, Text } from "@ui-kitten/components";
 import colors from '../../theme2.json'; 
-import PostButtons from "../components/postButtons";
+import PostButtons from "../components/buttons/postButtons";
 
 
 const ViewPost = ({ navigation }) => {
