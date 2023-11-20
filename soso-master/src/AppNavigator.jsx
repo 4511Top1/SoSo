@@ -6,7 +6,7 @@ import { Iconify } from "react-native-iconify";
 import { SafeView } from "./components/CustomView";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import Home from "./screens/home";
+import Home from "./screens/home/home";
 import Events from "./screens/events";
 import Feed from "./screens/feed/feed";
 import Chat from "./screens/Chat";
@@ -26,6 +26,7 @@ import Splash from "./screens/onboarding/splash";
 import SearchEvents from "./screens/events/SearchEvents";
 import SearchResults from "./screens/events/SearchResults";
 import Details from "./screens/events/Details";
+import Scanner from "./screens/home/scanner";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const { Navigator: StackNavigator, Screen: StackScreen } =
@@ -100,6 +101,7 @@ export const AppNavigator = () => {
         <StackScreen name="Details" component={Details} />
         <StackScreen name="NewPost" component={NewPost} />
         <StackScreen name="Notification" component={Notifications} />
+        <StackScreen name="Scanner" component={Scanner} />
       </StackNavigator>
     </SafeAreaView>
   );
