@@ -2,22 +2,32 @@ import React from 'react';
 import { Button, Text } from '@ui-kitten/components';
 import { StyleSheet, Image, View } from "react-native";
 
-const LoginButton = ({ navigation, navigateTo, title }) => (
-  <Button
+const LoginButton = ({ navigation, navigateTo, title, route }) => {
+  const handlePress = () => {
+    if (route) {
+        navigation.navigate(navigateTo, route);
+        // console.log("id", route);
+    } else {
+      navigation.navigate(navigateTo);
+    }
+  };
+  return(
+    <Button
     style={styles.button}
-    onPress={() => navigation.navigate(navigateTo)}
-  >
-    {title}
-    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-      <View style={styles.iconContainer}>
-        <Image
-          source={require('../../assets/images/buttonArrow.png')} 
-          style={styles.arrowImage}
-        />
+    onPress={handlePress}
+    >
+      {title}
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+        <View style={styles.iconContainer}>
+          <Image
+            source={require('../../assets/images/buttonArrow.png')} 
+            style={styles.arrowImage}
+            />
+        </View>
       </View>
-    </View>
-  </Button>
-);
+    </Button>
+  )
+};
 
 const styles = StyleSheet.create({
     button: {

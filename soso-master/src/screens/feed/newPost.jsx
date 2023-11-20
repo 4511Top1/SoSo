@@ -4,13 +4,20 @@ import { MaterialCommunityIcons, Fontisto } from '@expo/vector-icons';
 import { Layout, Avatar, TabView, Text, List, Input } from "@ui-kitten/components";
 import * as ImagePicker from 'expo-image-picker';
 import colors from '../../../theme2.json'; 
+import { useNavigation } from '@react-navigation/native';
 
 import { BackAction } from "../../components/backAction";
 import LoginButton from "../../components/buttons/loginButton";
 
+
 const NewPost = ({ navigation }) => {
   const [photoUri, setPhotoUri] = useState(null);  
   const [text, setText] = useState('');
+
+  const userParams = {
+    id:"4", 
+    text:"text", 
+  };
 
   const handleChoosePhoto = async() => {
     const result = await ImagePicker.launchImageLibraryAsync({
@@ -23,7 +30,7 @@ const NewPost = ({ navigation }) => {
     if (!result.cancelled) {
         setPhotoUri(result.assets[0].uri);
       }
-}
+  }  
 
   return (
     <View style={styles.container}>
@@ -80,6 +87,7 @@ const NewPost = ({ navigation }) => {
           navigation={navigation}
           navigateTo="Feed"
           title="Post"
+          route={ {userParams} }
         />
       </View>
     </View>
