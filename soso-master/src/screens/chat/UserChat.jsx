@@ -49,7 +49,11 @@ const UserChat = ({ route, navigation }) => {
       <TopNavigation
         accessoryLeft={<BackAction navigation={navigation} />}
         title={
-          <TouchableOpacity onPress={() => navigation.navigate("UserProfile")}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("UserProfile", { username: username })
+            }
+          >
             <View style={{ flexDirection: "row", gap: 10 }}>
               <Avatar
                 source={require("../../assets/pfp/profile_placeholder.jpeg")}
