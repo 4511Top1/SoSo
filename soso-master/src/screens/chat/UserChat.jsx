@@ -14,6 +14,7 @@ import {
   Input,
   Layout,
   Card,
+  Button,
   TopNavigation,
 } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
@@ -52,14 +53,25 @@ const UserChat = ({ route, navigation }) => {
         alignment="start"
       />
       <ScreenView>
-        <View>
+        <ScrollView>
           {messages.map((message) => {
             return (
               <ChatBubble message={message.message} sender={message.sender} />
             );
           })}
-        </View>
+        </ScrollView>
       </ScreenView>
+      <View>
+        <Input
+          style={{ marginHorizontal: 10, borderRadius: 20 }}
+          placeholder="Message"
+          accessoryRight={
+            <TouchableOpacity>
+              <Text>asdf</Text>
+            </TouchableOpacity>
+          }
+        />
+      </View>
     </ScreenNormalView>
   );
 };

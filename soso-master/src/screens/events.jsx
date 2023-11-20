@@ -5,14 +5,12 @@ import {
   Text,
   Button,
   Input,
-  IconRegistry,
   Icon,
   Layout,
 } from "@ui-kitten/components";
-import { EvaIconsPack } from "@ui-kitten/eva-icons";
 
 import { ScreenView } from "../components/CustomView";
-import { useTheme,  } from "@ui-kitten/components";
+import { useTheme } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import DiscoveryWeekly from "./events/DiscoveryWeekly";
 
@@ -51,7 +49,6 @@ const Events = ({ navigation }) => {
     }
   };
 
-
   return (
     <ScreenView>
       <Text category="h2" status="primary">
@@ -73,7 +70,6 @@ const Events = ({ navigation }) => {
       />
       <Text category="h4">Discovery weekly</Text>
       <DiscoveryWeekly data={eventData} />
-      
     </ScreenView>
   );
 };
