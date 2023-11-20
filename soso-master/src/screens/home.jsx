@@ -31,7 +31,7 @@ const Home = ({ navigation }) => {
           <Image
             style={styles.logo}
             resizeMode="contain"
-            source={require("../assets/images/SoSo_white.png")}
+            source={require("../assets/images/SoSoWhite.png")}
           />
           <Text>Good Morning, Zoe!</Text>
         </View>
