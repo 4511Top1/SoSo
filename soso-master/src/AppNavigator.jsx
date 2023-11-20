@@ -19,7 +19,7 @@ import UserProfile from "./screens/profile/UserProfile";
 
 import NewPost from "./screens/feed/newPost";
 import Notifications from "./screens/notifications";
-import Menu from "./screens/menu";
+import Menu from "./screens/Menu";
 import Login from "./screens/auth/login";
 import Register from "./screens/auth/register";
 import Reset from "./screens/auth/reset";
