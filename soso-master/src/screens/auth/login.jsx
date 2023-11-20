@@ -29,7 +29,7 @@ const Login = ({ navigation }) => {
           />
 
           <Text onPress={() => navigation.navigate("Reset")}>
-            {" "}
+        
             Forgot Password?
           </Text>
         </Layout>

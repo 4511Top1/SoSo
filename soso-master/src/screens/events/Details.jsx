@@ -1,5 +1,11 @@
 import React from "react";
-import { TopNavigation, Text, Layout, useTheme } from "@ui-kitten/components";
+import {
+  TopNavigation,
+  Text,
+  Layout,
+  useTheme,
+  Button,
+} from "@ui-kitten/components";
 import {
   View,
   StyleSheet,
@@ -37,6 +43,14 @@ const Details = ({ navigation, route }) => {
 
   const toggleBookmark = () => {
     setIsBookmarked(!isBookmarked);
+  };
+
+  const navigateToFund = (event) => {
+    console.log("Navigating to fund with event:", event);
+    navigation.navigate("FundEvent", {
+      event: event,
+      fromScreen: "Details",
+    });
   };
 
   const getDisplayedText = (text) => {
@@ -143,11 +157,27 @@ const Details = ({ navigation, route }) => {
             <EventCard event={event} onPress={() => {}} />
           </View>
 
-          <TouchableOpacity onPress={()=>navigation.navigate("FundEvent")}>
+          {/* <TouchableOpacity
+            onPress={() => {
+              navigateToFund(event);
+            }}
+          >
             <Layout style={styles.fundButton}>
-              <Text> Fund</Text>
+              <Text>Fund</Text>
             </Layout>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
+          <Button
+            style={styles.fundButton}
+            onPress={() => navigateToFund(event)}
+          >
+            Fund
+          </Button>
+          <Button
+            style={styles.fundButton}
+            onPress={() => navigation.navigate("RegisterEvent")}
+          >
+            Register
+          </Button>
         </View>
       </ScrollView>
     </ScreenNoSaveView>
@@ -181,8 +211,8 @@ const styles = StyleSheet.create({
   },
   fundButton: {
     display: "flex",
-    width: 348,
-    height: 48,
+    marginTop: 10,
+    padding: 10,
     // padding: 10 14,
     justifyContent: "center",
     alignItems: "center",

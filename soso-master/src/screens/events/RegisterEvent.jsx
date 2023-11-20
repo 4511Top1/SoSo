@@ -23,14 +23,14 @@ import { ScreenView } from "../../components/CustomView";
 import { BackAction } from "../../components/backAction";
 // import { TouchableOpacity } from "react-native-gesture-handler";
 
-const FundEvent = ({ navigation, route }) => {
+const RegisterEvent = ({ navigation }) => {
   const theme = useTheme();
   const [checked, setChecked] = React.useState(false);
   const [phoneNumber, setPhoneNumber] = React.useState("");
   const [username, setUsername] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [agree, setAgree] = React.useState(false);
-  const { fromScreen, event } = route.params;
+  //   const { fromScreen, event } = route.params;
 
   const onCheckedChange = (isChecked) => {
     setChecked(isChecked);
@@ -42,19 +42,18 @@ const FundEvent = ({ navigation, route }) => {
     >
       <BackAction navigation={navigation} />
       <Text category="h4" status="primary">
-        Fund Event
+        Register for event
       </Text>
     </Layout>
   );
 
-  const navigateToSuccess = (event) => {
-    console.log("Navigating to success with event:", event);
-    navigation.navigate("FundSuccess", {
-      event: event,
-      fromScreen: "FundEvent",
-    });
-  };
-
+  //   const navigateToSuccess = (event) => {
+  //     console.log("Navigating to success with event:", event);
+  //     navigation.navigate("FundSuccess", {
+  //       event: event,
+  //       fromScreen: "FundEvent",
+  //     });
+  //   };
 
   return (
     <ScreenView>
@@ -110,45 +109,21 @@ const FundEvent = ({ navigation, route }) => {
             onChangeText={(nextValue) => setEmail(nextValue)}
           />
         </Layout>
-        <Layout style={styles.payContainer}>
-          <Text category="h6">Payment information</Text>
-          <Input
-            placeholder="Apple Pay"
-            value={email}
-            accessoryLeft={
-              <Iconify
-                color={theme["color-basic-500"]}
-                size={20}
-                icon={"simple-icons:applepay"}
-              />
-            }
-            onChangeText={(nextValue) => setEmail(nextValue)}
-          />
-          <Input
-            placeholder="Amound to Fund"
-            value={email}
-            accessoryLeft={<Text category="c1">AUD</Text>}
-            onChangeText={(nextValue) => setEmail(nextValue)}
-          />
-          <CheckBox
-            checked={agree}
-            onChange={(nextChecked) => setAgree(nextChecked)}
-          >
-            I agree to Terms of Service
-          </CheckBox>
-        </Layout>
-        <Button
-          style={styles.button}
-          onPress={navigateToSuccess(event)}
+        <CheckBox
+          checked={agree}
+          onChange={(nextChecked) => setAgree(nextChecked)}
         >
-          <Text style={styles.fundText}>Pay</Text>
+          I agree to Terms of Service
+        </CheckBox>
+        <Button style={styles.button}>
+          <Text style={styles.fundText} onPress={navigation.navigate("RegistrationSuccess")}>Register</Text>
         </Button>
       </View>
     </ScreenView>
   );
 };
 
-export default FundEvent;
+export default RegisterEvent;
 const styles = StyleSheet.create({
   container: {
     flex: 1,

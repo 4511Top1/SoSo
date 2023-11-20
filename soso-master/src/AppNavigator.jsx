@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import { SafeView } from "./components/CustomView";
+import { SafeAreaView } from "react-native-safe-area-context";
 // import { SafeAreaView } from "react-native-safe-area-context";
 
 // import { SafeAreaView } from "react-native-safe-area-context";
@@ -30,9 +31,10 @@ import SearchEvents from "./screens/events/SearchEvents";
 import SearchResults from "./screens/events/SearchResults";
 import Details from "./screens/events/Details";
 import FundEvent from "./screens/events/FundEvent";
-import { SafeAreaView } from "react-native-safe-area-context";
-import FundEvent from "./screens/events/FundEvent";
-import { SafeAreaView } from "react-native-safe-area-context";
+import FundSuccess from "./screens/events/FundSuccess";
+import RegisterEvent from "./screens/events/RegisterEvent";
+import RegistraionSuccess from "./screens/events/RegistrationSuccess";
+// import { SafeAreaView } from "react-native-safe-area-context";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const { Navigator: StackNavigator, Screen: StackScreen } =
@@ -108,7 +110,9 @@ export const AppNavigator = () => {
         <StackScreen name="NewPost" component={NewPost} />
         <StackScreen name="FundEvent" component={FundEvent} />
         <StackScreen name="Notification" component={Notifications} />
-
+        <StackScreen name="FundSuccess" component={FundSuccess} />
+        <StackScreen name="RegisterEvent" component={RegisterEvent} />
+        <StackScreen name="RegistrationSuccess" component={RegistraionSuccess} />
       </StackNavigator>
     </SafeAreaView>
   );
