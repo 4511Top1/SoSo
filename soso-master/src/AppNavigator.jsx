@@ -9,6 +9,7 @@ import Home from "./screens/home";
 import Events from "./screens/events";
 import Feed from "./screens/feed/feed";
 import Chat from "./screens/Chat";
+import UserChat from "./screens/chat/UserChat";
 import Notifications from "./screens/notifications";
 import Menu from "./screens/menu";
 import Login from "./screens/auth/login";
@@ -78,9 +79,11 @@ const TabNavigator = () => (
 export const AppNavigator = () => {
   return (
     <SafeView>
-      <StackNavigator screenOptions={{ headerShown: false }}>
+      <StackNavigator screenOptions={{ headerShown: true }}>
+        {/* Onboarding */}
         <StackScreen name="Splash" component={Splash} />
-        <StackScreen name="Tabs" component={TabNavigator} />
+
+        {/* Auth */}
         <StackScreen name="Login" component={Login} />
         <StackScreen name="Register" component={Register} />
         <StackScreen name="Reset" component={Reset} />
@@ -90,6 +93,11 @@ export const AppNavigator = () => {
         <StackScreen name="VerifyID" component={VerifyID} />
         <StackScreen name="VerifyIDSubmitted" component={VerifyIDSubmitted} />
         <StackScreen name="SuccessDone" component={SuccessDone} />
+
+        {/* Tabs */}
+        <StackScreen name="Tabs" component={TabNavigator} />
+
+        <StackScreen name="UserChat" component={UserChat} />
       </StackNavigator>
     </SafeView>
   );

@@ -6,33 +6,51 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
+import UserChat from "./chat/UserChat";
 import { ScreenView } from "../components/CustomView";
 import { useTheme, Text, Input, Layout, Card } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 
-const ChatListItem = ({ username, message }) => {
+const ChatListItem = ({ username, messages, lastMessage, navigation }) => {
+  // React.useEffect(() => {}, []);
+
   return (
-    <View style={styles.card}>
-      <Image style={styles.image} source={require("../assets/pfp/mary.jpeg")} />
-      <View style={styles.info}>
-        <View style={styles.name}>
-          <Text category="s1" status="primary">
-            {username}
-          </Text>
-          <Text appearance="hint">02:00 PM</Text>
+    <TouchableOpacity
+      onPress={() => {
+        username &&
+          navigation.navigate("UserChat", {
+            username: username,
+            messages: messages,
+          });
+
+        // console.log(username);
+      }}
+    >
+      <View style={styles.card}>
+        <Image
+          style={styles.image}
+          source={require("../assets/pfp/mary.jpeg")}
+        />
+        <View style={styles.info}>
+          <View style={styles.nameDate}>
+            <Text category="s1" status="primary" style={styles.name}>
+              {username}
+            </Text>
+            <Text appearance="hint">02:00 PM</Text>
+          </View>
+          <Text>{lastMessage}</Text>
         </View>
-        <Text>{message}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
-const Chat = () => {
+const Chat = ({ navigation }) => {
   const theme = useTheme();
   const [chatList, setChatList] = React.useState([
     {
       id: 1,
-      name: "Mary",
+      name: "mary",
       messages: [
         { id: 0, sender: 1, message: "what are you up to?" },
         { id: 1, sender: 0, message: "i'm catching the bus right now" },
@@ -41,7 +59,7 @@ const Chat = () => {
     },
     {
       id: 2,
-      name: "Bob",
+      name: "bob",
       messages: [
         { id: 0, sender: 1, message: "cool!" },
         { id: 1, sender: 0, message: "i'm going to go to the grocer" },
@@ -50,7 +68,7 @@ const Chat = () => {
     },
     {
       id: 3,
-      name: "Ralph",
+      name: "ralph",
       messages: [
         { id: 0, sender: 0, message: "wow" },
         { id: 1, sender: 1, message: "wow" },
@@ -90,11 +108,15 @@ const Chat = () => {
             <Iconify size={30} icon={"fluent:chat-add-20-regular"} />
           </TouchableOpacity>
         </View>
+
         <View style={styles.list}>
           {chatList.map((item) => (
             <ChatListItem
+              key={item.id}
               username={item.name}
-              message={item.messages.at(-1).message}
+              messages={item.messages}
+              lastMessage={item.messages.at(-1).message}
+              navigation={navigation}
             />
           ))}
         </View>
@@ -119,10 +141,13 @@ const styles = StyleSheet.create({
     width: 40,
     borderRadius: 40 / 2,
   },
-  name: {
+  nameDate: {
     // flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+  name: {
+    textTransform: "capitalize",
   },
   list: {
     // maxHeight: 180,
