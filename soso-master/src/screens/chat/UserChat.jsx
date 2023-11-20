@@ -72,11 +72,7 @@ const UserChat = ({ route, navigation }) => {
         </ScreenView>
         <Layout
           style={{
-            // shadowOpacity: 0.1,
-            // shadowRadius: 5,
-            // shadowOffset: { width: 0, height: 0 },
             paddingVertical: 8,
-
             borderStyle: "solid",
             borderColor: theme["color-basic-400"],
             borderTopWidth: 1,
