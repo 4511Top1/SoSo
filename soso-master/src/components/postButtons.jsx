@@ -1,14 +1,10 @@
 import React from "react";
 import { Button, Text, useTheme } from "@ui-kitten/components";
 import { StyleSheet, View, TouchableOpacity } from "react-native";
-import { FontAwesome5, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
+import { Iconify } from "react-native-iconify";
 
 const PostButtons = () => {
-    // const LikeIcon = <Feather name="thumbs-up" size={16} color="black"/>;
-    // const CommentIcon = (props) => <FontAwesome5 name="comment" size={16} color="black" {...props} />;
-    // const ShareIcon = (props) => <MaterialCommunityIcons name="share-outline" size={16} color="black" {...props} />;
-
-    // const theme = useTheme();
     return (
         <View style={styles.footerContainer}>
             <TouchableOpacity style={styles.button}>
@@ -16,11 +12,17 @@ const PostButtons = () => {
               <Text style={styles.button_text}>Like</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button}>
-              <FontAwesome5 name="comment" size={16} color="black"/>
+              <Iconify
+                size={18}
+                icon={"iconamoon:comment-light"}
+              />
               <Text style={styles.button_text}>Comment</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button}>
-              <MaterialCommunityIcons name="share-outline" size={16} color="black"/>
+              <Iconify
+                size={18}
+                icon={"uil:share"}
+              />
               <Text style={styles.button_text}>Share</Text>
             </TouchableOpacity>
           </View>
@@ -31,21 +33,19 @@ export default PostButtons;
 
 const styles = StyleSheet.create({
     footerContainer: {
-        flexDirection: 'row',
-        justifyContent: 'flex-end',
+      flexDirection: 'row',
+      justifyContent: 'flex-end',
     },
     button: {
-        flex:1,
-        flexDirection:"row",
-        justifyContent:'center',
-        // marginTop:30,
-        // borderWidth:1,
-        // borderColor:"#4D4352",
+      flex:1,
+      flexDirection:"row",
+      justifyContent:'center',
+      marginBottom:10
     },
     button_text: {
-        color: "#4D4352",
-        fontSize: 15,
-        fontWeight: 400,
-        marginLeft:10,
+      color: "#4D4352",
+      fontSize: 15,
+      fontWeight: 400,
+      marginLeft:10,
     }
 });

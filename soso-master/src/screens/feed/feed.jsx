@@ -1,17 +1,12 @@
 import React from "react";
 import { StyleSheet, View, Image } from "react-native";
 import { FontAwesome5, Entypo, MaterialCommunityIcons } from '@expo/vector-icons';
-import { Avatar, Tab, TabView, Text, Button, Card } from "@ui-kitten/components";
+import { Avatar, Divider, TabView, Text, Button, Card } from "@ui-kitten/components";
 import { TopNavigation } from '@ui-kitten/components';
 import PostButtons from "../../components/postButtons";
 // import BackIcon from '../backArrow';
 
 const Feed = ( {navigation} ) => {
-  // const LikeIcon = <Feather name="thumbs-up" size={16} color="black" />
-  // const CommentIcon = <FontAwesome5 name="comment" size={16} color="black" />;
-  // const ShareIcon = <MaterialCommunityIcons name="share-outline" size={16} color="black" />
-
-
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}> 
@@ -25,12 +20,12 @@ const Feed = ( {navigation} ) => {
       </View>
 
       <View style={styles.card}>
-        <View style={styles.contentContainer}>
+        <View style={styles.nameTag}>
           <View style={ {flexDirection:"row"}}>
             <Avatar
               source={require("../../assets/images/feedIcon1.png")} 
               style={styles.avatar}
-              size="medium"
+              size="large"
             />
             <View style={styles.textContainer}>
               <Text category='s1'>Shrek</Text>
@@ -47,6 +42,7 @@ const Feed = ( {navigation} ) => {
           <Text style={{ marginHorizontal: 15, marginTop: 10}} category='p1'>
             Went back to the swamp with Fiona. It was fun!
           </Text>
+          <Divider style={{ marginHorizontal: 15, marginVertical:10 }}/>
           <PostButtons/>
         </View>
       </View>
@@ -79,16 +75,20 @@ const styles = StyleSheet.create({
   },
   card: {
     margin: 16,
-    borderRadius: 8,
+    borderRadius: 15,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    backgroundColor: '#fff'
   },
   headerImage: {
     height: 200,
   },
 
-  contentContainer: {
+  nameTag: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
     justifyContent:"space-between",
   },
   textContainer: {
@@ -99,10 +99,5 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     borderRadius: 15,
     overflow:"hidden",
-    // shadowColor: '#000',
-    // shadowOffset: { width: 0, height: 10 },
-    // shadowOpacity: 0.1,
-    // shadowRadius: 5,
-    // backgroundColor: '#fff'
   },
 });

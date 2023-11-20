@@ -4,6 +4,7 @@ import { MaterialCommunityIcons, Fontisto } from '@expo/vector-icons';
 import { Layout, Avatar, TabView, Text, List, Input } from "@ui-kitten/components";
 import * as ImagePicker from 'expo-image-picker';
 import colors from '../../../theme2.json'; 
+import { BackAction } from "../../components/backAction";
 
 const NewPost = ({ navigation }) => {
   const [photoUri, setPhotoUri] = useState(null);  
@@ -25,48 +26,50 @@ const NewPost = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}>
-        <MaterialCommunityIcons 
+        {/* <MaterialCommunityIcons 
           name="keyboard-backspace" 
           size={24} 
           color="black" 
           onPress={() => navigation.goBack()} 
           style={styles.backArrow}
-        />
+        /> */}
+        <BackAction navigation={navigation} />
         <Text category="h3" status="primary">
           New Post
         </Text>
       </View>
 
-      <View style={styles.nameTag}>
-        <Avatar
-          source={require("../../assets/images/viewPostIcon1.png")} 
-          style={styles.avatar}
-          size="large"
-        />
-        <Text category="s1">Zoe</Text>
-      </View>
+        <View style={styles.nameTag}>
+          <Avatar
+            source={require("../../assets/images/viewPostIcon1.png")} 
+            style={styles.avatar}
+            size="large"
+          />
+          <Text category="s1">Zoe</Text>
+        </View>
 
-      <View style={styles.postArea}>
-        <TouchableOpacity onPress={handleChoosePhoto} style={styles.uploadArea}>
-          <Fontisto name="camera" size={24} color="black" />
-          <Text style={styles.uploadText}>Upload photo</Text>
-          {photoUri && (
-            <Image
+      <View style={styles.card}>
+        <View style={styles.postArea}>
+          <TouchableOpacity onPress={handleChoosePhoto} style={styles.uploadArea}>
+            <Fontisto name="camera" size={24} color="black" />
+            <Text style={styles.uploadText}>Upload photo</Text>
+            {photoUri && (
+              <Image
               source={{ uri: photoUri}}
               style={styles.preview}
-            />
-          )}
-        </TouchableOpacity>
-        <View style={styles.inputContainer}>
-          <Input
-            placeholder='Type anything'
-            value={text}
-            onChangeText={nextValue => setText(nextValue)}
-            style={styles.inputText}
-          />
-
-          <View style={styles.bottomTextContainer}>
-            <Text style={styles.bottomText} category="h6" appearance='hint'>{300-text.length} characters left</Text>
+              />
+              )}
+          </TouchableOpacity>
+          <View style={styles.inputContainer}>
+            <Input
+              placeholder='Type anything'
+              value={text}
+              onChangeText={nextValue => setText(nextValue)}
+              style={styles.inputText}
+              />
+            <View style={styles.bottomTextContainer}>
+              <Text style={styles.bottomText} category="h6" appearance='hint'>{300-text.length} characters left</Text>
+            </View>
           </View>
         </View>
       </View>
@@ -107,15 +110,19 @@ const styles = StyleSheet.create({
     paddingVertical:5,
   },
 
+  card: {
+    backgroundColor:"white",
+    borderRadius:15,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+  },
+
   postArea:{
     borderWidth: 0,
     borderRadius: 15,
     overflow:"hidden",
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    borderWidth:0,
   },
 
   uploadArea: {
