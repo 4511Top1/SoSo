@@ -12,18 +12,13 @@ import { useTheme, Text, Input, Layout, Card } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 
 const ChatListItem = ({ username, messages, lastMessage, navigation }) => {
-  // React.useEffect(() => {}, []);
-
   return (
     <TouchableOpacity
       onPress={() => {
-        username &&
-          navigation.navigate("UserChat", {
-            username: username,
-            messages: messages,
-          });
-
-        // console.log(username);
+        navigation.navigate("UserChat", {
+          username: username,
+          messages: messages,
+        });
       }}
     >
       <View style={styles.card}>

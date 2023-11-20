@@ -84,7 +84,7 @@ const TabNavigator = () => (
 export const AppNavigator = () => {
   return (
     <SafeView>
-      <StackNavigator screenOptions={{ headerShown: true }}>
+      <StackNavigator screenOptions={{ headerShown: false }}>
         {/* Onboarding */}
         <StackScreen name="Splash" component={Splash} />
 

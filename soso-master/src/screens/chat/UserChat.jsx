@@ -6,35 +6,82 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
+import { BackAction } from "../../components/backAction";
 import { ScreenView } from "../../components/CustomView";
-import { useTheme, Text, Input, Layout, Card } from "@ui-kitten/components";
+import {
+  useTheme,
+  Text,
+  Input,
+  Layout,
+  Card,
+  TopNavigation,
+} from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 
-const UserChat = ({ route }) => {
+const ChatBubble = ({ message, sender }) => {
+  const theme = useTheme();
+
+  return (
+    <View
+      style={
+        sender == 0
+          ? [styles.myBubble, { backgroundColor: theme["color-primary-100"] }]
+          : [styles.otherBubble, { backgroundColor: theme["color-basic-500"] }]
+      }
+    >
+      <Text>{message}</Text>
+    </View>
+  );
+};
+
+const UserChat = ({ route, navigation }) => {
   const { username, messages } = route.params;
 
   return (
-    <ScreenView>
-      <Text category="h2" status="primary" style={styles.name}>
-        {username}
-      </Text>
-      <View>
-        <Text>Hello there, {username}!</Text>
-        {messages.map((message) => {
-          return (
-            <View>
-              <Text>{message.message}</Text>
-            </View>
-          );
-        })}
-      </View>
-    </ScreenView>
+    <Layout style={{ flex: 1 }}>
+      <TopNavigation
+        accessoryLeft={<BackAction navigation={navigation} />}
+        title={
+          <View>
+            <Text category="h2" status="primary" style={styles.name}>
+              {username}
+            </Text>
+          </View>
+        }
+        alignment="start"
+      />
+      <ScreenView>
+        <View>
+          {messages.map((message) => {
+            return (
+              <ChatBubble message={message.message} sender={message.sender} />
+            );
+          })}
+        </View>
+      </ScreenView>
+    </Layout>
   );
 };
 
 export default UserChat;
 
 const styles = StyleSheet.create({
+  myBubble: {
+    backgroundColor: "#e1e1e1",
+    padding: 10,
+    borderRadius: 10,
+    borderBottomRightRadius: 0,
+    alignSelf: "flex-end",
+    marginVertical: 5,
+  },
+  otherBubble: {
+    backgroundColor: "#ccc",
+    padding: 10,
+    borderRadius: 10,
+    borderBottomLeftRadius: 0,
+    alignSelf: "flex-start",
+    marginVertical: 5,
+  },
   container: {
     gap: 20,
     flexDirection: "row",
