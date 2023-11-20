@@ -22,7 +22,11 @@ import { Iconify } from "react-native-iconify";
 const ProfileCard = ({ username, navigation }) => {
   const theme = useTheme();
   return (
-    <TouchableOpacity>
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate("MyUserProfile");
+      }}
+    >
       <View
         style={{
           flexDirection: "row",
@@ -87,7 +91,7 @@ const MenuCard = ({ title, icon, navigation }) => {
   );
 };
 
-const Menu = () => {
+const Menu = ({ navigation }) => {
   const theme = useTheme();
 
   return (
@@ -104,27 +108,57 @@ const Menu = () => {
         alignment="start"
       />
       <ScreenView>
-        <ProfileCard username="Zoe" />
+        <ProfileCard username="Zoe" navigation={navigation} />
         <View style={{ flexWrap: true, flexDirection: "row", gap: 20 }}>
           <MenuCard
             title="Friends"
-            icon={<Iconify size={40} icon="solar:users-group-rounded-linear" />}
+            icon={
+              <Iconify
+                size={40}
+                icon="solar:users-group-rounded-linear"
+                navigation={navigation}
+              />
+            }
           />
           <MenuCard
             title="Saved"
-            icon={<Iconify size={40} icon="fluent:bookmark-16-regular" />}
+            icon={
+              <Iconify
+                size={40}
+                icon="fluent:bookmark-16-regular"
+                navigation={navigation}
+              />
+            }
           />
           <MenuCard
             title="Past Events"
-            icon={<Iconify size={40} icon="solar:calendar-date-linear" />}
+            icon={
+              <Iconify
+                size={40}
+                icon="solar:calendar-date-linear"
+                navigation={navigation}
+              />
+            }
           />
           <MenuCard
             title="Verify ID"
-            icon={<Iconify size={40} icon="solar:shield-check-linear" />}
+            icon={
+              <Iconify
+                size={40}
+                icon="solar:shield-check-linear"
+                navigation={navigation}
+              />
+            }
           />
           <MenuCard
             title="Settings"
-            icon={<Iconify size={40} icon="solar:settings-linear" />}
+            icon={
+              <Iconify
+                size={40}
+                icon="solar:settings-linear"
+                navigation={navigation}
+              />
+            }
           />
         </View>
         {/* <ScrollView style={{ overflow: "visible" }}></ScrollView> */}

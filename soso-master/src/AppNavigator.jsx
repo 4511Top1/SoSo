@@ -16,6 +16,7 @@ import UserChat from "./screens/chat/UserChat";
 
 // User Profile
 import UserProfile from "./screens/profile/UserProfile";
+import MyUserProfile from "./screens/profile/MyUserProfile";
 
 import NewPost from "./screens/feed/newPost";
 import Notifications from "./screens/notifications";
@@ -66,7 +67,7 @@ const BottomTabBar = ({ navigation, state }) => {
         icon={<Iconify size={25} icon="iconoir:chat-bubble-empty" />}
       />
       <BottomNavigationTab
-        title="Menus"
+        title="Menu"
         icon={<Iconify size={25} icon="solar:hamburger-menu-linear" />}
       />
     </BottomNavigation>
@@ -116,6 +117,7 @@ export const AppNavigator = () => {
         {/* Users */}
         <StackScreen name="UserChat" component={UserChat} />
         <StackScreen name="UserProfile" component={UserProfile} />
+        <StackScreen name="MyUserProfile" component={MyUserProfile} />
       </StackNavigator>
     </SafeView>
   );

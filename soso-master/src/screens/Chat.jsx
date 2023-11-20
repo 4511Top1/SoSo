@@ -176,10 +176,10 @@ const styles = StyleSheet.create({
 
     // borderStyle: "solid",
     // borderWidth: 1,
-    borderRadius: 5,
+    borderRadius: 15,
 
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
     shadowOffset: { width: 0, height: 4 },
     // borderColor: "#ccc",
   },
