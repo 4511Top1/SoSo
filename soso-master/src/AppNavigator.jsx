@@ -99,7 +99,7 @@ export const AppNavigator = () => {
         <StackScreen name="SearchResults" component={SearchResults}/>
         <StackScreen name="Details" component={Details} />
         <StackScreen name="NewPost" component={NewPost} />
-
+        <StackScreen name="Notification" component={Notifications} />
       </StackNavigator>
     </SafeAreaView>
   );
