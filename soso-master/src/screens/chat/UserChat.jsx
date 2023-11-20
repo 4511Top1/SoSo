@@ -65,7 +65,11 @@ const UserChat = ({ route, navigation }) => {
           <ScrollView style={{ flex: 1 }}>
             {messages.map((message) => {
               return (
-                <ChatBubble message={message.message} sender={message.sender} />
+                <ChatBubble
+                  key={message.id}
+                  message={message.message}
+                  sender={message.sender}
+                />
               );
             })}
           </ScrollView>
