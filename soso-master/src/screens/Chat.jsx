@@ -9,6 +9,7 @@ import {
 import UserChat from "./chat/UserChat";
 import { ScreenNormalView, ScreenView } from "../components/CustomView";
 import {
+  Avatar,
   useTheme,
   Text,
   Input,
@@ -29,10 +30,7 @@ const ChatListItem = ({ username, messages, lastMessage, navigation }) => {
       }}
     >
       <View style={styles.card}>
-        <Image
-          style={styles.image}
-          source={require("../assets/pfp/mary.jpeg")}
-        />
+        <Avatar source={require("../assets/pfp/profile_placeholder.jpeg")} />
         <View style={styles.info}>
           <View style={styles.nameDate}>
             <Text category="s1" status="primary" style={styles.name}>
