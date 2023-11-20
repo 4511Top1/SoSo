@@ -6,7 +6,6 @@ import {
   Text,
   Button,
   Input,
-  IconRegistry,
   Icon,
   TopNavigation,
   TopNavigationAction,
@@ -17,7 +16,6 @@ import {
   useTheme,
 } from "@ui-kitten/components";
 
-import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import { BackAction } from "../../components/backAction";
 import { Iconify } from "react-native-iconify";
 import { ScreenView } from "../../components/CustomView";
@@ -73,7 +71,6 @@ const SearchEvents = ({ navigation }) => {
   return (
     <ScreenView>
       <View style={styles.container}>
-        <IconRegistry icons={EvaIconsPack} />
         <TopNavigation title={renderTitle} alignment="start" />
         <Input
           placeholder="Search"

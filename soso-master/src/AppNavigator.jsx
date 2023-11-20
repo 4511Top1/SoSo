@@ -5,11 +5,16 @@ import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import { SafeView } from "./components/CustomView";
 import { SafeAreaView } from "react-native-safe-area-context";
+// import { SafeAreaView } from "react-native-safe-area-context";
+
+// import { SafeAreaView } from "react-native-safe-area-context";
+
 
 import Home from "./screens/home";
 import Events from "./screens/events";
 import Feed from "./screens/feed/feed";
 import Chat from "./screens/Chat";
+import UserChat from "./screens/chat/UserChat";
 import NewPost from "./screens/feed/newPost";
 import ViewPost from "./screens/viewPost"
 import Notifications from "./screens/notifications/notifications";
@@ -27,6 +32,11 @@ import Splash from "./screens/onboarding/splash";
 import SearchEvents from "./screens/events/SearchEvents";
 import SearchResults from "./screens/events/SearchResults";
 import Details from "./screens/events/Details";
+import FundEvent from "./screens/events/FundEvent";
+import FundSuccess from "./screens/events/FundSuccess";
+import RegisterEvent from "./screens/events/RegisterEvent";
+import RegistraionSuccess from "./screens/events/RegistrationSuccess";
+// import { SafeAreaView } from "react-native-safe-area-context";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const { Navigator: StackNavigator, Screen: StackScreen } =
@@ -83,10 +93,12 @@ const TabNavigator = () => (
 
 export const AppNavigator = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeView>
       <StackNavigator screenOptions={{ headerShown: false }}>
+        {/* Onboarding */}
         <StackScreen name="Splash" component={Splash} />
-        <StackScreen name="Tabs" component={TabNavigator} />
+
+        {/* Auth */}
         <StackScreen name="Login" component={Login} />
         <StackScreen name="Register" component={Register} />
         <StackScreen name="Reset" component={Reset} />
@@ -97,12 +109,18 @@ export const AppNavigator = () => {
         <StackScreen name="VerifyIDSubmitted" component={VerifyIDSubmitted} />
         <StackScreen name="SuccessDone" component={SuccessDone} />
         <StackScreen name="SearchEvents" component={SearchEvents} />
-        <StackScreen name="SearchResults" component={SearchResults}/>
+        <StackScreen name="SearchResults" component={SearchResults} />
         <StackScreen name="Details" component={Details} />
         <StackScreen name="NewPost" component={NewPost} />
         <StackScreen name="ViewPost" component={ViewPost} />
+        <StackScreen name="FundEvent" component={FundEvent} />
         <StackScreen name="Notification" component={Notifications} />
+
+        {/* Tabs */}
+        <StackScreen name="Tabs" component={TabNavigator} />
+
+        <StackScreen name="UserChat" component={UserChat} />
       </StackNavigator>
-    </SafeAreaView>
+    </SafeView>
   );
 };

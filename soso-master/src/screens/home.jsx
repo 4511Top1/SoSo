@@ -155,8 +155,8 @@ const Home = ({ navigation }) => {
         </View>
 
         <View>
-          <Text>I am home page!</Text>
-          {isFirstLaunch && <Text>This is the first launch!</Text>}
+          {/* <Text>I am home page!</Text>
+          {isFirstLaunch && <Text>This is the first launch!</Text>} */}
           <Button
             title="Click me to login"
             onPress={() => navigation.navigate("Login")}
