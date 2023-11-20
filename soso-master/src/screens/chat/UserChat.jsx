@@ -5,6 +5,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+  KeyboardAvoidingView,
+  TextInput,
 } from "react-native";
 import { BackAction } from "../../components/backAction";
 import { ScreenNormalView, ScreenView } from "../../components/CustomView";
@@ -54,44 +56,65 @@ const UserChat = ({ route, navigation }) => {
         }
         alignment="start"
       />
-      <ScreenView>
-        <ScrollView>
-          {messages.map((message) => {
-            return (
-              <ChatBubble message={message.message} sender={message.sender} />
-            );
-          })}
-        </ScrollView>
-      </ScreenView>
-      <View>
-        <Input
-          style={{ marginHorizontal: 10, borderRadius: 20 }}
-          placeholder="Message"
-          accessoryRight={
-            <TouchableOpacity>
-              <Icon status="primary" name="paper-plane-outline" />
+      <KeyboardAvoidingView
+        keyboardVerticalOffset={47}
+        style={{ flex: 1 }}
+        behavior="padding"
+      >
+        <ScreenView>
+          <ScrollView style={{ flex: 1 }}>
+            {messages.map((message) => {
+              return (
+                <ChatBubble message={message.message} sender={message.sender} />
+              );
+            })}
+          </ScrollView>
+        </ScreenView>
+        <Layout
+          style={{
+            // shadowOpacity: 0.1,
+            // shadowRadius: 5,
+            // shadowOffset: { width: 0, height: 0 },
+            paddingVertical: 8,
 
+            borderStyle: "solid",
+            borderColor: theme["color-basic-400"],
+            borderTopWidth: 1,
+          }}
+        >
+          <View
+            style={{
+              gap: 10,
+              paddingHorizontal: 10,
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+          >
+            <Input
+              style={{ flex: 1, borderRadius: 20 }}
+              placeholder="Message"
+            />
+            <TouchableOpacity>
               <View
-                style={
-                  {
-                    // backgroundColor: theme["color-primary-500"],
-                    // borderRadius: 100,
-                    // flex: 1,
-                    // justifyContent: "center",
-                    // alignItems: "center",
-                  }
-                }
+                style={{
+                  backgroundColor: theme["color-primary-500"],
+                  height: 38,
+                  width: 38,
+                  borderRadius: 50,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
               >
-                {/* <Iconify
-                  size={20}
+                <Iconify
+                  size={25}
                   color={theme["color-basic-100"]}
                   icon="solar:arrow-up-linear"
-                /> */}
+                />
               </View>
             </TouchableOpacity>
-          }
-        />
-      </View>
+          </View>
+        </Layout>
+      </KeyboardAvoidingView>
     </ScreenNormalView>
   );
 };
