@@ -1,37 +1,52 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Image, ScrollView } from "react-native";
 import { FontAwesome5, Entypo, MaterialCommunityIcons } from '@expo/vector-icons';
 import { Avatar, Divider, TabView, Text, Button, Card } from "@ui-kitten/components";
 import { TopNavigation } from '@ui-kitten/components';
 import PostButtons from "../../components/buttons/postButtons";
 
-const posts = [
-  { id:"1", user:"Shrek", time:"a few minutes ago", image:"icon1", postImage:"image1", content:"Went back to the swamp with Fiona. It was fun!"},
-  { id:"2", user:"Jolene", time:"a few hours ago", image:"icon2", postImage:"", content:"Anyone in for the new hiking trail at Taronga Trail?"},
-  { id:"3", user:"Bob", time:"2 hours ago", image:"icon2", postImage:"", content:"Hi I'm new to SoSo"},
-]
-
-const imageMap = {
-  icon1: require('../../assets/images/feedIcon1.png'),
-  icon2: require('../../assets/images/feedIcon2.png'),
-  image1: require('../../assets/images/feedImage1.png'),
-};
-
 const Feed = ( {navigation, route} ) => {
-  if (!route || !route.params){
-    id = '';
-    text = '';
-  }
-  else{
-    id = route.params.userParams.id;
-    // console.log("id:", route.params.userParams.id);
-  }
-  // const { id = '', text = '' } = route.params ?? {};
+  const [posts, setPosts] = useState([
+    { id:"1", user:"Shrek", time:"a few minutes ago", image:"icon1", postImage:"image1", content:"Went back to the swamp with Fiona. It was fun!"},
+    { id:"2", user:"Jolene", time:"a few hours ago", image:"icon2", postImage:"", content:"Anyone in for the new hiking trail at Taronga Trail?"},
+    { id:"3", user:"Bob", time:"2 hours ago", image:"icon2", postImage:"", content:"Hi I'm new to SoSo"},
+  ])
+
+  const [imageMap, setImageMap] = useState({
+    icon1: require('../../assets/images/feedIcon1.png'),
+    icon2: require('../../assets/images/feedIcon2.png'),
+    image1: require('../../assets/images/feedImage1.png'),
+    icon3: require('../../assets/images/viewPostIcon1.png'),
+  });
+
+  useEffect(() => {
+    setPosts([
+      { id:"1", user:"Shrek", time:"a few minutes ago", image:"icon1", postImage:"image1", content:"Went back to the swamp with Fiona. It was fun!"},
+      { id:"2", user:"Jolene", time:"a few hours ago", image:"icon2", postImage:"", content:"Anyone in for the new hiking trail at Taronga Trail?"},
+      { id:"3", user:"Bob", time:"2 hours ago", image:"icon2", postImage:"", content:"Hi I'm new to SoSo"},
+    ]);
+    if (route && route.params) {
+      setPosts(currentPosts => [...currentPosts, {id:route.params.userParams.id, 
+        content:route.params.userParams.content, user:route.params.userParams.user, 
+        image:route.params.userParams.image, postImage:"image2", 
+        time:route.params.userParams.time}]);
+
+      const newImage = {
+        image2: {uri:route.params.userParams.postImage}
+      };
+
+      setImageMap(currentMap => ({
+        ...currentMap,
+        ...newImage,
+      }));
+    }
+    console.log("posts: ", posts);
+  }, [route]);
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}> 
         <Text category="h3" status="primary">
-          Feed{id}
+          Feed
         </Text>
         <View style={styles.iconsContainer}>
           <FontAwesome5 name="facebook-messenger" size={24} color="black" onPress={() => navigation.navigate('Chat')}/>
@@ -47,7 +62,6 @@ const Feed = ( {navigation, route} ) => {
                 <Avatar
                   source={imageMap[post.image]} 
                   style={styles.avatar}
-                  // size="large"
                 />
                 <View style={styles.textContainer}>
                   <Text category='s1'>{post.user}</Text>
@@ -83,7 +97,6 @@ export default Feed;
 
 const styles = StyleSheet.create({
   container: {
-    // flexDirection: 'row', 
     justifyContent:"flex-start",
     flex: 1,
     paddingHorizontal: 15, 
