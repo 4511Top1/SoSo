@@ -9,14 +9,40 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 // import { SafeAreaView } from "react-native-safe-area-context";
 
-
 import Home from "./screens/home";
 import Events from "./screens/events";
 import Feed from "./screens/feed/feed";
+
+// Chat
 import Chat from "./screens/Chat";
 import UserChat from "./screens/chat/UserChat";
+
+// User Profile
+import UserProfile from "./screens/profile/UserProfile";
+import MyUserProfile from "./screens/profile/MyUserProfile";
+
+// Menu
+import {
+  Friends,
+  AddFriends,
+  FriendRequest,
+  FriendSuggestion,
+  PastEvents,
+  Saved,
+  Settings,
+  MenuVerifyID,
+  IdentityVerification,
+  IdentityVerificationSuccess,
+  RegionLanguage,
+  DataPrivacy,
+  FAQ,
+  CustomerSupport,
+  TermsCondition,
+  EditPassword,
+} from "./screens/menu";
+
 import NewPost from "./screens/feed/newPost";
-import ViewPost from "./screens/viewPost"
+import ViewPost from "./screens/viewPost";
 import Notifications from "./screens/notifications/notifications";
 import Menu from "./screens/menu";
 import Login from "./screens/auth/login";
@@ -70,7 +96,7 @@ const BottomTabBar = ({ navigation, state }) => {
         icon={<Iconify size={25} icon="iconoir:chat-bubble-empty" />}
       />
       <BottomNavigationTab
-        title="Menus"
+        title="Menu"
         icon={<Iconify size={25} icon="solar:hamburger-menu-linear" />}
       />
     </BottomNavigation>
@@ -119,7 +145,34 @@ export const AppNavigator = () => {
         {/* Tabs */}
         <StackScreen name="Tabs" component={TabNavigator} />
 
+        {/* Users */}
         <StackScreen name="UserChat" component={UserChat} />
+        <StackScreen name="UserProfile" component={UserProfile} />
+        <StackScreen name="MyUserProfile" component={MyUserProfile} />
+
+        {/* Menu */}
+        <StackScreen name="Friends" component={Friends} />
+        <StackScreen name="PastEvents" component={PastEvents} />
+        <StackScreen name="Saved" component={Saved} />
+        <StackScreen name="Settings" component={Settings} />
+        <StackScreen name="MenuVerifyID" component={MenuVerifyID} />
+        <StackScreen
+          name="IdentityVerification"
+          component={IdentityVerification}
+        />
+        <StackScreen
+          name="IdentityVerificationSuccess"
+          component={IdentityVerificationSuccess}
+        />
+        <StackScreen name="RegionLanguage" component={RegionLanguage} />
+        <StackScreen name="DataPrivacy" component={DataPrivacy} />
+        <StackScreen name="FAQ" component={FAQ} />
+        <StackScreen name="CustomerSupport" component={CustomerSupport} />
+        <StackScreen name="TermsCondition" component={TermsCondition} />
+        <StackScreen name="EditPassword" component={EditPassword} />
+        <StackScreen name="AddFriends" component={AddFriends} />
+        <StackScreen name="FriendRequest" component={FriendRequest} />
+        <StackScreen name="FriendSuggestion" component={FriendSuggestion} />
       </StackNavigator>
     </SafeView>
   );
