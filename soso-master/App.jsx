@@ -3,8 +3,10 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { FirstLaunchProvider } from "./src/hook/FirstLaunchContext";
 import { AppNavigator } from "./src/AppNavigator";
-import { ApplicationProvider } from "@ui-kitten/components";
+import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
+import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import * as eva from "@eva-design/eva";
+import { default as mapping } from "@eva-design/eva/mapping.json";
 import { default as theme } from "./theme4.json";
 
 // const BottomTabBar = ({ navigation, state }) => {
@@ -70,7 +72,11 @@ import { default as theme } from "./theme4.json";
 export default function App() {
   return (
     <SafeAreaProvider>
-      <ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }}>
+      <ApplicationProvider
+        {...eva}
+        theme={{ ...eva.light, ...theme }}
+        customMapping={mapping}
+      >
         <NavigationContainer>
           <AppNavigator />
         </NavigationContainer>

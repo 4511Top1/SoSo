@@ -5,13 +5,18 @@ import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import { SafeView } from "./components/CustomView";
 import { SafeAreaView } from "react-native-safe-area-context";
+// import { SafeAreaView } from "react-native-safe-area-context";
+
+// import { SafeAreaView } from "react-native-safe-area-context";
 
 import Home from "./screens/home/home";
 import Events from "./screens/events";
 import Feed from "./screens/feed/feed";
 import Chat from "./screens/Chat";
+import UserChat from "./screens/chat/UserChat";
 import NewPost from "./screens/feed/newPost";
-import Notifications from "./screens/notifications";
+import ViewPost from "./screens/viewPost";
+import Notifications from "./screens/notifications/notifications";
 import Menu from "./screens/menu";
 import Login from "./screens/auth/login";
 import Register from "./screens/auth/register";
@@ -26,6 +31,11 @@ import Splash from "./screens/onboarding/splash";
 import SearchEvents from "./screens/events/SearchEvents";
 import SearchResults from "./screens/events/SearchResults";
 import Details from "./screens/events/Details";
+import FundEvent from "./screens/events/FundEvent";
+import FundSuccess from "./screens/events/FundSuccess";
+import RegisterEvent from "./screens/events/RegisterEvent";
+import RegistraionSuccess from "./screens/events/RegistrationSuccess";
+// import { SafeAreaView } from "react-native-safe-area-context";
 import Scanner from "./screens/home/scanner";
 
 const { Navigator, Screen } = createBottomTabNavigator();
@@ -83,10 +93,12 @@ const TabNavigator = () => (
 
 export const AppNavigator = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeView>
       <StackNavigator screenOptions={{ headerShown: false }}>
+        {/* Onboarding */}
         <StackScreen name="Splash" component={Splash} />
-        <StackScreen name="Tabs" component={TabNavigator} />
+
+        {/* Auth */}
         <StackScreen name="Login" component={Login} />
         <StackScreen name="Register" component={Register} />
         <StackScreen name="Reset" component={Reset} />
@@ -100,9 +112,10 @@ export const AppNavigator = () => {
         <StackScreen name="SearchResults" component={SearchResults} />
         <StackScreen name="Details" component={Details} />
         <StackScreen name="NewPost" component={NewPost} />
+        <StackScreen name="ViewPost" component={ViewPost} />
+        <StackScreen name="FundEvent" component={FundEvent} />
         <StackScreen name="Notification" component={Notifications} />
-        <StackScreen name="Scanner" component={Scanner} />
       </StackNavigator>
-    </SafeAreaView>
+    </SafeView>
   );
 };

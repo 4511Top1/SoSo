@@ -5,7 +5,6 @@ import {
   Text,
   Button,
   Input,
-  IconRegistry,
   Icon,
   Datepicker,
   TopNavigation,
@@ -22,31 +21,32 @@ import { BackAction } from "../../components/backAction";
 import { ScreenView } from "../../components/CustomView";
 import { EventCard } from "./EventCard";
 
-
 import TextDivider from "../../components/TextDivider";
 
 import FilterIconSvg from "../../assets/svg/filterIcon.svg";
-
 
 const eventDetails = [
   {
     title: "Who's That Kangaroo",
     dateTime: "WED, 28 OCT • 04:30 PM",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum.",
     locationName: "Taronga Zoo",
     imageUri: require("../../assets/images/SearchResultsImage1.png"),
   },
   {
     title: "Real Life Roo Sighting",
     dateTime: "WED, 28 OCT • 07:00 PM",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum.",
     locationName: "Dharawal National Park",
     imageUri: require("../../assets/images/SearchResultsImage2.png"),
   },
   {
     title: "Whinnie The Roo Musical",
     dateTime: "THU, 29 OCT • 05:00 PM",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum.",
     locationName: "Sydney Opera House",
     imageUri: require("../../assets/images/SearchResultsImage3.png"),
   },
@@ -88,7 +88,7 @@ const SearchResults = ({ navigation }) => {
   );
 
   const navigateToDetails = (event) => {
-    console.log('Navigating to details with event:', event);
+    console.log("Navigating to details with event:", event);
     navigation.navigate("Details", {
       event: event,
       fromScreen: "SearchResults",
@@ -110,7 +110,7 @@ const SearchResults = ({ navigation }) => {
         />
       ))}
       <TextDivider text="End of search results" />
-
+      {/* <FilterModal isVisible={isModalVisible} onClose={toggleModal} /> */}
       <View style={{ flex: 1 }}>
         <Modal
           isVisible={isModalVisible}
