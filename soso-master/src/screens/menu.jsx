@@ -23,7 +23,10 @@ import { Iconify } from "react-native-iconify";
 import Friends from "./menu/Friends";
 import Saved from "./menu/Saved";
 import PastEvents from "./menu/PastEvents";
-import MenuVerifyID, { IdentityVerification } from "./menu/VerifyID";
+import MenuVerifyID, {
+  IdentityVerification,
+  IdentityVerificationSuccess,
+} from "./menu/VerifyID";
 import Settings from "./menu/Settings";
 export {
   Friends,
@@ -31,6 +34,7 @@ export {
   PastEvents,
   MenuVerifyID,
   IdentityVerification,
+  IdentityVerificationSuccess,
   Settings,
 };
 

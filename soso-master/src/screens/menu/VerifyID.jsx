@@ -20,8 +20,10 @@ import {
 } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 
+// Sub-screens
 import IdentityVerification from "./verifyID/IdentityVerification";
-export { IdentityVerification };
+import IdentityVerificationSuccess from "./verifyID/IdentityVerificationSuccess";
+export { IdentityVerification, IdentityVerificationSuccess };
 
 const MenuVerifyID = ({ navigation, route }) => {
   return (

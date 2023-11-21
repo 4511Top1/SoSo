@@ -54,7 +54,13 @@ const IdentityVerification = ({ navigation, route }) => {
             </View>
           </View>
 
-          <Button>Submit</Button>
+          <Button
+            onPress={() => {
+              navigation.navigate("IdentityVerificationSuccess");
+            }}
+          >
+            Submit
+          </Button>
         </View>
       </ScreenView>
       {/* </ScrollView> */}
