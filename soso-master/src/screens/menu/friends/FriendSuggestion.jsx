@@ -94,7 +94,7 @@ const Suggestions = ({ navigation, route }) => {
 
   return (
     <View>
-      <Layout style={styles.based}>
+      <Layout style={styles.subHeader}>
         <Text category="h4" status="primary">
           Based on
         </Text>
@@ -249,7 +249,7 @@ const FriendSuggestion = ({ navigation, route }) => {
 export default FriendSuggestion;
 
 const styles = StyleSheet.create({
-  based: {
+  subHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",

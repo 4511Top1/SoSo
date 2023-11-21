@@ -27,19 +27,12 @@ import {
 const Requests = ({ navigation, route }) => {
   return (
     <View>
-      <Layout
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: 10,
-        }}
-      >
-        <Text category="h4" status="primary">
-          5 requests
-        </Text>
-      </Layout>
       <ScrollView style={styles.scroll}>
+        <Layout style={styles.subHeader}>
+          <Text category="h4" status="primary">
+            5 requests
+          </Text>
+        </Layout>
         <View style={{ gap: 10 }}>
           <FriendItemRequest
             username="Gary"
@@ -88,9 +81,7 @@ const FriendRequest = ({ navigation, route }) => {
         alignment="start"
       />
       <ScreenView>
-        <View style={{ gap: 22 }}>
-          <Requests navigation={navigation} />
-        </View>
+        <Requests navigation={navigation} />
       </ScreenView>
     </ScreenNormalView>
   );
@@ -99,6 +90,12 @@ const FriendRequest = ({ navigation, route }) => {
 export default FriendRequest;
 
 const styles = StyleSheet.create({
+  subHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 10,
+  },
   topNav: {
     zIndex: 1,
   },
