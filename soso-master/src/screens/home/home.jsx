@@ -448,7 +448,6 @@ const styles = StyleSheet.create({
     height: 113,
     top: 0,
     position: "absolute",
-    // alignContent: "space-around",
   },
   subject: {
     // width: 1,
