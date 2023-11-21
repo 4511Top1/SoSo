@@ -18,6 +18,15 @@ import UserChat from "./screens/chat/UserChat";
 import UserProfile from "./screens/profile/UserProfile";
 import MyUserProfile from "./screens/profile/MyUserProfile";
 
+// Menu
+import {
+  Friends,
+  PastEvents,
+  Saved,
+  Settings,
+  MenuVerifyID,
+} from "./screens/Menu";
+
 import NewPost from "./screens/feed/newPost";
 import Notifications from "./screens/notifications";
 import Menu from "./screens/Menu";
@@ -118,6 +127,13 @@ export const AppNavigator = () => {
         <StackScreen name="UserChat" component={UserChat} />
         <StackScreen name="UserProfile" component={UserProfile} />
         <StackScreen name="MyUserProfile" component={MyUserProfile} />
+
+        {/* Menu */}
+        <StackScreen name="Friends" component={Friends} />
+        <StackScreen name="PastEvents" component={PastEvents} />
+        <StackScreen name="Saved" component={Saved} />
+        <StackScreen name="Settings" component={Settings} />
+        <StackScreen name="MenuVerifyID" component={MenuVerifyID} />
       </StackNavigator>
     </SafeView>
   );

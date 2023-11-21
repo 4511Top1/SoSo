@@ -19,6 +19,14 @@ import {
 } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 
+// Sub-screens
+import Friends from "./menu/Friends";
+import Saved from "./menu/Saved";
+import PastEvents from "./menu/PastEvents";
+import MenuVerifyID from "./menu/VerifyID";
+import Settings from "./menu/Settings";
+export { Friends, Saved, PastEvents, MenuVerifyID, Settings };
+
 const ProfileCard = ({ username, navigation }) => {
   const theme = useTheme();
   return (
@@ -69,7 +77,12 @@ const ProfileCard = ({ username, navigation }) => {
 
 const MenuCard = ({ title, icon, navigation }) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity
+      onPress={() => {
+        const dest = title.replace(/ /g, "");
+        navigation.navigate(dest.includes("Verify") ? `Menu${dest}` : dest);
+      }}
+    >
       <Layout
         style={{
           width: 165,
@@ -112,56 +125,30 @@ const Menu = ({ navigation }) => {
         <View style={{ flexWrap: true, flexDirection: "row", gap: 20 }}>
           <MenuCard
             title="Friends"
-            icon={
-              <Iconify
-                size={40}
-                icon="solar:users-group-rounded-linear"
-                navigation={navigation}
-              />
-            }
+            icon={<Iconify size={40} icon="solar:users-group-rounded-linear" />}
+            navigation={navigation}
           />
           <MenuCard
             title="Saved"
-            icon={
-              <Iconify
-                size={40}
-                icon="fluent:bookmark-16-regular"
-                navigation={navigation}
-              />
-            }
+            icon={<Iconify size={40} icon="fluent:bookmark-16-regular" />}
+            navigation={navigation}
           />
           <MenuCard
             title="Past Events"
-            icon={
-              <Iconify
-                size={40}
-                icon="solar:calendar-date-linear"
-                navigation={navigation}
-              />
-            }
+            icon={<Iconify size={40} icon="solar:calendar-date-linear" />}
+            navigation={navigation}
           />
           <MenuCard
             title="Verify ID"
-            icon={
-              <Iconify
-                size={40}
-                icon="solar:shield-check-linear"
-                navigation={navigation}
-              />
-            }
+            icon={<Iconify size={40} icon="solar:shield-check-linear" />}
+            navigation={navigation}
           />
           <MenuCard
             title="Settings"
-            icon={
-              <Iconify
-                size={40}
-                icon="solar:settings-linear"
-                navigation={navigation}
-              />
-            }
+            icon={<Iconify size={40} icon="solar:settings-linear" />}
+            navigation={navigation}
           />
         </View>
-        {/* <ScrollView style={{ overflow: "visible" }}></ScrollView> */}
       </ScreenView>
     </ScreenNormalView>
   );
