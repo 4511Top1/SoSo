@@ -105,6 +105,7 @@ const SettingsCardList = ({ navigation, title, items }) => {
 };
 
 const Settings = ({ navigation, route }) => {
+  const theme = useTheme();
   return (
     <ScreenNormalView>
       <TopNavigation
@@ -121,7 +122,16 @@ const Settings = ({ navigation, route }) => {
       <ScrollView>
         <ScreenView>
           <View style={{ gap: 22 }}>
-            <Input placeholder="Search in settings" />
+            <Input
+              placeholder="Search in settings"
+              accessoryLeft={
+                <Iconify
+                  color={theme["color-basic-500"]}
+                  size={20}
+                  icon={"solar:minimalistic-magnifer-linear"}
+                />
+              }
+            />
             <SettingsCardList
               title="App settings"
               navigation={navigation}

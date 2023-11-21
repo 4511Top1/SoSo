@@ -109,8 +109,6 @@ const Chat = ({ navigation }) => {
                 />
               }
               placeholder="Search for messages"
-              // value={value}
-              // onChangeText={(nextValue) => setValue(nextValue)}
             />
             <TouchableOpacity>
               <Iconify size={30} icon={"fluent:chat-add-20-regular"} />
