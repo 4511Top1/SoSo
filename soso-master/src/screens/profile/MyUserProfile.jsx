@@ -1,30 +1,12 @@
 import React from "react";
-import {
-  ScrollView,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  KeyboardAvoidingView,
-  TextInput,
-} from "react-native";
+import { ScrollView, View } from "react-native";
+import { Text, Button, TopNavigation, Avatar } from "@ui-kitten/components";
 import { BackAction } from "../../components/backAction";
 import { ScreenNormalView, ScreenView } from "../../components/CustomView";
-import {
-  useTheme,
-  Text,
-  Layout,
-  Card,
-  Button,
-  TopNavigation,
-  Avatar,
-} from "@ui-kitten/components";
-import { Iconify } from "react-native-iconify";
 import { HorizontalLine, VerticalLine } from "../../components/Lines";
+import styles from "./UserProfileStyle";
 
 const MyUserProfile = ({ route, navigation }) => {
-  const theme = useTheme();
-
   const [description, setDescription] = React.useState(null);
   const [interest, setInterest] = React.useState("");
   const [image, setImage] = React.useState("");
@@ -131,33 +113,3 @@ const MyUserProfile = ({ route, navigation }) => {
 };
 
 export default MyUserProfile;
-
-const styles = StyleSheet.create({
-  name: {
-    textTransform: "capitalize",
-  },
-  avatarName: {
-    alignItems: "center",
-    marginBottom: 10,
-  },
-  avatar: {
-    width: 180,
-    height: 180,
-    marginBottom: 22,
-  },
-  stats: {
-    flexDirection: "row",
-    justifyContent: "center",
-    gap: 26,
-    paddingVertical: 10,
-  },
-  description: {
-    marginTop: 10,
-  },
-  detailContainer: {
-    gap: 22,
-  },
-  detail: {
-    gap: 10,
-  },
-});

@@ -1,32 +1,12 @@
 import React from "react";
-import {
-  ScrollView,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  KeyboardAvoidingView,
-  TextInput,
-} from "react-native";
+import { ScrollView, View } from "react-native";
+import { Text, TopNavigation, Avatar } from "@ui-kitten/components";
 import { BackAction } from "../../components/backAction";
 import { ScreenNormalView, ScreenView } from "../../components/CustomView";
-import {
-  useTheme,
-  Text,
-  Input,
-  Layout,
-  Card,
-  Button,
-  TopNavigation,
-  Icon,
-  Avatar,
-} from "@ui-kitten/components";
-import { Iconify } from "react-native-iconify";
-
 import { HorizontalLine, VerticalLine } from "../../components/Lines";
+import styles from "./UserProfileStyle";
 
 const UserProfile = ({ route, navigation }) => {
-  const theme = useTheme();
   const { username } = route.params;
   return (
     <ScreenNormalView>
@@ -42,8 +22,9 @@ const UserProfile = ({ route, navigation }) => {
         alignment="start"
       />
       <ScreenView>
-        <ScrollView style={{ flex: 1 }}>
-          <View style={{ alignItems: "center", marginBottom: 10 }}>
+        <ScrollView>
+          {/* Avatar */}
+          <View style={styles.avatarName}>
             <Avatar
               style={styles.avatar}
               source={require("../../assets/pfp/profile_placeholder.jpeg")}
@@ -52,35 +33,38 @@ const UserProfile = ({ route, navigation }) => {
               {username}
             </Text>
           </View>
+
+          {/* Stats */}
           <HorizontalLine />
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "center",
-              gap: 26,
-              paddingVertical: 10,
-            }}
-          >
+          <View style={styles.stats}>
             <Text>♥ 0 received</Text>
             <VerticalLine />
             <Text>0 events hosted</Text>
           </View>
           <HorizontalLine />
-          <View style={{ gap: 22 }}>
-            <Text style={{ marginTop: 10 }}>No description.</Text>
-            <View style={{ gap: 10 }}>
+
+          <View style={styles.detailContainer}>
+            {/* Description */}
+            <Text style={styles.description}>No description.</Text>
+
+            {/* Interests */}
+            <View style={styles.detail}>
               <Text category="h4" status="primary">
                 I am interested in
               </Text>
               <Text>Nothing.</Text>
             </View>
-            <View style={{ gap: 10 }}>
+
+            {/* Events Hosted */}
+            <View style={styles.detail}>
               <Text category="h4" status="primary">
                 I have hosted
               </Text>
               <Text>Nothing.</Text>
             </View>
-            <View style={{ gap: 10 }}>
+
+            {/* Events Attended */}
+            <View style={styles.detail}>
               <Text category="h4" status="primary">
                 I have attended
               </Text>
@@ -94,14 +78,3 @@ const UserProfile = ({ route, navigation }) => {
 };
 
 export default UserProfile;
-
-const styles = StyleSheet.create({
-  name: {
-    textTransform: "capitalize",
-  },
-  avatar: {
-    width: 180,
-    height: 180,
-    marginBottom: 22,
-  },
-});
