@@ -17,6 +17,9 @@ import {
   Card,
   TopNavigation,
   Button,
+  Tab,
+  TabView,
+  ViewPager,
 } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import {
@@ -25,37 +28,206 @@ import {
 } from "../../../components/FriendCard";
 
 const Suggestions = ({ navigation, route }) => {
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [friends, setFriends] = React.useState([
+    {
+      username: "Sherlock",
+      subtitle: "past activities",
+      specific: "Summer Moon",
+    },
+    {
+      username: "Hanzo",
+      subtitle: "past activities",
+      specific: "Summer Moon",
+    },
+    {
+      username: "Kiriko",
+      subtitle: "past activities",
+      specific: "Summer Moon",
+    },
+    {
+      username: "Hammond",
+      subtitle: "past activities",
+      specific: "Hiking Everest Until Dawn",
+    },
+    {
+      username: "Sigma",
+      subtitle: "past activities",
+      specific: "Hiking Everest Until Dawn",
+    },
+    {
+      username: "Holmes",
+      subtitle: "interests",
+      specific: "Hiking",
+    },
+    {
+      username: "Repear",
+      subtitle: "interests",
+      specific: "Movies",
+    },
+    {
+      username: "Holmes",
+      subtitle: "interests",
+      specific: "Gaming",
+    },
+    {
+      username: "Holmes",
+      subtitle: "interests",
+      specific: "Gaming",
+    },
+    {
+      username: "Genji",
+      subtitle: "MBTI",
+      specific: "ESFJ",
+    },
+    {
+      username: "Brigitte",
+      subtitle: "MBTI",
+      specific: "INFJ",
+    },
+    {
+      username: "Torbjorn",
+      subtitle: "MBTI",
+      specific: "INFJ",
+    },
+  ]);
+
   return (
     <View>
-      <View
+      <Layout
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
-          marginBottom: 10,
+          zIndex: 1,
+          // marginBottom: 10,
         }}
       >
         <Text category="h4" status="primary">
-          Suggestions
+          Based on
         </Text>
-      </View>
-      <View style={{ gap: 10 }}>
-        <FriendItemSuggestion
-          username="Sherlock"
-          subtitle="past activities"
-          navigation={navigation}
-        />
-        <FriendItemSuggestion
-          username="Holmes"
-          subtitle="interests"
-          navigation={navigation}
-        />
-        <FriendItemSuggestion
-          username="Torbjorn"
-          subtitle="MBTI"
-          navigation={navigation}
-        />
-      </View>
+      </Layout>
+
+      <Layout style={{ paddingRight: "40%", marginBottom: 10, zIndex: 1 }}>
+        <ViewPager
+          selectedIndex={selectedIndex}
+          onSelect={(index) => setSelectedIndex(index)}
+          swipeEnabled={false}
+        >
+          <Layout>
+            <TouchableOpacity onPress={() => setSelectedIndex(0)}>
+              <Text
+                category="h4"
+                appearance={selectedIndex == 0 ? "basic" : "hint"}
+              >
+                everything
+              </Text>
+            </TouchableOpacity>
+          </Layout>
+          <TouchableOpacity onPress={() => setSelectedIndex(1)}>
+            <Text
+              category="h4"
+              appearance={selectedIndex == 1 ? "basic" : "hint"}
+            >
+              interests
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => setSelectedIndex(2)}>
+            <Text
+              category="h4"
+              appearance={selectedIndex == 2 ? "basic" : "hint"}
+            >
+              past activities
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => setSelectedIndex(2)}>
+            <Text
+              category="h4"
+              appearance={selectedIndex == 3 ? "basic" : "hint"}
+            >
+              MBTI
+            </Text>
+          </TouchableOpacity>
+        </ViewPager>
+      </Layout>
+
+      <ViewPager
+        selectedIndex={selectedIndex}
+        onSelect={(index) => setSelectedIndex(index)}
+        style={{ overflow: "visible" }}
+      >
+        <Layout style={styles.tab}>
+          <ScrollView style={styles.scroll}>
+            <View style={styles.list}>
+              {friends.map((friend, index) => {
+                return (
+                  <FriendItemSuggestion
+                    key={index}
+                    username={friend.username}
+                    subtitle={friend.subtitle}
+                    navigation={navigation}
+                  />
+                );
+              })}
+            </View>
+          </ScrollView>
+        </Layout>
+
+        <Layout style={styles.tab}>
+          <ScrollView style={styles.scroll}>
+            <View style={styles.list}>
+              {friends
+                .filter((friend) => friend.subtitle == "interests")
+                .map((friend, index) => {
+                  return (
+                    <FriendItemSuggestion
+                      key={index}
+                      username={friend.username}
+                      specific={friend.specific}
+                      navigation={navigation}
+                    />
+                  );
+                })}
+            </View>
+          </ScrollView>
+        </Layout>
+        <Layout style={styles.tab}>
+          <ScrollView style={styles.scroll}>
+            <View style={styles.list}>
+              {friends
+                .filter((friend) => friend.subtitle == "past activities")
+                .map((friend, index) => {
+                  return (
+                    <FriendItemSuggestion
+                      key={index}
+                      username={friend.username}
+                      specific={friend.specific}
+                      navigation={navigation}
+                    />
+                  );
+                })}
+            </View>
+          </ScrollView>
+        </Layout>
+        <Layout style={styles.tab}>
+          <ScrollView style={styles.scroll}>
+            <View style={styles.list}>
+              {friends
+                .filter((friend) => friend.subtitle == "MBTI")
+                .map((friend, index) => {
+                  return (
+                    <FriendItemSuggestion
+                      key={index}
+                      username={friend.username}
+                      specific={friend.specific}
+                      navigation={navigation}
+                    />
+                  );
+                })}
+            </View>
+          </ScrollView>
+        </Layout>
+      </ViewPager>
     </View>
   );
 };
@@ -64,6 +236,7 @@ const FriendSuggestion = ({ navigation, route }) => {
   return (
     <ScreenNormalView>
       <TopNavigation
+        style={{ zIndex: 1 }}
         accessoryLeft={<BackAction navigation={navigation} />}
         title={
           <View>
@@ -74,15 +247,29 @@ const FriendSuggestion = ({ navigation, route }) => {
         }
         alignment="start"
       />
-      <ScrollView>
-        <ScreenView>
-          <View style={{ gap: 22 }}>
-            <Suggestions navigation={navigation} />
-          </View>
-        </ScreenView>
-      </ScrollView>
+
+      <ScreenView>
+        <Suggestions navigation={navigation} />
+      </ScreenView>
     </ScreenNormalView>
   );
 };
 
 export default FriendSuggestion;
+
+const styles = StyleSheet.create({
+  tab: {
+    height: "92%",
+    marginRight: 20,
+    overflow: "visible",
+  },
+  list: {
+    gap: 10,
+    paddingBottom: 10,
+    overflow: "visible",
+  },
+  scroll: {
+    overflow: "visible",
+    zIndex: 1,
+  },
+});

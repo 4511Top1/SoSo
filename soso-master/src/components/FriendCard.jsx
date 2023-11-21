@@ -71,11 +71,16 @@ export const FriendItemRequest = ({ username, subtitle, navigation }) => {
   );
 };
 
-export const FriendItemSuggestion = ({ username, subtitle, navigation }) => {
+export const FriendItemSuggestion = ({
+  username,
+  subtitle,
+  specific,
+  navigation,
+}) => {
   return (
     <FriendCard
       username={username}
-      subtitle={`Based on ${subtitle}`}
+      subtitle={specific ? specific : `Based on ${subtitle}`}
       navigation={navigation}
       extra={
         <View style={{ flexDirection: "row", gap: 15 }}>
