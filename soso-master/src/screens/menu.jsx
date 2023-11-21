@@ -20,7 +20,11 @@ import {
 import { Iconify } from "react-native-iconify";
 
 // Sub-screens
-import Friends from "./menu/Friends";
+import Friends, {
+  AddFriends,
+  FriendRequest,
+  FriendSuggestion,
+} from "./menu/Friends";
 import Saved from "./menu/Saved";
 import PastEvents from "./menu/PastEvents";
 import MenuVerifyID, {
@@ -37,6 +41,9 @@ import Settings, {
 } from "./menu/Settings";
 export {
   Friends,
+  AddFriends,
+  FriendRequest,
+  FriendSuggestion,
   Saved,
   PastEvents,
   MenuVerifyID,

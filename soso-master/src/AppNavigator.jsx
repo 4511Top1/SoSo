@@ -21,6 +21,9 @@ import MyUserProfile from "./screens/profile/MyUserProfile";
 // Menu
 import {
   Friends,
+  AddFriends,
+  FriendRequest,
+  FriendSuggestion,
   PastEvents,
   Saved,
   Settings,
@@ -156,6 +159,9 @@ export const AppNavigator = () => {
         <StackScreen name="CustomerSupport" component={CustomerSupport} />
         <StackScreen name="TermsCondition" component={TermsCondition} />
         <StackScreen name="EditPassword" component={EditPassword} />
+        <StackScreen name="AddFriends" component={AddFriends} />
+        <StackScreen name="FriendRequest" component={FriendRequest} />
+        <StackScreen name="FriendSuggestion" component={FriendSuggestion} />
       </StackNavigator>
     </SafeView>
   );
