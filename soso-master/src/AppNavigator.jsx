@@ -115,6 +115,11 @@ export const AppNavigator = () => {
         <StackScreen name="ViewPost" component={ViewPost} />
         <StackScreen name="FundEvent" component={FundEvent} />
         <StackScreen name="Notification" component={Notifications} />
+        <StackScreen name="Scanner" component={Scanner} />
+
+        {/* Tabs */}
+        <StackScreen name="Tabs" component={TabNavigator} />
+        <StackScreen name="UserChat" component={UserChat} />
       </StackNavigator>
     </SafeView>
   );
