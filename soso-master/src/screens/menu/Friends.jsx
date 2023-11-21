@@ -28,7 +28,13 @@ export { AddFriends, FriendRequest, FriendSuggestion };
 
 const FriendItem = ({ username, year, navigation }) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate("UserProfile", {
+          username: username,
+        });
+      }}
+    >
       <Layout
         style={{
           flexDirection: "row",
@@ -89,11 +95,27 @@ const Friends = ({ navigation, route }) => {
               Your friends
             </Text>
             <View style={{ gap: 10 }}>
-              <FriendItem username="Vincent" year={2023} />
-              <FriendItem username="Ralph" year={2023} />
-              <FriendItem username="Mary" year={2022} />
-              <FriendItem username="Bella" year={2021} />
-              <FriendItem username="Edward" year={2019} />
+              <FriendItem
+                username="Vincent"
+                year={2023}
+                navigation={navigation}
+              />
+              <FriendItem
+                username="Ralph"
+                year={2023}
+                navigation={navigation}
+              />
+              <FriendItem username="Mary" year={2022} navigation={navigation} />
+              <FriendItem
+                username="Bella"
+                year={2021}
+                navigation={navigation}
+              />
+              <FriendItem
+                username="Edward"
+                year={2019}
+                navigation={navigation}
+              />
             </View>
           </View>
         </ScreenView>
