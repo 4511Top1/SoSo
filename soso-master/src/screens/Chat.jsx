@@ -84,7 +84,6 @@ const Chat = ({ navigation }) => {
                 />
               }
               placeholder="Search for messages"
-              onChangeText={(nextValue) => setValue(nextValue)}
             />
             <TouchableOpacity>
               <Iconify size={30} icon={"fluent:chat-add-20-regular"} />
@@ -122,5 +121,28 @@ const styles = StyleSheet.create({
   list: {
     gap: 15,
     marginVertical: 20,
+  },
+  card: {
+    flex: 1,
+    backgroundColor: "white",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+
+    // borderStyle: "solid",
+    // borderWidth: 1,
+    borderRadius: 15,
+
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    shadowOffset: { width: 0, height: 4 },
+    // borderColor: "#ccc",
+  },
+  info: {
+    flex: 1,
+    gap: 5,
   },
 });
