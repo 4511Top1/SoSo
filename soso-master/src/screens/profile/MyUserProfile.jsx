@@ -34,7 +34,7 @@ const MyUserProfile = ({ route, navigation }) => {
         title={
           <View>
             <Text category="h2" status="primary">
-              Profile
+              My Profile
             </Text>
           </View>
         }
