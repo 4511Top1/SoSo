@@ -27,7 +27,14 @@ import MenuVerifyID, {
   IdentityVerification,
   IdentityVerificationSuccess,
 } from "./menu/VerifyID";
-import Settings from "./menu/Settings";
+import Settings, {
+  RegionLanguage,
+  DataPrivacy,
+  FAQ,
+  CustomerSupport,
+  TermsCondition,
+  EditPassword,
+} from "./menu/Settings";
 export {
   Friends,
   Saved,
@@ -36,6 +43,12 @@ export {
   IdentityVerification,
   IdentityVerificationSuccess,
   Settings,
+  RegionLanguage,
+  DataPrivacy,
+  FAQ,
+  CustomerSupport,
+  TermsCondition,
+  EditPassword,
 };
 
 const ProfileCard = ({ username, navigation }) => {

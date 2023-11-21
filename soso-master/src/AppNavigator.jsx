@@ -27,6 +27,12 @@ import {
   MenuVerifyID,
   IdentityVerification,
   IdentityVerificationSuccess,
+  RegionLanguage,
+  DataPrivacy,
+  FAQ,
+  CustomerSupport,
+  TermsCondition,
+  EditPassword,
 } from "./screens/Menu";
 
 import NewPost from "./screens/feed/newPost";
@@ -144,6 +150,12 @@ export const AppNavigator = () => {
           name="IdentityVerificationSuccess"
           component={IdentityVerificationSuccess}
         />
+        <StackScreen name="RegionLanguage" component={RegionLanguage} />
+        <StackScreen name="DataPrivacy" component={DataPrivacy} />
+        <StackScreen name="FAQ" component={FAQ} />
+        <StackScreen name="CustomerSupport" component={CustomerSupport} />
+        <StackScreen name="TermsCondition" component={TermsCondition} />
+        <StackScreen name="EditPassword" component={EditPassword} />
       </StackNavigator>
     </SafeView>
   );
