@@ -23,9 +23,16 @@ import { Iconify } from "react-native-iconify";
 import Friends from "./menu/Friends";
 import Saved from "./menu/Saved";
 import PastEvents from "./menu/PastEvents";
-import MenuVerifyID from "./menu/VerifyID";
+import MenuVerifyID, { IdentityVerification } from "./menu/VerifyID";
 import Settings from "./menu/Settings";
-export { Friends, Saved, PastEvents, MenuVerifyID, Settings };
+export {
+  Friends,
+  Saved,
+  PastEvents,
+  MenuVerifyID,
+  IdentityVerification,
+  Settings,
+};
 
 const ProfileCard = ({ username, navigation }) => {
   const theme = useTheme();

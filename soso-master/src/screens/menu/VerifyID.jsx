@@ -20,6 +20,9 @@ import {
 } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 
+import IdentityVerification from "./verifyID/IdentityVerification";
+export { IdentityVerification };
+
 const MenuVerifyID = ({ navigation, route }) => {
   return (
     <ScreenNormalView>
@@ -73,7 +76,13 @@ const MenuVerifyID = ({ navigation, route }) => {
             </View>
           </View>
           <View style={{ gap: 10 }}>
-            <Button>Verify</Button>
+            <Button
+              onPress={() => {
+                navigation.navigate("IdentityVerification");
+              }}
+            >
+              Verify
+            </Button>
             <Button
               appearance="ghost"
               status="basic"

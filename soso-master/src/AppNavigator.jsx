@@ -25,6 +25,7 @@ import {
   Saved,
   Settings,
   MenuVerifyID,
+  IdentityVerification,
 } from "./screens/Menu";
 
 import NewPost from "./screens/feed/newPost";
@@ -134,6 +135,10 @@ export const AppNavigator = () => {
         <StackScreen name="Saved" component={Saved} />
         <StackScreen name="Settings" component={Settings} />
         <StackScreen name="MenuVerifyID" component={MenuVerifyID} />
+        <StackScreen
+          name="IdentityVerification"
+          component={IdentityVerification}
+        />
       </StackNavigator>
     </SafeView>
   );
