@@ -9,7 +9,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 // import { SafeAreaView } from "react-native-safe-area-context";
 
-import Home from "./screens/home";
+import Home from "./screens/home/home";
 import Events from "./screens/events";
 import Feed from "./screens/feed/feed";
 import Chat from "./screens/Chat";
@@ -31,6 +31,7 @@ import Splash from "./screens/onboarding/splash";
 import SearchEvents from "./screens/events/SearchEvents";
 import SearchResults from "./screens/events/SearchResults";
 import Details from "./screens/events/Details";
+import Scanner from "./screens/home/scanner";
 import FundEvent from "./screens/events/FundEvent";
 import FundSuccess from "./screens/events/FundSuccess";
 import RegisterEvent from "./screens/events/RegisterEvent";
@@ -127,6 +128,7 @@ export const AppNavigator = () => {
         <StackScreen name="Tabs" component={TabNavigator} />
 
         <StackScreen name="UserChat" component={UserChat} />
+        <StackScreen name="Scanner" component={Scanner} />
       </StackNavigator>
     </SafeView>
   );
