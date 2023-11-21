@@ -24,36 +24,33 @@ const Chat = ({ navigation }) => {
   const theme = useTheme();
   const [chatList, setChatList] = React.useState([
     {
-      id: 1,
       name: "mary",
       messages: [
-        { id: 0, sender: 1, message: "what are you up to?" },
-        { id: 1, sender: 0, message: "i'm catching the bus right now" },
-        { id: 2, sender: 0, message: "talk to you later!" },
+        { sender: 1, message: "what are you up to?" },
+        { sender: 0, message: "i'm catching the bus right now" },
+        { sender: 0, message: "talk to you later!" },
       ],
     },
     {
-      id: 2,
       name: "bob",
       messages: [
-        { id: 0, sender: 1, message: "cool!" },
-        { id: 1, sender: 0, message: "i'm going to go to the grocer" },
-        { id: 2, sender: 0, message: "byeeeee" },
+        { sender: 1, message: "cool!" },
+        { sender: 0, message: "i'm going to go to the grocer" },
+        { sender: 0, message: "byeeeee" },
       ],
     },
     {
-      id: 3,
       name: "ralph",
       messages: [
-        { id: 0, sender: 0, message: "wow" },
-        { id: 1, sender: 1, message: "wow" },
-        { id: 2, sender: 1, message: "thanks i had fun!" },
-        { id: 3, sender: 0, message: "me too! are your legs ok?" },
-        { id: 4, sender: 1, message: "yeah" },
-        { id: 5, sender: 0, message: "should we go for a second round" },
-        { id: 6, sender: 1, message: "u know what..." },
-        { id: 7, sender: 1, message: "let's do something!" },
-        { id: 8, sender: 0, message: "sure!" },
+        { sender: 0, message: "wow" },
+        { sender: 1, message: "wow" },
+        { sender: 1, message: "thanks i had fun!" },
+        { sender: 0, message: "me too! are your legs ok?" },
+        { sender: 1, message: "yeah" },
+        { sender: 0, message: "should we go for a second round" },
+        { sender: 1, message: "u know what..." },
+        { sender: 1, message: "let's do something!" },
+        { sender: 0, message: "sure!" },
       ],
     },
   ]);
@@ -91,9 +88,9 @@ const Chat = ({ navigation }) => {
           </View>
 
           <View style={styles.list}>
-            {chatList.map((item) => (
+            {chatList.map((item, index) => (
               <ChatListItem
-                key={item.id}
+                key={index}
                 username={item.name}
                 messages={item.messages}
                 lastMessage={item.messages.at(-1).message}
