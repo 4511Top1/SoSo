@@ -52,7 +52,7 @@ const Details = ({ navigation, route }) => {
       fromScreen: "Details",
     });
   };
-  
+
   const renderBookmarkIcon = (props) => (
     <TouchableOpacity onPress={toggleBookmark}>
       {isBookmarked ? (
@@ -306,12 +306,7 @@ const styles = StyleSheet.create({
     marginLeft: "auto", // Push the goal text to the end of the progress bar
     marginRight: 10, // Spacing from the right edge of the progress bar
   },
-  bookmarked: {
-    tintColor: "purple", // Or any color when the item is bookmarked
-  },
-  notBookmarked: {
-    tintColor: "gray", // Or any color when the item is not bookmarked
-  },
+
   text: {
     marginLeft: 8,
   },
