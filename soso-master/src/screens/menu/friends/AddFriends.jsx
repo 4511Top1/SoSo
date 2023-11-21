@@ -115,6 +115,7 @@ const Suggestions = ({ navigation, route }) => {
     </View>
   );
 };
+
 const AddFriends = ({ navigation, route }) => {
   return (
     <ScreenNormalView>
