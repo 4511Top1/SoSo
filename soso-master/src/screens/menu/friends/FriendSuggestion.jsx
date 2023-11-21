@@ -94,21 +94,13 @@ const Suggestions = ({ navigation, route }) => {
 
   return (
     <View>
-      <Layout
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          zIndex: 1,
-          // marginBottom: 10,
-        }}
-      >
+      <Layout style={styles.based}>
         <Text category="h4" status="primary">
           Based on
         </Text>
       </Layout>
 
-      <Layout style={{ paddingRight: "40%", marginBottom: 10, zIndex: 1 }}>
+      <Layout style={styles.tabName}>
         <ViewPager
           selectedIndex={selectedIndex}
           onSelect={(index) => setSelectedIndex(index)}
@@ -140,7 +132,7 @@ const Suggestions = ({ navigation, route }) => {
               past activities
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => setSelectedIndex(2)}>
+          <TouchableOpacity onPress={() => setSelectedIndex(3)}>
             <Text
               category="h4"
               appearance={selectedIndex == 3 ? "basic" : "hint"}
@@ -154,7 +146,6 @@ const Suggestions = ({ navigation, route }) => {
       <ViewPager
         selectedIndex={selectedIndex}
         onSelect={(index) => setSelectedIndex(index)}
-        style={{ overflow: "visible" }}
       >
         <Layout style={styles.tab}>
           <ScrollView style={styles.scroll}>
@@ -236,7 +227,7 @@ const FriendSuggestion = ({ navigation, route }) => {
   return (
     <ScreenNormalView>
       <TopNavigation
-        style={{ zIndex: 1 }}
+        style={styles.topNav}
         accessoryLeft={<BackAction navigation={navigation} />}
         title={
           <View>
@@ -258,6 +249,21 @@ const FriendSuggestion = ({ navigation, route }) => {
 export default FriendSuggestion;
 
 const styles = StyleSheet.create({
+  based: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    zIndex: 1,
+  },
+
+  topNav: {
+    zIndex: 1,
+  },
+  tabName: {
+    paddingRight: "40%",
+    marginBottom: 10,
+    zIndex: 1,
+  },
   tab: {
     height: "92%",
     marginRight: 20,
@@ -270,6 +276,6 @@ const styles = StyleSheet.create({
   },
   scroll: {
     overflow: "visible",
-    zIndex: 1,
+    zIndex: -1,
   },
 });
