@@ -23,33 +23,7 @@ import {
 } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 
-const VerticalLine = () => {
-  const theme = useTheme();
-
-  return (
-    <View
-      style={{
-        height: "100%",
-        borderStyle: "solid",
-        borderWidth: 0.5,
-        borderColor: theme["color-basic-500"],
-      }}
-    />
-  );
-};
-
-const HorizontalLine = () => {
-  const theme = useTheme();
-  return (
-    <View
-      style={{
-        borderStyle: "solid",
-        borderWidth: 0.5,
-        borderColor: theme["color-basic-500"],
-      }}
-    />
-  );
-};
+import { HorizontalLine, VerticalLine } from "../../components/Lines";
 
 const UserProfile = ({ route, navigation }) => {
   const theme = useTheme();
@@ -71,10 +45,10 @@ const UserProfile = ({ route, navigation }) => {
         <ScrollView style={{ flex: 1 }}>
           <View style={{ alignItems: "center", marginBottom: 10 }}>
             <Avatar
-              size="giant"
+              style={styles.avatar}
               source={require("../../assets/pfp/profile_placeholder.jpeg")}
             />
-            <Text category="h3" style={style.name} status="primary">
+            <Text category="h3" style={styles.name} status="primary">
               {username}
             </Text>
           </View>
@@ -121,8 +95,13 @@ const UserProfile = ({ route, navigation }) => {
 
 export default UserProfile;
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   name: {
     textTransform: "capitalize",
+  },
+  avatar: {
+    width: 180,
+    height: 180,
+    marginBottom: 22,
   },
 });
