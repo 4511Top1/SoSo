@@ -15,7 +15,8 @@ import Feed from "./screens/feed/feed";
 import Chat from "./screens/Chat";
 import UserChat from "./screens/chat/UserChat";
 import NewPost from "./screens/feed/newPost";
-import ViewPost from "./screens/viewPost";
+import ViewPost from "./screens/feed/viewPost";
+import ReplyComment from "./screens/feed/replyComments";
 import Notifications from "./screens/notifications/notifications";
 import Menu from "./screens/menu";
 import Login from "./screens/auth/login";
@@ -113,6 +114,7 @@ export const AppNavigator = () => {
         <StackScreen name="Details" component={Details} />
         <StackScreen name="NewPost" component={NewPost} />
         <StackScreen name="ViewPost" component={ViewPost} />
+        <StackScreen name="replyComment" component={ReplyComment} />
         <StackScreen name="FundEvent" component={FundEvent} />
         <StackScreen name="Notification" component={Notifications} />
         <StackScreen name="Scanner" component={Scanner} />

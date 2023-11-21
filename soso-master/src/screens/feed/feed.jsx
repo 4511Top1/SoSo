@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Image, ScrollView } from "react-native";
+import { StyleSheet, View, Image, ScrollView, Pressable } from "react-native";
 import {
   FontAwesome5,
   Entypo,
@@ -82,7 +82,11 @@ const Feed = ({ navigation, route }) => {
 
       <ScrollView style={{ paddingHorizontal: 0 }}>
         {posts.map((post) => (
-          <View key={post.id} style={styles.post}>
+          <Pressable
+            key={post.id}
+            style={styles.post}
+            onPress={() => navigation.navigate("ViewPost")}
+          >
             <View style={styles.nameTag}>
               <View style={{ flexDirection: "row" }}>
                 <Avatar
@@ -119,7 +123,7 @@ const Feed = ({ navigation, route }) => {
                 <PostButtons />
               </View>
             </View>
-          </View>
+          </Pressable>
         ))}
       </ScrollView>
     </View>

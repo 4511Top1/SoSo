@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Avatar, Divider, Text } from "@ui-kitten/components";
@@ -51,9 +51,9 @@ const ViewPost = ({ navigation }) => {
           <Avatar
             source={require("../../assets/images/notificationIcon1.png")}
             style={styles.avatar}
-            size="large"
+            size="medium"
           />
-          <View style={styles.commnetContent}>
+          <View style={styles.commentContent}>
             <Text category="h6" status="primary">
               Vincent
             </Text>
@@ -62,10 +62,25 @@ const ViewPost = ({ navigation }) => {
             </Text>
           </View>
         </View>
-        <Pressable
-          style={styles.replyButton}
-          onPress={() => navigation.navigate("replyComment")}
-        >
+        <Pressable style={styles.replyButton}>
+          <Text category="label" status="primary">
+            Reply ⏎
+          </Text>
+        </Pressable>
+        <View style={styles.reply}>
+          <Avatar
+            source={require("../../assets/images/viewPostIcon1.png")}
+            style={styles.avatar}
+            size="medium"
+          />
+          <View style={styles.commentContent}>
+            <Text category="h6" status="primary">
+              Zoe
+            </Text>
+            <Text category="p1">It's near our favourite pizzeria!</Text>
+          </View>
+        </View>
+        <Pressable style={styles.replyButton}>
           <Text category="label" status="primary">
             Reply ⏎
           </Text>
@@ -127,7 +142,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     paddingVertical: 5,
   },
-  commnetContent: {
+  commentContent: {
     borderRadius: 15,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
@@ -143,5 +158,10 @@ const styles = StyleSheet.create({
   replyButton: {
     justifyContent: "center",
     alignItems: "flex-end",
+  },
+  reply: {
+    flexDirection: "row",
+    paddingVertical: 5,
+    marginLeft: 50,
   },
 });
