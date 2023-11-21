@@ -1,24 +1,8 @@
 import React from "react";
-import {
-  ScrollView,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from "react-native";
+import { View, StyleSheet } from "react-native";
 import { BackAction } from "../../components/backAction";
 import { ScreenNormalView, ScreenView } from "../../components/CustomView";
-import {
-  Avatar,
-  useTheme,
-  Text,
-  Input,
-  Layout,
-  Card,
-  TopNavigation,
-  Button,
-} from "@ui-kitten/components";
-import { Iconify } from "react-native-iconify";
+import { Text, TopNavigation, Button } from "@ui-kitten/components";
 
 // Sub-screens
 import IdentityVerification from "./verifyID/IdentityVerification";
@@ -39,7 +23,6 @@ const MenuVerifyID = ({ navigation, route }) => {
         }
         alignment="start"
       />
-      {/* <ScrollView> */}
       <ScreenView>
         <View style={{ gap: 22, marginTop: 20 }}>
           <View>
@@ -97,7 +80,6 @@ const MenuVerifyID = ({ navigation, route }) => {
           </View>
         </View>
       </ScreenView>
-      {/* </ScrollView> */}
     </ScreenNormalView>
   );
 };
