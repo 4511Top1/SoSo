@@ -40,7 +40,6 @@ const Details = ({ navigation, route }) => {
   const { fromScreen, event } = route.params;
   const imageUri = require("../../assets/images/DetailsImage1.png");
   const fullText = event.description;
-  
 
   const toggleBookmark = () => {
     setIsBookmarked(!isBookmarked);
@@ -53,6 +52,32 @@ const Details = ({ navigation, route }) => {
       fromScreen: "Details",
     });
   };
+  
+  const renderBookmarkIcon = (props) => (
+    <TouchableOpacity onPress={toggleBookmark}>
+      {isBookmarked ? (
+        <Iconify
+          color={theme["color-primary-500"]}
+          size={27}
+          icon={"iconoir:bookmark-solid"}
+          style={[
+            styles.bookmarkIcon,
+            isBookmarked ? styles.bookmarked : styles.notBookmarked,
+          ]}
+        />
+      ) : (
+        <Iconify
+          color={theme["color-primary-500"]}
+          size={27}
+          icon={"iconoir:bookmark"}
+          style={[
+            styles.bookmarkIcon,
+            isBookmarked ? styles.bookmarked : styles.notBookmarked,
+          ]}
+        />
+      )}
+    </TouchableOpacity>
+  );
 
   const getDisplayedText = (text) => {
     if (isExpanded) {
@@ -83,17 +108,7 @@ const Details = ({ navigation, route }) => {
             <Text category="h4" status="primary">
               Winnie The Roo Musical
             </Text>
-            <TouchableOpacity onPress={toggleBookmark}>
-              <Iconify
-                color={theme["color-primary-500"]}
-                size={27}
-                icon={"iconoir:bookmark"}
-                style={[
-                  styles.bookmarkIcon,
-                  isBookmarked ? styles.bookmarked : styles.notBookmarked,
-                ]}
-              />
-            </TouchableOpacity>
+            {renderBookmarkIcon()}
           </View>
 
           <View style={styles.content}>
@@ -169,9 +184,11 @@ const Details = ({ navigation, route }) => {
                 size={21}
                 icon={"iconoir:coin"}
               />
-              <ProgressBar  />
+              <ProgressBar />
             </Layout>
-            <Text category="s1"style={styles.similarTitle} >Similar Events</Text>
+            <Text category="s1" style={styles.similarTitle}>
+              Similar Events
+            </Text>
             <EventCard event={event} onPress={() => {}} />
           </View>
           <Button
@@ -273,7 +290,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#D6D6D6", // Light grey color for the unfilled part of the progress bar
     borderRadius: 15,
     overflow: "hidden", // Ensur
-    marginLeft:10,
+    marginLeft: 10,
   },
   filledProgressBar: {
     backgroundColor: "#775987", // Purple color for the filled part
@@ -302,7 +319,7 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     // color: "#775987",
   },
-  similarTitle:{
-    marginTop:22,
-  }
+  similarTitle: {
+    marginTop: 22,
+  },
 });

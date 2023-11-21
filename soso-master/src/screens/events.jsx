@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View, TouchableOpacity } from "react-native";
 import {
   ButtonGroup,
   Text,
@@ -14,8 +14,6 @@ import { useTheme } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import DiscoveryWeekly from "./events/DiscoveryWeekly";
 import Trending from "./events/Trending";
-
-const SearchIcon = (props) => <Icon {...props} name="search" />;
 
 const eventData = [
   {
@@ -75,6 +73,11 @@ const Events = ({ navigation }) => {
   const theme = useTheme();
   const inputRef = useRef(null);
   const [value, setValue] = React.useState("");
+  const [events, setEvents] = React.useState(eventData);
+
+  const addEvent = (newEvent) => {
+    setEvents([...events, newEvent]);
+  };
 
   const handleFocus = () => {
     navigation.navigate("SearchEvents");
@@ -85,9 +88,22 @@ const Events = ({ navigation }) => {
 
   return (
     <ScreenView>
-      <Text category="h2" status="primary">
+      <Layout style={styles.title}>
+        {/* <BackAction navigation={navigation} /> */}
+        <Text category="h2" status="primary">
+          Events
+        </Text>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate("CreateEvent", { onEventCreated: addEvent })
+          }
+        >
+          <Iconify icon="solar:calendar-add-linear" size={34} />
+        </TouchableOpacity>
+      </Layout>
+      {/* <Text category="h2" status="primary" >
         Events
-      </Text>
+      </Text> */}
       <Input
         placeholder="Search"
         value={value}
@@ -130,5 +146,10 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
+  },
+  title: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 });

@@ -28,10 +28,10 @@ const RegistrationSuccess = ({ navigation }) => {
   return (
     <ScreenView>
       <View style={styles.container}>
-        <Text category="h6" status="primary">
+        <Text category="h5" status="primary" style={styles.title}>
           Registration complete!
         </Text>
-        <Text>
+        <Text style={styles.subTitle}>
           You can now view your event and ticket under upcoming events!
         </Text>
         <RegistrationSuccessIcon style={styles.svg} />
@@ -39,7 +39,14 @@ const RegistrationSuccess = ({ navigation }) => {
           <Button style={styles.viewEventButton} onPress={toggleModal}>
             View ticket
           </Button>
-          <Button style={styles.viewEventButton}>Browse other events</Button>
+          <Button
+            style={styles.browseEventButton}
+            onPress={() => {
+              navigation.pop(1);
+            }}
+          >
+            Browse other events
+          </Button>
         </Layout>
       </View>
       <View style={{ flex: 1 }}>
@@ -84,7 +91,14 @@ const RegistrationSuccess = ({ navigation }) => {
                 <Text category="p1">Sydney Opera House</Text>
               </Layout>
             </Layout>
-            <Button style={styles.button}>View event</Button>
+            <Button
+              style={styles.button}
+              onPress={() => {
+                navigation.pop(2);
+              }}
+            >
+              View event
+            </Button>
           </View>
         </Modal>
       </View>
@@ -95,7 +109,11 @@ export default RegistrationSuccess;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 104,
     backgroundColor: "#fff",
+  },
+  title: {
+    textAlign: "center",
   },
   text: {
     // color:"43007C",
@@ -108,15 +126,20 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: 52,
   },
+  subTitle: {
+    textAlign: "center",
+  },
   buttonGroup: {
     flex: 1,
     // justifyContent: "center",
     alignItems: "center",
   },
   viewEventButton: {
+    marginTop: 35,
+    backgroundColor: "#C870FF",
+    padding: 10,
+    borderRadius: 15,
     width: 271,
-    height: 38,
-    marginTop: 20,
   },
   modal: {
     justifyContent: "flex-end",
@@ -162,5 +185,12 @@ const styles = StyleSheet.create({
     marginTop: 20,
     borderRadius: 15,
     backgroundColor: "#4D4352",
+  },
+  browseEventButton: {
+    marginTop: 20,
+    backgroundColor: "#4D4352",
+    padding: 10,
+    borderRadius: 15,
+    width: 271,
   },
 });
