@@ -84,6 +84,7 @@ const SearchEvents = ({ navigation }) => {
           data={data}
           ItemSeparatorComponent={Divider}
           renderItem={renderItem}
+          style={styles.list}
         />
       </View>
     </ScreenView>
@@ -102,5 +103,9 @@ const styles = StyleSheet.create({
   },
   historyItem: {
     marginLeft: 10,
+  },
+  list: {
+    flex: 1,
+    backgroundColor:"#fff"
   },
 });

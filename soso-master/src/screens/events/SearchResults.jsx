@@ -13,6 +13,7 @@ import {
   List,
   ListItem,
   Divider,
+  useTheme,
 } from "@ui-kitten/components";
 import Modal from "react-native-modal";
 import { Iconify } from "react-native-iconify";
@@ -20,9 +21,7 @@ import { Iconify } from "react-native-iconify";
 import { BackAction } from "../../components/backAction";
 import { ScreenView } from "../../components/CustomView";
 import { EventCard } from "./EventCard";
-
 import TextDivider from "../../components/TextDivider";
-
 import FilterIconSvg from "../../assets/svg/filterIcon.svg";
 
 const eventDetails = [
@@ -66,6 +65,7 @@ const SearchResults = ({ navigation }) => {
   const [time, setTime] = React.useState("");
   const [isModalVisible, setModalVisible] = React.useState(false);
   const [filteredEvents, setFilteredEvents] = React.useState(eventDetails);
+  const theme = useTheme();
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -100,7 +100,7 @@ const SearchResults = ({ navigation }) => {
       <TopNavigation title={renderTitle} alignment="start" />
       <Layout style={styles.container}>
         <Text category="h4">Results for "kangaroo"</Text>
-        <FilterIcon onPress={toggleModal} style={styles.filterButton} />
+        <FilterIcon onPress={toggleModal} />
       </Layout>
       {filteredEvents.map((event, index) => (
         <EventCard
@@ -118,26 +118,51 @@ const SearchResults = ({ navigation }) => {
           onBackdropPress={toggleModal}
         >
           <View style={styles.modalContent}>
-            <Text category="h4">Filter Search results</Text>
-            <Input
-              placeholder="Location"
-              value={location}
-              onChangeText={setLocation}
-              style={styles.input}
-              accessoryLeft={renderLocationIcon}
-            />
-            <Datepicker
-              date={date}
-              onSelect={setDate}
-              style={styles.input}
-              placeholder="Pick Date"
-            />
-            <Input
-              placeholder="Time"
-              value={time}
-              onChangeText={setTime}
-              style={styles.input}
-            />
+            <Text category="h4" status="primary">
+              Filter Search results
+            </Text>
+            <View style={styles.inputContainer}>
+              <Input
+                placeholder="Location"
+                value={location}
+                onChangeText={setLocation}
+                style={styles.input}
+                accessoryLeft={
+                  <Iconify
+                    color={theme["color-primary-500"]}
+                    size={27}
+                    icon={"fluent:location-20-regular"}
+                  />
+                }
+              />
+              <Datepicker
+                // date={date}
+                onSelect={setDate}
+                style={styles.input}
+                placeholder="Pick Date"
+                accessoryLeft={
+                  <Iconify
+                    color={theme["color-primary-500"]}
+                    size={27}
+                    icon={"fluent:calendar-20-regular"}
+                  />
+                }
+              />
+              <Input
+                placeholder="Time"
+                value={time}
+                onChangeText={setTime}
+                style={styles.input}
+                accessoryLeft={
+                  <Iconify
+                    color={theme["color-primary-500"]}
+                    size={27}
+                    icon={"fluent:clock-20-regular"}
+                  />
+                }
+              />
+            </View>
+
             <View style={styles.buttonGroup}>
               <Button onPress={toggleModal} style={styles.button}>
                 Reset
@@ -157,14 +182,14 @@ export default SearchResults;
 
 const styles = StyleSheet.create({
   container: {
+    justifyContent: "space-between",
+    alignItems: "center",
     flexDirection: "row",
   },
-  filterButton: {
-    position: "absolute",
-    top: 0,
-    right: 0,
+  inputContainer: {
+    marginTop: 2,
+    marginBottom: 30,
   },
-
   modal: {
     justifyContent: "flex-end",
     margin: 0,
@@ -176,7 +201,10 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 17,
   },
   input: {
-    marginBottom: 10,
+    borderRadius: 10,
+    border: "1px solid rgba(77, 67, 82, 0.15)",
+    marginTop: 20,
+    // marginBottom: 10,
   },
   buttonGroup: {
     flexDirection: "row",

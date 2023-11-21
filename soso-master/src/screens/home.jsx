@@ -157,14 +157,14 @@ const Home = ({ navigation }) => {
         <View>
           {/* <Text>I am home page!</Text>
           {isFirstLaunch && <Text>This is the first launch!</Text>} */}
-          <Button
+          {/* <Button
             title="Click me to login"
             onPress={() => navigation.navigate("Login")}
           ></Button>
           <Button
             title="Click me to launch"
             onPress={() => navigation.navigate("Splash")}
-          ></Button>
+          ></Button> */}
           <StatusBar style="auto" />
         </View>
       </ScrollView>

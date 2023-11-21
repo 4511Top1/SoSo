@@ -115,7 +115,7 @@ export const AppNavigator = () => {
         <StackScreen name="ViewPost" component={ViewPost} />
         <StackScreen name="FundEvent" component={FundEvent} />
         <StackScreen name="Notification" component={Notifications} />
-
+        <StackScreen name="FundSuccess" component={FundSuccess} />
         {/* Tabs */}
         <StackScreen name="Tabs" component={TabNavigator} />
 
