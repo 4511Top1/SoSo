@@ -9,14 +9,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 // import { SafeAreaView } from "react-native-safe-area-context";
 
-
 import Home from "./screens/home";
 import Events from "./screens/events";
 import Feed from "./screens/feed/feed";
 import Chat from "./screens/Chat";
 import UserChat from "./screens/chat/UserChat";
 import NewPost from "./screens/feed/newPost";
-import ViewPost from "./screens/viewPost"
+import ViewPost from "./screens/viewPost";
 import Notifications from "./screens/notifications/notifications";
 import Menu from "./screens/menu";
 import Login from "./screens/auth/login";
@@ -35,7 +34,7 @@ import Details from "./screens/events/Details";
 import FundEvent from "./screens/events/FundEvent";
 import FundSuccess from "./screens/events/FundSuccess";
 import RegisterEvent from "./screens/events/RegisterEvent";
-import RegistraionSuccess from "./screens/events/RegistrationSuccess";
+import RegistrationSuccess from "./screens/events/RegistrationSuccess";
 // import { SafeAreaView } from "react-native-safe-area-context";
 
 const { Navigator, Screen } = createBottomTabNavigator();
@@ -113,9 +112,17 @@ export const AppNavigator = () => {
         <StackScreen name="Details" component={Details} />
         <StackScreen name="NewPost" component={NewPost} />
         <StackScreen name="ViewPost" component={ViewPost} />
-        <StackScreen name="FundEvent" component={FundEvent} />
         <StackScreen name="Notification" component={Notifications} />
+
+        {/* Event */}
+        <StackScreen name="FundEvent" component={FundEvent} />
         <StackScreen name="FundSuccess" component={FundSuccess} />
+        <StackScreen name="RegisterEvent" component={RegisterEvent} />
+        <StackScreen
+          name="RegistrationSuccess"
+          component={RegistrationSuccess}
+        />
+
         {/* Tabs */}
         <StackScreen name="Tabs" component={TabNavigator} />
 

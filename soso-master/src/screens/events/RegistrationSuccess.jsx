@@ -8,7 +8,7 @@ import { StyleSheet } from "react-native";
 import { ScreenView } from "../../components/CustomView";
 import RegistrationSuccessIcon from "../../assets/svg/SuccessRegistraionIcon.svg";
 import QRCode from "../../assets/images/QRCode.png";
-const RegistraionSuccess = ({ navigation }) => {
+const RegistrationSuccess = ({ navigation }) => {
   const theme = useTheme();
   const [email, setEmail] = React.useState("");
   const [isModalVisible, setModalVisible] = React.useState(false);
@@ -91,7 +91,7 @@ const RegistraionSuccess = ({ navigation }) => {
     </ScreenView>
   );
 };
-export default RegistraionSuccess;
+export default RegistrationSuccess;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
   },
   dateAndLocation: {
     alignSelf: "flex-start",
-    alignItems: 'flex-start',
+    alignItems: "flex-start",
   },
   button: {
     width: 271,
@@ -162,7 +162,5 @@ const styles = StyleSheet.create({
     marginTop: 20,
     borderRadius: 15,
     backgroundColor: "#4D4352",
-
-
-  }
+  },
 });
