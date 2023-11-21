@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import {
   ButtonGroup,
   Text,
@@ -13,6 +13,7 @@ import { ScreenView } from "../components/CustomView";
 import { useTheme } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import DiscoveryWeekly from "./events/DiscoveryWeekly";
+import Trending from "./events/Trending";
 
 const SearchIcon = (props) => <Icon {...props} name="search" />;
 
@@ -34,6 +35,39 @@ const eventData = [
       "Join us for a relaxing session of yoga in the park every Saturday morning.",
     image: require("../assets/images/Marathon.png"),
     location: "Central Park",
+  },
+  {
+    id: "event3",
+    title: "Community Yoga",
+    date: "SUN, 29 SEP 04:30 PM",
+    subtitle:
+      "Join us for a relaxing session of yoga in the park every Saturday morning.",
+    image: require("../assets/images/Marathon.png"),
+    location: "Central Park",
+  },
+];
+
+const treandingData = [
+  {
+    id: "event1",
+    title: "Who's That Kangaroo",
+    date: "WED, 28 OCT 04:30 PM",
+    location: "Taronga Zoo",
+    image: require("../assets/images/EventImage1.png"),
+  },
+  {
+    id: "event2",
+    title: "Let's Eat Purple Tree",
+    date: "WED, 28 OCT 04:30 PM",
+    location: "UNSW",
+    image: require("../assets/images/EventImage2.png"),
+  },
+  {
+    id: "event3",
+    title: "Elephant Appreciation",
+    date: "WED, 28 OCT 04:30 PM",
+    location: "Taronga Zoo",
+    image: require("../assets/images/EventImage3.png"),
   },
 ];
 
@@ -69,10 +103,20 @@ const Events = ({ navigation }) => {
         onFocus={handleFocus}
         ref={inputRef}
       />
-      <Text category="h4" style={{ marginTop: 20 }}>
-        Discovery weekly
-      </Text>
-      <DiscoveryWeekly data={eventData} />
+      <ScrollView>
+        <Text category="h4" status="primary" style={{ marginTop: 20 }}>
+          Discovery weekly
+        </Text>
+        <DiscoveryWeekly data={eventData} />
+        <Text category="h4" status="primary" style={{ marginTop: 20 }}>
+          Trending near you
+        </Text>
+        <Trending data={treandingData} />
+        <Text category="h4" status="primary" style={{ marginTop: 20 }}>
+          Based on your last event
+        </Text>
+        <Trending data={treandingData} />
+      </ScrollView>
     </ScreenView>
   );
 };

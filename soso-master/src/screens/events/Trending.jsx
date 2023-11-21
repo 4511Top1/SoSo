@@ -15,7 +15,7 @@ import { useTheme } from "@ui-kitten/components";
 
 const { width } = Dimensions.get("window");
 
-const DiscoveryWeekly = ({ data }) => {
+const Trending = ({ data }) => {
   const theme = useTheme();
   const [currentIndex, setCurrentIndex] = React.useState(0);
   const [isBookmarked, setIsBookmarked] = React.useState(false);
@@ -103,8 +103,8 @@ const DiscoveryWeekly = ({ data }) => {
 const styles = StyleSheet.create({
   container: {},
   card: {
-    width: width - 60,
-    height: 370,
+    width: width - 130,
+    height: 331,
     marginRight: 25,
     flexDirection: "column",
     borderRadius: 15,
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   cardContent: {
     borderWidth: 0,
     borderRadius: 15,
-    height: 363,
+    height: 326,
     // overflow: "hidden",
     shadowOpacity: 0.1,
     shadowRadius: 3,
@@ -179,4 +179,4 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
 });
-export default DiscoveryWeekly;
+export default Trending;

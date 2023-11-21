@@ -32,6 +32,7 @@ const data = [
 ];
 
 const SearchEvents = ({ navigation }) => {
+  const [value, setValue] = React.useState("");
   const theme = useTheme();
 
   const renderItemAccessory = (props) => (
@@ -67,13 +68,13 @@ const SearchEvents = ({ navigation }) => {
     </Layout>
   );
 
-  const [value, setValue] = React.useState("");
+
   return (
     <ScreenView>
       <View style={styles.container}>
         <TopNavigation title={renderTitle} alignment="start" />
         <Input
-          placeholder="Search"
+          placeholder="Search for events"
           value={value}
           onChangeText={(nextValue) => setValue(nextValue)}
           accessoryRight={renderDeleteIcon}
@@ -92,7 +93,9 @@ export default SearchEvents;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "",
+    // flexDirection:"last-baseline"
+    // justifyContent: "flex-start",
   },
   historyList: {
     flexDirection: "row",

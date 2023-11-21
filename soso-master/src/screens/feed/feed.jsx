@@ -29,7 +29,7 @@ const Feed = ( {navigation, route} ) => {
   // const { id = '', text = '' } = route.params ?? {};
   return (
     <View style={styles.container}>
-      <View style={styles.topContainer}> 
+      <View style={styles.topContainer}>
         <Text category="h3" status="primary">
           Feed{id}
         </Text>
@@ -45,7 +45,7 @@ const Feed = ( {navigation, route} ) => {
             <View style={styles.nameTag}>
               <View style={ {flexDirection:"row"}}>
                 <Avatar
-                  source={imageMap[post.image]} 
+                  source={imageMap[post.image]}
                   style={styles.avatar}
                   // size="large"
                 />
@@ -83,26 +83,26 @@ export default Feed;
 
 const styles = StyleSheet.create({
   container: {
-    // flexDirection: 'row', 
+    // flexDirection: 'row',
     justifyContent:"flex-start",
     flex: 1,
-    paddingHorizontal: 15, 
+    paddingHorizontal: 15,
     backgroundColor: "#fff",
   },
 
   topContainer:{
     flexDirection:"row",
-    justifyContent: 'space-between', 
-    alignItems: 'center', 
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 
   avatar:{
-    height:50, 
-    width:50, 
+    height:50,
+    width:50,
   },
 
   iconsContainer: {
-    flexDirection: 'row', 
+    flexDirection: 'row',
     justifyContent:"space-between",
     width: 60,
     alignItems:"center",
