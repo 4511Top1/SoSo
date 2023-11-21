@@ -187,7 +187,7 @@ const Details = ({ navigation, route }) => {
               <ProgressBar />
             </Layout>
             <Text category="s1" style={styles.similarTitle}>
-              Similar Events
+              Similar events
             </Text>
             <EventCard event={event} onPress={() => {}} />
           </View>
@@ -197,12 +197,12 @@ const Details = ({ navigation, route }) => {
           >
             Fund
           </Button>
-          <Button
+          {/* <Button
             style={styles.fundButton}
             onPress={() => navigation.navigate("RegisterEvent")}
           >
             Register
-          </Button>
+          </Button> */}
         </View>
       </ScrollView>
     </ScreenNormalView>

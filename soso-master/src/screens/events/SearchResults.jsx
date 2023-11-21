@@ -88,7 +88,7 @@ const SearchResults = ({ navigation }) => {
   );
 
   const navigateToDetails = (event) => {
-    console.log("Navigating to details with event:", event);
+    // console.log("Navigating to details with event:", event);
     navigation.navigate("Details", {
       event: event,
       fromScreen: "SearchResults",

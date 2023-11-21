@@ -119,13 +119,11 @@ const RegisterEvent = ({ navigation }) => {
         >
           I agree to Terms of Service
         </CheckBox>
-        <Button style={styles.button}>
-          <Text
-            style={styles.fundText}
-            onPress={() => navigation.navigate("RegistrationSuccess")}
-          >
-            Register
-          </Text>
+        <Button
+          style={styles.button}
+          onPress={() => navigation.navigate("RegistrationSuccess")}
+        >
+          <Text style={styles.fundText}>Register</Text>
         </Button>
       </View>
     </ScreenView>

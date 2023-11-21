@@ -49,7 +49,7 @@ const FundEvent = ({ navigation, route }) => {
   );
 
   const navigateToSuccess = (event) => {
-    console.log("Navigating to success with event:", event);
+    // console.log("Navigating to success with event:", event);
     navigation.navigate("FundSuccess", {
       event: event,
       fromScreen: "FundEvent",

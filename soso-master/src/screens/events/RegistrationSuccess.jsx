@@ -42,11 +42,28 @@ const RegistrationSuccess = ({ navigation }) => {
           <Button
             style={styles.browseEventButton}
             onPress={() => {
-              navigation.pop(1);
+              console.log("Navigating to browse events");
+              navigation.navigation("Tabs");
             }}
           >
             Browse other events
           </Button>
+           {/* <Button
+            style={styles.viewEventButton}
+            onPress={() => {
+              navigation.pop(2);
+            }}
+          >
+            View event
+          </Button>
+          <Button
+            style={styles.browseEventButton}
+            onPress={() => {
+              navigation.pop(5);
+            }}
+          >
+            Browse other events
+          </Button> */}
         </Layout>
       </View>
       <View style={{ flex: 1 }}>
@@ -181,7 +198,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 271,
-    height: 38,
+    height: 50,
     marginTop: 20,
     borderRadius: 15,
     backgroundColor: "#4D4352",
