@@ -17,6 +17,7 @@ import UserChat from "./screens/chat/UserChat";
 // User Profile
 import UserProfile from "./screens/profile/UserProfile";
 import MyUserProfile from "./screens/profile/MyUserProfile";
+import MyUserProfileEdit from "./screens/profile/MyUserProfileEdit";
 
 // Menu
 import {
@@ -112,6 +113,9 @@ export const AppNavigator = () => {
   return (
     <SafeView>
       <StackNavigator screenOptions={{ headerShown: false }}>
+        {/* Tabs */}
+        <StackScreen name="Tabs" component={TabNavigator} />
+
         {/* Onboarding */}
         <StackScreen name="Splash" component={Splash} />
 
@@ -131,13 +135,11 @@ export const AppNavigator = () => {
         <StackScreen name="NewPost" component={NewPost} />
         <StackScreen name="Notification" component={Notifications} />
 
-        {/* Tabs */}
-        <StackScreen name="Tabs" component={TabNavigator} />
-
         {/* Users */}
         <StackScreen name="UserChat" component={UserChat} />
         <StackScreen name="UserProfile" component={UserProfile} />
         <StackScreen name="MyUserProfile" component={MyUserProfile} />
+        <StackScreen name="MyUserProfileEdit" component={MyUserProfileEdit} />
 
         {/* Menu */}
         <StackScreen name="Friends" component={Friends} />
@@ -145,6 +147,8 @@ export const AppNavigator = () => {
         <StackScreen name="Saved" component={Saved} />
         <StackScreen name="Settings" component={Settings} />
         <StackScreen name="MenuVerifyID" component={MenuVerifyID} />
+
+        {/* Menu: Verify ID */}
         <StackScreen
           name="IdentityVerification"
           component={IdentityVerification}
@@ -153,12 +157,16 @@ export const AppNavigator = () => {
           name="IdentityVerificationSuccess"
           component={IdentityVerificationSuccess}
         />
+
+        {/* Menu: Settings */}
         <StackScreen name="RegionLanguage" component={RegionLanguage} />
         <StackScreen name="DataPrivacy" component={DataPrivacy} />
         <StackScreen name="FAQ" component={FAQ} />
         <StackScreen name="CustomerSupport" component={CustomerSupport} />
         <StackScreen name="TermsCondition" component={TermsCondition} />
         <StackScreen name="EditPassword" component={EditPassword} />
+
+        {/* Menu: Friends */}
         <StackScreen name="AddFriends" component={AddFriends} />
         <StackScreen name="FriendRequest" component={FriendRequest} />
         <StackScreen name="FriendSuggestion" component={FriendSuggestion} />
