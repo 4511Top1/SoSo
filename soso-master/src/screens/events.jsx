@@ -122,7 +122,7 @@ const Events = ({ navigation }) => {
                  Do you want to host an event?
                 </Text>
                 <Layout style={{ paddingVertical: 20, paddingHorizontal: 20 }}>
-                  <Text category="s1">If you want to support this event</Text>
+                  <Text category="s1">If you want to host an event</Text>
                   <Text style={{ marginTop: 10 }} category="s1">
                     Please click{" "}{" "}
                     <Iconify icon="solar:calendar-add-linear" size={20} /> {" "}to
