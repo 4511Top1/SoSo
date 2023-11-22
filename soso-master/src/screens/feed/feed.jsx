@@ -15,6 +15,7 @@ import {
 } from "@ui-kitten/components";
 import { TopNavigation } from "@ui-kitten/components";
 import PostButtons from "../../components/buttons/postButtons";
+import { Iconify } from "react-native-iconify";
 
 const Feed = ({ navigation, route }) => {
   const [posts, setPosts] = useState([
@@ -115,10 +116,9 @@ const Feed = ({ navigation, route }) => {
             color="black"
             onPress={() => navigation.navigate("Chat")}
           />
-          <Entypo
-            name="new-message"
-            size={24}
-            color="black"
+          <Iconify
+            icon="solar:document-add-linear"
+            size={28}
             onPress={() => navigation.navigate("NewPost")}
           />
         </View>
@@ -181,20 +181,20 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
 
-  topContainer:{
-    flexDirection:"row",
-    justifyContent: 'space-between',
-    alignItems: 'center',
+  topContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 
-  avatar:{
-    height:50,
-    width:50,
+  avatar: {
+    height: 50,
+    width: 50,
   },
 
   iconsContainer: {
-    flexDirection: 'row',
-    justifyContent:"space-between",
+    flexDirection: "row",
+    justifyContent: "space-between",
     width: 60,
     alignItems: "center",
   },

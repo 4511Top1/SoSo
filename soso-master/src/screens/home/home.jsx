@@ -6,10 +6,14 @@ import {
   Image,
   ScrollView,
   Pressable,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import { Layout, Tab, TabView, Text, useTheme } from "@ui-kitten/components";
-import { MaterialCommunityIcons, SimpleLineIcons } from "@expo/vector-icons";
+import {
+  MaterialCommunityIcons,
+  SimpleLineIcons,
+  Entypo,
+} from "@expo/vector-icons";
 import Modal from "react-native-modal";
 import { Iconify } from "react-native-iconify";
 import { StatusBar } from "expo-status-bar";
@@ -27,6 +31,34 @@ const ProgressBar = () => {
       </View>
       <Text style={styles.goalText}>/ $10000</Text>
     </Layout>
+  );
+};
+
+const MenuCard = ({ title, icon, navigation, dest }) => {
+  return (
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate(dest);
+      }}
+    >
+      <Layout
+        style={{
+          width: 165,
+          height: 80,
+          justifyContent: "center",
+          gap: 3,
+          paddingHorizontal: 15,
+          paddingVertical: 5,
+          borderRadius: 15,
+          shadowOpacity: 0.1,
+          shadowRadius: 3,
+          shadowOffset: { width: 0, height: 4 },
+        }}
+      >
+        {icon}
+        <Text category="s1">{title}</Text>
+      </Layout>
+    </TouchableOpacity>
   );
 };
 
@@ -69,28 +101,56 @@ const Home = ({ navigation }) => {
         </View>
       </View>
 
-      <View style={styles.quickMatch}>
-        <Text category="h4">Quick Matching</Text>
-        <View style={styles.twoButton}>
-          <Pressable style={styles.matchButton}>
-            <Iconify size={30} icon="solar:calendar-outline" />
-            <Text category="h6">Quick Event Matching</Text>
-          </Pressable>
-          <Pressable style={styles.matchButton}>
-            <Iconify size={30} icon="solar:users-group-rounded-linear" />
-            <Text category="h6">Quick User Matching</Text>
-          </Pressable>
-        </View>
-      </View>
-
       <ScrollView keyboardShouldPersistTaps="handled">
-        <View>
+        <View style={styles.quickMatch}>
+          <Text category="h4" status="primary">
+            Snap 'n Go
+          </Text>
+          <View style={styles.twoButton}>
+            <MenuCard
+              title="Quick Event Matching"
+              icon={<Iconify size={40} icon="solar:calendar-outline" />}
+              navigation={navigation}
+              dest="DetailsRegist"
+            />
+            <MenuCard
+              title="Quick User Matching"
+              icon={
+                <Iconify size={40} icon="solar:users-group-rounded-linear" />
+              }
+              navigation={navigation}
+              dest="MyUserProfile"
+            />
+            <MenuCard
+              title="Create New Event"
+              icon={<Iconify icon="solar:calendar-add-linear" size={40} />}
+              navigation={navigation}
+              dest="CreateEvent"
+            />
+            <MenuCard
+              title="Create New Post"
+              icon={<Iconify icon="solar:document-add-linear" size={40} />}
+              navigation={navigation}
+              dest="NewPost"
+            />
+          </View>
+        </View>
+        <View style={styles.tab}>
+          <Text category="h4" status="primary">
+            Your events
+          </Text>
           <TabView
             selectedIndex={selectedIndex}
             shouldLoadComponent={shouldLoadComponent}
             onSelect={(index) => setSelectedIndex(index)}
           >
-            <Tab title="Your upcoming events">
+            <Tab
+              title={(evaProps) => (
+                <Text {...evaProps} style={[evaProps.style, styles.tabTitle]}>
+                  Upcoming
+                </Text>
+              )}
+            >
               <Layout style={styles.tabContainer}>
                 <Pressable style={styles.card} onClick={() => {}}>
                   <View style={styles.info}>
@@ -127,10 +187,6 @@ const Home = ({ navigation }) => {
                     />
                   </View>
                 </Pressable>
-              </Layout>
-            </Tab>
-            <Tab title="Events you've funded">
-              <Layout style={styles.tabContainer}>
                 <Pressable
                   style={[styles.card, styles.cardShadowBox]}
                   onClick={() => navigation.navigate("Details")}
@@ -153,6 +209,54 @@ const Home = ({ navigation }) => {
                         <Pressable
                           style={[styles.pressable, styles.center2FlexBox]}
                           onClick={() => {}}
+                        >
+                          <Text category="s1" status="control">
+                            View ticket
+                          </Text>
+                        </Pressable>
+                      </View>
+                    </View>
+                  </View>
+                  <View style={styles.chevron}>
+                    <SimpleLineIcons
+                      name="arrow-right"
+                      size={24}
+                      color="grey"
+                    />
+                  </View>
+                </Pressable>
+              </Layout>
+            </Tab>
+            <Tab
+              title={(evaProps) => (
+                <Text {...evaProps} style={[evaProps.style, styles.tabTitle]}>
+                  Funded
+                </Text>
+              )}
+            >
+              <Layout style={styles.tabContainer}>
+                <Pressable
+                  style={[styles.card, styles.cardShadowBox]}
+                  onClick={() => navigation.navigate("Details")}
+                >
+                  <View style={styles.info}>
+                    <View style={[styles.date, styles.dateSpaceBlock]}>
+                      <Text category="h4" status="control">
+                        12
+                      </Text>
+                      <Text category="h4" status="control">
+                        Dec
+                      </Text>
+                    </View>
+                    <View style={styles.content}>
+                      <View style={styles.subject}>
+                        <Text category="p2">SUN, 3:00 PM</Text>
+                        <Text category="h6">Sea-labration!</Text>
+                      </View>
+                      <View style={styles.options}>
+                        <Pressable
+                          style={[styles.pressable, styles.center2FlexBox]}
+                          onPress={() => navigation.navigate("DetailsRegist")}
                         >
                           <Text category="s1" status="control">
                             Registration Open!
@@ -202,7 +306,13 @@ const Home = ({ navigation }) => {
                 </Pressable>
               </Layout>
             </Tab>
-            <Tab title="Events you're hosting">
+            <Tab
+              title={(evaProps) => (
+                <Text {...evaProps} style={[evaProps.style, styles.tabTitle]}>
+                  Hosting
+                </Text>
+              )}
+            >
               <Layout style={styles.tabContainer}>
                 <Pressable style={styles.card} onClick={() => {}}>
                   <View style={styles.info}>
@@ -228,6 +338,44 @@ const Home = ({ navigation }) => {
                             Fully Funded!
                           </Text>
                         </TouchableOpacity>
+                      </View>
+                    </View>
+                  </View>
+                  <View style={styles.chevron}>
+                    <SimpleLineIcons
+                      name="arrow-right"
+                      size={24}
+                      color="grey"
+                    />
+                  </View>
+                </Pressable>
+                <Pressable
+                  style={[styles.card, styles.cardShadowBox]}
+                  onClick={() => navigation.navigate("Details")}
+                >
+                  <View style={styles.info}>
+                    <View style={[styles.date, styles.dateSpaceBlock]}>
+                      <Text category="h4" status="control">
+                        12
+                      </Text>
+                      <Text category="h4" status="control">
+                        Dec
+                      </Text>
+                    </View>
+                    <View style={styles.content}>
+                      <View style={styles.subject}>
+                        <Text category="p2">SUN, 3:00 PM</Text>
+                        <Text category="h6">Sea-labration!</Text>
+                      </View>
+                      <View style={styles.options}>
+                        <Pressable
+                          style={[styles.pressable, styles.center2FlexBox]}
+                          onPress={() => navigation.navigate("DetailsRegist")}
+                        >
+                          <Text category="s1" status="control">
+                            Fully Funded!
+                          </Text>
+                        </Pressable>
                       </View>
                     </View>
                   </View>
@@ -323,7 +471,7 @@ const styles = StyleSheet.create({
     // flexDirection: 'row',
     justifyContent: "flex-start",
     flex: 1,
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
     backgroundColor: "#fff",
   },
 
@@ -349,31 +497,15 @@ const styles = StyleSheet.create({
     height: 50,
   },
   quickMatch: {
-    position: "absolute",
-    bottom: 0, // 距离底部导航栏的距离
-    left: 0,
-    right: 0,
     backgroundColor: "#fff",
     paddingVertical: 10,
-    paddingHorizontal: 30,
     justifyContent: "center",
-    alignItems: "left",
-    shadowColor: "#4D4352", // Box shadow color
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 10,
   },
   twoButton: {
     padding: 5,
     flexDirection: "row",
-    justifyContent: "space-between",
-    width: 350,
-    alignItems: "flex-start",
-    alignContent: "flex-start",
     gap: 20,
+    flexWrap: true,
   },
   matchButton: {
     flexDirection: "column",
@@ -399,6 +531,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
+  },
+  tabTitle: {
+    fontSize: 24,
+    fontWeight: 300,
   },
   //cards
   octTypo: {
@@ -431,9 +567,8 @@ const styles = StyleSheet.create({
   pressable: {
     width: 200,
     height: 40,
-    //backgroundColor: "#775987",
-    backgroundColor: "#4d4352",
-    paddingVertical: 0,
+    backgroundColor: "#775987",
+    // backgroundColor: "#4d4352",
     justifyContent: "center",
     borderRadius: 15,
   },
@@ -472,7 +607,7 @@ const styles = StyleSheet.create({
     height: 113,
     borderRadius: 15,
     alignSelf: "stretch",
-    marginBottom: 50,
+    marginBottom: 20,
     shadowOpacity: 1,
     elevation: 10,
     shadowRadius: 10,
@@ -483,17 +618,7 @@ const styles = StyleSheet.create({
     shadowColor: "rgba(77, 67, 82, 0.2)",
     backgroundColor: "#fff",
   },
-  cardShadowBox: {
-    shadowOpacity: 1,
-    elevation: 10,
-    shadowRadius: 10,
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowColor: "rgba(77, 67, 82, 0.2)",
-    backgroundColor: "#fff",
-  },
+
   progressBar: {
     flexDirection: "row", // Align child views in a row
     height: 40, // Set the height of the progress bar
