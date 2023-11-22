@@ -5,11 +5,13 @@ import {
   TopNavigation,
   Avatar,
   useStyleSheet,
+  Button,
 } from "@ui-kitten/components";
 import { BackAction } from "../../components/backAction";
 import { ScreenNormalView, ScreenView } from "../../components/CustomView";
 import { HorizontalLine, VerticalLine } from "../../components/Lines";
 import { default as s } from "./UserProfileStyle";
+import { Iconify } from "react-native-iconify";
 
 const UserProfile = ({ props, route, navigation }) => {
   const { username } = route.params;
@@ -19,6 +21,11 @@ const UserProfile = ({ props, route, navigation }) => {
     <ScreenNormalView>
       <TopNavigation
         accessoryLeft={<BackAction navigation={navigation} />}
+        accessoryRight={
+          <View style={{ marginRight: 10 }}>
+            <Iconify size={35} icon="jam:alert" />
+          </View>
+        }
         title={
           <View>
             <Text category="h2" status="primary">
@@ -39,6 +46,8 @@ const UserProfile = ({ props, route, navigation }) => {
             <Text category="h3" style={styles.name}>
               {username}
             </Text>
+
+            <Button appearance="outline">Send ♥</Button>
           </View>
 
           {/* Stats */}
@@ -56,7 +65,7 @@ const UserProfile = ({ props, route, navigation }) => {
 
             {/* Interests */}
             <View style={styles.detail}>
-              <Text category="h4" status="primary">
+              <Text category="h4" style={styles.subHeader}>
                 I am interested in
               </Text>
               <Text>Nothing.</Text>
@@ -64,7 +73,7 @@ const UserProfile = ({ props, route, navigation }) => {
 
             {/* Events Hosted */}
             <View style={styles.detail}>
-              <Text category="h4" status="primary">
+              <Text category="h4" style={styles.subHeader}>
                 I have hosted
               </Text>
               <Text>Nothing.</Text>
@@ -72,7 +81,7 @@ const UserProfile = ({ props, route, navigation }) => {
 
             {/* Events Attended */}
             <View style={styles.detail}>
-              <Text category="h4" status="primary">
+              <Text category="h4" style={styles.subHeader}>
                 I have attended
               </Text>
               <Text>Nothing.</Text>
