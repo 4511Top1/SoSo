@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Button, Pressable } from "react-native";
 import { Text } from "@ui-kitten/components";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import React, { useEffect, useState } from "react";
+import { Pressable, StyleSheet, View } from "react-native";
 import { BackAction } from "../../components/backAction";
 
 const Scanner = ({ navigation }) => {

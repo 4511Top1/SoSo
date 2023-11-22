@@ -1,27 +1,23 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import {
+  Button,
+  Layout,
+  Text,
+  TopNavigation,
+  useTheme,
+} from "@ui-kitten/components";
 import React from "react";
 import {
-  TopNavigation,
-  Text,
-  Layout,
-  useTheme,
-  Button,
-} from "@ui-kitten/components";
-import {
-  View,
-  StyleSheet,
-  TouchableOpacity,
   Image,
   ScrollView,
-  Switch,
+  StyleSheet,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import { Iconify } from "react-native-iconify";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import Modal from "react-native-modal";
-
-import { ScreenView } from "../../components/CustomView";
-import { BackAction } from "../../components/backAction";
-import { EventCard } from "./EventCard";
 import { ScreenNormalView } from "../../components/CustomView";
+import { BackAction } from "../../components/backAction";
 import HorizontalCardScroll from "./HorizontalCardScroll";
 
 const event = {

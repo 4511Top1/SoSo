@@ -1,7 +1,7 @@
-import React from "react";
-import { Pressable, StyleSheet, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Avatar, Divider, Text } from "@ui-kitten/components";
+import React from "react";
+import { Pressable, StyleSheet, View } from "react-native";
 import PostButtons from "../../components/buttons/postButtons";
 
 const ViewPost = ({ navigation }) => {

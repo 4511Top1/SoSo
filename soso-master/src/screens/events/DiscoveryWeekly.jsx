@@ -1,18 +1,14 @@
+import { Layout, Text, useTheme } from "@ui-kitten/components";
 import React from "react";
 import {
-  View,
-  ScrollView,
-  Image,
-  StyleSheet,
   Dimensions,
-  ImageBackground,
+  Image,
+  ScrollView,
+  StyleSheet,
   TouchableOpacity,
+  View,
 } from "react-native";
-import { Text, Input, Card, Layout } from "@ui-kitten/components";
-import LocationIcon from "../../assets/svg/locationIcon.svg";
-import { Shadow } from "react-native-shadow-2";
 import { Iconify } from "react-native-iconify";
-import { useTheme } from "@ui-kitten/components";
 
 const { width } = Dimensions.get("window");
 
@@ -30,7 +26,6 @@ const DiscoveryWeekly = ({ data }) => {
   const toggleBookmark = () => {
     setIsBookmarked(!isBookmarked);
   };
-
 
   const renderBookmarkIcon = (props) => (
     <TouchableOpacity onPress={toggleBookmark}>
@@ -58,7 +53,6 @@ const DiscoveryWeekly = ({ data }) => {
     </TouchableOpacity>
   );
 
-
   const LocationWithIcon = ({ location }) => {
     return (
       <View style={styles.locationContainer}>
@@ -68,7 +62,9 @@ const DiscoveryWeekly = ({ data }) => {
           style={styles.LocationIcon}
           icon={"fluent:location-20-filled"}
         />
-        <Text category="p2" appearance="hint">{location}</Text>
+        <Text category="p2" appearance="hint">
+          {location}
+        </Text>
       </View>
     );
   };
@@ -109,7 +105,7 @@ const DiscoveryWeekly = ({ data }) => {
                   <Text status="primary" style={{ marginBottom: 5 }}>
                     {item.date}
                   </Text>
-                 {renderBookmarkIcon()}
+                  {renderBookmarkIcon()}
                 </Layout>
                 <Text category="h5">{item.title}</Text>
                 <Text category="p1">{item.subtitle}</Text>

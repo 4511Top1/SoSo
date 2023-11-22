@@ -1,7 +1,7 @@
-import React from "react";
-import { Button, Text, useTheme } from "@ui-kitten/components";
-import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
+import { Text } from "@ui-kitten/components";
+import React from "react";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { Iconify } from "react-native-iconify";
 
 const PostButtons = () => {

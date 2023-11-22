@@ -1,21 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Image, ScrollView, Pressable } from "react-native";
-import {
-  FontAwesome5,
-  Entypo,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
-import {
-  Avatar,
-  Divider,
-  TabView,
-  Text,
-  Button,
-  Card,
-} from "@ui-kitten/components";
-import { TopNavigation } from "@ui-kitten/components";
-import PostButtons from "../components/buttons/postButtons";
+import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Avatar, Divider, Text } from "@ui-kitten/components";
+import React, { useEffect, useState } from "react";
+import { Image, Pressable, ScrollView, StyleSheet, View } from "react-native";
 import { Iconify } from "react-native-iconify";
+import PostButtons from "../components/buttons/postButtons";
 
 const Feed = ({ navigation, route }) => {
   const [posts, setPosts] = useState([

@@ -1,19 +1,24 @@
+import {
+  Button,
+  Icon,
+  IconRegistry,
+  Input,
+  Layout,
+  Text,
+  useTheme,
+} from "@ui-kitten/components";
+import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import React from "react";
 import {
-  View,
-  SafeAreaView,
   Image,
+  SafeAreaView,
+  StyleSheet,
   TextInput,
   TouchableWithoutFeedback,
-
+  View,
 } from "react-native";
-import { StyleSheet } from "react-native";
-import { Layout, useTheme, IconRegistry, Icon } from "@ui-kitten/components";
-import { Input } from "@ui-kitten/components";
-import { EvaIconsPack } from "@ui-kitten/eva-icons";
-import { Text, Button } from "@ui-kitten/components";
-import { ScreenView } from "../../components/CustomView";
 import { Iconify } from "react-native-iconify";
+import { ScreenView } from "../../components/CustomView";
 
 const Register = ({ navigation }) => {
   const theme = useTheme();
@@ -186,7 +191,7 @@ const styles = StyleSheet.create({
     // height:29,
     // padding: "10 14",
   },
-  already:{
-    marginTop:20,
-  }
+  already: {
+    marginTop: 20,
+  },
 });

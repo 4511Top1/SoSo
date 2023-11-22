@@ -1,15 +1,15 @@
-import React from "react";
-import { ScrollView, View } from "react-native";
 import {
-  Text,
-  Button,
-  TopNavigation,
   Avatar,
+  Button,
+  Text,
+  TopNavigation,
   useStyleSheet,
 } from "@ui-kitten/components";
-import { BackAction } from "../../components/backAction";
+import React from "react";
+import { ScrollView, View } from "react-native";
 import { ScreenNormalView, ScreenView } from "../../components/CustomView";
 import { HorizontalLine, VerticalLine } from "../../components/Lines";
+import { BackAction } from "../../components/backAction";
 import { default as s } from "./UserProfileStyle";
 
 const MyUserProfile = ({ route, navigation }) => {

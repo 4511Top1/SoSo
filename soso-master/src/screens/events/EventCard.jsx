@@ -1,10 +1,7 @@
+import { Text, useTheme } from "@ui-kitten/components";
 import React from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
-import { Card, Text, Layout, List, useTheme } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
-
-import BookMarkIcon from "../../assets/svg/bookmarkIcon.svg";
-import LocationIcon from "../../assets/svg/locationIcon.svg";
 
 export const EventCard = ({ event, onPress }) => {
   const theme = useTheme();
@@ -18,7 +15,9 @@ export const EventCard = ({ event, onPress }) => {
             <Text style={styles.headerTitle}>{event.title}</Text>
           </View> */}
           <View style={styles.textContainer}>
-            <Text category="p2" appearance="hint">{event.dateTime}</Text>
+            <Text category="p2" appearance="hint">
+              {event.dateTime}
+            </Text>
             <Text category="h6">{event.title}</Text>
           </View>
           <View style={styles.locationContainer}>
@@ -29,7 +28,9 @@ export const EventCard = ({ event, onPress }) => {
                 style={styles.LocationIcon}
                 icon={"fluent:location-20-filled"}
               />
-              <Text category="p2" appearance="hint">{event.locationName}</Text>
+              <Text category="p2" appearance="hint">
+                {event.locationName}
+              </Text>
             </View>
             <View style={styles.rightContainer}>
               <Iconify
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     // padding: 16,
-    marginTop:12,
+    marginTop: 12,
     // paddingTop:-10,
     // justifyContent: "space-between",
     marginLeft: 12,
@@ -99,7 +100,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginLeft: 16,
     marginTop: 19,
-
   },
   headerTitle: {
     fontWeight: "bold",

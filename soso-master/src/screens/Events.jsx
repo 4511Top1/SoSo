@@ -1,22 +1,14 @@
-import React, { useRef, useContext } from "react";
-import { ScrollView, StyleSheet, View, TouchableOpacity } from "react-native";
-import {
-  ButtonGroup,
-  Text,
-  Button,
-  Input,
-  Icon,
-  Layout,
-} from "@ui-kitten/components";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Input, Layout, Text } from "@ui-kitten/components";
+import React, { useRef } from "react";
+import { ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
 import Modal from "react-native-modal";
 
-import { ScreenView } from "../components/CustomView";
 import { useTheme } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
+import { ScreenView } from "../components/CustomView";
+import EventContext from "../hook/EventContext";
 import DiscoveryWeekly from "./events/DiscoveryWeekly";
 import Trending from "./events/Trending";
-import EventContext from "../hook/EventContext";
 
 const treandingData = [
   {

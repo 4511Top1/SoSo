@@ -1,33 +1,33 @@
-import React from "react";
-import { ScrollView, View, StyleSheet, TouchableOpacity } from "react-native";
-import { BackAction } from "../../components/backAction";
-import { ScreenNormalView, ScreenView } from "../../components/CustomView";
 import {
-  useTheme,
-  Text,
   Input,
   Layout,
+  Text,
   TopNavigation,
   useStyleSheet,
+  useTheme,
 } from "@ui-kitten/components";
+import React from "react";
+import { ScrollView, TouchableOpacity, View } from "react-native";
 import { Iconify } from "react-native-iconify";
+import { ScreenNormalView, ScreenView } from "../../components/CustomView";
 import { HorizontalLine } from "../../components/Lines";
+import { BackAction } from "../../components/backAction";
 import { default as s } from "./SettingsStyle";
 
 // Sub-screens
-import RegionLanguage from "./settings/RegionLanguage";
-import DataPrivacy from "./settings/DataPrivacy";
-import FAQ from "./settings/FAQ";
 import CustomerSupport from "./settings/CustomerSupport";
-import TermsCondition from "./settings/TermsCondition";
+import DataPrivacy from "./settings/DataPrivacy";
 import EditPassword from "./settings/EditPassword";
+import FAQ from "./settings/FAQ";
+import RegionLanguage from "./settings/RegionLanguage";
+import TermsCondition from "./settings/TermsCondition";
 export {
-  RegionLanguage,
-  DataPrivacy,
-  FAQ,
   CustomerSupport,
-  TermsCondition,
+  DataPrivacy,
   EditPassword,
+  FAQ,
+  RegionLanguage,
+  TermsCondition,
 };
 
 const SettingsCardList = ({ navigation, title, items }) => {

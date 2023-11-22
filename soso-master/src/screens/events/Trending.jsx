@@ -1,18 +1,14 @@
+import { Layout, Text, useTheme } from "@ui-kitten/components";
 import React from "react";
 import {
-  View,
-  ScrollView,
-  Image,
-  StyleSheet,
   Dimensions,
-  ImageBackground,
+  Image,
+  ScrollView,
+  StyleSheet,
   TouchableOpacity,
+  View,
 } from "react-native";
-import { Text, Input, Card, Layout } from "@ui-kitten/components";
-import LocationIcon from "../../assets/svg/locationIcon.svg";
-import { Shadow } from "react-native-shadow-2";
 import { Iconify } from "react-native-iconify";
-import { useTheme } from "@ui-kitten/components";
 
 const { width } = Dimensions.get("window");
 
@@ -24,7 +20,6 @@ const Trending = ({ data }) => {
   const toggleBookmark = () => {
     setIsBookmarked(!isBookmarked);
   };
-
 
   const handleScroll = (event) => {
     const contentOffsetX = event.nativeEvent.contentOffset.x;

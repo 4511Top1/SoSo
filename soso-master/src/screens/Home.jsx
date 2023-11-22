@@ -1,35 +1,26 @@
-import React from "react";
+import { MaterialCommunityIcons, SimpleLineIcons } from "@expo/vector-icons";
 import {
-  // Button,
-  StyleSheet,
-  View,
-  Image,
-  ScrollView,
-  Pressable,
-  TouchableOpacity,
-} from "react-native";
-import {
+  Button,
   Layout,
   Tab,
   TabView,
   Text,
   useTheme,
-  Button,
 } from "@ui-kitten/components";
-import {
-  MaterialCommunityIcons,
-  SimpleLineIcons,
-  Entypo,
-} from "@expo/vector-icons";
-import Modal from "react-native-modal";
-import { Iconify } from "react-native-iconify";
 import { StatusBar } from "expo-status-bar";
-
-import { useFirstLaunch } from "../hook/FirstLaunchContext";
-import { SafeAreaView } from "react-native-safe-area-context";
+import React from "react";
+import {
+  Image,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { Iconify } from "react-native-iconify";
+import Modal from "react-native-modal";
 
 const ProgressBar = () => {
-  const theme = useTheme();
   const filledWidth = 50 + "%";
   return (
     <Layout style={styles.progressBar}>
@@ -137,7 +128,6 @@ const Home = ({ navigation }) => {
   const [showTutorial, setShowTutorial] = React.useState(true);
 
   const theme = useTheme();
-  const { isFirstLaunch } = useFirstLaunch();
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [isModalVisible, setModalVisible] = React.useState(false);
 
@@ -480,16 +470,6 @@ const Home = ({ navigation }) => {
         </View>
 
         <View>
-          {/* <Text>I am home page!</Text>
-          {isFirstLaunch && <Text>This is the first launch!</Text>} */}
-          {/* <Button
-            title="Click me to login"
-            onPress={() => navigation.navigate("Login")}
-          ></Button>
-          <Button
-            title="Click me to launch"
-            onPress={() => navigation.navigate("Splash")}
-          ></Button> */}
           <StatusBar style="auto" />
         </View>
 

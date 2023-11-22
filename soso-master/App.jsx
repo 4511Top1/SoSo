@@ -1,7 +1,6 @@
 import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
-import { FirstLaunchProvider } from "./src/hook/FirstLaunchContext";
 import { AppNavigator } from "./src/AppNavigator";
 import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
 import { EvaIconsPack } from "@ui-kitten/eva-icons";

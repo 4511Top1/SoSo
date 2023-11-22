@@ -1,28 +1,18 @@
-import React from "react";
 import {
-  View,
-  ScrollView,
-  Image,
-  StyleSheet,
-  Dimensions,
-  ImageBackground,
-  TouchableOpacity,
-  Switch,
-} from "react-native";
-import {
-  TopNavigation,
-  Text,
-  Layout,
-  useTheme,
-  Toggle,
-  Input,
-  CheckBox,
   Button,
+  CheckBox,
+  Input,
+  Layout,
+  Text,
+  Toggle,
+  TopNavigation,
+  useTheme,
 } from "@ui-kitten/components";
+import React from "react";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { Iconify } from "react-native-iconify";
 import { ScreenView } from "../../components/CustomView";
 import { BackAction } from "../../components/backAction";
-// import { TouchableOpacity } from "react-native-gesture-handler";
 
 const FundEvent = ({ navigation, route }) => {
   const theme = useTheme();

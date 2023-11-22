@@ -1,19 +1,21 @@
+import {
+  Button,
+  Icon,
+  Input,
+  Layout,
+  Text,
+  useTheme,
+} from "@ui-kitten/components";
 import React from "react";
 import {
-  View,
-  SafeAreaView,
   Image,
-  TextInput,
+  KeyboardAvoidingView,
+  StyleSheet,
   TouchableWithoutFeedback,
+  View,
 } from "react-native";
-import { StyleSheet } from "react-native";
 import { Iconify } from "react-native-iconify";
-import { EvaIconsPack } from "@ui-kitten/eva-icons";
-import { Layout, useTheme } from "@ui-kitten/components";
-import { Input, IconRegistry } from "@ui-kitten/components";
-import { Text, Button, Icon } from "@ui-kitten/components";
 import { ScreenView } from "../../components/CustomView";
-import { KeyboardAvoidingView } from "react-native";
 
 const Login = ({ navigation }) => {
   const theme = useTheme();

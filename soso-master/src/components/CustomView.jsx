@@ -25,7 +25,6 @@ export const ScreenView = ({ children }) => {
       style={{
         flex: 1,
         paddingHorizontal: 20,
-        // backgroundColor: "#fff",
       }}
     >
       {children}

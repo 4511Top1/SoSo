@@ -1,7 +1,7 @@
+import { Button } from "@ui-kitten/components";
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import Modal from "react-native-modal";
-import { Button, Input, Datepicker } from "@ui-kitten/components";
 
 const FilterModal = ({ isModalVisible, toggleModal }) => {
   const [location, setLocation] = useState("");

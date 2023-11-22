@@ -1,15 +1,15 @@
-import React from "react";
-import { StyleSheet, View, Image } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import {
+  Divider,
   Layout,
+  List,
+  ListItem,
   Tab,
   TabView,
   Text,
-  List,
-  ListItem,
-  Divider,
 } from "@ui-kitten/components";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import React from "react";
+import { Image, StyleSheet, View } from "react-native";
 
 const allNotifications = [
   {

@@ -1,6 +1,6 @@
-import { Button, Text, Layout } from "@ui-kitten/components";
+import { Button, Layout, Text } from "@ui-kitten/components";
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { ScreenView } from "../../components/CustomView";
 
 const Verify = ({ navigation }) => {

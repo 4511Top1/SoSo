@@ -1,28 +1,26 @@
-import React, { useState } from "react";
+import DateTimePicker from "@react-native-community/datetimepicker";
 import {
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  ScrollView,
-  Image,
-} from "react-native";
-import {
-  Button,
   Input,
-  Datepicker,
   Layout,
   Text,
   Toggle,
+  TopNavigation,
+  useTheme,
 } from "@ui-kitten/components";
-import { ScreenNormalView } from "../../components/CustomView";
-import { TopNavigation, useTheme } from "@ui-kitten/components";
-import { BackAction } from "../../components/backAction";
-import { Iconify } from "react-native-iconify";
-import EventContext from "../../hook/EventContext";
-import { KeyboardAvoidingView } from "react-native";
-import moment from "moment";
-import DateTimePicker from "@react-native-community/datetimepicker";
 import * as ImagePicker from "expo-image-picker";
+import React, { useState } from "react";
+import {
+  Image,
+  KeyboardAvoidingView,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { Iconify } from "react-native-iconify";
+import { ScreenNormalView } from "../../components/CustomView";
+import { BackAction } from "../../components/backAction";
+import EventContext from "../../hook/EventContext";
 
 const CreateEvent = ({ navigation }) => {
   const theme = useTheme();

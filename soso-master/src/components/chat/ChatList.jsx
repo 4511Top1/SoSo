@@ -1,6 +1,6 @@
-import React from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { Avatar, Text } from "@ui-kitten/components";
+import React from "react";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 
 export const ChatListItem = ({
   username,

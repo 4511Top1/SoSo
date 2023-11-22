@@ -1,15 +1,15 @@
-import React from "react";
-import { View, TouchableOpacity } from "react-native";
-import { ScreenNormalView, ScreenView } from "../components/CustomView";
 import {
   Avatar,
-  useTheme,
-  Text,
   Layout,
+  Text,
   TopNavigation,
   useStyleSheet,
+  useTheme,
 } from "@ui-kitten/components";
+import React from "react";
+import { TouchableOpacity, View } from "react-native";
 import { Iconify } from "react-native-iconify";
+import { ScreenNormalView, ScreenView } from "../components/CustomView";
 import { default as s } from "./MenuStyle";
 
 // Sub-screens
@@ -18,37 +18,37 @@ import Friends, {
   FriendRequest,
   FriendSuggestion,
 } from "./menu/Friends";
-import Saved from "./menu/Saved";
 import PastEvents from "./menu/PastEvents";
+import Saved from "./menu/Saved";
+import Settings, {
+  CustomerSupport,
+  DataPrivacy,
+  EditPassword,
+  FAQ,
+  RegionLanguage,
+  TermsCondition,
+} from "./menu/Settings";
 import MenuVerifyID, {
   IdentityVerification,
   IdentityVerificationSuccess,
 } from "./menu/VerifyID";
-import Settings, {
-  RegionLanguage,
-  DataPrivacy,
-  FAQ,
-  CustomerSupport,
-  TermsCondition,
-  EditPassword,
-} from "./menu/Settings";
 export {
-  Friends,
   AddFriends,
+  CustomerSupport,
+  DataPrivacy,
+  EditPassword,
+  FAQ,
   FriendRequest,
   FriendSuggestion,
-  Saved,
-  PastEvents,
-  MenuVerifyID,
+  Friends,
   IdentityVerification,
   IdentityVerificationSuccess,
-  Settings,
+  MenuVerifyID,
+  PastEvents,
   RegionLanguage,
-  DataPrivacy,
-  FAQ,
-  CustomerSupport,
+  Saved,
+  Settings,
   TermsCondition,
-  EditPassword,
 };
 
 const ProfileCard = ({ username, navigation }) => {

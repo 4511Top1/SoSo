@@ -1,13 +1,11 @@
+import { Button, Layout, Text, useTheme } from "@ui-kitten/components";
 import React from "react";
-import { View, Image } from "react-native";
-import Modal from "react-native-modal";
+import { Image, StyleSheet, View } from "react-native";
 import { Iconify } from "react-native-iconify";
-import { Button, Input, Text, useTheme, Layout } from "@ui-kitten/components";
-import { StyleSheet } from "react-native";
-
-import { ScreenView } from "../../components/CustomView";
+import Modal from "react-native-modal";
 import RegistrationSuccessIcon from "../../assets/svg/SuccessRegistraionIcon.svg";
-import QRCode from "../../assets/images/QRCode.png";
+import { ScreenView } from "../../components/CustomView";
+
 const RegistrationSuccess = ({ navigation }) => {
   const theme = useTheme();
   const [email, setEmail] = React.useState("");

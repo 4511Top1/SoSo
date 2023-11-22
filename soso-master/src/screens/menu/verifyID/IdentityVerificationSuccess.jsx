@@ -1,24 +1,8 @@
+import { Button, Text, useTheme } from "@ui-kitten/components";
 import React from "react";
-import {
-  ScrollView,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from "react-native";
-import { BackAction } from "../../../components/backAction";
-import { ScreenNormalView, ScreenView } from "../../../components/CustomView";
-import {
-  Avatar,
-  useTheme,
-  Text,
-  Input,
-  Layout,
-  Card,
-  TopNavigation,
-  Button,
-} from "@ui-kitten/components";
+import { View } from "react-native";
 import { Iconify } from "react-native-iconify";
+import { ScreenNormalView, ScreenView } from "../../../components/CustomView";
 
 const IdentityVerificationSuccess = ({ navigation, route }) => {
   const theme = useTheme();

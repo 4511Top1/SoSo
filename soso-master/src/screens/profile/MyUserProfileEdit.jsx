@@ -1,22 +1,22 @@
-import React from "react";
 import {
-  ScrollView,
-  View,
-  TouchableOpacity,
-  KeyboardAvoidingView,
-} from "react-native";
-import {
-  Text,
-  Input,
-  Button,
-  TopNavigation,
   Avatar,
+  Button,
+  Input,
+  Text,
+  TopNavigation,
   useStyleSheet,
 } from "@ui-kitten/components";
-import { Iconify } from "react-native-iconify";
 import * as ImagePicker from "expo-image-picker";
-import { BackAction } from "../../components/backAction";
+import React from "react";
+import {
+  KeyboardAvoidingView,
+  ScrollView,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { Iconify } from "react-native-iconify";
 import { ScreenNormalView, ScreenView } from "../../components/CustomView";
+import { BackAction } from "../../components/backAction";
 import { default as s } from "./UserProfileStyle";
 
 const MyUserProfileEdit = ({ route, navigation }) => {

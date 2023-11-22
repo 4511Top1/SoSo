@@ -1,7 +1,6 @@
+import { Layout, Text } from "@ui-kitten/components";
 import React from "react";
-import { View, Image, TouchableOpacity } from "react-native";
-import { Button, Input, Layout, Text } from "@ui-kitten/components";
-import { StyleSheet } from "react-native";
+import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import { ScreenView } from "../../components/CustomView";
 
 const SuccessDone = ({ navigation }) => {

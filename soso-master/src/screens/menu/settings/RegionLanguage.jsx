@@ -1,31 +1,18 @@
-import React from "react";
 import {
-  ScrollView,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from "react-native";
-import { BackAction } from "../../../components/backAction";
-import { ScreenNormalView, ScreenView } from "../../../components/CustomView";
-import {
-  Avatar,
-  useTheme,
-  Text,
-  Input,
+  IndexPath,
   Layout,
-  Card,
-  TopNavigation,
-  Button,
-  useStyleSheet,
   Select,
   SelectItem,
-  IndexPath,
+  Text,
+  TopNavigation,
+  useStyleSheet,
 } from "@ui-kitten/components";
-import { default as s } from "../SettingsStyle";
+import React from "react";
+import { ScrollView, View } from "react-native";
+import { ScreenNormalView, ScreenView } from "../../../components/CustomView";
 import { HorizontalLine } from "../../../components/Lines";
-
-import { Iconify } from "react-native-iconify";
+import { BackAction } from "../../../components/backAction";
+import { default as s } from "../SettingsStyle";
 
 const regionData = [
   "Australia - Sydney",

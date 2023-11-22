@@ -1,14 +1,14 @@
-import React from "react";
-import { ScrollView, View, TouchableOpacity } from "react-native";
-import { BackAction } from "../../../components/backAction";
-import { ScreenNormalView, ScreenView } from "../../../components/CustomView";
 import {
-  Text,
   Layout,
+  Text,
   TopNavigation,
   useStyleSheet,
 } from "@ui-kitten/components";
+import React from "react";
+import { ScrollView, View } from "react-native";
+import { ScreenNormalView, ScreenView } from "../../../components/CustomView";
 import { FriendItemRequest } from "../../../components/FriendCard";
+import { BackAction } from "../../../components/backAction";
 
 import { default as s } from "../FriendsStyle";
 

@@ -1,16 +1,16 @@
-import React from 'react';
-import { ScrollView, View, Text, Image, StyleSheet } from 'react-native';
+import React from "react";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 
 const users = [
-    {name: "Shrek", image : require("../../assets/images/viewPostIcon1.png")},
-    {name: "Shrek", image : require("../../assets/images/viewPostIcon1.png")},
-    {name: "Shrek", image : require("../../assets/images/viewPostIcon1.png")},
-    {name: "Shrek", image : require("../../assets/images/viewPostIcon1.png")},
-    {name: "Shrek", image : require("../../assets/images/viewPostIcon1.png")},
-    {name: "Shrek", image : require("../../assets/images/viewPostIcon1.png")},
-    {name: "Shrek", image : require("../../assets/images/viewPostIcon1.png")},
-    {name: "Shrek", image : require("../../assets/images/viewPostIcon1.png")},
-]
+  { name: "Shrek", image: require("../../assets/images/viewPostIcon1.png") },
+  { name: "Shrek", image: require("../../assets/images/viewPostIcon1.png") },
+  { name: "Shrek", image: require("../../assets/images/viewPostIcon1.png") },
+  { name: "Shrek", image: require("../../assets/images/viewPostIcon1.png") },
+  { name: "Shrek", image: require("../../assets/images/viewPostIcon1.png") },
+  { name: "Shrek", image: require("../../assets/images/viewPostIcon1.png") },
+  { name: "Shrek", image: require("../../assets/images/viewPostIcon1.png") },
+  { name: "Shrek", image: require("../../assets/images/viewPostIcon1.png") },
+];
 const HorizontalCardScroll = () => {
   return (
     <ScrollView
@@ -30,13 +30,13 @@ const HorizontalCardScroll = () => {
 
 const styles = StyleSheet.create({
   scrollViewContainer: {
-    alignItems: 'center',
+    alignItems: "center",
   },
   card: {
-    marginTop:20,
+    marginTop: 20,
     width: 80,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     marginRight: 10,
   },
   image: {

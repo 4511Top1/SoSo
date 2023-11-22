@@ -1,23 +1,14 @@
-import React from "react";
 import {
-  ScrollView,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from "react-native";
-import UserChat from "./chat/UserChat";
-import { ScreenNormalView, ScreenView } from "../components/CustomView";
-import {
-  Avatar,
-  useTheme,
-  Text,
   Input,
   Layout,
-  Card,
+  Text,
   TopNavigation,
+  useTheme,
 } from "@ui-kitten/components";
+import React from "react";
+import { ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Iconify } from "react-native-iconify";
+import { ScreenNormalView, ScreenView } from "../components/CustomView";
 import { ChatListItem } from "../components/chat/ChatList";
 
 const Chat = ({ navigation }) => {

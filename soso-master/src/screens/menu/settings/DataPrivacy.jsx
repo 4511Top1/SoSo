@@ -1,24 +1,8 @@
+import { Text, TopNavigation } from "@ui-kitten/components";
 import React from "react";
-import {
-  ScrollView,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from "react-native";
-import { BackAction } from "../../../components/backAction";
+import { View } from "react-native";
 import { ScreenNormalView, ScreenView } from "../../../components/CustomView";
-import {
-  Avatar,
-  useTheme,
-  Text,
-  Input,
-  Layout,
-  Card,
-  TopNavigation,
-  Button,
-} from "@ui-kitten/components";
-import { Iconify } from "react-native-iconify";
+import { BackAction } from "../../../components/backAction";
 
 const DataPrivacy = ({ navigation, route }) => {
   return (

@@ -1,16 +1,16 @@
-import React from "react";
-import { ScrollView, View, TouchableOpacity } from "react-native";
-import { BackAction } from "../../../components/backAction";
-import { ScreenNormalView, ScreenView } from "../../../components/CustomView";
 import {
-  Text,
   Layout,
-  TopNavigation,
   Tab,
   TabView,
+  Text,
+  TopNavigation,
   useStyleSheet,
 } from "@ui-kitten/components";
+import React from "react";
+import { ScrollView, View } from "react-native";
+import { ScreenNormalView, ScreenView } from "../../../components/CustomView";
 import { FriendItemSuggestion } from "../../../components/FriendCard";
+import { BackAction } from "../../../components/backAction";
 import { default as s } from "../FriendsStyle";
 
 const Suggestions = ({ navigation, route }) => {

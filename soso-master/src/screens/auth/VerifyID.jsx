@@ -1,9 +1,7 @@
-import React from "react";
-import { View } from "react-native";
 import { Button, Input, Layout, Text, useTheme } from "@ui-kitten/components";
-import { StyleSheet } from "react-native";
+import React from "react";
+import { StyleSheet, View } from "react-native";
 import { Iconify } from "react-native-iconify";
-
 import { ScreenView } from "../../components/CustomView";
 import { BackAction } from "../../components/backAction";
 

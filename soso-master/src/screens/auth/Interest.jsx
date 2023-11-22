@@ -1,7 +1,6 @@
-import React from "react";
-import { View } from "react-native";
 import { Button, Layout, Text } from "@ui-kitten/components";
-import { StyleSheet } from "react-native";
+import React from "react";
+import { StyleSheet, View } from "react-native";
 import { ScreenView } from "../../components/CustomView";
 
 const Interest = ({ navigation }) => {
@@ -67,7 +66,6 @@ const Interest = ({ navigation }) => {
         <Layout style={styles.continueButtonGroup}>
           <Button
             style={styles.continueButton}
-
             onPress={() => navigation.navigate("Verify")}
           >
             Continue
@@ -112,19 +110,18 @@ const styles = StyleSheet.create({
   subtitle: {
     textAlign: "center",
   },
-  continueButtonGroup:{
-    marginTop:35,
-    justifyContent:"center",
-    alignItems:"center",
-
+  continueButtonGroup: {
+    marginTop: 35,
+    justifyContent: "center",
+    alignItems: "center",
   },
-  continueButton:{
+  continueButton: {
     backgroundColor: "#4D4352",
     padding: 10,
     borderRadius: 15,
     width: 271,
     // height:29,
     // padding: "10 14",
-    marginBottom:20,
-  }
+    marginBottom: 20,
+  },
 });

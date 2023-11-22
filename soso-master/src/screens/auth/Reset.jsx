@@ -1,10 +1,9 @@
+import { Button, Input, Layout, Text } from "@ui-kitten/components";
 import React from "react";
-import { View } from "react-native";
-import { StyleSheet } from "react-native";
-import { Input, Button, Text, Layout } from "@ui-kitten/components";
+import { StyleSheet, View } from "react-native";
+import { Iconify } from "react-native-iconify";
 import { ScreenView } from "../../components/CustomView";
 import { BackAction } from "../../components/backAction";
-import { Iconify } from "react-native-iconify";
 
 const Reset = ({ navigation }) => {
   const [email, setEmail] = React.useState("");

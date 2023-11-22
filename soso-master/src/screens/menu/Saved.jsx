@@ -1,26 +1,10 @@
+import { Text, TopNavigation } from "@ui-kitten/components";
 import React from "react";
-import {
-  ScrollView,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from "react-native";
-import { BackAction } from "../../components/backAction";
-import { ScreenNormalView, ScreenView } from "../../components/CustomView";
-import {
-  Avatar,
-  useTheme,
-  Text,
-  Button,
-  Input,
-  Layout,
-  Card,
-  TopNavigation,
-} from "@ui-kitten/components";
-import { Iconify } from "react-native-iconify";
-import { EventCard } from "../events/EventCard";
+import { ScrollView, StyleSheet, View } from "react-native";
+import { ScreenNormalView } from "../../components/CustomView";
 import TextDivider from "../../components/TextDivider";
+import { BackAction } from "../../components/backAction";
+import { EventCard } from "../events/EventCard";
 
 const eventDetails = [
   {

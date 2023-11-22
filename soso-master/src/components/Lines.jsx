@@ -1,25 +1,6 @@
+import { useTheme } from "@ui-kitten/components";
 import React from "react";
-import {
-  ScrollView,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  KeyboardAvoidingView,
-  TextInput,
-} from "react-native";
-import {
-  useTheme,
-  Text,
-  Input,
-  Layout,
-  Card,
-  Button,
-  TopNavigation,
-  Icon,
-  Avatar,
-} from "@ui-kitten/components";
-import { Iconify } from "react-native-iconify";
+import { View } from "react-native";
 
 export const VerticalLine = () => {
   const theme = useTheme();

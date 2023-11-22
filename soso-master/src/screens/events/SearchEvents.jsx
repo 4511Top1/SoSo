@@ -1,25 +1,19 @@
-import React from "react";
-import { TouchableOpacity } from "react-native";
-import { StyleSheet, View } from "react-native";
 import {
-  ButtonGroup,
-  Text,
-  Button,
-  Input,
+  Divider,
   Icon,
-  TopNavigation,
-  TopNavigationAction,
+  Input,
   Layout,
   List,
   ListItem,
-  Divider,
+  Text,
+  TopNavigation,
   useTheme,
 } from "@ui-kitten/components";
-
-import { BackAction } from "../../components/backAction";
+import React from "react";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { Iconify } from "react-native-iconify";
 import { ScreenView } from "../../components/CustomView";
-import SearchIconSVG from "../../assets/svg/searchIcon.svg";
+import { BackAction } from "../../components/backAction";
 
 const DeleteIcon = (props) => <Icon {...props} name="close-outline" />;
 

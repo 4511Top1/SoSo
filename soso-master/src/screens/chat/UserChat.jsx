@@ -1,27 +1,22 @@
-import React from "react";
-import {
-  ScrollView,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  KeyboardAvoidingView,
-  TextInput,
-} from "react-native";
-import { BackAction } from "../../components/backAction";
-import { ScreenNormalView, ScreenView } from "../../components/CustomView";
 import {
   Avatar,
-  useTheme,
-  Text,
   Input,
   Layout,
-  Card,
-  Button,
+  Text,
   TopNavigation,
-  Icon,
+  useTheme,
 } from "@ui-kitten/components";
+import React from "react";
+import {
+  KeyboardAvoidingView,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { Iconify } from "react-native-iconify";
+import { ScreenNormalView, ScreenView } from "../../components/CustomView";
+import { BackAction } from "../../components/backAction";
 import { ChatBubble } from "../../components/chat/ChatBubble";
 
 const UserChat = ({ route, navigation }) => {

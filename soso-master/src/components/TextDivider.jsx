@@ -1,6 +1,6 @@
+import { Divider, Text } from "@ui-kitten/components";
 import React from "react";
-import { View,  StyleSheet } from "react-native";
-import {Text, Divider } from "@ui-kitten/components";
+import { StyleSheet, View } from "react-native";
 
 const TextDivider = ({ text }) => (
   <View style={styles.textDividerContainer}>

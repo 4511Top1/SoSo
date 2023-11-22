@@ -1,28 +1,21 @@
-import React from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
 import {
-  ButtonGroup,
-  Text,
   Button,
-  Input,
-  Icon,
   Datepicker,
-  TopNavigation,
-  TopNavigationAction,
+  Input,
   Layout,
-  List,
-  ListItem,
-  Divider,
+  Text,
+  TopNavigation,
   useTheme,
 } from "@ui-kitten/components";
-import Modal from "react-native-modal";
+import React from "react";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { Iconify } from "react-native-iconify";
-
-import { BackAction } from "../../components/backAction";
-import { ScreenView } from "../../components/CustomView";
-import { EventCard } from "./EventCard";
-import TextDivider from "../../components/TextDivider";
+import Modal from "react-native-modal";
 import FilterIconSvg from "../../assets/svg/filterIcon.svg";
+import { ScreenView } from "../../components/CustomView";
+import TextDivider from "../../components/TextDivider";
+import { BackAction } from "../../components/backAction";
+import { EventCard } from "./EventCard";
 
 const eventDetails = [
   {

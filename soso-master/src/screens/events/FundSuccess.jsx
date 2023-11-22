@@ -1,9 +1,8 @@
+import { Button, Layout, Text, useTheme } from "@ui-kitten/components";
 import React from "react";
-import { View, Image } from "react-native";
-import { Button, Input, Text, useTheme, Layout } from "@ui-kitten/components";
-import { StyleSheet } from "react-native";
-import { ScreenView } from "../../components/CustomView";
+import { StyleSheet, View } from "react-native";
 import SuccessSuportSVG from "../../assets/svg/SuccessSupportIcon.svg";
+import { ScreenView } from "../../components/CustomView";
 
 const FundSuccess = ({ navigation, route }) => {
   const theme = useTheme();

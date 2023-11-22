@@ -1,6 +1,6 @@
+import { Avatar, Layout, Text } from "@ui-kitten/components";
 import React from "react";
-import { View, TouchableOpacity } from "react-native";
-import { Avatar, Text, Layout, Icon } from "@ui-kitten/components";
+import { TouchableOpacity, View } from "react-native";
 import { Iconify } from "react-native-iconify";
 
 const FriendCard = ({ username, subtitle, extra, navigation }) => {

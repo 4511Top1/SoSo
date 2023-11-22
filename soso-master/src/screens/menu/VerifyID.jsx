@@ -1,8 +1,8 @@
+import { Button, Text, TopNavigation } from "@ui-kitten/components";
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import { BackAction } from "../../components/backAction";
+import { View } from "react-native";
 import { ScreenNormalView, ScreenView } from "../../components/CustomView";
-import { Text, TopNavigation, Button } from "@ui-kitten/components";
+import { BackAction } from "../../components/backAction";
 
 // Sub-screens
 import IdentityVerification from "./verifyID/IdentityVerification";

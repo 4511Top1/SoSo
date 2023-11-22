@@ -1,7 +1,7 @@
-import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
+import React from "react";
 import { Iconify } from "react-native-iconify";
 import { SafeView } from "./components/CustomView";
 
@@ -9,37 +9,39 @@ import { SafeView } from "./components/CustomView";
 import Splash from "./screens/onboarding/Splash";
 
 // Auth
-import Login from "./screens/auth/Login";
-import Register from "./screens/auth/Register";
-import Reset from "./screens/auth/Reset";
-import ResetSuccess from "./screens/auth/ResetSuccess";
-import Interest from "./screens/auth/Interest";
-import Verify from "./screens/auth/Verify";
-import VerifyID from "./screens/auth/VerifyID";
-import VerifyIDSubmitted from "./screens/auth/VerifyIDSubmitted";
-import SuccessDone from "./screens/auth/SuccessDone";
+import {
+  Interest,
+  Login,
+  Register,
+  Reset,
+  ResetSuccess,
+  SuccessDone,
+  Verify,
+  VerifyID,
+  VerifyIDSubmitted,
+} from "./screens/Auth";
 
 // Events
-import SearchEvents from "./screens/events/SearchEvents";
-import SearchResults from "./screens/events/SearchResults";
+import CreateEvent from "./screens/events/CreateEvent";
 import Details from "./screens/events/Details";
+import DetailsRegist from "./screens/events/DetailsRegist";
 import FundEvent from "./screens/events/FundEvent";
 import FundSuccess from "./screens/events/FundSuccess";
 import RegisterEvent from "./screens/events/RegisterEvent";
 import RegistrationSuccess from "./screens/events/RegistrationSuccess";
-import CreateEvent from "./screens/events/CreateEvent";
-import DetailsRegist from "./screens/events/DetailsRegist";
+import SearchEvents from "./screens/events/SearchEvents";
+import SearchResults from "./screens/events/SearchResults";
 
 // Feed
 import NewPost from "./screens/feed/NewPost";
-import ViewPost from "./screens/feed/ViewPost";
 import ReplyComment from "./screens/feed/ReplyComments";
+import ViewPost from "./screens/feed/ViewPost";
 
 // Home
-import Home from "./screens/Home";
-import Notifications from "./screens/Notifications";
 import Events from "./screens/Events";
 import Feed from "./screens/Feed";
+import Home from "./screens/Home";
+import Notifications from "./screens/Notifications";
 import Scanner from "./screens/home/Scanner";
 
 // Chat
@@ -47,28 +49,28 @@ import Chat from "./screens/Chat";
 import UserChat from "./screens/chat/UserChat";
 
 // User Profile
-import UserProfile from "./screens/profile/UserProfile";
 import MyUserProfile from "./screens/profile/MyUserProfile";
 import MyUserProfileEdit from "./screens/profile/MyUserProfileEdit";
+import UserProfile from "./screens/profile/UserProfile";
 
 // Menu
 import Menu, {
-  Friends,
   AddFriends,
+  CustomerSupport,
+  DataPrivacy,
+  EditPassword,
+  FAQ,
   FriendRequest,
   FriendSuggestion,
-  PastEvents,
-  Saved,
-  Settings,
-  MenuVerifyID,
+  Friends,
   IdentityVerification,
   IdentityVerificationSuccess,
+  MenuVerifyID,
+  PastEvents,
   RegionLanguage,
-  DataPrivacy,
-  FAQ,
-  CustomerSupport,
+  Saved,
+  Settings,
   TermsCondition,
-  EditPassword,
 } from "./screens/Menu";
 
 const { Navigator, Screen } = createBottomTabNavigator();

@@ -1,13 +1,13 @@
-import React from "react";
-import { ScrollView, View, TouchableOpacity } from "react-native";
-import { BackAction } from "../../../components/backAction";
-import { ScreenNormalView, ScreenView } from "../../../components/CustomView";
 import { Text, TopNavigation, useStyleSheet } from "@ui-kitten/components";
+import React from "react";
+import { ScrollView, TouchableOpacity, View } from "react-native";
 import { Iconify } from "react-native-iconify";
+import { ScreenNormalView, ScreenView } from "../../../components/CustomView";
 import {
   FriendItemRequest,
   FriendItemSuggestion,
 } from "../../../components/FriendCard";
+import { BackAction } from "../../../components/backAction";
 import { default as s } from "../FriendsStyle";
 
 const Requests = ({ navigation, route }) => {

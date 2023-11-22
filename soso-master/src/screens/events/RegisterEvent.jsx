@@ -1,30 +1,18 @@
-import React from "react";
 import {
-  View,
-  ScrollView,
-  Image,
-  StyleSheet,
-  Dimensions,
-  ImageBackground,
-  TouchableOpacity,
-} from "react-native";
-import {
-  TopNavigation,
-  Text,
-  Layout,
-  useTheme,
-  Toggle,
-  Input,
-  CheckBox,
   Button,
+  CheckBox,
+  Input,
+  Layout,
+  Text,
+  Toggle,
+  TopNavigation,
+  useTheme,
 } from "@ui-kitten/components";
+import React from "react";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { Iconify } from "react-native-iconify";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import Modal from "react-native-modal";
-
 import { ScreenView } from "../../components/CustomView";
 import { BackAction } from "../../components/backAction";
-// import { TouchableOpacity } from "react-native-gesture-handler";
 
 const RegisterEvent = ({ navigation }) => {
   const theme = useTheme();
@@ -129,7 +117,6 @@ const RegisterEvent = ({ navigation }) => {
           <Text style={styles.fundText}>Register</Text>
         </Button>
       </View>
-
     </ScreenView>
   );
 };

@@ -1,14 +1,11 @@
+import { Button, Layout, Text } from "@ui-kitten/components";
 import React from "react";
-import { View } from "react-native";
-import { StyleSheet } from "react-native";
-import { Input, Button, Text, Layout } from "@ui-kitten/components";
-import { Image } from "react-native";
-
+import { Image, StyleSheet, View } from "react-native";
 import { ScreenView } from "../../components/CustomView";
 
-const ResetSuccess = ({navigation}) => {
+const ResetSuccess = ({ navigation }) => {
   const [email, setEmail] = React.useState("");
-  
+
   return (
     <ScreenView>
       <View style={styles.container}>
@@ -24,10 +21,7 @@ const ResetSuccess = ({navigation}) => {
           source={require("../../assets/images/ResetSuccess.png")}
         />
         <Layout style={styles.buttonContainer}>
-          <Button
-            style={styles.button}
-            onPress={() => navigation.pop(2)}
-          >
+          <Button style={styles.button} onPress={() => navigation.pop(2)}>
             Back to login
           </Button>
         </Layout>

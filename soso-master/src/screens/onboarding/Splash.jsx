@@ -1,8 +1,8 @@
 import {
-  StyleSheet,
-  View,
   Image,
+  StyleSheet,
   TouchableWithoutFeedback,
+  View,
 } from "react-native";
 
 const Splash = ({ navigation }) => {
