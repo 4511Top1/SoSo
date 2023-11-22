@@ -1,55 +1,35 @@
 import React from "react";
-import {
-  ScrollView,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from "react-native";
+import { ScrollView, View, TouchableOpacity } from "react-native";
 import { BackAction } from "../../../components/backAction";
 import { ScreenNormalView, ScreenView } from "../../../components/CustomView";
-import {
-  Avatar,
-  useTheme,
-  Text,
-  Input,
-  Layout,
-  Card,
-  TopNavigation,
-  Button,
-} from "@ui-kitten/components";
+import { Text, TopNavigation, useStyleSheet } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import {
   FriendItemRequest,
   FriendItemSuggestion,
 } from "../../../components/FriendCard";
+import { default as s } from "../FriendsStyle";
 
 const Requests = ({ navigation, route }) => {
+  const styles = useStyleSheet(s);
+
   return (
     <View>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: 10,
-        }}
-      >
-        <Text category="h4" status="primary">
+      <View style={styles.subHeaderGroup}>
+        <Text category="h4" style={styles.subHeader}>
           Requests
         </Text>
         <TouchableOpacity
-          // appearance="ghost"
           onPress={() => {
             navigation.navigate("FriendRequest");
           }}
-          style={{ flexDirection: "row", gap: 5 }}
+          style={styles.subHeaderButton}
         >
           <Text>View all 5</Text>
           <Iconify size={20} icon="fluent:chevron-right-16-regular" />
         </TouchableOpacity>
       </View>
-      <View style={{ gap: 10 }}>
+      <View style={styles.friendList}>
         <FriendItemRequest
           username="Gary"
           subtitle="3 days"
@@ -71,31 +51,25 @@ const Requests = ({ navigation, route }) => {
 };
 
 const Suggestions = ({ navigation, route }) => {
+  const styles = useStyleSheet(s);
+
   return (
     <View>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: 10,
-        }}
-      >
-        <Text category="h4" status="primary">
+      <View style={styles.subHeaderGroup}>
+        <Text category="h4" style={styles.subHeader}>
           Suggestions
         </Text>
         <TouchableOpacity
-          // appearance="ghost"
           onPress={() => {
             navigation.navigate("FriendSuggestion");
           }}
-          style={{ flexDirection: "row", gap: 5 }}
+          style={styles.subHeaderButton}
         >
           <Text>View all</Text>
           <Iconify size={20} icon="fluent:chevron-right-16-regular" />
         </TouchableOpacity>
       </View>
-      <View style={{ gap: 10 }}>
+      <View style={styles.friendList}>
         <FriendItemSuggestion
           username="Sherlock"
           subtitle="past activities"
@@ -117,6 +91,8 @@ const Suggestions = ({ navigation, route }) => {
 };
 
 const AddFriends = ({ navigation, route }) => {
+  const styles = useStyleSheet(s);
+
   return (
     <ScreenNormalView>
       <TopNavigation
@@ -132,7 +108,7 @@ const AddFriends = ({ navigation, route }) => {
       />
       <ScrollView>
         <ScreenView>
-          <View style={{ gap: 22 }}>
+          <View style={styles.friendListContainer}>
             <Requests navigation={navigation} />
             <Suggestions navigation={navigation} />
           </View>

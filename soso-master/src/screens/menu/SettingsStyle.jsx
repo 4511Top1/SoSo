@@ -1,8 +1,8 @@
 import { StyleService } from "@ui-kitten/components";
 
 const styles = StyleService.create({
-  topNav: {
-    marginLeft: 10,
+  subHeader: {
+    color: "color-primary-focus-border",
   },
 
   userCard: {
@@ -32,6 +32,10 @@ const styles = StyleService.create({
     gap: 20,
   },
 
+  topNav: {
+    marginLeft: 10,
+  },
+
   menuCard: {
     width: 165,
     height: 80,
@@ -43,6 +47,23 @@ const styles = StyleService.create({
     shadowOpacity: 0.1,
     shadowRadius: 3,
     shadowOffset: { width: 0, height: 4 },
+  },
+
+  listContainer: {
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    shadowOffset: { width: 0, height: 4 },
+    borderRadius: 15,
+    padding: 10,
+    gap: 5,
+  },
+
+  listItem: {
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexDirection: "row",
+    paddingHorizontal: 15,
+    paddingVertical: 10,
   },
 });
 
