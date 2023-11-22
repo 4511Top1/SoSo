@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Button,
+  // Button,
   StyleSheet,
   View,
   Image,
@@ -8,7 +8,14 @@ import {
   Pressable,
   TouchableOpacity,
 } from "react-native";
-import { Layout, Tab, TabView, Text, useTheme } from "@ui-kitten/components";
+import {
+  Layout,
+  Tab,
+  TabView,
+  Text,
+  useTheme,
+  Button,
+} from "@ui-kitten/components";
 import {
   MaterialCommunityIcons,
   SimpleLineIcons,
@@ -34,7 +41,71 @@ const ProgressBar = () => {
   );
 };
 
+const HomeTutorial = ({ showTutorial, setShowTutorial, toggleModal }) => {
+  return (
+    <View style={{ flex: 1 }}>
+      <Modal
+        // animationType="slide"
+        // transparent={false}
+        // isVisible={showTutorial}
+        isVisible={false}
+        onRequestClose={() => {
+          setShowTutorial(false);
+        }}
+        style={styles.modal}
+        onBackdropPress={toggleModal}
+      >
+        <View style={styles.modalContent}>
+          <Text category="h4" status="primary">
+            Getting Started
+          </Text>
+          <Layout style={{ paddingVertical: 20, paddingHorizontal: 20 }}>
+            <Text category="p1">
+              Try out our QuickMatch™ feature that guides you to events and
+              friends aligned with your interests in seconds.
+            </Text>
+            <View style={{ alignItems: "center", gap: 5, marginBottom: 10 }}>
+              <Text style={{ marginTop: 10 }} category="s1">
+                1. Tap on the Quick Event Matching to quickly match with an
+                event.
+              </Text>
+              <MenuCard
+                title="Quick Event Matching"
+                icon={<Iconify size={40} icon="solar:calendar-outline" />}
+              />
+            </View>
+            <View style={{ alignItems: "center", gap: 5, marginBottom: 20 }}>
+              <Text style={{ marginTop: 10 }} category="s1">
+                2. Tap on the Quick User Matching to quickly matched with a
+                user.
+              </Text>
+              <MenuCard
+                title="Quick User Matching"
+                icon={
+                  <Iconify size={40} icon="solar:users-group-rounded-linear" />
+                }
+              />
+            </View>
+            <Button>Continue</Button>
+            {/* <Text style={{ marginTop: 10 }} category="p1">
+              Please click{" "}
+              <Text category="s1" status="primary">
+                fund button
+              </Text>{" "}
+              to fund for this event
+            </Text> */}
+          </Layout>
+
+          {/* <Image source={imageUri} /> */}
+        </View>
+      </Modal>
+    </View>
+  );
+};
+
 const MenuCard = ({ title, icon, navigation, dest }) => {
+  const theme = useTheme();
+
   return (
     <TouchableOpacity
       onPress={() => {
@@ -44,14 +115,14 @@ const MenuCard = ({ title, icon, navigation, dest }) => {
       <Layout
         style={{
           width: 165,
-          height: 80,
+          minHeight: 80,
           justifyContent: "center",
           gap: 3,
           paddingHorizontal: 15,
           paddingVertical: 5,
           borderRadius: 15,
-          shadowOpacity: 0.1,
-          shadowRadius: 3,
+          shadowOpacity: 0.2,
+          shadowRadius: 5,
           shadowOffset: { width: 0, height: 4 },
         }}
       >
@@ -63,6 +134,8 @@ const MenuCard = ({ title, icon, navigation, dest }) => {
 };
 
 const Home = ({ navigation }) => {
+  const [showTutorial, setShowTutorial] = React.useState(true);
+
   const theme = useTheme();
   const { isFirstLaunch } = useFirstLaunch();
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -79,34 +152,38 @@ const Home = ({ navigation }) => {
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            resizeMode="contain"
+            // resizeMode="contain"
             source={require("../../assets/images/SoSoWhite.png")}
           />
           <Text>Good Morning, Zoe!</Text>
         </View>
 
         <View style={styles.iconsContainer}>
-          <MaterialCommunityIcons
-            name="bell-ring"
-            size={24}
+          <Iconify
+            icon="solar:bell-linear"
+            size={30}
             color="black"
+            // color={theme["color-basic-900"]}
             onPress={() => navigation.navigate("Notification")}
           />
           <MaterialCommunityIcons
             name="qrcode-scan"
-            size={24}
+            size={30}
             color="black"
             onPress={() => navigation.navigate("Scanner")}
           />
         </View>
       </View>
 
-      <ScrollView keyboardShouldPersistTaps="handled">
+      <ScrollView
+        keyboardShouldPersistTaps="handled"
+        style={{ overflow: "visible" }}
+      >
         <View style={styles.quickMatch}>
-          <Text category="h4" status="primary">
-            Snap 'n Go
+          <Text category="h4" status="primary" style={{ marginBottom: 5 }}>
+            Shortcuts
           </Text>
-          <View style={styles.twoButton}>
+          <View style={[styles.twoButton, { marginBottom: 10 }]}>
             <MenuCard
               title="Quick Event Matching"
               icon={<Iconify size={40} icon="solar:calendar-outline" />}
@@ -135,10 +212,12 @@ const Home = ({ navigation }) => {
             />
           </View>
         </View>
-        <View style={styles.tab}>
+
+        <View style={[styles.tab]}>
           <Text category="h4" status="primary">
             Your events
           </Text>
+
           <TabView
             selectedIndex={selectedIndex}
             shouldLoadComponent={shouldLoadComponent}
@@ -150,6 +229,14 @@ const Home = ({ navigation }) => {
                   Upcoming
                 </Text>
               )}
+              style={
+                {
+                  // alignItems: "flex-start",
+                  // justifyContent: "flex-start",
+                  // alignSelf: "flex-start",
+                  // backgroundColor: "red",
+                }
+              }
             >
               <Layout style={styles.tabContainer}>
                 <Pressable style={styles.card} onClick={() => {}}>
@@ -461,6 +548,12 @@ const Home = ({ navigation }) => {
           </Modal>
         </View>
       </ScrollView>
+
+      <HomeTutorial
+        showTutorial={showTutorial}
+        setShowTutorial={setShowTutorial}
+        toggleModal={toggleModal}
+      />
     </View>
   );
 };
@@ -478,14 +571,19 @@ const styles = StyleSheet.create({
   topContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
+    // alignItems: "center",
+    // backgroundColor: "blue",
   },
 
   iconsContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    width: 60,
-    alignItems: "center",
+    // backgroundColor: "red",
+    // marginRight: 10,
+    // justifyContent: "space-between",
+    // width: 60,
+    // alignItems: "center",
+    marginTop: 5,
+    gap: 15,
   },
   logoContainer: {
     flexDirection: "coloum",
@@ -493,7 +591,7 @@ const styles = StyleSheet.create({
     alignItems: "left",
   },
   logo: {
-    width: 100,
+    width: 108,
     height: 50,
   },
   quickMatch: {
@@ -501,12 +599,15 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     justifyContent: "center",
   },
+
   twoButton: {
-    padding: 5,
+    // padding: 5,
+    overflow: "visible",
     flexDirection: "row",
     gap: 20,
     flexWrap: true,
   },
+
   matchButton: {
     flexDirection: "column",
     justifyContent: "flex-end",
@@ -530,11 +631,13 @@ const styles = StyleSheet.create({
     // height: 64,
     alignItems: "center",
     justifyContent: "center",
-    padding: 20,
+    // padding: 20,
+    marginTop: 10,
   },
   tabTitle: {
     fontSize: 24,
     fontWeight: 300,
+    // textAlign: "left",
   },
   //cards
   octTypo: {
