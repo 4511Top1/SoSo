@@ -19,6 +19,9 @@ import {
   Button,
 } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import Modal from "react-native-modal";
+
 import { ScreenView } from "../../components/CustomView";
 import { BackAction } from "../../components/backAction";
 // import { TouchableOpacity } from "react-native-gesture-handler";
@@ -30,7 +33,6 @@ const RegisterEvent = ({ navigation }) => {
   const [username, setUsername] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [agree, setAgree] = React.useState(false);
-  //   const { fromScreen, event } = route.params;
 
   const onCheckedChange = (isChecked) => {
     setChecked(isChecked);
@@ -46,14 +48,6 @@ const RegisterEvent = ({ navigation }) => {
       </Text>
     </Layout>
   );
-
-  //   const navigateToSuccess = (event) => {
-  //     console.log("Navigating to success with event:", event);
-  //     navigation.navigate("FundSuccess", {
-  //       event: event,
-  //       fromScreen: "FundEvent",
-  //     });
-  //   };
 
   return (
     <ScreenView>
@@ -113,7 +107,6 @@ const RegisterEvent = ({ navigation }) => {
           />
         </Layout>
         <Layout style={{ flexDirection: "row", alignItems: "center" }}>
-
           <CheckBox
             checked={agree}
             style={styles.checkBox}
@@ -121,7 +114,9 @@ const RegisterEvent = ({ navigation }) => {
           />
           <Text>{"   "}</Text>
           <Text category="s1">I agree to the {""}</Text>
-          <TouchableOpacity onPress={() => navigation.navigate("TermsCondition")}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("TermsCondition")}
+          >
             <Text category="s1" status="primary">
               Terms of Service
             </Text>
@@ -134,6 +129,7 @@ const RegisterEvent = ({ navigation }) => {
           <Text style={styles.fundText}>Register</Text>
         </Button>
       </View>
+
     </ScreenView>
   );
 };

@@ -15,12 +15,15 @@ import {
   Switch,
 } from "react-native";
 import { Iconify } from "react-native-iconify";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import Modal from "react-native-modal";
 
 import { ScreenView } from "../../components/CustomView";
 import { BackAction } from "../../components/backAction";
 import { EventCard } from "./EventCard";
 import { ScreenNormalView } from "../../components/CustomView";
 import HorizontalCardScroll from "./HorizontalCardScroll";
+
 const event = {
   title: "Sea-labration",
   description:
@@ -45,12 +48,19 @@ const DetailsRegist = ({ navigation }) => {
   const theme = useTheme();
   const [isExpanded, setIsExpanded] = React.useState(false);
   const [isBookmarked, setIsBookmarked] = React.useState(false);
+  const [isFirstVisit, setIsFirstVisit] = React.useState(false);
+  const [showTutorial, setShowTutorial] = React.useState(true);
+
   //   const { fromScreen, event } = route.params;
   const imageUri = require("../../assets/images/DetailsImage1.png");
   const fullText = event.description;
 
   const toggleBookmark = () => {
     setIsBookmarked(!isBookmarked);
+  };
+
+  const toggleModal = () => {
+    setShowTutorial(!showTutorial);
   };
 
   const navigateToFund = (event) => {
@@ -103,6 +113,22 @@ const DetailsRegist = ({ navigation }) => {
       </Text>
     </Layout>
   );
+
+  const checkFirstVisit = async () => {
+    try {
+      const hasVisited = await AsyncStorage.getItem("hasVisitedYourScreen");
+      if (hasVisited === null) {
+        setShowTutorial(true);
+        await AsyncStorage.setItem("hasVisitedYourScreen", "true");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  React.useEffect(() => {
+    checkFirstVisit();
+  }, []);
 
   return (
     <ScreenNormalView>
@@ -197,21 +223,36 @@ const DetailsRegist = ({ navigation }) => {
             <Text category="s1" style={styles.similarTitle}>
               Who's coming
             </Text>
-                <HorizontalCardScroll />
-            {/* <EventCard event={event} onPress={() => {}} /> */}
+            <HorizontalCardScroll />
+           
           </View>
-          {/* <Button
-            style={styles.fundButton}
-            onPress={() => navigateToFund(event)}
-          >
-            Fund
-          </Button> */}
+
           <Button
             style={styles.fundButton}
             onPress={() => navigation.navigate("RegisterEvent")}
           >
             Register
           </Button>
+          <View style={{ flex: 1 }}>
+            <Modal
+              // animationType="slide"
+              // transparent={false}
+              isVisible={showTutorial}
+              onRequestClose={() => {
+                setShowTutorial(false);
+              }}
+              style={styles.modal}
+              onBackdropPress={toggleModal}
+            >
+              <View style={styles.modalContent}>
+                <Text>Tutorial Content</Text>
+                <Text>
+                  Please click register button to register for this event
+                </Text>
+                {/* <Image source={imageUri} /> */}
+              </View>
+            </Modal>
+          </View>
         </View>
       </ScrollView>
     </ScreenNormalView>
@@ -262,6 +303,20 @@ const styles = StyleSheet.create({
   },
   eventTitle: {
     marginTop: 16,
+  },
+  modal: {
+    justifyContent: "flex-end",
+    margin: 0,
+  },
+  modalContent: {
+    // flex: 1,
+    backgroundColor: "white",
+    padding: 22,
+    borderTopLeftRadius: 17,
+    borderTopRightRadius: 17,
+    alignItems: "center",
+    justifyContent: "center",
+    position: "relative",
   },
   bookmarkButton: {
     position: "absolute",
@@ -326,5 +381,4 @@ const styles = StyleSheet.create({
   similarTitle: {
     marginTop: 22,
   },
-
 });

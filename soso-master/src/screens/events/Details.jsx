@@ -41,6 +41,7 @@ const Details = ({ navigation, route }) => {
   const imageUri = require("../../assets/images/DetailsImage1.png");
   const fullText = event.description;
 
+
   const toggleBookmark = () => {
     setIsBookmarked(!isBookmarked);
   };
@@ -52,6 +53,8 @@ const Details = ({ navigation, route }) => {
       fromScreen: "Details",
     });
   };
+
+
 
   const renderBookmarkIcon = (props) => (
     <TouchableOpacity onPress={toggleBookmark}>
