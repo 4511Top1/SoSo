@@ -1,13 +1,20 @@
 import React from "react";
 import { ScrollView, View } from "react-native";
-import { Text, TopNavigation, Avatar } from "@ui-kitten/components";
+import {
+  Text,
+  TopNavigation,
+  Avatar,
+  useStyleSheet,
+} from "@ui-kitten/components";
 import { BackAction } from "../../components/backAction";
 import { ScreenNormalView, ScreenView } from "../../components/CustomView";
 import { HorizontalLine, VerticalLine } from "../../components/Lines";
-import styles from "./UserProfileStyle";
+import { default as s } from "./UserProfileStyle";
 
-const UserProfile = ({ route, navigation }) => {
+const UserProfile = ({ props, route, navigation }) => {
   const { username } = route.params;
+  const styles = useStyleSheet(s);
+
   return (
     <ScreenNormalView>
       <TopNavigation
@@ -29,7 +36,7 @@ const UserProfile = ({ route, navigation }) => {
               style={styles.avatar}
               source={require("../../assets/pfp/profile_placeholder.jpeg")}
             />
-            <Text category="h3" style={styles.name} status="primary">
+            <Text category="h3" style={styles.name}>
               {username}
             </Text>
           </View>

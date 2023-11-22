@@ -1,8 +1,12 @@
-import { StyleSheet } from "react-native";
+import { StyleService } from "@ui-kitten/components";
 
-const styles = StyleSheet.create({
+const styles = StyleService.create({
   name: {
     textTransform: "capitalize",
+    color: "color-primary-focus",
+  },
+  subHeader: {
+    color: "color-primary-focus",
   },
   avatarName: {
     alignItems: "center",

@@ -6,21 +6,21 @@ import {
   KeyboardAvoidingView,
 } from "react-native";
 import {
-  useTheme,
   Text,
   Input,
   Button,
   TopNavigation,
   Avatar,
+  useStyleSheet,
 } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import * as ImagePicker from "expo-image-picker";
 import { BackAction } from "../../components/backAction";
 import { ScreenNormalView, ScreenView } from "../../components/CustomView";
-import styles from "./UserProfileStyle";
+import { default as s } from "./UserProfileStyle";
 
 const MyUserProfileEdit = ({ route, navigation }) => {
-  const theme = useTheme();
+  const styles = useStyleSheet(s);
 
   const [newDescription, setNewDescription] = React.useState("");
   const [newInterest, setNewInterest] = React.useState("");
@@ -109,7 +109,7 @@ const MyUserProfileEdit = ({ route, navigation }) => {
                   </View>
                 </View>
               </TouchableOpacity>
-              <Text category="h3" style={styles.name} status="primary">
+              <Text category="h3" style={styles.name}>
                 Zoe
               </Text>
             </View>
@@ -128,7 +128,7 @@ const MyUserProfileEdit = ({ route, navigation }) => {
 
               {/* Interests */}
               <View style={styles.detail}>
-                <Text category="h4" status="primary">
+                <Text category="h4" style={styles.subHeader}>
                   I am interested in
                 </Text>
                 <Input
@@ -141,7 +141,7 @@ const MyUserProfileEdit = ({ route, navigation }) => {
 
               {/* Events Hosted */}
               <View style={styles.detail}>
-                <Text category="h4" status="primary">
+                <Text category="h4" style={styles.subHeader}>
                   I have hosted
                 </Text>
                 <Text>In development.</Text>
@@ -149,7 +149,7 @@ const MyUserProfileEdit = ({ route, navigation }) => {
 
               {/* Events Attended */}
               <View style={styles.detail}>
-                <Text category="h4" status="primary">
+                <Text category="h4" style={styles.subHeader}>
                   I have attended
                 </Text>
                 <Text>In development.</Text>

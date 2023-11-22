@@ -1,12 +1,19 @@
 import React from "react";
 import { ScrollView, View } from "react-native";
-import { Text, Button, TopNavigation, Avatar } from "@ui-kitten/components";
+import {
+  Text,
+  Button,
+  TopNavigation,
+  Avatar,
+  useStyleSheet,
+} from "@ui-kitten/components";
 import { BackAction } from "../../components/backAction";
 import { ScreenNormalView, ScreenView } from "../../components/CustomView";
 import { HorizontalLine, VerticalLine } from "../../components/Lines";
-import styles from "./UserProfileStyle";
+import { default as s } from "./UserProfileStyle";
 
 const MyUserProfile = ({ route, navigation }) => {
+  const styles = useStyleSheet(s);
   const [description, setDescription] = React.useState(null);
   const [interest, setInterest] = React.useState("");
   const [image, setImage] = React.useState("");
@@ -62,7 +69,7 @@ const MyUserProfile = ({ route, navigation }) => {
                   : require("../../assets/pfp/profile_placeholder.jpeg")
               }
             />
-            <Text category="h3" style={styles.name} status="primary">
+            <Text category="h3" style={styles.name}>
               Zoe
             </Text>
           </View>
@@ -84,7 +91,7 @@ const MyUserProfile = ({ route, navigation }) => {
 
             {/* Interests */}
             <View style={styles.detail}>
-              <Text category="h4" status="primary">
+              <Text category="h4" style={styles.subHeader}>
                 I am interested in
               </Text>
               <Text>Nothing.</Text>
@@ -92,7 +99,7 @@ const MyUserProfile = ({ route, navigation }) => {
 
             {/* Events Hosted */}
             <View style={styles.detail}>
-              <Text category="h4" status="primary">
+              <Text category="h4" style={styles.subHeader}>
                 I have hosted
               </Text>
               <Text>Nothing.</Text>
@@ -100,7 +107,7 @@ const MyUserProfile = ({ route, navigation }) => {
 
             {/* Events Attended */}
             <View style={styles.detail}>
-              <Text category="h4" status="primary">
+              <Text category="h4" style={styles.subHeader}>
                 I have attended
               </Text>
               <Text>Nothing.</Text>
