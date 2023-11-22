@@ -8,11 +8,7 @@ import {
   Pressable,
 } from "react-native";
 import { Layout, Tab, TabView, Text, useTheme } from "@ui-kitten/components";
-import {
-  MaterialCommunityIcons,
-  FontAwesome,
-  SimpleLineIcons,
-} from "@expo/vector-icons";
+import { MaterialCommunityIcons, SimpleLineIcons } from "@expo/vector-icons";
 import Modal from "react-native-modal";
 import { Iconify } from "react-native-iconify";
 import { StatusBar } from "expo-status-bar";
@@ -77,11 +73,11 @@ const Home = ({ navigation }) => {
         <View style={styles.twoButton}>
           <Pressable style={styles.matchButton}>
             <Iconify size={30} icon="solar:calendar-outline" />
-            <Text category="label">Quick Event Matching</Text>
+            <Text category="h6">Quick Event Matching</Text>
           </Pressable>
           <Pressable style={styles.matchButton}>
-            <FontAwesome name="users" size={30} color="black" />
-            <Text category="label">Quick User Matching</Text>
+            <Iconify size={30} icon="solar:users-group-rounded-linear" />
+            <Text category="h6">Quick User Matching</Text>
           </Pressable>
         </View>
       </View>
