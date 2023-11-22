@@ -40,8 +40,8 @@ const styles = StyleService.create({
     paddingHorizontal: 15,
     paddingVertical: 5,
     borderRadius: 15,
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
     shadowOffset: { width: 0, height: 4 },
   },
 });

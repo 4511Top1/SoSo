@@ -13,6 +13,7 @@ import {
 import { Iconify } from "react-native-iconify";
 import { HorizontalLine } from "../../components/Lines";
 import { default as s } from "./SettingsStyle";
+
 // Sub-screens
 import RegionLanguage from "./settings/RegionLanguage";
 import DataPrivacy from "./settings/DataPrivacy";
@@ -56,7 +57,6 @@ const SettingsCardList = ({ navigation, title, items }) => {
                           <Iconify
                             color={theme["color-danger-500"]}
                             icon="ci:exit"
-                            xw
                           />
                         </>
                       ) : (

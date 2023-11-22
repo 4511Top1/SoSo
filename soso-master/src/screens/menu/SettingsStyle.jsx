@@ -44,8 +44,8 @@ const styles = StyleService.create({
     paddingHorizontal: 15,
     paddingVertical: 5,
     borderRadius: 15,
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
     shadowOffset: { width: 0, height: 4 },
   },
 
@@ -64,6 +64,18 @@ const styles = StyleService.create({
     flexDirection: "row",
     paddingHorizontal: 15,
     paddingVertical: 10,
+  },
+
+  noSubHeader: {
+    marginTop: 10,
+  },
+
+  dropDown: {
+    width: 200,
+  },
+
+  dropDownMed: {
+    width: 150,
   },
 });
 
