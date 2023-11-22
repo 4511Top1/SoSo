@@ -5,7 +5,6 @@ import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import { SafeView } from "./components/CustomView";
 import { SafeAreaView } from "react-native-safe-area-context";
-
 import Home from "./screens/home";
 import Events from "./screens/events";
 import Feed from "./screens/feed/feed";
