@@ -63,8 +63,6 @@ import RegisterEvent from "./screens/events/RegisterEvent";
 import RegistrationSuccess from "./screens/events/RegistrationSuccess";
 import CreateEvent from "./screens/events/CreateEvent";
 import DetailsRegist from "./screens/events/DetailsRegist";
-// import { SafeAreaView } from "react-native-safe-area-context";
-import Scanner from "./screens/home/scanner";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const { Navigator: StackNavigator, Screen: StackScreen } =
@@ -144,7 +142,6 @@ export const AppNavigator = () => {
         <StackScreen name="NewPost" component={NewPost} />
         <StackScreen name="ViewPost" component={ViewPost} />
         <StackScreen name="replyComment" component={ReplyComment} />
-        <StackScreen name="FundEvent" component={FundEvent} />
 
         {/* Notification */}
         <StackScreen name="Notification" component={Notifications} />
