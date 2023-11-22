@@ -6,7 +6,7 @@ import { Iconify } from "react-native-iconify";
 import { SafeView } from "./components/CustomView";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Home from "./screens/home/home";
-import Events from "./screens/events";
+import Events from "./screens/Events";
 import Feed from "./screens/feed/feed";
 
 // Chat
@@ -27,6 +27,7 @@ import {
   PastEvents,
   Saved,
   Settings,
+
   MenuVerifyID,
   IdentityVerification,
   IdentityVerificationSuccess,
@@ -36,13 +37,13 @@ import {
   CustomerSupport,
   TermsCondition,
   EditPassword,
-} from "./screens/menu";
+} from "./screens/Menu";
 
 import NewPost from "./screens/feed/newPost";
 import ViewPost from "./screens/feed/viewPost";
 import ReplyComment from "./screens/feed/replyComments";
 import Notifications from "./screens/notifications/notifications";
-import Menu from "./screens/menu";
+import Menu from "./screens/Menu";
 import Login from "./screens/auth/login";
 import Register from "./screens/auth/register";
 import Reset from "./screens/auth/reset";
@@ -120,7 +121,7 @@ const TabNavigator = () => (
 export const AppNavigator = () => {
   return (
     <SafeView>
-      <StackNavigator screenOptions={{ headerShown: false }}>
+      <StackNavigator screenOptions={{ headerShown: false }} initialRouteName="Splash">
         {/* Tabs */}
         <StackScreen name="Tabs" component={TabNavigator} />
 

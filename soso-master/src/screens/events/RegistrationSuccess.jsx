@@ -42,82 +42,66 @@ const RegistrationSuccess = ({ navigation }) => {
           <Button
             style={styles.browseEventButton}
             onPress={() => {
-              console.log("Navigating to browse events");
-              navigation.navigation("Tabs");
+              // console.log("Navigating to browse events");
+              navigation.pop(3);
             }}
           >
             Browse other events
           </Button>
-           {/* <Button
-            style={styles.viewEventButton}
-            onPress={() => {
-              navigation.pop(2);
-            }}
-          >
-            View event
-          </Button>
-          <Button
-            style={styles.browseEventButton}
-            onPress={() => {
-              navigation.pop(5);
-            }}
-          >
-            Browse other events
-          </Button> */}
         </Layout>
-      </View>
-      <View style={{ flex: 1 }}>
-        <Modal
-          isVisible={isModalVisible}
-          style={styles.modal}
-          onBackdropPress={toggleModal}
-        >
-          <View style={styles.modalContent}>
-            <Text category="h4">Sea-labration</Text>
-            <Image
-              source={require("../../assets/images/QRCode.png")}
-              style={styles.qrCode}
-            />
-            <Image
-              source={require("../../assets/images/SoSoWhite.png")}
-              style={styles.logo}
-            />
-            <Layout style={styles.dateAndLocation}>
-              <Layout style={styles.oneLineContainer}>
-                <Iconify
-                  color={theme["color-primary-500"]}
-                  size={27}
-                  icon={"fluent:clock-20-regular"}
-                />
-                <Text category="p1">05:00 AM</Text>
+        <View style={{ flex: 1 }}>
+          <Modal
+            isVisible={isModalVisible}
+            style={styles.modal}
+            onBackdropPress={toggleModal}
+          >
+            <View style={styles.modalContent}>
+              <Text category="h4">Sea-labration</Text>
+              <Image
+                source={require("../../assets/images/QRCode.png")}
+                style={styles.qrCode}
+              />
+              <Image
+                source={require("../../assets/images/SoSoWhite.png")}
+                style={styles.logo}
+              />
+              <Layout style={styles.dateAndLocation}>
+                <Layout style={styles.oneLineContainer}>
+                  <Iconify
+                    color={theme["color-primary-500"]}
+                    size={27}
+                    icon={"fluent:clock-20-regular"}
+                  />
+                  <Text category="p1">05:00 AM</Text>
+                </Layout>
+                <Layout style={styles.oneLineContainer}>
+                  <Iconify
+                    color={theme["color-primary-500"]}
+                    size={27}
+                    icon={"fluent:calendar-20-regular"}
+                  />
+                  <Text category="p1">Sat, 20 Nov 2021</Text>
+                </Layout>
+                <Layout style={styles.oneLineContainer}>
+                  <Iconify
+                    color={theme["color-primary-500"]}
+                    size={27}
+                    icon={"fluent:location-20-regular"}
+                  />
+                  <Text category="p1">Sydney Opera House</Text>
+                </Layout>
               </Layout>
-              <Layout style={styles.oneLineContainer}>
-                <Iconify
-                  color={theme["color-primary-500"]}
-                  size={27}
-                  icon={"fluent:calendar-20-regular"}
-                />
-                <Text category="p1">Sat, 20 Nov 2021</Text>
-              </Layout>
-              <Layout style={styles.oneLineContainer}>
-                <Iconify
-                  color={theme["color-primary-500"]}
-                  size={27}
-                  icon={"fluent:location-20-regular"}
-                />
-                <Text category="p1">Sydney Opera House</Text>
-              </Layout>
-            </Layout>
-            <Button
-              style={styles.button}
-              onPress={() => {
-                navigation.pop(2);
-              }}
-            >
-              View event
-            </Button>
-          </View>
-        </Modal>
+              <Button
+                style={styles.button}
+                onPress={() => {
+                  navigation.pop(2);
+                }}
+              >
+                View event
+              </Button>
+            </View>
+          </Modal>
+        </View>
       </View>
     </ScreenView>
   );
@@ -148,6 +132,7 @@ const styles = StyleSheet.create({
   },
   buttonGroup: {
     flex: 1,
+    // backgroundColor:"yellow",
     // justifyContent: "center",
     alignItems: "center",
   },

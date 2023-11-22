@@ -52,7 +52,7 @@ const eventDetails = [
 const Saved = ({ navigation, route }) => {
   const [filteredEvents, setFilteredEvents] = React.useState(eventDetails);
   const navigateToDetails = (event) => {
-    console.log("Navigating to details with event:", event);
+    // console.log("Navigating to details with event:", event);
     navigation.navigate("Details", {
       event: event,
       fromScreen: "Saved",

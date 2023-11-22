@@ -21,7 +21,7 @@ const FundSuccess = ({ navigation, route }) => {
   return (
     <ScreenView>
       <View style={styles.container}>
-        <Text category="h5" status="primary" style={styles.title}>
+        <Text category="h4" status="primary" style={styles.title}>
           Thanks for your support!
         </Text>
         <Text style={styles.subTitle}>
@@ -57,8 +57,8 @@ const styles = StyleSheet.create({
     marginTop: 104,
     backgroundColor: "#fff",
   },
-  title:{
-    textAlign:"center",
+  title: {
+    textAlign: "center",
   },
   text: {
     // color:"43007C",
@@ -67,9 +67,8 @@ const styles = StyleSheet.create({
   center: {
     flexDirection: "column",
   },
-  subTitle:{
-    textAlign:"center",
-
+  subTitle: {
+    textAlign: "center",
   },
   svg: {
     alignSelf: "center",
@@ -79,6 +78,7 @@ const styles = StyleSheet.create({
     flex: 1,
     // justifyContent: "center",
     alignItems: "center",
+    // backgroundColor: "yellow",
   },
   viewEventButton: {
     // width: 271,
@@ -90,11 +90,11 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     width: 271,
   },
-  browseEventButton:{
+  browseEventButton: {
     marginTop: 20,
     backgroundColor: "#4D4352",
     padding: 10,
     borderRadius: 15,
     width: 271,
-  }
+  },
 });

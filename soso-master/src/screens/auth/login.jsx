@@ -13,6 +13,7 @@ import { Layout, useTheme } from "@ui-kitten/components";
 import { Input, IconRegistry } from "@ui-kitten/components";
 import { Text, Button, Icon } from "@ui-kitten/components";
 import { ScreenView } from "../../components/CustomView";
+import { KeyboardAvoidingView } from "react-native";
 
 const Login = ({ navigation }) => {
   const theme = useTheme();
@@ -32,74 +33,80 @@ const Login = ({ navigation }) => {
 
   return (
     <ScreenView>
-      <IconRegistry icons={EvaIconsPack} />
-      <View style={styles.container}>
-        <Image
-          style={styles.image}
-          source={require("../../assets/images/SoSoWhite.png")}
-        />
-        <View>
-          <Layout style={styles.center}>
-            <Text style={styles.text} category="h5" status="primary">
-              Login
-            </Text>
-            <Input
-              style={styles.userName}
-              placeholder="Username"
-              value={username}
-              accessoryLeft={
-                <Iconify
-                  color={theme["color-basic-500"]}
-                  size={20}
-                  icon={"solar:user-rounded-outline"}
-                />
-              }
-              onChangeText={(nextValue) => setUsername(nextValue)}
-            />
-            <Input
-              style={styles.password}
-              placeholder="Password"
-              value={password}
-              secureTextEntry={secureTextEntry}
-              accessoryRight={renderIcon}
-              accessoryLeft={
-                <Iconify
-                  color={theme["color-basic-500"]}
-                  size={20}
-                  icon={"solar:lock-keyhole-outline"}
-                />
-              }
-              onChangeText={(nextValue) => setPassword(nextValue)}
-            />
-            <Layout style={styles.forgotPassword}>
-              <Text
-                status="primary"
-                onPress={() => navigation.navigate("Reset")}
+      {/* <IconRegistry icons={EvaIconsPack} /> */}
+      <KeyboardAvoidingView
+        keyboardVerticalOffset={47}
+        style={{ flex: 1 }}
+        behavior="padding"
+      >
+        <View style={styles.container}>
+          <Image
+            style={styles.image}
+            source={require("../../assets/images/SoSoWhite.png")}
+          />
+          <View>
+            <Layout style={styles.center}>
+              <Text style={styles.text} category="h4" status="primary">
+                Login
+              </Text>
+              <Input
+                style={styles.userName}
+                placeholder="Username"
+                value={username}
+                accessoryLeft={
+                  <Iconify
+                    color={theme["color-basic-500"]}
+                    size={20}
+                    icon={"solar:user-rounded-outline"}
+                  />
+                }
+                onChangeText={(nextValue) => setUsername(nextValue)}
+              />
+              <Input
+                style={styles.password}
+                placeholder="Password"
+                value={password}
+                secureTextEntry={secureTextEntry}
+                accessoryRight={renderIcon}
+                accessoryLeft={
+                  <Iconify
+                    color={theme["color-basic-500"]}
+                    size={20}
+                    icon={"solar:lock-keyhole-outline"}
+                  />
+                }
+                onChangeText={(nextValue) => setPassword(nextValue)}
+              />
+              <Layout style={styles.forgotPassword}>
+                <Text
+                  status="primary"
+                  onPress={() => navigation.navigate("Reset")}
+                >
+                  Forgot Password?
+                </Text>
+              </Layout>
+            </Layout>
+
+            <Layout style={styles.buttonGroup}>
+              <Button
+                style={styles.button}
+                onPress={() => navigation.navigate("Tabs")}
               >
-                Forgot Password?
+                Login
+              </Button>
+              <Text style={styles.dontHave}>
+                Don't have account?{"  "}
+                <Text
+                  status="primary"
+                  onPress={() => navigation.navigate("Register")}
+                >
+                  Register
+                </Text>
               </Text>
             </Layout>
-          </Layout>
-
-          <Layout style={styles.buttonGroup}>
-            <Button
-              style={styles.button}
-              onPress={() => navigation.navigate("Tabs")}
-            >
-              Login
-            </Button>
-            <Text style={styles.dontHave}>
-              Don't have account?{"  "}
-              <Text
-                status="primary"
-                onPress={() => navigation.navigate("Register")}
-              >
-                Register
-              </Text>
-            </Text>
-          </Layout>
+          </View>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </ScreenView>
   );
 };
@@ -151,7 +158,8 @@ const styles = StyleSheet.create({
   buttonGroup: {
     justifyContent: "center",
     alignItems: "center",
-  },dontHave:{
-    marginTop:20,
-  }
+  },
+  dontHave: {
+    marginTop: 20,
+  },
 });

@@ -9,7 +9,7 @@ const VerifyIDSubmitted = ({ navigation }) => {
   return (
     <ScreenView>
       <View style={styles.container}>
-        <Text category="h5" status="primary" style={styles.title}>
+        <Text category="h4" status="primary" style={styles.title}>
           Request submitted!
         </Text>
         <Text style={styles.subtitle}>

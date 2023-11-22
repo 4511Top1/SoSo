@@ -68,7 +68,7 @@ const DiscoveryWeekly = ({ data }) => {
           style={styles.LocationIcon}
           icon={"fluent:location-20-filled"}
         />
-        <Text category="c1">{location}</Text>
+        <Text category="p2" appearance="hint">{location}</Text>
       </View>
     );
   };

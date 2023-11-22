@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, View, TouchableOpacity, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  ScrollView,
+  Image,
+} from "react-native";
 import {
   Button,
   Input,
@@ -12,147 +18,229 @@ import { ScreenNormalView } from "../../components/CustomView";
 import { TopNavigation, useTheme } from "@ui-kitten/components";
 import { BackAction } from "../../components/backAction";
 import { Iconify } from "react-native-iconify";
+import EventContext from "../../hook/EventContext";
+import { KeyboardAvoidingView } from "react-native";
+import moment from "moment";
+import DateTimePicker from "@react-native-community/datetimepicker";
+import * as ImagePicker from "expo-image-picker";
 
-const CreateEvent = ({ navigation, onEventreated }) => {
+const CreateEvent = ({ navigation }) => {
+  const theme = useTheme();
   const [eventName, setEventName] = useState("");
   const [eventDescription, setEventDescription] = useState("");
-  const [eventTime, setEventTime] = useState("");
-  const [eventDate, setEventDate] = useState("");
-  const [eventLocation, setEventLocation] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
   const [isVerifiedOnly, setIsVerifiedOnly] = useState(false);
   const [location, setLocation] = React.useState("");
   const [date, setDate] = React.useState(new Date());
   const [time, setTime] = React.useState("");
   const [checked, setChecked] = React.useState(false);
+  const { events, setEvents } = React.useContext(EventContext);
+
+  const openImagePickerAsync = async () => {
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (status !== "granted") {
+      alert("Sorry, we need camera roll permissions to make this work!");
+      return;
+    }
+
+    let pickerResult = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: false,
+      aspect: [4, 3],
+      quality: 1,
+    });
+    // console.log(pickerResult);
+    if (pickerResult.canceled === true) {
+      return;
+    }
+    setSelectedImage(pickerResult.assets[0]);
+  };
+
   const onCheckedChange = (isChecked) => {
     setChecked(isChecked);
   };
-
-  const theme = useTheme();
 
   const renderTitle = () => (
     <Layout style={{ flexDirection: "row", alignItems: "center" }}>
       <BackAction navigation={navigation} />
 
-      <Text category="h4" status="primary">
+      <Text category="h2" status="primary">
         New Event
       </Text>
     </Layout>
   );
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate;
+    // setShow(false);
+    setDate(currentDate);
+  };
   const handleSubmit = () => {
-    const newEvent = {
-      name: eventName,
-      description: eventDescription,
-      time: eventTime,
-      date: eventDate,
-      location: eventLocation,
-      verifiedOnly: isVerifiedOnly,
+    const options = {
+      weekday: "short", // e.g., SUN
+      day: "2-digit", // e.g., 29
+      month: "short", // e.g., Sep
+      hour: "2-digit", // e.g., 04
+      minute: "2-digit", // e.g., 40
+      hour12: true,
     };
 
-    console.log(newEvent);
+    const formattedDateStr = new Intl.DateTimeFormat("en-US", options).format(
+      date
+    );
+    // console.log(formattedDateStr);
 
+    const newEvent = {
+      id: "event" + events.length + 1,
+      title: eventName,
+      date: formattedDateStr,
+      subtitle: eventDescription,
+      location: location,
+      image: selectedImage,
+    };
+
+    // console.log(newEvent);
+    setEvents((events) => [...events, newEvent]);
     navigation.goBack();
   };
   return (
     <ScreenNormalView>
-      <TopNavigation title={renderTitle} alignment="start" />
-      <Layout style={styles.container}>
-        <ScrollView
-          style={styles.scrollView}
-          contentContainerStyle={styles.contentContainer}
-        >
-          <TouchableOpacity style={styles.uploadButton}>
-            <Iconify icon="fluent:camera-28-regular" size={28} />
-            <Text style={styles.uploadText}>Upload photo</Text>
-          </TouchableOpacity>
-
-          <Input
-            style={styles.input}
-            placeholder="Pottery"
-            value={eventName}
-            onChangeText={setEventName}
-            disabled={true}
-          />
-          <Input
-            style={styles.input}
-            placeholder="Event desciption"
-            value={eventName}
-            onChangeText={setEventName}
-          />
-          <Text category="s1" style={styles.timeSubtitle}>
-            Time and location
-          </Text>
-          <View style={styles.inputContainer}>
+      <KeyboardAvoidingView
+        keyboardVerticalOffset={47}
+        style={{ flex: 1 }}
+        behavior="padding"
+      >
+        <TopNavigation title={renderTitle} alignment="start" />
+        <Layout style={styles.container}>
+          <ScrollView
+            style={styles.scrollView}
+            contentContainerStyle={styles.contentContainer}
+          >
+            {selectedImage === null ? (
+              <TouchableOpacity
+                style={styles.uploadButton}
+                onPress={openImagePickerAsync}
+              >
+                <Iconify icon="fluent:camera-28-regular" size={28} />
+                <Text style={styles.uploadText}>Upload photo</Text>
+              </TouchableOpacity>
+            ) : (
+              <Image source={selectedImage} style={styles.uploadPhoto} />
+            )}
+            <Text category="h5" style={styles.timeSubtitle}>
+              Title and Description
+            </Text>
             <Input
-              placeholder="Location"
-              value={location}
-              onChangeText={setLocation}
               style={styles.input}
-              accessoryLeft={
-                <Iconify
-                  color={theme["color-primary-500"]}
-                  size={27}
-                  icon={"fluent:location-20-regular"}
-                />
-              }
-            />
-            <Datepicker
-              // date={date}
-              onSelect={setDate}
-              style={styles.input}
-              placeholder="Pick Date"
-              accessoryLeft={
-                <Iconify
-                  color={theme["color-primary-500"]}
-                  size={27}
-                  icon={"fluent:calendar-20-regular"}
-                />
-              }
+              placeholder="Event Title"
+              value={eventName}
+              onChangeText={setEventName}
+              // disabled={true}
             />
             <Input
-              placeholder="Time"
-              value={time}
-              onChangeText={setTime}
               style={styles.input}
-              accessoryLeft={
+              placeholder="Event desciption"
+              value={eventDescription}
+              onChangeText={setEventDescription}
+            />
+            <Text category="h5" style={styles.timeSubtitle}>
+              Time and location
+            </Text>
+            <View style={styles.inputContainer}>
+              <Input
+                placeholder="Location"
+                value={location}
+                onChangeText={setLocation}
+                style={styles.input}
+                accessoryLeft={
+                  <Iconify
+                    color={theme["color-primary-500"]}
+                    size={27}
+                    icon={"fluent:location-20-regular"}
+                  />
+                }
+              />
+              <Layout
+                style={{
+                  flexDirection: "row",
+                  marginTop: 10,
+                  justifyContent: "flex-start",
+                  marginLeft: 38,
+                }}
+              >
                 <Iconify
                   color={theme["color-primary-500"]}
                   size={27}
                   icon={"fluent:clock-20-regular"}
                 />
-              }
-            />
-          </View>
-          <Text category="s1" style={styles.timeSubtitle}>
-            Event status
-          </Text>
+                <DateTimePicker
+                  value={date}
+                  onChange={onChange}
+                  mode="datetime"
+                />
+              </Layout>
+              {/* <Datepicker
+                date={date}
+                onSelect={setDate}
+                style={styles.input}
+                placeholder="Pick Date"
+                accessoryLeft={
+                  <Iconify
+                    color={theme["color-primary-500"]}
+                    size={27}
+                    icon={"fluent:calendar-20-regular"}
+                  />
+                }
+                //   value={date}
+              /> */}
+              {/* <Input
+                placeholder="Time"
+                value={time}
+                onChangeText={setTime}
+                style={styles.input}
+                accessoryLeft={
+                  <Iconify
+                    color={theme["color-primary-500"]}
+                    size={27}
+                    icon={"fluent:clock-20-regular"}
+                  />
+                }
+              /> */}
+            </View>
+            <Text category="h5" style={styles.timeSubtitle}>
+              Event status
+            </Text>
 
-          {/* <Toggle value={isVerifiedOnly} onValueChange={setIsVerifiedOnly} >
+            {/* <Toggle value={isVerifiedOnly} onValueChange={setIsVerifiedOnly} >
             Verified users only
         </Toggle> */}
-          <Toggle
-            status="primary"
-            style={styles.toggle}
-            checked={checked}
-            onChange={onCheckedChange}
-          >
-            <Text category="s1" style={{ marginLeft: 9 }}>
-              Use saved details
-            </Text>
-          </Toggle>
-          {/* <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+            <Toggle
+              status="primary"
+              style={styles.toggle}
+              checked={checked}
+              onChange={onCheckedChange}
+            >
+              <Text category="s1" style={{ marginLeft: 9 }}>
+                Use saved details
+              </Text>
+            </Toggle>
+            {/* <TouchableOpacity style={styles.button} onPress={handleSubmit}>
             <Text style={styles.buttonText}>Create</Text>
           </TouchableOpacity> */}
-          <View style={styles.buttonGroup}>
-            <Button
+            <View style={styles.buttonGroup}>
+              {/* <Button
               style={styles.button}
               onPress={() => navigation.navigate("Tabs")}
             >
               Create
-            </Button>
-          </View>
-        </ScrollView>
-      </Layout>
+            </Button> */}
+              <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+                <Text style={styles.buttonText}>Create</Text>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
+        </Layout>
+      </KeyboardAvoidingView>
     </ScreenNormalView>
   );
 };
@@ -225,9 +313,15 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingBottom: 20,
   },
-  buttonGroup:{
+  buttonGroup: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
+    alignSelf: "center",
+  },
 });
