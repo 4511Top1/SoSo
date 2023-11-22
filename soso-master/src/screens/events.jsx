@@ -8,6 +8,9 @@ import {
   Icon,
   Layout,
 } from "@ui-kitten/components";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import Modal from "react-native-modal";
+
 
 import { ScreenView } from "../components/CustomView";
 import { useTheme } from "@ui-kitten/components";
@@ -44,20 +47,19 @@ const Events = ({ navigation }) => {
   const theme = useTheme();
   const inputRef = useRef(null);
   const [value, setValue] = React.useState("");
-  // const [events, setEvents] = React.useState(ev/entData);
+  const [showTutorial, setShowTutorial] = React.useState(true);
   const { events } = React.useContext(EventContext);
-  // updateEventList(eventData);
 
-  // const addEvent = (newEvent) => {
-  //   // console.log("Adding event:", newEvent);
-  //   setEvents([...events, newEvent]);
-  // };
 
   const handleFocus = () => {
     navigation.navigate("SearchEvents");
     if (inputRef.current) {
       inputRef.current.blur();
     }
+  };
+
+  const toggleModal = () => {
+    setShowTutorial(!showTutorial);
   };
 
   return (
@@ -104,6 +106,34 @@ const Events = ({ navigation }) => {
           Based on your last event
         </Text>
         <Trending data={treandingData} />
+        <View style={{ flex: 1 }}>
+            <Modal
+              // animationType="slide"
+              // transparent={false}
+              isVisible={showTutorial}
+              onRequestClose={() => {
+                setShowTutorial(false);
+              }}
+              style={styles.modal}
+              onBackdropPress={toggleModal}
+            >
+              <View style={styles.modalContent}>
+                <Text category="h4" status="primary">
+                 Do you want to host an event?
+                </Text>
+                <Layout style={{ paddingVertical: 20, paddingHorizontal: 20 }}>
+                  <Text category="s1">If you want to support this event</Text>
+                  <Text style={{ marginTop: 10 }} category="s1">
+                    Please click{" "}{" "}
+                    <Iconify icon="solar:calendar-add-linear" size={20} /> {" "}to
+                    to create an event
+                  </Text>
+                </Layout>
+
+                {/* <Image source={imageUri} /> */}
+              </View>
+            </Modal>
+          </View>
       </ScrollView>
     </ScreenView>
   );
@@ -123,5 +153,19 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+  modal: {
+    justifyContent: "flex-end",
+    margin: 0,
+  },
+  modalContent: {
+    // flex: 1,
+    backgroundColor: "white",
+    padding: 22,
+    borderTopLeftRadius: 17,
+    borderTopRightRadius: 17,
+    alignItems: "center",
+    justifyContent: "center",
+    position: "relative",
   },
 });

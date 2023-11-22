@@ -224,7 +224,6 @@ const DetailsRegist = ({ navigation }) => {
               Who's coming
             </Text>
             <HorizontalCardScroll />
-           
           </View>
 
           <Button
@@ -245,10 +244,22 @@ const DetailsRegist = ({ navigation }) => {
               onBackdropPress={toggleModal}
             >
               <View style={styles.modalContent}>
-                <Text>Tutorial Content</Text>
-                <Text>
-                  Please click register button to register for this event
+                <Text category="h4" status="primary">
+                  Ready to be exciting?
                 </Text>
+                <Layout style={{ paddingVertical: 20, paddingHorizontal: 20 }}>
+                  <Text category="s1">
+                    When you find an event that sparks your interest.
+                  </Text>
+                  <Text style={{ marginTop: 10 }} category="s1">
+                    Please click{" "}
+                    <Text category="s1" status="primary">
+                      register button
+                    </Text>{" "}
+                    to register for this event
+                  </Text>
+                </Layout>
+
                 {/* <Image source={imageUri} /> */}
               </View>
             </Modal>

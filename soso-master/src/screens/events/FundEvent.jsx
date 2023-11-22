@@ -145,13 +145,29 @@ const FundEvent = ({ navigation, route }) => {
             accessoryLeft={<Text category="p2">AUD</Text>}
             onChangeText={(nextValue) => setEmail(nextValue)}
           />
-          <CheckBox
+          {/* <CheckBox
             checked={agree}
             style={styles.checkBox}
             onChange={(nextChecked) => setAgree(nextChecked)}
           >
             <Text category="s1">I agree to Terms of Service</Text>
-          </CheckBox>
+          </CheckBox> */}
+          <Layout style={{ flexDirection: "row", alignItems: "center" }}>
+            <CheckBox
+              checked={agree}
+              style={styles.checkBox}
+              onChange={(nextChecked) => setAgree(nextChecked)}
+            />
+            <Text>{"   "}</Text>
+            <Text category="s1">I agree to the {""}</Text>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("TermsCondition")}
+            >
+              <Text category="s1" status="primary">
+                Terms of Service
+              </Text>
+            </TouchableOpacity>
+          </Layout>
         </Layout>
         <Button style={styles.button} onPress={() => navigateToSuccess(event)}>
           <Text style={styles.fundText}>Pay</Text>
