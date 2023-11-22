@@ -43,7 +43,7 @@ import NewPost from "./screens/feed/newPost";
 import ViewPost from "./screens/feed/viewPost";
 import ReplyComment from "./screens/feed/replyComments";
 import Notifications from "./screens/notifications/notifications";
-import Menu from "./screens/menu";
+import Menu from "./screens/Menu";
 import Login from "./screens/auth/login";
 import Register from "./screens/auth/register";
 import Reset from "./screens/auth/reset";
