@@ -1,23 +1,16 @@
 import React from "react";
-import {
-  ScrollView,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from "react-native";
-import UserChat from "./chat/UserChat";
+import { View, TouchableOpacity } from "react-native";
 import { ScreenNormalView, ScreenView } from "../components/CustomView";
 import {
   Avatar,
   useTheme,
   Text,
-  Input,
   Layout,
-  Card,
   TopNavigation,
+  useStyleSheet,
 } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
+import { default as s } from "./MenuStyle";
 
 // Sub-screens
 import Friends, {
@@ -60,35 +53,20 @@ export {
 
 const ProfileCard = ({ username, navigation }) => {
   const theme = useTheme();
+  const styles = useStyleSheet(s);
+
   return (
     <TouchableOpacity
       onPress={() => {
         navigation.navigate("MyUserProfile");
       }}
     >
-      <View
-        style={{
-          flexDirection: "row",
-          width: "100%",
-          backgroundColor: theme["color-primary-600"],
-          alignItems: "center",
-          gap: 10,
-          // paddingHorizontal: 15,
-          paddingLeft: 15,
-          paddingRight: 10,
-          paddingVertical: 10,
-          borderRadius: 15,
-          marginBottom: 20,
-          shadowOpacity: 0.3,
-          shadowRadius: 3,
-          shadowOffset: { width: 0, height: 4 },
-        }}
-      >
+      <View style={styles.userCard}>
         <Avatar
           size="giant"
           source={require("../assets/pfp/profile_placeholder.jpeg")}
         />
-        <View style={{ flexDirection: "column", flex: 1 }}>
+        <View style={styles.userCardContainer}>
           <Text category="s1" appearance="alternative">
             {username}
           </Text>
@@ -107,6 +85,8 @@ const ProfileCard = ({ username, navigation }) => {
 };
 
 const MenuCard = ({ title, icon, navigation }) => {
+  const styles = useStyleSheet(s);
+
   return (
     <TouchableOpacity
       onPress={() => {
@@ -114,20 +94,7 @@ const MenuCard = ({ title, icon, navigation }) => {
         navigation.navigate(dest.includes("Verify") ? `Menu${dest}` : dest);
       }}
     >
-      <Layout
-        style={{
-          width: 165,
-          height: 80,
-          justifyContent: "center",
-          gap: 3,
-          paddingHorizontal: 15,
-          paddingVertical: 5,
-          borderRadius: 15,
-          shadowOpacity: 0.1,
-          shadowRadius: 3,
-          shadowOffset: { width: 0, height: 4 },
-        }}
-      >
+      <Layout style={styles.menuCard}>
         {icon}
         <Text category="s1">{title}</Text>
       </Layout>
@@ -136,12 +103,12 @@ const MenuCard = ({ title, icon, navigation }) => {
 };
 
 const Menu = ({ navigation }) => {
-  const theme = useTheme();
+  const styles = useStyleSheet(s);
 
   return (
     <ScreenNormalView>
       <TopNavigation
-        style={{ marginLeft: 10 }}
+        style={styles.topNav}
         title={
           <Layout>
             <Text category="h2" status="primary">
@@ -153,7 +120,7 @@ const Menu = ({ navigation }) => {
       />
       <ScreenView>
         <ProfileCard username="Zoe" navigation={navigation} />
-        <View style={{ flexWrap: true, flexDirection: "row", gap: 20 }}>
+        <View style={styles.menuGrid}>
           <MenuCard
             title="Friends"
             icon={<Iconify size={40} icon="solar:users-group-rounded-linear" />}
@@ -186,12 +153,3 @@ const Menu = ({ navigation }) => {
 };
 
 export default Menu;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
