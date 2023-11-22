@@ -27,7 +27,6 @@ import {
   PastEvents,
   Saved,
   Settings,
-
   MenuVerifyID,
   IdentityVerification,
   IdentityVerificationSuccess,
@@ -108,6 +107,7 @@ const TabNavigator = () => (
   <Navigator
     tabBar={(props) => <BottomTabBar {...props} />}
     screenOptions={{ headerShown: false }}
+    initialRouteName="Menu"
   >
     <Screen name="Home" component={Home} />
     <Screen name="Events" component={Events} />
@@ -121,7 +121,10 @@ const TabNavigator = () => (
 export const AppNavigator = () => {
   return (
     <SafeView>
-      <StackNavigator screenOptions={{ headerShown: false }} initialRouteName="Splash">
+      <StackNavigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName="Splash"
+      >
         {/* Tabs */}
         <StackScreen name="Tabs" component={TabNavigator} />
 

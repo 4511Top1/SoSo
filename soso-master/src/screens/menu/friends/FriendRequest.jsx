@@ -1,39 +1,29 @@
 import React from "react";
-import {
-  ScrollView,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from "react-native";
+import { ScrollView, View, TouchableOpacity } from "react-native";
 import { BackAction } from "../../../components/backAction";
 import { ScreenNormalView, ScreenView } from "../../../components/CustomView";
 import {
-  Avatar,
-  useTheme,
   Text,
-  Input,
   Layout,
-  Card,
   TopNavigation,
-  Button,
+  useStyleSheet,
 } from "@ui-kitten/components";
-import { Iconify } from "react-native-iconify";
-import {
-  FriendItemRequest,
-  FriendItemSuggestion,
-} from "../../../components/FriendCard";
+import { FriendItemRequest } from "../../../components/FriendCard";
+
+import { default as s } from "../FriendsStyle";
 
 const Requests = ({ navigation, route }) => {
+  const styles = useStyleSheet(s);
+
   return (
     <View>
       <ScrollView style={styles.scroll}>
-        <Layout style={styles.subHeader}>
-          <Text category="h4" status="primary">
+        <Layout style={styles.subHeaderGroup}>
+          <Text category="h4" style={styles.subHeader}>
             5 requests
           </Text>
         </Layout>
-        <View style={{ gap: 10 }}>
+        <View style={styles.friendList}>
           <FriendItemRequest
             username="Gary"
             subtitle="3 days"
@@ -66,6 +56,8 @@ const Requests = ({ navigation, route }) => {
 };
 
 const FriendRequest = ({ navigation, route }) => {
+  const styles = useStyleSheet(s);
+
   return (
     <ScreenNormalView>
       <TopNavigation
@@ -88,19 +80,3 @@ const FriendRequest = ({ navigation, route }) => {
 };
 
 export default FriendRequest;
-
-const styles = StyleSheet.create({
-  subHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: 10,
-  },
-  topNav: {
-    zIndex: 1,
-  },
-  scroll: {
-    zIndex: -1,
-    overflow: "visible",
-  },
-});

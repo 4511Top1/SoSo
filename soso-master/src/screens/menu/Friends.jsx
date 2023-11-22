@@ -1,25 +1,16 @@
 import React from "react";
-import {
-  ScrollView,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from "react-native";
+import { ScrollView, View } from "react-native";
 import { BackAction } from "../../components/backAction";
 import { ScreenNormalView, ScreenView } from "../../components/CustomView";
 import {
-  Avatar,
-  useTheme,
   Text,
-  Input,
-  Layout,
-  Card,
   TopNavigation,
   TopNavigationAction,
+  useStyleSheet,
 } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import { FriendItem } from "../../components/FriendCard";
+import { default as s } from "./FriendsStyle";
 
 // Sub-screens
 import AddFriends from "./friends/AddFriends";
@@ -28,6 +19,7 @@ import FriendSuggestion from "./friends/FriendSuggestion";
 export { AddFriends, FriendRequest, FriendSuggestion };
 
 const Friends = ({ navigation, route }) => {
+  const styles = useStyleSheet(s);
   return (
     <ScreenNormalView>
       <TopNavigation
@@ -49,16 +41,11 @@ const Friends = ({ navigation, route }) => {
       />
       <ScrollView>
         <ScreenView>
-          <View
-            style={{
-              gap: 22,
-              flexDirection: "column",
-            }}
-          >
-            <Text category="h4" status="primary">
+          <View style={styles.friendListContainer}>
+            <Text category="h4" style={styles.subHeader}>
               Your friends
             </Text>
-            <View style={{ gap: 10 }}>
+            <View style={styles.friendList}>
               <FriendItem
                 username="Vincent"
                 subtitle={2023}

@@ -8,8 +8,11 @@ import {
   Input,
   Layout,
   TopNavigation,
+  useStyleSheet,
 } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
+import { HorizontalLine } from "../../components/Lines";
+import { default as s } from "./SettingsStyle";
 
 // Sub-screens
 import RegionLanguage from "./settings/RegionLanguage";
@@ -27,37 +30,16 @@ export {
   EditPassword,
 };
 
-const HorizontalLine = () => {
-  const theme = useTheme();
-  return (
-    <View
-      style={{
-        borderStyle: "solid",
-        borderWidth: 0.5,
-        borderColor: theme["color-basic-500"],
-      }}
-    />
-  );
-};
-
 const SettingsCardList = ({ navigation, title, items }) => {
   const theme = useTheme();
+  const styles = useStyleSheet(s);
 
   return (
     <View style={{ gap: 10 }}>
-      <Text category="h4" status="primary">
+      <Text category="h4" style={styles.subHeader}>
         {title}
       </Text>
-      <Layout
-        style={{
-          shadowOpacity: 0.2,
-          shadowRadius: 5,
-          shadowOffset: { width: 0, height: 4 },
-          borderRadius: 15,
-          padding: 10,
-          gap: 5,
-        }}
-      >
+      <Layout style={styles.listContainer}>
         {items &&
           items.map((item) => {
             return (
@@ -68,15 +50,7 @@ const SettingsCardList = ({ navigation, title, items }) => {
                       navigation.navigate(item.path);
                     }}
                   >
-                    <View
-                      style={{
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        flexDirection: "row",
-                        paddingHorizontal: 15,
-                        paddingVertical: 10,
-                      }}
-                    >
+                    <View style={styles.listItem}>
                       {item.title === "Logout" ? (
                         <>
                           <Text status="danger">{item.title}</Text>
