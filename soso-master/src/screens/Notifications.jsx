@@ -99,14 +99,14 @@ const allNotifications = [
 ];
 
 const imageMap = {
-  icon1: require("../../assets/images/notificationIcon1.png"),
-  icon2: require("../../assets/images/notificationIcon2.png"),
-  icon3: require("../../assets/images/notificationIcon3.png"),
-  icon4: require("../../assets/images/notificationIcon4.png"),
-  icon5: require("../../assets/images/notificationIcon5.png"),
-  icon6: require("../../assets/images/notificationIcon6.png"),
-  icon7: require("../../assets/images/notificationIcon7.png"),
-  icon8: require("../../assets/images/notificationIcon8.png"),
+  icon1: require("../assets/images/notificationIcon1.png"),
+  icon2: require("../assets/images/notificationIcon2.png"),
+  icon3: require("../assets/images/notificationIcon3.png"),
+  icon4: require("../assets/images/notificationIcon4.png"),
+  icon5: require("../assets/images/notificationIcon5.png"),
+  icon6: require("../assets/images/notificationIcon6.png"),
+  icon7: require("../assets/images/notificationIcon7.png"),
+  icon8: require("../assets/images/notificationIcon8.png"),
 };
 
 export const NotificationTabs = ({ navigation }) => {

@@ -14,7 +14,7 @@ import {
   Card,
 } from "@ui-kitten/components";
 import { TopNavigation } from "@ui-kitten/components";
-import PostButtons from "../../components/buttons/postButtons";
+import PostButtons from "../components/buttons/postButtons";
 import { Iconify } from "react-native-iconify";
 
 const Feed = ({ navigation, route }) => {
@@ -46,10 +46,10 @@ const Feed = ({ navigation, route }) => {
   ]);
 
   const [imageMap, setImageMap] = useState({
-    icon1: require("../../assets/images/feedIcon1.png"),
-    icon2: require("../../assets/images/feedIcon2.png"),
-    image1: require("../../assets/images/feedImage1.png"),
-    icon3: require("../../assets/images/viewPostIcon1.png"),
+    icon1: require("../assets/images/feedIcon1.png"),
+    icon2: require("../assets/images/feedIcon2.png"),
+    image1: require("../assets/images/feedImage1.png"),
+    icon3: require("../assets/images/viewPostIcon1.png"),
   });
 
   useEffect(() => {

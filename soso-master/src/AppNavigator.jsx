@@ -5,9 +5,12 @@ import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import { SafeView } from "./components/CustomView";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Home from "./screens/home/home";
+
+// Home
+import Home from "./screens/Home";
+import Notifications from "./screens/Notifications";
 import Events from "./screens/Events";
-import Feed from "./screens/feed/feed";
+import Feed from "./screens/Feed";
 
 // Chat
 import Chat from "./screens/Chat";
@@ -38,10 +41,11 @@ import {
   EditPassword,
 } from "./screens/Menu";
 
+// Feed
 import NewPost from "./screens/feed/newPost";
 import ViewPost from "./screens/feed/viewPost";
 import ReplyComment from "./screens/feed/replyComments";
-import Notifications from "./screens/notifications/notifications";
+
 import Menu from "./screens/Menu";
 import Login from "./screens/auth/login";
 import Register from "./screens/auth/register";

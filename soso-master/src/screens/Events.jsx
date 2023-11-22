@@ -11,7 +11,6 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Modal from "react-native-modal";
 
-
 import { ScreenView } from "../components/CustomView";
 import { useTheme } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
@@ -50,7 +49,6 @@ const Events = ({ navigation }) => {
   const [showTutorial, setShowTutorial] = React.useState(true);
   const { events } = React.useContext(EventContext);
 
-
   const handleFocus = () => {
     navigation.navigate("SearchEvents");
     if (inputRef.current) {
@@ -69,11 +67,7 @@ const Events = ({ navigation }) => {
         <Text category="h2" status="primary">
           Events
         </Text>
-        <TouchableOpacity
-          onPress={() =>
-            navigation.navigate("CreateEvent", )
-          }
-        >
+        <TouchableOpacity onPress={() => navigation.navigate("CreateEvent")}>
           <Iconify icon="solar:calendar-add-linear" size={34} />
         </TouchableOpacity>
       </Layout>
@@ -107,33 +101,31 @@ const Events = ({ navigation }) => {
         </Text>
         <Trending data={treandingData} />
         <View style={{ flex: 1 }}>
-            <Modal
-              // animationType="slide"
-              // transparent={false}
-              isVisible={showTutorial}
-              onRequestClose={() => {
-                setShowTutorial(false);
-              }}
-              style={styles.modal}
-              onBackdropPress={toggleModal}
-            >
-              <View style={styles.modalContent}>
-                <Text category="h4" status="primary">
-                 Do you want to host an event?
+          <Modal
+            // animationType="slide"
+            // transparent={false}
+            isVisible={showTutorial}
+            onRequestClose={() => {
+              setShowTutorial(false);
+            }}
+            style={styles.modal}
+            onBackdropPress={toggleModal}
+          >
+            <View style={styles.modalContent}>
+              <Text category="h4" status="primary">
+                Do you want to host an event?
+              </Text>
+              <Layout style={{ paddingVertical: 20, paddingHorizontal: 20 }}>
+                <Text category="s1">If you want to host an event</Text>
+                <Text style={{ marginTop: 10 }} category="s1">
+                  Please click{" "}
+                  <Iconify icon="solar:calendar-add-linear" size={20} /> to to
+                  create an event
                 </Text>
-                <Layout style={{ paddingVertical: 20, paddingHorizontal: 20 }}>
-                  <Text category="s1">If you want to host an event</Text>
-                  <Text style={{ marginTop: 10 }} category="s1">
-                    Please click{" "}{" "}
-                    <Iconify icon="solar:calendar-add-linear" size={20} /> {" "}to
-                    to create an event
-                  </Text>
-                </Layout>
-
-                {/* <Image source={imageUri} /> */}
-              </View>
-            </Modal>
-          </View>
+              </Layout>
+            </View>
+          </Modal>
+        </View>
       </ScrollView>
     </ScreenView>
   );

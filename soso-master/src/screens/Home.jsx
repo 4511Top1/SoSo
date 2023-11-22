@@ -25,7 +25,7 @@ import Modal from "react-native-modal";
 import { Iconify } from "react-native-iconify";
 import { StatusBar } from "expo-status-bar";
 
-import { useFirstLaunch } from "../../hook/FirstLaunchContext";
+import { useFirstLaunch } from "../hook/FirstLaunchContext";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const ProgressBar = () => {
@@ -153,7 +153,7 @@ const Home = ({ navigation }) => {
           <Image
             style={styles.logo}
             // resizeMode="contain"
-            source={require("../../assets/images/SoSoWhite.png")}
+            source={require("../assets/images/SoSoWhite.png")}
           />
           <Text>Good Morning, Zoe!</Text>
         </View>
@@ -506,7 +506,7 @@ const Home = ({ navigation }) => {
               <Image
                 style={styles.qrCode}
                 resizeMode="contain"
-                source={require("../../assets/images/QR.png")}
+                source={require("../assets/images/QR.png")}
               />
               <View style={styles.details}>
                 <View style={[styles.label, styles.labelFlexBox]}>
