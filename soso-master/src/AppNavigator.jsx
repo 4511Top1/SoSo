@@ -4,13 +4,43 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import { SafeView } from "./components/CustomView";
-import { SafeAreaView } from "react-native-safe-area-context";
+
+// Initial screen
+import Splash from "./screens/onboarding/Splash";
+
+// Auth
+import Login from "./screens/auth/Login";
+import Register from "./screens/auth/Register";
+import Reset from "./screens/auth/Reset";
+import ResetSuccess from "./screens/auth/ResetSuccess";
+import Interest from "./screens/auth/Interest";
+import Verify from "./screens/auth/Verify";
+import VerifyID from "./screens/auth/VerifyID";
+import VerifyIDSubmitted from "./screens/auth/VerifyIDSubmitted";
+import SuccessDone from "./screens/auth/SuccessDone";
+
+// Events
+import SearchEvents from "./screens/events/SearchEvents";
+import SearchResults from "./screens/events/SearchResults";
+import Details from "./screens/events/Details";
+import FundEvent from "./screens/events/FundEvent";
+import FundSuccess from "./screens/events/FundSuccess";
+import RegisterEvent from "./screens/events/RegisterEvent";
+import RegistrationSuccess from "./screens/events/RegistrationSuccess";
+import CreateEvent from "./screens/events/CreateEvent";
+import DetailsRegist from "./screens/events/DetailsRegist";
+
+// Feed
+import NewPost from "./screens/feed/NewPost";
+import ViewPost from "./screens/feed/ViewPost";
+import ReplyComment from "./screens/feed/ReplyComments";
 
 // Home
 import Home from "./screens/Home";
 import Notifications from "./screens/Notifications";
 import Events from "./screens/Events";
 import Feed from "./screens/Feed";
+import Scanner from "./screens/home/Scanner";
 
 // Chat
 import Chat from "./screens/Chat";
@@ -22,7 +52,7 @@ import MyUserProfile from "./screens/profile/MyUserProfile";
 import MyUserProfileEdit from "./screens/profile/MyUserProfileEdit";
 
 // Menu
-import {
+import Menu, {
   Friends,
   AddFriends,
   FriendRequest,
@@ -40,33 +70,6 @@ import {
   TermsCondition,
   EditPassword,
 } from "./screens/Menu";
-
-// Feed
-import NewPost from "./screens/feed/newPost";
-import ViewPost from "./screens/feed/viewPost";
-import ReplyComment from "./screens/feed/replyComments";
-
-import Menu from "./screens/Menu";
-import Login from "./screens/auth/login";
-import Register from "./screens/auth/register";
-import Reset from "./screens/auth/reset";
-import ResetSuccess from "./screens/auth/resetSuccess";
-import Interest from "./screens/auth/interest";
-import Verify from "./screens/auth/verify";
-import VerifyID from "./screens/auth/verifyID";
-import VerifyIDSubmitted from "./screens/auth/verifyIDSubmitted";
-import SuccessDone from "./screens/auth/successDone";
-import Splash from "./screens/onboarding/splash";
-import SearchEvents from "./screens/events/SearchEvents";
-import SearchResults from "./screens/events/SearchResults";
-import Details from "./screens/events/Details";
-import Scanner from "./screens/home/scanner";
-import FundEvent from "./screens/events/FundEvent";
-import FundSuccess from "./screens/events/FundSuccess";
-import RegisterEvent from "./screens/events/RegisterEvent";
-import RegistrationSuccess from "./screens/events/RegistrationSuccess";
-import CreateEvent from "./screens/events/CreateEvent";
-import DetailsRegist from "./screens/events/DetailsRegist";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const { Navigator: StackNavigator, Screen: StackScreen } =
