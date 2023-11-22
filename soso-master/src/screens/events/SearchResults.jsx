@@ -13,7 +13,7 @@ import { Iconify } from "react-native-iconify";
 import Modal from "react-native-modal";
 import FilterIconSvg from "../../assets/svg/filterIcon.svg";
 import { ScreenView } from "../../components/CustomView";
-import TextDivider from "../../components/TextDivider";
+import TextDivider from "../../components/dividers/TextDivider";
 import { BackAction } from "../../components/backAction";
 import { EventCard } from "./EventCard";
 

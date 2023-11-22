@@ -4,12 +4,25 @@ import ReplyComment from "./feed/ReplyComments";
 import ViewPost from "./feed/ViewPost";
 export { NewPost, ReplyComment, ViewPost };
 
-import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
-import { Avatar, Divider, Text } from "@ui-kitten/components";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  Avatar,
+  Divider,
+  Text,
+  TopNavigation,
+  TopNavigationAction,
+} from "@ui-kitten/components";
 import React, { useEffect, useState } from "react";
-import { Image, Pressable, ScrollView, StyleSheet, View } from "react-native";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { Iconify } from "react-native-iconify";
 import PostButtons from "../components/buttons/postButtons";
+import { ScreenNormalView, ScreenView } from "../components/CustomView";
 
 const Feed = ({ navigation, route }) => {
   const [posts, setPosts] = useState([
@@ -73,9 +86,9 @@ const Feed = ({ navigation, route }) => {
         content: "Hi I'm new to SoSo",
       },
     ]);
+
     if (route && route.params) {
       setPosts((currentPosts) => [
-        ...currentPosts,
         {
           id: route.params.userParams.id,
           content: route.params.userParams.content,
@@ -84,6 +97,7 @@ const Feed = ({ navigation, route }) => {
           postImage: "image2",
           time: route.params.userParams.time,
         },
+        ...currentPosts,
       ]);
 
       const newImage = {
@@ -95,78 +109,86 @@ const Feed = ({ navigation, route }) => {
         ...newImage,
       }));
     }
-    console.log("posts: ", posts);
+    // console.log("posts: ", posts);
   }, [route]);
+
   return (
-    <View style={styles.container}>
-      <View style={styles.topContainer}>
-        <Text category="h3" status="primary">
-          Feed
-        </Text>
-        <View style={styles.iconsContainer}>
-          <FontAwesome5
-            name="facebook-messenger"
-            size={24}
-            color="black"
-            onPress={() => navigation.navigate("Chat")}
-          />
-          <Iconify
-            icon="solar:document-add-linear"
-            size={28}
+    <ScreenNormalView>
+      <TopNavigation
+        style={styles.topNav}
+        accessoryRight={
+          <TopNavigationAction
+            icon={<Iconify icon="solar:document-add-linear" size={35} />}
             onPress={() => navigation.navigate("NewPost")}
           />
-        </View>
-      </View>
+        }
+        title={
+          <View>
+            <Text category="h2" status="primary">
+              Feed
+            </Text>
+          </View>
+        }
+        alignment="start"
+      />
 
-      <ScrollView style={{ paddingHorizontal: 0 }}>
-        {posts.map((post) => (
-          <Pressable
-            key={post.id}
-            style={styles.post}
-            onPress={() => navigation.navigate("ViewPost")}
-          >
-            <View style={styles.nameTag}>
-              <View style={{ flexDirection: "row" }}>
-                <Avatar source={imageMap[post.image]} style={styles.avatar} />
-                <View style={styles.textContainer}>
-                  <Text category="s1">{post.user}</Text>
-                  <Text appearance="hint">{post.time}</Text>
+      <ScrollView>
+        <ScreenView>
+          {posts.map((post) => (
+            <TouchableOpacity
+              key={post.id}
+              style={styles.post}
+              onPress={() => navigation.navigate("ViewPost")}
+            >
+              <View style={styles.nameTag}>
+                <View style={{ flexDirection: "row" }}>
+                  <Avatar source={imageMap[post.image]} style={styles.avatar} />
+                  <View style={styles.textContainer}>
+                    <Text category="s1">{post.user}</Text>
+                    <Text appearance="hint">{post.time}</Text>
+                  </View>
+                </View>
+                <MaterialCommunityIcons
+                  name="information-outline"
+                  size={30}
+                  color="black"
+                />
+              </View>
+              <View style={styles.card}>
+                <View style={styles.postArea}>
+                  {post.postImage ? (
+                    <Image
+                      style={{ width: "100%", height: 192 }}
+                      source={imageMap[post.postImage]}
+                    />
+                  ) : null}
+                  <Text
+                    style={{ marginHorizontal: 15, marginTop: 10 }}
+                    category="p1"
+                  >
+                    {post.content}
+                  </Text>
+                  <Divider
+                    style={{ marginHorizontal: 15, marginVertical: 10 }}
+                  />
+                  <PostButtons />
                 </View>
               </View>
-              <MaterialCommunityIcons
-                name="information-outline"
-                size={30}
-                color="black"
-              />
-            </View>
-            <View style={styles.card}>
-              <View style={styles.postArea}>
-                {post.postImage ? (
-                  <Image
-                    style={{ width: "100%", height: 192 }}
-                    source={imageMap[post.postImage]}
-                  />
-                ) : null}
-                <Text
-                  style={{ marginHorizontal: 15, marginTop: 10 }}
-                  category="p1"
-                >
-                  {post.content}
-                </Text>
-                <Divider style={{ marginHorizontal: 15, marginVertical: 10 }} />
-                <PostButtons />
-              </View>
-            </View>
-          </Pressable>
-        ))}
+            </TouchableOpacity>
+          ))}
+        </ScreenView>
       </ScrollView>
-    </View>
+    </ScreenNormalView>
   );
 };
 
 export default Feed;
 
 const styles = StyleSheet.create({
+  topNav: {
+    marginLeft: 10,
+    marginRight: 2,
+  },
   container: {
     // flexDirection: 'row',
     justifyContent: "flex-start",
@@ -189,7 +211,6 @@ const styles = StyleSheet.create({
   iconsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    width: 60,
     alignItems: "center",
   },
 
@@ -199,10 +220,9 @@ const styles = StyleSheet.create({
 
   card: {
     borderRadius: 15,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.2,
     shadowRadius: 5,
+    shadowOffset: { width: 0, height: 4 },
     backgroundColor: "#fff",
   },
   headerImage: {

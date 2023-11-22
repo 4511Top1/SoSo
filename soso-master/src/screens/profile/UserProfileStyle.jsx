@@ -24,6 +24,11 @@ const styles = StyleService.create({
   avatar: {
     width: 180,
     height: 180,
+  },
+
+  avatarEdit: {
+    width: 180,
+    height: 180,
     opacity: 0.6,
   },
 
@@ -54,6 +59,10 @@ const styles = StyleService.create({
     bottom: 0,
     justifyContent: "center",
     alignItems: "center",
+  },
+
+  text: {
+    marginRight: 15,
   },
 });
 

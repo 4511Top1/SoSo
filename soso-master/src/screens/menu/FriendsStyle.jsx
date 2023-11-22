@@ -62,7 +62,7 @@ const styles = StyleService.create({
   },
 
   tabHeader: {
-    fontSize: 16,
+    fontSize: 17,
     textAlign: "left",
   },
 });

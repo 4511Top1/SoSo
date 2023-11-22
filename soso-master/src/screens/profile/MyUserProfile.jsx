@@ -6,9 +6,9 @@ import {
   useStyleSheet,
 } from "@ui-kitten/components";
 import React from "react";
-import { ScrollView, View } from "react-native";
+import { ScrollView, TouchableOpacity, View } from "react-native";
 import { ScreenNormalView, ScreenView } from "../../components/CustomView";
-import { HorizontalLine, VerticalLine } from "../../components/Lines";
+import { HorizontalLine, VerticalLine } from "../../components/dividers/Lines";
 import { BackAction } from "../../components/backAction";
 import { default as s } from "./UserProfileStyle";
 
@@ -35,8 +35,7 @@ const MyUserProfile = ({ route, navigation }) => {
       <TopNavigation
         accessoryLeft={<BackAction navigation={navigation} />}
         accessoryRight={
-          <Button
-            appearance="ghost"
+          <TouchableOpacity
             onPress={() => {
               navigation.navigate("MyUserProfileEdit", {
                 description: description,
@@ -45,8 +44,10 @@ const MyUserProfile = ({ route, navigation }) => {
               });
             }}
           >
-            Edit Profile
-          </Button>
+            <Text category="h6" style={styles.text}>
+              Edit Profile
+            </Text>
+          </TouchableOpacity>
         }
         title={
           <View>
@@ -77,9 +78,9 @@ const MyUserProfile = ({ route, navigation }) => {
           {/* Stats */}
           <HorizontalLine />
           <View style={styles.stats}>
-            <Text>♥ 0 received</Text>
+            <Text>♥ 13 received</Text>
             <VerticalLine />
-            <Text>0 events hosted</Text>
+            <Text>2 events hosted</Text>
           </View>
           <HorizontalLine />
 
@@ -94,7 +95,7 @@ const MyUserProfile = ({ route, navigation }) => {
               <Text category="h4" style={styles.subHeader}>
                 I am interested in
               </Text>
-              <Text>Nothing.</Text>
+              <Text>{interest ? interest : "Nohing."}</Text>
             </View>
 
             {/* Events Hosted */}

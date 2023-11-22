@@ -12,6 +12,7 @@ import {
 import React from "react";
 import { ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Iconify } from "react-native-iconify";
+import Toast from "react-native-root-toast";
 import { ScreenNormalView, ScreenView } from "../components/CustomView";
 import { ChatListItem } from "../components/chat/ChatList";
 
@@ -19,7 +20,7 @@ const Chat = ({ navigation }) => {
   const theme = useTheme();
   const [chatList, setChatList] = React.useState([
     {
-      name: "mary",
+      name: "Mary",
       messages: [
         { sender: 1, message: "what are you up to?" },
         { sender: 0, message: "i'm catching the bus right now" },
@@ -27,7 +28,7 @@ const Chat = ({ navigation }) => {
       ],
     },
     {
-      name: "bob",
+      name: "Bob",
       messages: [
         { sender: 1, message: "cool!" },
         { sender: 0, message: "i'm going to go to the grocer" },
@@ -35,7 +36,7 @@ const Chat = ({ navigation }) => {
       ],
     },
     {
-      name: "ralph",
+      name: "Ralph",
       messages: [
         { sender: 0, message: "wow" },
         { sender: 1, message: "wow" },
@@ -63,8 +64,8 @@ const Chat = ({ navigation }) => {
         }
         alignment="start"
       />
-      <ScreenView>
-        <ScrollView style={{ overflow: "visible" }}>
+      <ScrollView>
+        <ScreenView>
           <View style={styles.container}>
             <Input
               style={styles.input}
@@ -77,7 +78,16 @@ const Chat = ({ navigation }) => {
               }
               placeholder="Search for messages"
             />
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                Toast.show("In development", {
+                  duration: Toast.durations.SHORT,
+                  position: Toast.positions.TOP,
+                  shadow: true,
+                  hideOnPress: true,
+                });
+              }}
+            >
               <Iconify size={30} icon={"fluent:chat-add-20-regular"} />
             </TouchableOpacity>
           </View>
@@ -93,8 +103,8 @@ const Chat = ({ navigation }) => {
               />
             ))}
           </View>
-        </ScrollView>
-      </ScreenView>
+        </ScreenView>
+      </ScrollView>
     </ScreenNormalView>
   );
 };

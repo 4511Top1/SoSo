@@ -7,7 +7,7 @@ import {
 import React from "react";
 import { ScrollView, View } from "react-native";
 import { ScreenNormalView, ScreenView } from "../../../components/CustomView";
-import { FriendItemRequest } from "../../../components/FriendCard";
+import { FriendItemRequest } from "../../../components/cards/FriendCard";
 import { BackAction } from "../../../components/backAction";
 
 import { default as s } from "../FriendsStyle";

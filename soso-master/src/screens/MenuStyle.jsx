@@ -32,17 +32,9 @@ const styles = StyleService.create({
     gap: 20,
   },
 
-  menuCard: {
-    width: 165,
+  avatar: {
+    width: 80,
     height: 80,
-    justifyContent: "center",
-    gap: 3,
-    paddingHorizontal: 15,
-    paddingVertical: 5,
-    borderRadius: 15,
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-    shadowOffset: { width: 0, height: 4 },
   },
 });
 

@@ -10,7 +10,7 @@ import React from "react";
 import { ScrollView, TouchableOpacity, View } from "react-native";
 import { Iconify } from "react-native-iconify";
 import { ScreenNormalView, ScreenView } from "../../components/CustomView";
-import { HorizontalLine } from "../../components/Lines";
+import { HorizontalLine } from "../../components/dividers/Lines";
 import { BackAction } from "../../components/backAction";
 import { default as s } from "./SettingsStyle";
 
@@ -41,9 +41,9 @@ const SettingsCardList = ({ navigation, title, items }) => {
       </Text>
       <Layout style={styles.listContainer}>
         {items &&
-          items.map((item) => {
+          items.map((item, index) => {
             return (
-              <View key={item.id}>
+              <View key={index}>
                 {item.title ? (
                   <TouchableOpacity
                     onPress={() => {
@@ -110,19 +110,19 @@ const Settings = ({ navigation, route }) => {
               title="App settings"
               navigation={navigation}
               items={[
-                { id: 0, title: "Region & language", path: "RegionLanguage" },
-                { id: 1 },
-                { id: 2, title: "Data privacy", path: "DataPrivacy" },
+                { title: "Region & language", path: "RegionLanguage" },
+                {},
+                { title: "Data privacy", path: "DataPrivacy" },
               ]}
             />
             <SettingsCardList
               title="Help center"
               navigation={navigation}
               items={[
-                { id: 0, title: "FAQ", path: "FAQ" },
-                { id: 1 },
-                { id: 2, title: "Customer support", path: "CustomerSupport" },
-                { id: 3 },
+                { title: "FAQ", path: "FAQ" },
+                {},
+                { title: "Customer support", path: "CustomerSupport" },
+                {},
                 {
                   id: 4,
                   title: "Terms & condition",
@@ -134,9 +134,9 @@ const Settings = ({ navigation, route }) => {
               title="Account"
               navigation={navigation}
               items={[
-                { id: 0, title: "Edit password", path: "EditPassword" },
-                { id: 1 },
-                { id: 2, title: "Logout", path: "Login" },
+                { title: "Edit password", path: "EditPassword" },
+                {},
+                { title: "Logout", path: "Login" },
               ]}
             />
           </View>

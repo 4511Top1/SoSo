@@ -6,7 +6,7 @@ import { ScreenNormalView, ScreenView } from "../../../components/CustomView";
 import {
   FriendItemRequest,
   FriendItemSuggestion,
-} from "../../../components/FriendCard";
+} from "../../../components/cards/FriendCard";
 import { BackAction } from "../../../components/backAction";
 import { default as s } from "../FriendsStyle";
 

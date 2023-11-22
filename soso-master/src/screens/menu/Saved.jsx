@@ -2,7 +2,7 @@ import { Text, TopNavigation } from "@ui-kitten/components";
 import React from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { ScreenNormalView } from "../../components/CustomView";
-import TextDivider from "../../components/TextDivider";
+import TextDivider from "../../components/dividers/TextDivider";
 import { BackAction } from "../../components/backAction";
 import { EventCard } from "../events/EventCard";
 
@@ -75,6 +75,6 @@ const Saved = ({ navigation, route }) => {
 export default Saved;
 const styles = StyleSheet.create({
   content: {
-    margin: 20,
+    marginHorizontal: 20,
   },
 });

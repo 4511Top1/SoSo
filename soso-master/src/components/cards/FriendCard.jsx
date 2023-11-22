@@ -18,7 +18,6 @@ const FriendCard = ({ username, subtitle, extra, navigation }) => {
           gap: 10,
           alignItems: "center",
           borderRadius: 15,
-          // paddingHorizontal: 15,
           paddingLeft: 15,
           paddingRight: 10,
           paddingVertical: 10,
@@ -29,7 +28,7 @@ const FriendCard = ({ username, subtitle, extra, navigation }) => {
       >
         <Avatar
           style={{ width: 65, height: 65 }}
-          source={require("../assets/pfp/profile_placeholder.jpeg")}
+          source={require("../../assets/pfp/profile_placeholder.jpeg")}
         />
         <View style={{ flex: 1 }}>
           <Text category="s1">{username}</Text>

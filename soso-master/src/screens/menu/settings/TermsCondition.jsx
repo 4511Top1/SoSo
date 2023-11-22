@@ -87,8 +87,8 @@ const TermsCondition = ({ navigation, route }) => {
         alignment="start"
       />
       <ScrollView>
-        {infos.map((info, key) => (
-          <View style={{ marginBottom: 25, marginHorizontal: 20 }}>
+        {infos.map((info, index) => (
+          <View key={index} style={{ marginBottom: 25, marginHorizontal: 20 }}>
             <Text category="s1" style={{ fontSize: 20, marginVertical: 10 }}>
               {info.title}
             </Text>

@@ -10,7 +10,7 @@ import {
 import React from "react";
 import { ScrollView, View } from "react-native";
 import { ScreenNormalView, ScreenView } from "../../../components/CustomView";
-import { HorizontalLine } from "../../../components/Lines";
+import { HorizontalLine } from "../../../components/dividers/Lines";
 import { BackAction } from "../../../components/backAction";
 import { default as s } from "../SettingsStyle";
 
@@ -21,10 +21,8 @@ const regionData = [
   "Singapore - Singapore",
   "Malaysia - Kuala Lumpur",
 ];
-
-const langData = ["English"];
-
-const currData = ["AUD"];
+const langData = ["English", "Chinese"];
+const currData = ["AUD", "USD", "SGD", "MYR"];
 
 const RegionCardList = ({ navigation }) => {
   const styles = useStyleSheet(s);
@@ -37,11 +35,15 @@ const RegionCardList = ({ navigation }) => {
   const [currSelectedIndex, setCurrSelectedIndex] = React.useState([
     new IndexPath(0),
   ]);
-  const regionValue = regionData[regionSelectedIndex.row];
-  const langValue = langData[langSelectedIndex.row];
-  const currValue = currData[currSelectedIndex.row];
-
-  const renderOption = (title) => <SelectItem title={title} />;
+  const regionValue = regionSelectedIndex.row
+    ? regionData[regionSelectedIndex.row]
+    : regionData[0];
+  const langValue = langSelectedIndex.row
+    ? langData[langSelectedIndex.row]
+    : langData[0];
+  const currValue = currSelectedIndex.row
+    ? currData[currSelectedIndex.row]
+    : currData[0];
 
   return (
     <Layout style={[styles.listContainer, styles.noSubHeader]}>
@@ -55,7 +57,9 @@ const RegionCardList = ({ navigation }) => {
               selectedIndex={regionSelectedIndex}
               onSelect={(index) => setRegionSelectedIndex(index)}
             >
-              {regionData.map(renderOption)}
+              {regionData.map((title, index) => {
+                return <SelectItem key={index} title={title} />;
+              })}
             </Select>
           </Layout>
         </View>
@@ -70,14 +74,16 @@ const RegionCardList = ({ navigation }) => {
               selectedIndex={langSelectedIndex}
               onSelect={(index) => setLangSelectedIndex(index)}
             >
-              {langData.map(renderOption)}
+              {langData.map((title, index) => {
+                return <SelectItem key={index} title={title} />;
+              })}
             </Select>
           </Layout>
         </View>
         <HorizontalLine />
 
         <View style={styles.listItem}>
-          <Text>Default Currency</Text>
+          <Text>Default currency</Text>
           <Layout style={styles.dropDownMed} level="1">
             <Select
               placeholder="Currency"
@@ -85,7 +91,9 @@ const RegionCardList = ({ navigation }) => {
               selectedIndex={currSelectedIndex}
               onSelect={(index) => setCurrSelectedIndex(index)}
             >
-              {currData.map(renderOption)}
+              {currData.map((title, index) => {
+                return <SelectItem key={index} title={title} />;
+              })}
             </Select>
           </Layout>
         </View>

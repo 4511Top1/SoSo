@@ -6,11 +6,12 @@ import {
   useStyleSheet,
 } from "@ui-kitten/components";
 import React from "react";
-import { ScrollView, View } from "react-native";
+import { ScrollView, TouchableOpacity, View } from "react-native";
 import { Iconify } from "react-native-iconify";
+import Toast from "react-native-root-toast";
 import { ScreenNormalView, ScreenView } from "../../components/CustomView";
-import { HorizontalLine, VerticalLine } from "../../components/Lines";
 import { BackAction } from "../../components/backAction";
+import { HorizontalLine, VerticalLine } from "../../components/dividers/Lines";
 import { default as s } from "./UserProfileStyle";
 
 const UserProfile = ({ props, route, navigation }) => {
@@ -23,7 +24,18 @@ const UserProfile = ({ props, route, navigation }) => {
         accessoryLeft={<BackAction navigation={navigation} />}
         accessoryRight={
           <View style={{ marginRight: 10 }}>
-            <Iconify size={35} icon="jam:alert" />
+            <TouchableOpacity
+              onPress={() => {
+                Toast.show(`Reported ${username}`, {
+                  duration: Toast.durations.SHORT,
+                  position: Toast.positions.TOP,
+                  shadow: true,
+                  hideOnPress: true,
+                });
+              }}
+            >
+              <Iconify size={35} icon="jam:alert" />
+            </TouchableOpacity>
           </View>
         }
         title={
@@ -47,7 +59,19 @@ const UserProfile = ({ props, route, navigation }) => {
               {username}
             </Text>
 
-            <Button appearance="outline">Send ♥</Button>
+            <Button
+              appearance="outline"
+              onPress={() => {
+                Toast.show(`Sent ♥ to ${username}`, {
+                  duration: Toast.durations.SHORT,
+                  position: Toast.positions.TOP,
+                  shadow: true,
+                  hideOnPress: true,
+                });
+              }}
+            >
+              Send ♥
+            </Button>
           </View>
 
           {/* Stats */}

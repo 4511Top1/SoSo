@@ -46,8 +46,8 @@ const FAQ = ({ navigation, route }) => {
         alignment="start"
       />
       <ScrollView>
-        {infos.map((info) => (
-          <View style={styles.card}>
+        {infos.map((info, index) => (
+          <View key={index} style={styles.card}>
             <Text category="s1" style={styles.title}>
               {info.title}
             </Text>

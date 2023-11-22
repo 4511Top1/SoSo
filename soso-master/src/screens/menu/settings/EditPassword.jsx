@@ -20,24 +20,21 @@ const EditPassword = ({ navigation, route }) => {
       />
       {/* <ScrollView> */}
       <ScreenView>
-        <View style={{ marginTop: 20 }}>
-          <Text category="h5">Current Password</Text>
+        <View>
           <Input
             style={styles.input}
             placeholder="Current Password"
             secureTextEntry={true}
           />
         </View>
-        <View style={{ marginTop: 20 }}>
-          <Text category="h5">New Password</Text>
+        <View>
           <Input
             style={styles.input}
             placeholder="New Password"
             secureTextEntry={true}
           />
         </View>
-        <View style={{ marginTop: 20 }}>
-          <Text category="h5">Confirm New Password</Text>
+        <View>
           <Input
             style={styles.input}
             placeholder="Confirm New Password"

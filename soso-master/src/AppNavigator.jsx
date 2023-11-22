@@ -95,7 +95,7 @@ const TabNavigator = () => (
   <Navigator
     tabBar={(props) => <BottomTabBar {...props} />}
     screenOptions={{ headerShown: false }}
-    initialRouteName="Menu"
+    initialRouteName="Home"
   >
     <Screen name="Home" component={Home} />
     <Screen name="Events" component={Events} />

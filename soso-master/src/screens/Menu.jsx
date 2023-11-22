@@ -49,22 +49,29 @@ import React from "react";
 import { TouchableOpacity, View } from "react-native";
 import { Iconify } from "react-native-iconify";
 import { ScreenNormalView, ScreenView } from "../components/CustomView";
+import MenuCard from "../components/cards/MenuCard";
 import { default as s } from "./MenuStyle";
 
-const ProfileCard = ({ username, navigation }) => {
+const ProfileCard = ({ username, navigation, image }) => {
   const theme = useTheme();
   const styles = useStyleSheet(s);
 
   return (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate("MyUserProfile");
+        navigation.navigate("MyUserProfile", {
+          image: image,
+        });
       }}
     >
       <View style={styles.userCard}>
         <Avatar
-          size="giant"
-          source={require("../assets/pfp/profile_placeholder.jpeg")}
+          style={styles.avatar}
+          source={
+            image
+              ? { uri: image }
+              : require("../assets/pfp/profile_placeholder.jpeg")
+          }
         />
         <View style={styles.userCardContainer}>
           <Text category="s1" appearance="alternative">
@@ -84,26 +91,15 @@ const ProfileCard = ({ username, navigation }) => {
   );
 };
 
-const MenuCard = ({ title, icon, navigation }) => {
+const Menu = ({ navigation, route }) => {
   const styles = useStyleSheet(s);
+  const [image, setImage] = React.useState("");
 
-  return (
-    <TouchableOpacity
-      onPress={() => {
-        const dest = title.replace(/ /g, "");
-        navigation.navigate(dest.includes("Verify") ? `Menu${dest}` : dest);
-      }}
-    >
-      <Layout style={styles.menuCard}>
-        {icon}
-        <Text category="s1">{title}</Text>
-      </Layout>
-    </TouchableOpacity>
-  );
-};
-
-const Menu = ({ navigation }) => {
-  const styles = useStyleSheet(s);
+  React.useEffect(() => {
+    if (route.params?.image) {
+      setImage(route.params.image);
+    }
+  }, [route.params?.image]);
 
   return (
     <ScreenNormalView>
@@ -119,7 +115,7 @@ const Menu = ({ navigation }) => {
         alignment="start"
       />
       <ScreenView>
-        <ProfileCard username="Zoe" navigation={navigation} />
+        <ProfileCard username="Zoe" navigation={navigation} image={image} />
         <View style={styles.menuGrid}>
           <MenuCard
             title="Friends"

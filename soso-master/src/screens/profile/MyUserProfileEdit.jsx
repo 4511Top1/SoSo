@@ -5,6 +5,7 @@ import {
   Text,
   TopNavigation,
   useStyleSheet,
+  useTheme,
 } from "@ui-kitten/components";
 import * as ImagePicker from "expo-image-picker";
 import React from "react";
@@ -21,6 +22,7 @@ import { default as s } from "./UserProfileStyle";
 
 const MyUserProfileEdit = ({ route, navigation }) => {
   const styles = useStyleSheet(s);
+  const theme = useTheme();
 
   const [newDescription, setNewDescription] = React.useState("");
   const [newInterest, setNewInterest] = React.useState("");
@@ -57,8 +59,7 @@ const MyUserProfileEdit = ({ route, navigation }) => {
       <TopNavigation
         accessoryLeft={<BackAction navigation={navigation} />}
         accessoryRight={
-          <Button
-            appearance="ghost"
+          <TouchableOpacity
             onPress={() => {
               navigation.navigate("MyUserProfile", {
                 description: newDescription.trim()
@@ -69,8 +70,10 @@ const MyUserProfileEdit = ({ route, navigation }) => {
               });
             }}
           >
-            Done
-          </Button>
+            <Text category="h6" style={styles.text}>
+              Done
+            </Text>
+          </TouchableOpacity>
         }
         title={
           <View>
@@ -93,7 +96,7 @@ const MyUserProfileEdit = ({ route, navigation }) => {
               <TouchableOpacity onPress={() => pickImage()}>
                 <View style={styles.avatarContainer}>
                   <Avatar
-                    style={styles.avatar}
+                    style={styles.avatarEdit}
                     source={
                       newImage.trim()
                         ? { uri: newImage }
@@ -101,7 +104,11 @@ const MyUserProfileEdit = ({ route, navigation }) => {
                     }
                   />
                   <View style={styles.centerIcon}>
-                    <Iconify size={50} icon="solar:camera-bold" />
+                    <Iconify
+                      size={50}
+                      color={theme["color-basic-400"]}
+                      icon="solar:camera-bold"
+                    />
                   </View>
                 </View>
               </TouchableOpacity>
@@ -129,7 +136,7 @@ const MyUserProfileEdit = ({ route, navigation }) => {
                 </Text>
                 <Input
                   value={newInterest}
-                  placeholder="Your interests (separated by commas)"
+                  placeholder="Your interests"
                   multiline={true}
                   onChangeText={(nextValue) => setNewInterest(nextValue)}
                 />
