@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     borderRadius: 15,
 
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
     shadowOffset: { width: 0, height: 4 },
     // borderColor: "#ccc",
   },

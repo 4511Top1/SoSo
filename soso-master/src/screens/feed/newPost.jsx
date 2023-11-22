@@ -16,7 +16,11 @@ const NewPost = ({ navigation }) => {
 
   const userParams = {
     id:"4", 
-    text:"text", 
+    user:"Zoe",
+    content:text,
+    postImage:photoUri,
+    image:"icon3",
+    time:"just now",
   };
 
   const handleChoosePhoto = async() => {
@@ -27,7 +31,7 @@ const NewPost = ({ navigation }) => {
       quality: 1,
     });
        
-    if (!result.cancelled) {
+    if (!result.canceled) {
         setPhotoUri(result.assets[0].uri);
       }
   }  

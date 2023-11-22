@@ -23,11 +23,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const ProgressBar = () => {
   const theme = useTheme();
-  const filledWidth = 70 + "%";
+  const filledWidth = 50 + "%";
   return (
     <Layout style={styles.progressBar}>
       <View style={[styles.filledProgressBar, { width: filledWidth }]}>
-        <Text style={[styles.progressText]}>$7000</Text>
+        <Text style={[styles.progressText]}>$5000</Text>
       </View>
       <Text style={styles.goalText}>/ $10000</Text>
     </Layout>
@@ -135,6 +135,44 @@ const Home = ({ navigation }) => {
             </Tab>
             <Tab title="Events you've funded">
               <Layout style={styles.tabContainer}>
+                <Pressable
+                  style={[styles.card, styles.cardShadowBox]}
+                  onClick={() => navigation.navigate("Details")}
+                >
+                  <View style={styles.info}>
+                    <View style={[styles.date, styles.dateSpaceBlock]}>
+                      <Text category="h4" status="control">
+                        12
+                      </Text>
+                      <Text category="h4" status="control">
+                        Dec
+                      </Text>
+                    </View>
+                    <View style={styles.content}>
+                      <View style={styles.subject}>
+                        <Text category="p2">SUN, 3:00 PM</Text>
+                        <Text category="h6">Sea-labration!</Text>
+                      </View>
+                      <View style={styles.options}>
+                        <Pressable
+                          style={[styles.pressable, styles.center2FlexBox]}
+                          onClick={() => {}}
+                        >
+                          <Text category="s1" status="control">
+                            Registration Open!
+                          </Text>
+                        </Pressable>
+                      </View>
+                    </View>
+                  </View>
+                  <View style={styles.chevron}>
+                    <SimpleLineIcons
+                      name="arrow-right"
+                      size={24}
+                      color="grey"
+                    />
+                  </View>
+                </Pressable>
                 <Pressable
                   style={styles.card}
                   onClick={() => navigation.navigate("Details")}
@@ -397,6 +435,7 @@ const styles = StyleSheet.create({
   pressable: {
     width: 200,
     height: 40,
+    //backgroundColor: "#775987",
     backgroundColor: "#4d4352",
     paddingVertical: 0,
     justifyContent: "center",
@@ -415,6 +454,7 @@ const styles = StyleSheet.create({
   subject: {
     // width: 1,
     height: 62,
+    paddingVertical: 10,
   },
   info: {
     width: 275,
@@ -428,15 +468,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   card: {
-    backgroundColor: "#fff",
-    shadowColor: "rgba(77, 67, 82, 0.2)",
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowRadius: 10,
-    elevation: 10,
-    shadowOpacity: 1,
     flex: 1,
     width: "100%",
     overflow: "hidden",
@@ -445,6 +476,27 @@ const styles = StyleSheet.create({
     height: 113,
     borderRadius: 15,
     alignSelf: "stretch",
+    marginBottom: 50,
+    shadowOpacity: 1,
+    elevation: 10,
+    shadowRadius: 10,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowColor: "rgba(77, 67, 82, 0.2)",
+    backgroundColor: "#fff",
+  },
+  cardShadowBox: {
+    shadowOpacity: 1,
+    elevation: 10,
+    shadowRadius: 10,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowColor: "rgba(77, 67, 82, 0.2)",
+    backgroundColor: "#fff",
   },
   progressBar: {
     flexDirection: "row", // Align child views in a row

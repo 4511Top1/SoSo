@@ -50,8 +50,12 @@ const UserChat = ({ route, navigation }) => {
       <TopNavigation
         accessoryLeft={<BackAction navigation={navigation} />}
         title={
-          <TouchableOpacity>
-            <View style={styles.userProfile}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("UserProfile", { username: username })
+            }
+          >
+            <View style={{ flexDirection: "row", gap: 10 }}>
               <Avatar
                 source={require("../../assets/pfp/profile_placeholder.jpeg")}
               />
@@ -70,10 +74,10 @@ const UserChat = ({ route, navigation }) => {
       >
         <ScreenView>
           <ScrollView style={{ flex: 1 }}>
-            {messages.map((message) => {
+            {messages.map((message, index) => {
               return (
                 <ChatBubble
-                  key={message.id}
+                  key={index}
                   message={message.message}
                   sender={message.sender}
                 />

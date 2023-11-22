@@ -18,6 +18,8 @@
     "@ui-kitten/components": "^5.3.1",
     "@ui-kitten/eva-icons": "^5.3.1",
     "expo": "~49.0.15",
+    "expo-barcode-scanner": "~12.5.3",
+    "expo-camera": "~13.4.4",
     "expo-image-picker": "~14.3.2",
     "expo-splash-screen": "~0.20.5",
     "expo-status-bar": "~1.6.0",
