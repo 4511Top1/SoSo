@@ -92,8 +92,8 @@ const TermsCondition = ({ navigation, route }) => {
             <Text category="s1" style={{ fontSize: 20, marginVertical: 10 }}>
               {info.title}
             </Text>
-            {info.content.map((sub) => (
-              <View style={{ marginBottom: 10 }}>
+            {info.content.map((sub, index) => (
+              <View key={index} style={{ marginBottom: 10 }}>
                 <Text category="s1">{sub.subtitle}</Text>
                 <Text category="p2">{sub.text}</Text>
               </View>
