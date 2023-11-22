@@ -5,15 +5,39 @@ import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import { SafeView } from "./components/CustomView";
 import { SafeAreaView } from "react-native-safe-area-context";
-// import { SafeAreaView } from "react-native-safe-area-context";
-
-// import { SafeAreaView } from "react-native-safe-area-context";
-
 import Home from "./screens/home/home";
 import Events from "./screens/events";
 import Feed from "./screens/feed/feed";
+
+// Chat
 import Chat from "./screens/Chat";
 import UserChat from "./screens/chat/UserChat";
+
+// User Profile
+import UserProfile from "./screens/profile/UserProfile";
+import MyUserProfile from "./screens/profile/MyUserProfile";
+import MyUserProfileEdit from "./screens/profile/MyUserProfileEdit";
+
+// Menu
+import {
+  Friends,
+  AddFriends,
+  FriendRequest,
+  FriendSuggestion,
+  PastEvents,
+  Saved,
+  Settings,
+  MenuVerifyID,
+  IdentityVerification,
+  IdentityVerificationSuccess,
+  RegionLanguage,
+  DataPrivacy,
+  FAQ,
+  CustomerSupport,
+  TermsCondition,
+  EditPassword,
+} from "./screens/menu";
+
 import NewPost from "./screens/feed/newPost";
 import ViewPost from "./screens/feed/viewPost";
 import ReplyComment from "./screens/feed/replyComments";
@@ -32,12 +56,13 @@ import Splash from "./screens/onboarding/splash";
 import SearchEvents from "./screens/events/SearchEvents";
 import SearchResults from "./screens/events/SearchResults";
 import Details from "./screens/events/Details";
+import Scanner from "./screens/home/scanner";
 import FundEvent from "./screens/events/FundEvent";
 import FundSuccess from "./screens/events/FundSuccess";
 import RegisterEvent from "./screens/events/RegisterEvent";
-import RegistraionSuccess from "./screens/events/RegistrationSuccess";
-// import { SafeAreaView } from "react-native-safe-area-context";
-import Scanner from "./screens/home/scanner";
+import RegistrationSuccess from "./screens/events/RegistrationSuccess";
+import CreateEvent from "./screens/events/CreateEvent";
+import DetailsRegist from "./screens/events/DetailsRegist";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const { Navigator: StackNavigator, Screen: StackScreen } =
@@ -71,7 +96,7 @@ const BottomTabBar = ({ navigation, state }) => {
         icon={<Iconify size={25} icon="iconoir:chat-bubble-empty" />}
       />
       <BottomNavigationTab
-        title="Menus"
+        title="Menu"
         icon={<Iconify size={25} icon="solar:hamburger-menu-linear" />}
       />
     </BottomNavigation>
@@ -96,6 +121,9 @@ export const AppNavigator = () => {
   return (
     <SafeView>
       <StackNavigator screenOptions={{ headerShown: false }}>
+        {/* Tabs */}
+        <StackScreen name="Tabs" component={TabNavigator} />
+
         {/* Onboarding */}
         <StackScreen name="Splash" component={Splash} />
 
@@ -109,19 +137,65 @@ export const AppNavigator = () => {
         <StackScreen name="VerifyID" component={VerifyID} />
         <StackScreen name="VerifyIDSubmitted" component={VerifyIDSubmitted} />
         <StackScreen name="SuccessDone" component={SuccessDone} />
-        <StackScreen name="SearchEvents" component={SearchEvents} />
-        <StackScreen name="SearchResults" component={SearchResults} />
-        <StackScreen name="Details" component={Details} />
+
+        {/* Feed */}
         <StackScreen name="NewPost" component={NewPost} />
         <StackScreen name="ViewPost" component={ViewPost} />
         <StackScreen name="replyComment" component={ReplyComment} />
-        <StackScreen name="FundEvent" component={FundEvent} />
+
+        {/* Notification */}
         <StackScreen name="Notification" component={Notifications} />
         <StackScreen name="Scanner" component={Scanner} />
 
-        {/* Tabs */}
-        <StackScreen name="Tabs" component={TabNavigator} />
+        {/* Users */}
         <StackScreen name="UserChat" component={UserChat} />
+        <StackScreen name="UserProfile" component={UserProfile} />
+        <StackScreen name="MyUserProfile" component={MyUserProfile} />
+        <StackScreen name="MyUserProfileEdit" component={MyUserProfileEdit} />
+
+        {/* Menu */}
+        <StackScreen name="Friends" component={Friends} />
+        <StackScreen name="PastEvents" component={PastEvents} />
+        <StackScreen name="Saved" component={Saved} />
+        <StackScreen name="Settings" component={Settings} />
+        <StackScreen name="MenuVerifyID" component={MenuVerifyID} />
+
+        {/* Menu: Verify ID */}
+        <StackScreen
+          name="IdentityVerification"
+          component={IdentityVerification}
+        />
+        <StackScreen
+          name="IdentityVerificationSuccess"
+          component={IdentityVerificationSuccess}
+        />
+
+        {/* Menu: Settings */}
+        <StackScreen name="RegionLanguage" component={RegionLanguage} />
+        <StackScreen name="DataPrivacy" component={DataPrivacy} />
+        <StackScreen name="FAQ" component={FAQ} />
+        <StackScreen name="CustomerSupport" component={CustomerSupport} />
+        <StackScreen name="TermsCondition" component={TermsCondition} />
+        <StackScreen name="EditPassword" component={EditPassword} />
+
+        {/* Menu: Friends */}
+        <StackScreen name="AddFriends" component={AddFriends} />
+        <StackScreen name="FriendRequest" component={FriendRequest} />
+        <StackScreen name="FriendSuggestion" component={FriendSuggestion} />
+
+        {/* Event */}
+        <StackScreen name="FundEvent" component={FundEvent} />
+        <StackScreen name="FundSuccess" component={FundSuccess} />
+        <StackScreen name="RegisterEvent" component={RegisterEvent} />
+        <StackScreen
+          name="RegistrationSuccess"
+          component={RegistrationSuccess}
+        />
+        <StackScreen name="SearchEvents" component={SearchEvents} />
+        <StackScreen name="SearchResults" component={SearchResults} />
+        <StackScreen name="Details" component={Details} />
+        <StackScreen name="CreateEvent" component={CreateEvent} />
+        <StackScreen name="DetailsRegist" component={DetailsRegist} />
       </StackNavigator>
     </SafeView>
   );

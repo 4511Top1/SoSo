@@ -1,0 +1,27 @@
+{
+  "strict": {
+    "text-heading-1-font-size": 36,
+    "text-heading-1-font-weight": "800",
+
+    "text-heading-2-font-weight": "800",
+    "text-heading-3-font-weight": "bold",
+    "text-heading-4-font-weight": "bold",
+    "text-heading-5-font-weight": "bold",
+    "text-heading-6-font-weight": "bold",
+
+    "text-subtitle-1-font-size": 15,
+    "text-subtitle-1-font-weight": "600",
+    "text-subtitle-2-font-weight": "600",
+
+    "text-paragraph-1-font-size": 15,
+    "text-paragraph-1-font-weight": "400",
+    "text-paragraph-2-font-weight": "400",
+
+    "text-caption-1-font-size": 12,
+    "text-caption-1-font-weight": "400",
+    "text-caption-2-font-weight": "400",
+
+    "text-label-font-size": 12,
+    "text-label-font-weight": "800"
+  }
+}

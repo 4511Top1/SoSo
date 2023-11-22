@@ -6,7 +6,6 @@ import {
   StyleSheet,
   Dimensions,
   ImageBackground,
-  TouchableOpacity,
 } from "react-native";
 import { Text, Input, Card, Layout } from "@ui-kitten/components";
 import LocationIcon from "../../assets/svg/locationIcon.svg";
@@ -16,7 +15,7 @@ import { useTheme } from "@ui-kitten/components";
 
 const { width } = Dimensions.get("window");
 
-const DiscoveryWeekly = ({ data }) => {
+const Trending = ({ data }) => {
   const theme = useTheme();
   const [currentIndex, setCurrentIndex] = React.useState(0);
   const [isBookmarked, setIsBookmarked] = React.useState(false);
@@ -26,38 +25,6 @@ const DiscoveryWeekly = ({ data }) => {
     const currentIndex = Math.round(contentOffsetX / width);
     setCurrentIndex(currentIndex);
   };
-
-  const toggleBookmark = () => {
-    setIsBookmarked(!isBookmarked);
-  };
-
-
-  const renderBookmarkIcon = (props) => (
-    <TouchableOpacity onPress={toggleBookmark}>
-      {isBookmarked ? (
-        <Iconify
-          color={theme["color-primary-500"]}
-          size={27}
-          icon={"iconoir:bookmark-solid"}
-          style={[
-            styles.bookmarkIcon,
-            isBookmarked ? styles.bookmarked : styles.notBookmarked,
-          ]}
-        />
-      ) : (
-        <Iconify
-          color={theme["color-primary-500"]}
-          size={27}
-          icon={"iconoir:bookmark"}
-          style={[
-            styles.bookmarkIcon,
-            isBookmarked ? styles.bookmarked : styles.notBookmarked,
-          ]}
-        />
-      )}
-    </TouchableOpacity>
-  );
-
 
   const LocationWithIcon = ({ location }) => {
     return (
@@ -109,7 +76,15 @@ const DiscoveryWeekly = ({ data }) => {
                   <Text status="primary" style={{ marginBottom: 5 }}>
                     {item.date}
                   </Text>
-                 {renderBookmarkIcon()}
+                  <Iconify
+                    color={theme["color-primary-500"]}
+                    size={27}
+                    icon={"iconoir:bookmark"}
+                    style={[
+                      styles.bookmarkIcon,
+                      isBookmarked ? styles.bookmarked : styles.notBookmarked,
+                    ]}
+                  />
                 </Layout>
                 <Text category="h5">{item.title}</Text>
                 <Text category="p1">{item.subtitle}</Text>
@@ -128,8 +103,8 @@ const DiscoveryWeekly = ({ data }) => {
 const styles = StyleSheet.create({
   container: {},
   card: {
-    width: width - 60,
-    height: 370,
+    width: width - 130,
+    height: 331,
     marginRight: 25,
     flexDirection: "column",
     borderRadius: 15,
@@ -139,7 +114,7 @@ const styles = StyleSheet.create({
   cardContent: {
     borderWidth: 0,
     borderRadius: 15,
-    height: 363,
+    height: 326,
     // overflow: "hidden",
     shadowOpacity: 0.1,
     shadowRadius: 3,
@@ -204,4 +179,4 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
 });
-export default DiscoveryWeekly;
+export default Trending;

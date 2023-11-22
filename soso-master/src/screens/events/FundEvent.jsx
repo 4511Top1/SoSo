@@ -7,6 +7,7 @@ import {
   Dimensions,
   ImageBackground,
   TouchableOpacity,
+  Switch,
 } from "react-native";
 import {
   TopNavigation,
@@ -48,13 +49,12 @@ const FundEvent = ({ navigation, route }) => {
   );
 
   const navigateToSuccess = (event) => {
-    console.log("Navigating to success with event:", event);
+    // console.log("Navigating to success with event:", event);
     navigation.navigate("FundSuccess", {
       event: event,
       fromScreen: "FundEvent",
     });
   };
-
 
   return (
     <ScreenView>
@@ -62,16 +62,25 @@ const FundEvent = ({ navigation, route }) => {
       <View>
         <Text category="h6">Billing information</Text>
         <Layout style={styles.saveContainer}>
+          {/* <Switch
+            style={styles.switch}
+            // checked={checked}
+            trackColor={{ false: "#4D4352", true: "#43007C" }}
+            thumbColor={checked ? "#f4f3f4" : "#f4f3f4"}
+            value={checked}
+            onValueChange={onCheckedChange}
+          ></Switch> */}
+
           <Toggle
             status="primary"
             style={styles.toggle}
             checked={checked}
             onChange={onCheckedChange}
           >
-            <Text category="s1">Use saved details</Text>
-            {/* {`Use saved details`} */}
+            <Text category="s1" style={{ marginLeft: 9 }}>
+              Use saved details
+            </Text>
           </Toggle>
-
         </Layout>
         <Layout style={styles.billContainer}>
           <Input
@@ -84,6 +93,7 @@ const FundEvent = ({ navigation, route }) => {
                 icon={"solar:user-rounded-outline"}
               />
             }
+            style={styles.input}
             onChangeText={(nextValue) => setUsername(nextValue)}
           />
           <Input
@@ -96,9 +106,11 @@ const FundEvent = ({ navigation, route }) => {
                 icon={"solar:phone-linear"}
               />
             }
+            style={styles.input}
             onChangeText={(nextValue) => setPhoneNumber(nextValue)}
           />
           <Input
+            style={styles.input}
             placeholder="Email"
             value={email}
             accessoryLeft={
@@ -114,6 +126,7 @@ const FundEvent = ({ navigation, route }) => {
         <Layout style={styles.payContainer}>
           <Text category="h6">Payment information</Text>
           <Input
+            style={styles.input}
             placeholder="Apple Pay"
             value={email}
             accessoryLeft={
@@ -126,6 +139,7 @@ const FundEvent = ({ navigation, route }) => {
             onChangeText={(nextValue) => setEmail(nextValue)}
           />
           <Input
+            style={styles.input}
             placeholder="Amount to Fund"
             value={email}
             accessoryLeft={<Text category="p2">AUD</Text>}
@@ -133,15 +147,13 @@ const FundEvent = ({ navigation, route }) => {
           />
           <CheckBox
             checked={agree}
+            style={styles.checkBox}
             onChange={(nextChecked) => setAgree(nextChecked)}
           >
-            I agree to Terms of Service
+            <Text category="s1">I agree to Terms of Service</Text>
           </CheckBox>
         </Layout>
-        <Button
-          style={styles.button}
-          onPress={()=>navigateToSuccess(event)}
-        >
+        <Button style={styles.button} onPress={() => navigateToSuccess(event)}>
           <Text style={styles.fundText}>Pay</Text>
         </Button>
       </View>
@@ -160,12 +172,20 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: 348,
     height: 56,
+    // justifyContent: "flex-start",
+    alignItems: "center",
   },
+  checkBox: {
+    marginTop: 20,
+    marginBottom: 20,
+  },
+
   billContainer: {
     flexDirection: "column",
     spaceBetween: 20,
   },
   payContainer: {
+    marginTop: 22,
     flexDirection: "column",
   },
   button: {
@@ -181,5 +201,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     alignSelf: "center",
+  },
+  input: {
+    paddingTop: 12,
+    borderRadius: 10,
+    border: "1px solid rgba(77, 67, 82, 0.15)",
   },
 });

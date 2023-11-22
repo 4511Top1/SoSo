@@ -67,7 +67,7 @@ const RegisterEvent = ({ navigation }) => {
             checked={checked}
             onChange={onCheckedChange}
           >
-            <Text category="s2">Use saved details</Text>
+            <Text category="s1">Use saved details</Text>
             {/* {`Use saved details`} */}
           </Toggle>
         </Layout>
@@ -82,11 +82,13 @@ const RegisterEvent = ({ navigation }) => {
                 icon={"solar:user-rounded-outline"}
               />
             }
+            style={styles.input}
             onChangeText={(nextValue) => setUsername(nextValue)}
           />
           <Input
             placeholder="Phone Number"
             value={phoneNumber}
+            style={styles.input}
             accessoryLeft={
               <Iconify
                 color={theme["color-basic-500"]}
@@ -99,6 +101,7 @@ const RegisterEvent = ({ navigation }) => {
           <Input
             placeholder="Email"
             value={email}
+            style={styles.input}
             accessoryLeft={
               <Iconify
                 color={theme["color-basic-500"]}
@@ -111,17 +114,16 @@ const RegisterEvent = ({ navigation }) => {
         </Layout>
         <CheckBox
           checked={agree}
+          style={styles.checkBox}
           onChange={(nextChecked) => setAgree(nextChecked)}
         >
           I agree to Terms of Service
         </CheckBox>
-        <Button style={styles.button}>
-          <Text
-            style={styles.fundText}
-            onPress={() => navigation.navigate("RegistrationSuccess")}
-          >
-            Register
-          </Text>
+        <Button
+          style={styles.button}
+          onPress={() => navigation.navigate("RegistrationSuccess")}
+        >
+          <Text style={styles.fundText}>Register</Text>
         </Button>
       </View>
     </ScreenView>
@@ -160,5 +162,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     alignSelf: "center",
+  },
+  input: {
+    paddingTop: 12,
+    borderRadius: 10,
+    border: "1px solid rgba(77, 67, 82, 0.15)",
+  },
+  checkBox: {
+    marginTop: 20,
+    marginBottom: 20,
   },
 });

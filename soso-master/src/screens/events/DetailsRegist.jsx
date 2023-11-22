@@ -20,7 +20,15 @@ import { ScreenView } from "../../components/CustomView";
 import { BackAction } from "../../components/backAction";
 import { EventCard } from "./EventCard";
 import { ScreenNormalView } from "../../components/CustomView";
-
+import HorizontalCardScroll from "./HorizontalCardScroll";
+const event = {
+  title: "Sea-labration",
+  description:
+    "Sea-labration is a fundraising event to raise money for the conservation of the Great Barrier Reef. The event will be held at the Sydney Opera House and will feature a live performance by the Sydney Symphony Orchestra. The event will also feature a silent auction with items donated by local businesses and artists. The event will be held on Saturday, November 20th at 7:00pm. Tickets are $100 and can be purchased online or at the door.",
+  date: "SUN, 29 SEP 04:30 PM",
+  location: "Sydney Opera House",
+  image: require("../../assets/images/DetailsImage2.png"),
+};
 const ProgressBar = () => {
   const filledWidth = 67 + "%";
   return (
@@ -33,11 +41,11 @@ const ProgressBar = () => {
   );
 };
 
-const Details = ({ navigation, route }) => {
+const DetailsRegist = ({ navigation }) => {
   const theme = useTheme();
   const [isExpanded, setIsExpanded] = React.useState(false);
   const [isBookmarked, setIsBookmarked] = React.useState(false);
-  const { fromScreen, event } = route.params;
+  //   const { fromScreen, event } = route.params;
   const imageUri = require("../../assets/images/DetailsImage1.png");
   const fullText = event.description;
 
@@ -49,7 +57,7 @@ const Details = ({ navigation, route }) => {
     console.log("Navigating to fund with event:", event);
     navigation.navigate("FundEvent", {
       event: event,
-      fromScreen: "Details",
+      fromScreen: "DetailsRegist",
     });
   };
 
@@ -187,29 +195,30 @@ const Details = ({ navigation, route }) => {
               <ProgressBar />
             </Layout>
             <Text category="s1" style={styles.similarTitle}>
-              Similar events
+              Who's coming
             </Text>
-            <EventCard event={event} onPress={() => {}} />
+                <HorizontalCardScroll />
+            {/* <EventCard event={event} onPress={() => {}} /> */}
           </View>
-          <Button
+          {/* <Button
             style={styles.fundButton}
             onPress={() => navigateToFund(event)}
           >
             Fund
-          </Button>
-          {/* <Button
+          </Button> */}
+          <Button
             style={styles.fundButton}
             onPress={() => navigation.navigate("RegisterEvent")}
           >
             Register
-          </Button> */}
+          </Button>
         </View>
       </ScrollView>
     </ScreenNormalView>
   );
 };
 
-export default Details;
+export default DetailsRegist;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -317,4 +326,5 @@ const styles = StyleSheet.create({
   similarTitle: {
     marginTop: 22,
   },
+
 });
