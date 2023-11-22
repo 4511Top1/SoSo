@@ -21,10 +21,10 @@ const FundSuccess = ({ navigation, route }) => {
   return (
     <ScreenView>
       <View style={styles.container}>
-        <Text category="h6" status="primary">
+        <Text category="h5" status="primary" style={styles.title}>
           Thanks for your support!
         </Text>
-        <Text>
+        <Text style={styles.subTitle}>
           You have successfully funded 20 AUD to "Winnie The Roo Musical".
         </Text>
         <SuccessSuportSVG style={styles.svg} />
@@ -38,7 +38,7 @@ const FundSuccess = ({ navigation, route }) => {
             View event
           </Button>
           <Button
-            style={styles.viewEventButton}
+            style={styles.browseEventButton}
             onPress={() => {
               navigation.pop(5);
             }}
@@ -54,7 +54,11 @@ export default FundSuccess;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 104,
     backgroundColor: "#fff",
+  },
+  title:{
+    textAlign:"center",
   },
   text: {
     // color:"43007C",
@@ -62,6 +66,10 @@ const styles = StyleSheet.create({
   },
   center: {
     flexDirection: "column",
+  },
+  subTitle:{
+    textAlign:"center",
+
   },
   svg: {
     alignSelf: "center",
@@ -73,8 +81,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   viewEventButton: {
+    // width: 271,
+    // height: 38,
+    // marginTop: 20,
+    marginTop: 35,
+    backgroundColor: "#C870FF",
+    padding: 10,
+    borderRadius: 15,
     width: 271,
-    height: 38,
-    marginTop: 20,
   },
+  browseEventButton:{
+    marginTop: 20,
+    backgroundColor: "#4D4352",
+    padding: 10,
+    borderRadius: 15,
+    width: 271,
+  }
 });

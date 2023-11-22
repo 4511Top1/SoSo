@@ -6,6 +6,7 @@ import {
   Image,
   ScrollView,
   Pressable,
+  TouchableOpacity
 } from "react-native";
 import { Layout, Tab, TabView, Text, useTheme } from "@ui-kitten/components";
 import {
@@ -223,14 +224,14 @@ const Home = ({ navigation }) => {
                         <Text category="h6">Whale Watching</Text>
                       </View>
                       <View style={styles.options}>
-                        <Pressable
+                        <TouchableOpacity
                           style={[styles.pressable, styles.center2FlexBox]}
-                          onClick={() => {}}
+                          onPress={() => navigation.navigate("DetailsRegist")}
                         >
                           <Text category="s1" status="control">
                             Fully Funded!
                           </Text>
-                        </Pressable>
+                        </TouchableOpacity>
                       </View>
                     </View>
                   </View>
@@ -250,14 +251,14 @@ const Home = ({ navigation }) => {
         <View>
           {/* <Text>I am home page!</Text>
           {isFirstLaunch && <Text>This is the first launch!</Text>} */}
-          <Button
+          {/* <Button
             title="Click me to login"
             onPress={() => navigation.navigate("Login")}
           ></Button>
           <Button
             title="Click me to launch"
             onPress={() => navigation.navigate("Splash")}
-          ></Button>
+          ></Button> */}
           <StatusBar style="auto" />
         </View>
 
@@ -434,7 +435,8 @@ const styles = StyleSheet.create({
   pressable: {
     width: 200,
     height: 40,
-    backgroundColor: "#775987",
+    //backgroundColor: "#775987",
+    backgroundColor: "#4d4352",
     paddingVertical: 0,
     justifyContent: "center",
     borderRadius: 15,

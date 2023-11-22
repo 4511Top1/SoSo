@@ -56,10 +56,13 @@ import Splash from "./screens/onboarding/splash";
 import SearchEvents from "./screens/events/SearchEvents";
 import SearchResults from "./screens/events/SearchResults";
 import Details from "./screens/events/Details";
+import Scanner from "./screens/home/scanner";
 import FundEvent from "./screens/events/FundEvent";
 import FundSuccess from "./screens/events/FundSuccess";
 import RegisterEvent from "./screens/events/RegisterEvent";
-import RegistraionSuccess from "./screens/events/RegistrationSuccess";
+import RegistrationSuccess from "./screens/events/RegistrationSuccess";
+import CreateEvent from "./screens/events/CreateEvent";
+import DetailsRegist from "./screens/events/DetailsRegist";
 // import { SafeAreaView } from "react-native-safe-area-context";
 import Scanner from "./screens/home/scanner";
 
@@ -136,13 +139,14 @@ export const AppNavigator = () => {
         <StackScreen name="VerifyID" component={VerifyID} />
         <StackScreen name="VerifyIDSubmitted" component={VerifyIDSubmitted} />
         <StackScreen name="SuccessDone" component={SuccessDone} />
-        <StackScreen name="SearchEvents" component={SearchEvents} />
-        <StackScreen name="SearchResults" component={SearchResults} />
-        <StackScreen name="Details" component={Details} />
+
+        {/* Feed */}
         <StackScreen name="NewPost" component={NewPost} />
         <StackScreen name="ViewPost" component={ViewPost} />
         <StackScreen name="replyComment" component={ReplyComment} />
         <StackScreen name="FundEvent" component={FundEvent} />
+
+        {/* Notification */}
         <StackScreen name="Notification" component={Notifications} />
         <StackScreen name="Scanner" component={Scanner} />
 
@@ -181,6 +185,20 @@ export const AppNavigator = () => {
         <StackScreen name="AddFriends" component={AddFriends} />
         <StackScreen name="FriendRequest" component={FriendRequest} />
         <StackScreen name="FriendSuggestion" component={FriendSuggestion} />
+
+        {/* Event */}
+        <StackScreen name="FundEvent" component={FundEvent} />
+        <StackScreen name="FundSuccess" component={FundSuccess} />
+        <StackScreen name="RegisterEvent" component={RegisterEvent} />
+        <StackScreen
+          name="RegistrationSuccess"
+          component={RegistrationSuccess}
+        />
+        <StackScreen name="SearchEvents" component={SearchEvents} />
+        <StackScreen name="SearchResults" component={SearchResults} />
+        <StackScreen name="Details" component={Details} />
+        <StackScreen name="CreateEvent" component={CreateEvent} />
+        <StackScreen name="DetailsRegist" component={DetailsRegist} />
       </StackNavigator>
     </SafeView>
   );

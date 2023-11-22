@@ -181,20 +181,20 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
 
-  topContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+  topContainer:{
+    flexDirection:"row",
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 
-  avatar: {
-    height: 50,
-    width: 50,
+  avatar:{
+    height:50,
+    width:50,
   },
 
   iconsContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent:"space-between",
     width: 60,
     alignItems: "center",
   },
