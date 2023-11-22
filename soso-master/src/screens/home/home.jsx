@@ -7,21 +7,41 @@ import {
   ScrollView,
   Pressable,
 } from "react-native";
-import { Layout, Tab, TabView, Text } from "@ui-kitten/components";
+import { Layout, Tab, TabView, Text, useTheme } from "@ui-kitten/components";
 import {
   MaterialCommunityIcons,
   FontAwesome,
   SimpleLineIcons,
 } from "@expo/vector-icons";
+import Modal from "react-native-modal";
 import { Iconify } from "react-native-iconify";
 import { StatusBar } from "expo-status-bar";
 
-import { useFirstLaunch } from "../hook/FirstLaunchContext";
+import { useFirstLaunch } from "../../hook/FirstLaunchContext";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+const ProgressBar = () => {
+  const theme = useTheme();
+  const filledWidth = 50 + "%";
+  return (
+    <Layout style={styles.progressBar}>
+      <View style={[styles.filledProgressBar, { width: filledWidth }]}>
+        <Text style={[styles.progressText]}>$5000</Text>
+      </View>
+      <Text style={styles.goalText}>/ $10000</Text>
+    </Layout>
+  );
+};
+
 const Home = ({ navigation }) => {
+  const theme = useTheme();
   const { isFirstLaunch } = useFirstLaunch();
   const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [isModalVisible, setModalVisible] = React.useState(false);
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
 
   const shouldLoadComponent = (index) => index === selectedIndex;
   return (
@@ -31,7 +51,7 @@ const Home = ({ navigation }) => {
           <Image
             style={styles.logo}
             resizeMode="contain"
-            source={require("../assets/images/SoSoWhite.png")}
+            source={require("../../assets/images/SoSoWhite.png")}
           />
           <Text>Good Morning, Zoe!</Text>
         </View>
@@ -43,7 +63,12 @@ const Home = ({ navigation }) => {
             color="black"
             onPress={() => navigation.navigate("Notification")}
           />
-          <MaterialCommunityIcons name="qrcode-scan" size={24} color="black" />
+          <MaterialCommunityIcons
+            name="qrcode-scan"
+            size={24}
+            color="black"
+            onPress={() => navigation.navigate("Scanner")}
+          />
         </View>
       </View>
 
@@ -61,7 +86,7 @@ const Home = ({ navigation }) => {
         </View>
       </View>
 
-      <ScrollView>
+      <ScrollView keyboardShouldPersistTaps="handled">
         <View>
           <TabView
             selectedIndex={selectedIndex}
@@ -88,7 +113,7 @@ const Home = ({ navigation }) => {
                       <View style={styles.options}>
                         <Pressable
                           style={[styles.pressable, styles.center2FlexBox]}
-                          onClick={() => {}}
+                          onPress={toggleModal}
                         >
                           <Text category="s1" status="control">
                             View ticket
@@ -109,20 +134,23 @@ const Home = ({ navigation }) => {
             </Tab>
             <Tab title="Events you've funded">
               <Layout style={styles.tabContainer}>
-                <Pressable style={styles.card} onClick={() => {}}>
+                <Pressable
+                  style={[styles.card, styles.cardShadowBox]}
+                  onClick={() => navigation.navigate("Details")}
+                >
                   <View style={styles.info}>
                     <View style={[styles.date, styles.dateSpaceBlock]}>
                       <Text category="h4" status="control">
-                        28
+                        12
                       </Text>
                       <Text category="h4" status="control">
-                        Oct
+                        Dec
                       </Text>
                     </View>
                     <View style={styles.content}>
                       <View style={styles.subject}>
-                        <Text category="p2">WED, 11:00 AM</Text>
-                        <Text category="h6">Whale Watching</Text>
+                        <Text category="p2">SUN, 3:00 PM</Text>
+                        <Text category="h6">Sea-labration!</Text>
                       </View>
                       <View style={styles.options}>
                         <Pressable
@@ -130,9 +158,40 @@ const Home = ({ navigation }) => {
                           onClick={() => {}}
                         >
                           <Text category="s1" status="control">
-                            View ticket
+                            Registration Open!
                           </Text>
                         </Pressable>
+                      </View>
+                    </View>
+                  </View>
+                  <View style={styles.chevron}>
+                    <SimpleLineIcons
+                      name="arrow-right"
+                      size={24}
+                      color="grey"
+                    />
+                  </View>
+                </Pressable>
+                <Pressable
+                  style={styles.card}
+                  onClick={() => navigation.navigate("Details")}
+                >
+                  <View style={styles.info}>
+                    <View style={[styles.date, styles.dateSpaceBlock]}>
+                      <Text category="h4" status="control">
+                        20
+                      </Text>
+                      <Text category="h4" status="control">
+                        Nov
+                      </Text>
+                    </View>
+                    <View style={styles.content}>
+                      <View style={styles.subject}>
+                        <Text category="p2">SAT, 5:00 AM</Text>
+                        <Text category="h6">Winnie The Roo Musical</Text>
+                      </View>
+                      <View style={styles.options}>
+                        <ProgressBar />
                       </View>
                     </View>
                   </View>
@@ -148,7 +207,41 @@ const Home = ({ navigation }) => {
             </Tab>
             <Tab title="Events you're hosting">
               <Layout style={styles.tabContainer}>
-                <Text category="h5">Events you're hosting</Text>
+                <Pressable style={styles.card} onClick={() => {}}>
+                  <View style={styles.info}>
+                    <View style={[styles.date, styles.dateSpaceBlock]}>
+                      <Text category="h4" status="control">
+                        20
+                      </Text>
+                      <Text category="h4" status="control">
+                        Nov
+                      </Text>
+                    </View>
+                    <View style={styles.content}>
+                      <View style={styles.subject}>
+                        <Text category="p2">WED, 11:00 AM</Text>
+                        <Text category="h6">Whale Watching</Text>
+                      </View>
+                      <View style={styles.options}>
+                        <Pressable
+                          style={[styles.pressable, styles.center2FlexBox]}
+                          onClick={() => {}}
+                        >
+                          <Text category="s1" status="control">
+                            Fully Funded!
+                          </Text>
+                        </Pressable>
+                      </View>
+                    </View>
+                  </View>
+                  <View style={styles.chevron}>
+                    <SimpleLineIcons
+                      name="arrow-right"
+                      size={24}
+                      color="grey"
+                    />
+                  </View>
+                </Pressable>
               </Layout>
             </Tab>
           </TabView>
@@ -166,6 +259,61 @@ const Home = ({ navigation }) => {
             onPress={() => navigation.navigate("Splash")}
           ></Button>
           <StatusBar style="auto" />
+        </View>
+
+        <View style={{ flex: 1 }}>
+          <Modal
+            isVisible={isModalVisible}
+            style={styles.modal}
+            onBackdropPress={toggleModal}
+          >
+            <View style={styles.modalContent}>
+              <Text category="h4" status="primary">
+                Whale Watching
+              </Text>
+              <Image
+                style={styles.qrCode}
+                resizeMode="contain"
+                source={require("../../assets/images/QR.png")}
+              />
+              <View style={styles.details}>
+                <View style={[styles.label, styles.labelFlexBox]}>
+                  <Iconify
+                    color={theme["color-primary-500"]}
+                    size={27}
+                    icon={"fluent:clock-20-regular"}
+                  />
+                  <Text category="p1">11:00 AM</Text>
+                </View>
+                <View style={[styles.label, styles.labelFlexBox]}>
+                  <Iconify
+                    color={theme["color-primary-500"]}
+                    size={27}
+                    icon={"fluent:calendar-20-regular"}
+                  />
+                  <Text category="p1">Wednesday, 28 oct 202</Text>
+                </View>
+                <View style={[styles.label, styles.labelFlexBox]}>
+                  <Iconify
+                    color={theme["color-primary-500"]}
+                    size={27}
+                    icon={"fluent:location-20-regular"}
+                  />
+                  <Text category="p1">SEA LIFE Sydney Aquarium</Text>
+                </View>
+                <View style={styles.ticketButton}>
+                  <Pressable
+                    style={[styles.pressable, styles.center2FlexBox]}
+                    onClick={() => {}}
+                  >
+                    <Text category="s1" status="control">
+                      View Event
+                    </Text>
+                  </Pressable>
+                </View>
+              </View>
+            </View>
+          </Modal>
         </View>
       </ScrollView>
     </View>
@@ -266,7 +414,7 @@ const styles = StyleSheet.create({
   },
   date: {
     backgroundColor: "#4d4352",
-    width: 68,
+    width: 70,
     paddingHorizontal: 10,
     height: 113,
     alignItems: "center",
@@ -286,7 +434,7 @@ const styles = StyleSheet.create({
   pressable: {
     width: 200,
     height: 40,
-    backgroundColor: "#4d4352",
+    backgroundColor: "#775987",
     paddingVertical: 0,
     justifyContent: "center",
     borderRadius: 15,
@@ -304,6 +452,7 @@ const styles = StyleSheet.create({
   subject: {
     // width: 1,
     height: 62,
+    paddingVertical: 10,
   },
   info: {
     width: 275,
@@ -317,19 +466,84 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   card: {
+    flex: 1,
+    width: "100%",
+    overflow: "hidden",
+    alignItems: "center",
+    flexDirection: "row",
     height: 113,
     borderRadius: 15,
-    alignItems: "center",
     alignSelf: "stretch",
-    flexDirection: "row",
-    overflow: "hidden",
-    backgroundColor: "#FFF",
-    shadowColor: "#4D4352", // Box shadow color
+    marginBottom: 50,
+    shadowOpacity: 1,
+    elevation: 10,
+    shadowRadius: 10,
     shadowOffset: {
       width: 0,
       height: 4,
     },
-    shadowOpacity: 0.2,
+    shadowColor: "rgba(77, 67, 82, 0.2)",
+    backgroundColor: "#fff",
+  },
+  cardShadowBox: {
+    shadowOpacity: 1,
+    elevation: 10,
     shadowRadius: 10,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowColor: "rgba(77, 67, 82, 0.2)",
+    backgroundColor: "#fff",
+  },
+  progressBar: {
+    flexDirection: "row", // Align child views in a row
+    height: 40, // Set the height of the progress bar
+    width: 200,
+    backgroundColor: "#D6D6D6", // Light grey color for the unfilled part of the progress bar
+    borderRadius: 15,
+    overflow: "hidden", // Ensur
+  },
+  filledProgressBar: {
+    backgroundColor: "#775987", // Purple color for the filled part
+    justifyContent: "center", // Center the text vertically
+  },
+  progressText: {
+    color: "white", // White color for the progress text
+    marginLeft: 10, // Spacing from the left edge of the filled progress bar
+  },
+  goalText: {
+    color: "#775987", // Purple color to match the filled part
+    alignSelf: "center", // Center the text vertically
+    marginLeft: "auto", // Push the goal text to the end of the progress bar
+    marginRight: 10, // Spacing from the right edge of the progress bar
+  },
+  qrCode: {
+    height: 250,
+  },
+  modal: {
+    justifyContent: "flex-end",
+    margin: 0,
+  },
+  modalContent: {
+    alignItems: "center",
+    alignSelf: "stretch",
+    justifyContent: "center",
+    backgroundColor: "white",
+    padding: 22,
+    borderTopLeftRadius: 17,
+    borderTopRightRadius: 17,
+  },
+  labelFlexBox: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  label: {
+    marginTop: 10,
+    alignItems: "center",
+  },
+  ticketButton: {
+    width: 200,
+    paddingVertical: 10,
   },
 });

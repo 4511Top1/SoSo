@@ -5,7 +5,7 @@ import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import { SafeView } from "./components/CustomView";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Home from "./screens/home";
+import Home from "./screens/home/home";
 import Events from "./screens/events";
 import Feed from "./screens/feed/feed";
 
@@ -39,7 +39,8 @@ import {
 } from "./screens/menu";
 
 import NewPost from "./screens/feed/newPost";
-import ViewPost from "./screens/viewPost";
+import ViewPost from "./screens/feed/viewPost";
+import ReplyComment from "./screens/feed/replyComments";
 import Notifications from "./screens/notifications/notifications";
 import Menu from "./screens/menu";
 import Login from "./screens/auth/login";
@@ -60,6 +61,7 @@ import FundSuccess from "./screens/events/FundSuccess";
 import RegisterEvent from "./screens/events/RegisterEvent";
 import RegistraionSuccess from "./screens/events/RegistrationSuccess";
 // import { SafeAreaView } from "react-native-safe-area-context";
+import Scanner from "./screens/home/scanner";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const { Navigator: StackNavigator, Screen: StackScreen } =
@@ -139,8 +141,10 @@ export const AppNavigator = () => {
         <StackScreen name="Details" component={Details} />
         <StackScreen name="NewPost" component={NewPost} />
         <StackScreen name="ViewPost" component={ViewPost} />
+        <StackScreen name="replyComment" component={ReplyComment} />
         <StackScreen name="FundEvent" component={FundEvent} />
         <StackScreen name="Notification" component={Notifications} />
+        <StackScreen name="Scanner" component={Scanner} />
 
         {/* Users */}
         <StackScreen name="UserChat" component={UserChat} />
