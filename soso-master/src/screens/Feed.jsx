@@ -1,3 +1,9 @@
+// Sub-screens
+import NewPost from "./feed/NewPost";
+import ReplyComment from "./feed/ReplyComments";
+import ViewPost from "./feed/ViewPost";
+export { NewPost, ReplyComment, ViewPost };
+
 import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
 import { Avatar, Divider, Text } from "@ui-kitten/components";
 import React, { useEffect, useState } from "react";

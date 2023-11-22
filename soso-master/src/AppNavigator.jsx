@@ -1,14 +1,4 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
-import React from "react";
-import { Iconify } from "react-native-iconify";
-import { SafeView } from "./components/CustomView";
-
-// Initial screen
-import Splash from "./screens/onboarding/Splash";
-
-// Auth
+// Screens
 import {
   Interest,
   Login,
@@ -20,40 +10,20 @@ import {
   VerifyID,
   VerifyIDSubmitted,
 } from "./screens/Auth";
-
-// Events
-import CreateEvent from "./screens/events/CreateEvent";
-import Details from "./screens/events/Details";
-import DetailsRegist from "./screens/events/DetailsRegist";
-import FundEvent from "./screens/events/FundEvent";
-import FundSuccess from "./screens/events/FundSuccess";
-import RegisterEvent from "./screens/events/RegisterEvent";
-import RegistrationSuccess from "./screens/events/RegistrationSuccess";
-import SearchEvents from "./screens/events/SearchEvents";
-import SearchResults from "./screens/events/SearchResults";
-
-// Feed
-import NewPost from "./screens/feed/NewPost";
-import ReplyComment from "./screens/feed/ReplyComments";
-import ViewPost from "./screens/feed/ViewPost";
-
-// Home
-import Events from "./screens/Events";
-import Feed from "./screens/Feed";
-import Home from "./screens/Home";
-import Notifications from "./screens/Notifications";
-import Scanner from "./screens/home/Scanner";
-
-// Chat
-import Chat from "./screens/Chat";
-import UserChat from "./screens/chat/UserChat";
-
-// User Profile
-import MyUserProfile from "./screens/profile/MyUserProfile";
-import MyUserProfileEdit from "./screens/profile/MyUserProfileEdit";
-import UserProfile from "./screens/profile/UserProfile";
-
-// Menu
+import Chat, { UserChat } from "./screens/Chat";
+import Events, {
+  CreateEvent,
+  Details,
+  DetailsRegist,
+  FundEvent,
+  FundSuccess,
+  RegisterEvent,
+  RegistrationSuccess,
+  SearchEvents,
+  SearchResults,
+} from "./screens/Events";
+import Feed, { NewPost, ReplyComment, ViewPost } from "./screens/Feed";
+import Home, { Notifications, Scanner } from "./screens/Home";
 import Menu, {
   AddFriends,
   CustomerSupport,
@@ -72,6 +42,20 @@ import Menu, {
   Settings,
   TermsCondition,
 } from "./screens/Menu";
+import {
+  MyUserProfile,
+  MyUserProfileEdit,
+  UserProfile,
+} from "./screens/Profile";
+import Splash from "./screens/onboarding/Splash";
+
+// Imports
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
+import React from "react";
+import { Iconify } from "react-native-iconify";
+import { SafeView } from "./components/CustomView";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const { Navigator: StackNavigator, Screen: StackScreen } =

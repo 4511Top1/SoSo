@@ -1,10 +1,30 @@
-import { Input, Layout, Text } from "@ui-kitten/components";
+// Sub-screens
+import CreateEvent from "./events/CreateEvent";
+import Details from "./events/Details";
+import DetailsRegist from "./events/DetailsRegist";
+import FundEvent from "./events/FundEvent";
+import FundSuccess from "./events/FundSuccess";
+import RegisterEvent from "./events/RegisterEvent";
+import RegistrationSuccess from "./events/RegistrationSuccess";
+import SearchEvents from "./events/SearchEvents";
+import SearchResults from "./events/SearchResults";
+export {
+  CreateEvent,
+  Details,
+  DetailsRegist,
+  FundEvent,
+  FundSuccess,
+  RegisterEvent,
+  RegistrationSuccess,
+  SearchEvents,
+  SearchResults,
+};
+
+import { Input, Layout, Text, useTheme } from "@ui-kitten/components";
 import React, { useRef } from "react";
 import { ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
-import Modal from "react-native-modal";
-
-import { useTheme } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
+import Modal from "react-native-modal";
 import { ScreenView } from "../components/CustomView";
 import EventContext from "../hook/EventContext";
 import DiscoveryWeekly from "./events/DiscoveryWeekly";

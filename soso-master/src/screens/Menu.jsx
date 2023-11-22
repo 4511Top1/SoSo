@@ -1,17 +1,3 @@
-import {
-  Avatar,
-  Layout,
-  Text,
-  TopNavigation,
-  useStyleSheet,
-  useTheme,
-} from "@ui-kitten/components";
-import React from "react";
-import { TouchableOpacity, View } from "react-native";
-import { Iconify } from "react-native-iconify";
-import { ScreenNormalView, ScreenView } from "../components/CustomView";
-import { default as s } from "./MenuStyle";
-
 // Sub-screens
 import Friends, {
   AddFriends,
@@ -50,6 +36,20 @@ export {
   Settings,
   TermsCondition,
 };
+
+import {
+  Avatar,
+  Layout,
+  Text,
+  TopNavigation,
+  useStyleSheet,
+  useTheme,
+} from "@ui-kitten/components";
+import React from "react";
+import { TouchableOpacity, View } from "react-native";
+import { Iconify } from "react-native-iconify";
+import { ScreenNormalView, ScreenView } from "../components/CustomView";
+import { default as s } from "./MenuStyle";
 
 const ProfileCard = ({ username, navigation }) => {
   const theme = useTheme();

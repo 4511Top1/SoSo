@@ -1,3 +1,8 @@
+// Sub-screens
+import Notifications from "./home/Notifications";
+import Scanner from "./home/Scanner";
+export { Notifications, Scanner };
+
 import { MaterialCommunityIcons, SimpleLineIcons } from "@expo/vector-icons";
 import {
   Button,
