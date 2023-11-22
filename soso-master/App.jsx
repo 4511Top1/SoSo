@@ -6,7 +6,7 @@ import { AppNavigator } from "./src/AppNavigator";
 import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import * as eva from "@eva-design/eva";
-import { default as mapping } from "@eva-design/eva/mapping.json";
+import { default as mapping } from "./mapping.json";
 import { default as theme } from "./theme4.json";
 import EventContext from "./src/hook/EventContext";
 
@@ -41,10 +41,6 @@ const eventData = [
 ];
 export default function App() {
   const [events, setEvents] = React.useState(eventData);
-
-  // const updateEventList = (event) => {
-  //   setInitEvents((events) => [...events, event]);
-  // };
 
   return (
     <SafeAreaProvider>

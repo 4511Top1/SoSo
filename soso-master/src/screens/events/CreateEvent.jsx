@@ -21,6 +21,7 @@ import { Iconify } from "react-native-iconify";
 import EventContext from "../../hook/EventContext";
 import { KeyboardAvoidingView } from "react-native";
 import moment from "moment";
+import DateTimePicker from "@react-native-community/datetimepicker";
 import * as ImagePicker from "expo-image-picker";
 
 const CreateEvent = ({ navigation }) => {
@@ -69,23 +70,36 @@ const CreateEvent = ({ navigation }) => {
     </Layout>
   );
 
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate;
+    // setShow(false);
+    setDate(currentDate);
+  };
   const handleSubmit = () => {
-    console.log(time);
-    console.log(date);
-    const tempDate = moment(date);
-    // tempDate.setHours(time.split(":")[0]);
-    const formattedDate = tempDate.format("dddd, dd MMM hh:mm a");
-    console.log(formattedDate);
+    const options = {
+      weekday: "short", // e.g., SUN
+      day: "2-digit", // e.g., 29
+      month: "short", // e.g., Sep
+      hour: "2-digit", // e.g., 04
+      minute: "2-digit", // e.g., 40
+      hour12: true,
+    };
+
+    const formattedDateStr = new Intl.DateTimeFormat("en-US", options).format(
+      date
+    );
+    // console.log(formattedDateStr);
+
     const newEvent = {
       id: "event" + events.length + 1,
       title: eventName,
-      date: formattedDate,
+      date: formattedDateStr,
       subtitle: eventDescription,
       location: location,
       image: selectedImage,
     };
 
-    console.log(newEvent);
+    // console.log(newEvent);
     setEvents((events) => [...events, newEvent]);
     navigation.goBack();
   };
@@ -146,7 +160,26 @@ const CreateEvent = ({ navigation }) => {
                   />
                 }
               />
-              <Datepicker
+              <Layout
+                style={{
+                  flexDirection: "row",
+                  marginTop: 10,
+                  justifyContent: "flex-start",
+                  marginLeft: 38,
+                }}
+              >
+                <Iconify
+                  color={theme["color-primary-500"]}
+                  size={27}
+                  icon={"fluent:clock-20-regular"}
+                />
+                <DateTimePicker
+                  value={date}
+                  onChange={onChange}
+                  mode="datetime"
+                />
+              </Layout>
+              {/* <Datepicker
                 date={date}
                 onSelect={setDate}
                 style={styles.input}
@@ -159,8 +192,8 @@ const CreateEvent = ({ navigation }) => {
                   />
                 }
                 //   value={date}
-              />
-              <Input
+              /> */}
+              {/* <Input
                 placeholder="Time"
                 value={time}
                 onChangeText={setTime}
@@ -172,7 +205,7 @@ const CreateEvent = ({ navigation }) => {
                     icon={"fluent:clock-20-regular"}
                   />
                 }
-              />
+              /> */}
             </View>
             <Text category="h5" style={styles.timeSubtitle}>
               Event status

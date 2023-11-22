@@ -112,13 +112,21 @@ const RegisterEvent = ({ navigation }) => {
             onChangeText={(nextValue) => setEmail(nextValue)}
           />
         </Layout>
-        <CheckBox
-          checked={agree}
-          style={styles.checkBox}
-          onChange={(nextChecked) => setAgree(nextChecked)}
-        >
-          I agree to Terms of Service
-        </CheckBox>
+        <Layout style={{ flexDirection: "row", alignItems: "center" }}>
+
+          <CheckBox
+            checked={agree}
+            style={styles.checkBox}
+            onChange={(nextChecked) => setAgree(nextChecked)}
+          />
+          <Text>{"   "}</Text>
+          <Text category="s1">I agree to the {""}</Text>
+          <TouchableOpacity onPress={() => navigation.navigate("TermsCondition")}>
+            <Text category="s1" status="primary">
+              Terms of Service
+            </Text>
+          </TouchableOpacity>
+        </Layout>
         <Button
           style={styles.button}
           onPress={() => navigation.navigate("RegistrationSuccess")}

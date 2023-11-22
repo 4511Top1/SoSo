@@ -12,7 +12,7 @@ const Reset = ({ navigation }) => {
     <ScreenView>
       <View style={styles.container}>
         <BackAction navigation={navigation} />
-        <Text category="h5" status="primary" style={styles.title}>
+        <Text category="h4" status="primary" style={styles.title}>
           Reset password
         </Text>
         <Text>

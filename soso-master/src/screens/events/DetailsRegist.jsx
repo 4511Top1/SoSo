@@ -54,7 +54,7 @@ const DetailsRegist = ({ navigation }) => {
   };
 
   const navigateToFund = (event) => {
-    console.log("Navigating to fund with event:", event);
+    // console.log("Navigating to fund with event:", event);
     navigation.navigate("FundEvent", {
       event: event,
       fromScreen: "DetailsRegist",

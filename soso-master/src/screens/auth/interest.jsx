@@ -8,7 +8,7 @@ const Interest = ({ navigation }) => {
   return (
     <ScreenView>
       <View>
-        <Text status="primary" category="h5" style={styles.title}>
+        <Text status="primary" category="h4" style={styles.title}>
           What interests you?
         </Text>
         <Text>

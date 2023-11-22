@@ -37,7 +37,7 @@ import {
   CustomerSupport,
   TermsCondition,
   EditPassword,
-} from "./screens/menu";
+} from "./screens/Menu";
 
 import NewPost from "./screens/feed/newPost";
 import ViewPost from "./screens/feed/viewPost";
@@ -121,7 +121,7 @@ const TabNavigator = () => (
 export const AppNavigator = () => {
   return (
     <SafeView>
-      <StackNavigator screenOptions={{ headerShown: false }}>
+      <StackNavigator screenOptions={{ headerShown: false }} initialRouteName="Splash">
         {/* Tabs */}
         <StackScreen name="Tabs" component={TabNavigator} />
 

@@ -42,7 +42,7 @@ const RegistrationSuccess = ({ navigation }) => {
           <Button
             style={styles.browseEventButton}
             onPress={() => {
-              console.log("Navigating to browse events");
+              // console.log("Navigating to browse events");
               navigation.pop(3)
             }}
           >
