@@ -3,7 +3,7 @@ import { Avatar, Input, Text } from "@ui-kitten/components";
 import * as ImagePicker from "expo-image-picker";
 import React, { useState } from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
-import colors from "../../../theme2.json";
+import colors from "../../../theme.json";
 import { BackAction } from "../../components/backAction";
 import LoginButton from "../../components/buttons/loginButton";
 

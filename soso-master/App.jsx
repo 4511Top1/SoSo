@@ -6,7 +6,7 @@ import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import * as eva from "@eva-design/eva";
 import { default as mapping } from "./mapping.json";
-import { default as theme } from "./theme4.json";
+import { default as theme } from "./theme.json";
 import EventContext from "./src/hook/EventContext";
 
 const eventData = [
@@ -38,6 +38,7 @@ const eventData = [
     location: "Central Park",
   },
 ];
+
 export default function App() {
   const [events, setEvents] = React.useState(eventData);
 
