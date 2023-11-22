@@ -5,7 +5,7 @@ import {
   Image,
   TextInput,
   TouchableWithoutFeedback,
-  
+
 } from "react-native";
 import { StyleSheet } from "react-native";
 import { Layout, useTheme, IconRegistry, Icon } from "@ui-kitten/components";
@@ -43,7 +43,7 @@ const Register = ({ navigation }) => {
         />
         <View>
           <Layout style={styles.center}>
-            <Text style={styles.text} category="h5" status="primary">
+            <Text style={styles.text} category="h4" status="primary">
               Register
             </Text>
             <Input

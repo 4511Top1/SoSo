@@ -15,6 +15,8 @@ import {
   Switch,
 } from "react-native";
 import { Iconify } from "react-native-iconify";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import Modal from "react-native-modal";
 
 import { ScreenView } from "../../components/CustomView";
 import { BackAction } from "../../components/backAction";
@@ -38,6 +40,8 @@ const Details = ({ navigation, route }) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
   const [isBookmarked, setIsBookmarked] = React.useState(false);
   const { fromScreen, event } = route.params;
+  const [showTutorial, setShowTutorial] = React.useState(true);
+
   const imageUri = require("../../assets/images/DetailsImage1.png");
   const fullText = event.description;
 
@@ -46,12 +50,16 @@ const Details = ({ navigation, route }) => {
   };
 
   const navigateToFund = (event) => {
-    console.log("Navigating to fund with event:", event);
+    // console.log("Navigating to fund with event:", event);
     navigation.navigate("FundEvent", {
       event: event,
       fromScreen: "Details",
     });
   };
+  const toggleModal = () => {
+    setShowTutorial(!showTutorial);
+  };
+
 
   const renderBookmarkIcon = (props) => (
     <TouchableOpacity onPress={toggleBookmark}>
@@ -90,7 +98,7 @@ const Details = ({ navigation, route }) => {
   const renderTitle = () => (
     <Layout style={{ flexDirection: "row", alignItems: "center" }}>
       <BackAction navigation={navigation} />
-      <Text category="h4" status="primary">
+      <Text category="h2" status="primary">
         Details
       </Text>
     </Layout>
@@ -112,7 +120,9 @@ const Details = ({ navigation, route }) => {
           </View>
 
           <View style={styles.content}>
-            <Text style={styles.paragraph}>{getDisplayedText(fullText)}</Text>
+            <Text category="p1" style={styles.paragraph}>
+              {getDisplayedText(fullText)}
+            </Text>
             <View style={styles.showMoreButton}>
               {!isExpanded && (
                 <TouchableOpacity onPress={() => setIsExpanded(true)}>
@@ -197,12 +207,36 @@ const Details = ({ navigation, route }) => {
           >
             Fund
           </Button>
-          {/* <Button
-            style={styles.fundButton}
-            onPress={() => navigation.navigate("RegisterEvent")}
-          >
-            Register
-          </Button> */}
+          <View style={{ flex: 1 }}>
+            <Modal
+              // animationType="slide"
+              // transparent={false}
+              isVisible={showTutorial}
+              onRequestClose={() => {
+                setShowTutorial(false);
+              }}
+              style={styles.modal}
+              onBackdropPress={toggleModal}
+            >
+              <View style={styles.modalContent}>
+                <Text category="h4" status="primary">
+                  Ready to be exciting?
+                </Text>
+                <Layout style={{ paddingVertical: 20, paddingHorizontal: 20 }}>
+                  <Text category="s1">If you want to support this event</Text>
+                  <Text style={{ marginTop: 10 }} category="s1">
+                    Please click{" "}
+                    <Text category="s1" status="primary">
+                      fund button
+                    </Text>{" "}
+                    to fund for this event
+                  </Text>
+                </Layout>
+
+                {/* <Image source={imageUri} /> */}
+              </View>
+            </Modal>
+          </View>
         </View>
       </ScrollView>
     </ScreenNormalView>
@@ -316,5 +350,19 @@ const styles = StyleSheet.create({
   },
   similarTitle: {
     marginTop: 22,
+  },
+  modal: {
+    justifyContent: "flex-end",
+    margin: 0,
+  },
+  modalContent: {
+    // flex: 1,
+    backgroundColor: "white",
+    padding: 22,
+    borderTopLeftRadius: 17,
+    borderTopRightRadius: 17,
+    alignItems: "center",
+    justifyContent: "center",
+    position: "relative",
   },
 });

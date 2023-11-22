@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 import { ScrollView, StyleSheet, View, TouchableOpacity } from "react-native";
 import {
   ButtonGroup,
@@ -8,42 +8,16 @@ import {
   Icon,
   Layout,
 } from "@ui-kitten/components";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import Modal from "react-native-modal";
+
 
 import { ScreenView } from "../components/CustomView";
 import { useTheme } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
 import DiscoveryWeekly from "./events/DiscoveryWeekly";
 import Trending from "./events/Trending";
-
-const eventData = [
-  {
-    id: "event1",
-    title: "Marathon Sundays",
-    date: "SUN, 29 SEP 04:30 PM",
-    subtitle:
-      "Lorem ipsum olor sit amet, consectetur adipiscing elit. Aenean eu magna vehicula diam pulvinar dictum.",
-    image: require("../assets/images/Marathon.png"),
-    location: "Sydney Olympic Park",
-  },
-  {
-    id: "event2",
-    title: "Community Yoga",
-    date: "SUN, 29 SEP 04:30 PM",
-    subtitle:
-      "Join us for a relaxing session of yoga in the park every Saturday morning.",
-    image: require("../assets/images/Marathon.png"),
-    location: "Central Park",
-  },
-  {
-    id: "event3",
-    title: "Community Yoga",
-    date: "SUN, 29 SEP 04:30 PM",
-    subtitle:
-      "Join us for a relaxing session of yoga in the park every Saturday morning.",
-    image: require("../assets/images/Marathon.png"),
-    location: "Central Park",
-  },
-];
+import EventContext from "../hook/EventContext";
 
 const treandingData = [
   {
@@ -73,17 +47,19 @@ const Events = ({ navigation }) => {
   const theme = useTheme();
   const inputRef = useRef(null);
   const [value, setValue] = React.useState("");
-  const [events, setEvents] = React.useState(eventData);
+  const [showTutorial, setShowTutorial] = React.useState(true);
+  const { events } = React.useContext(EventContext);
 
-  const addEvent = (newEvent) => {
-    setEvents([...events, newEvent]);
-  };
 
   const handleFocus = () => {
     navigation.navigate("SearchEvents");
     if (inputRef.current) {
       inputRef.current.blur();
     }
+  };
+
+  const toggleModal = () => {
+    setShowTutorial(!showTutorial);
   };
 
   return (
@@ -95,15 +71,13 @@ const Events = ({ navigation }) => {
         </Text>
         <TouchableOpacity
           onPress={() =>
-            navigation.navigate("CreateEvent", { onEventCreated: addEvent })
+            navigation.navigate("CreateEvent", )
           }
         >
           <Iconify icon="solar:calendar-add-linear" size={34} />
         </TouchableOpacity>
       </Layout>
-      {/* <Text category="h2" status="primary" >
-        Events
-      </Text> */}
+
       <Input
         placeholder="Search"
         value={value}
@@ -123,7 +97,7 @@ const Events = ({ navigation }) => {
         <Text category="h4" status="primary" style={{ marginTop: 20 }}>
           Discovery weekly
         </Text>
-        <DiscoveryWeekly data={eventData} />
+        <DiscoveryWeekly data={events} />
         <Text category="h4" status="primary" style={{ marginTop: 20 }}>
           Trending near you
         </Text>
@@ -132,6 +106,34 @@ const Events = ({ navigation }) => {
           Based on your last event
         </Text>
         <Trending data={treandingData} />
+        <View style={{ flex: 1 }}>
+            <Modal
+              // animationType="slide"
+              // transparent={false}
+              isVisible={showTutorial}
+              onRequestClose={() => {
+                setShowTutorial(false);
+              }}
+              style={styles.modal}
+              onBackdropPress={toggleModal}
+            >
+              <View style={styles.modalContent}>
+                <Text category="h4" status="primary">
+                 Do you want to host an event?
+                </Text>
+                <Layout style={{ paddingVertical: 20, paddingHorizontal: 20 }}>
+                  <Text category="s1">If you want to support this event</Text>
+                  <Text style={{ marginTop: 10 }} category="s1">
+                    Please click{" "}{" "}
+                    <Iconify icon="solar:calendar-add-linear" size={20} /> {" "}to
+                    to create an event
+                  </Text>
+                </Layout>
+
+                {/* <Image source={imageUri} /> */}
+              </View>
+            </Modal>
+          </View>
       </ScrollView>
     </ScreenView>
   );
@@ -151,5 +153,19 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+  modal: {
+    justifyContent: "flex-end",
+    margin: 0,
+  },
+  modalContent: {
+    // flex: 1,
+    backgroundColor: "white",
+    padding: 22,
+    borderTopLeftRadius: 17,
+    borderTopRightRadius: 17,
+    alignItems: "center",
+    justifyContent: "center",
+    position: "relative",
   },
 });

@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Dimensions,
   ImageBackground,
+  TouchableOpacity,
 } from "react-native";
 import { Text, Input, Card, Layout } from "@ui-kitten/components";
 import LocationIcon from "../../assets/svg/locationIcon.svg";
@@ -19,12 +20,43 @@ const Trending = ({ data }) => {
   const theme = useTheme();
   const [currentIndex, setCurrentIndex] = React.useState(0);
   const [isBookmarked, setIsBookmarked] = React.useState(false);
+  // const [isBookmarked, setIsBookmarked] = React.useState(false);
+  const toggleBookmark = () => {
+    setIsBookmarked(!isBookmarked);
+  };
+
 
   const handleScroll = (event) => {
     const contentOffsetX = event.nativeEvent.contentOffset.x;
     const currentIndex = Math.round(contentOffsetX / width);
     setCurrentIndex(currentIndex);
   };
+
+  const renderBookmarkIcon = (props) => (
+    <TouchableOpacity onPress={toggleBookmark}>
+      {isBookmarked ? (
+        <Iconify
+          color={theme["color-primary-500"]}
+          size={27}
+          icon={"iconoir:bookmark-solid"}
+          style={[
+            styles.bookmarkIcon,
+            isBookmarked ? styles.bookmarked : styles.notBookmarked,
+          ]}
+        />
+      ) : (
+        <Iconify
+          color={theme["color-primary-500"]}
+          size={27}
+          icon={"iconoir:bookmark"}
+          style={[
+            styles.bookmarkIcon,
+            isBookmarked ? styles.bookmarked : styles.notBookmarked,
+          ]}
+        />
+      )}
+    </TouchableOpacity>
+  );
 
   const LocationWithIcon = ({ location }) => {
     return (
@@ -76,7 +108,7 @@ const Trending = ({ data }) => {
                   <Text status="primary" style={{ marginBottom: 5 }}>
                     {item.date}
                   </Text>
-                  <Iconify
+                  {/* <Iconify
                     color={theme["color-primary-500"]}
                     size={27}
                     icon={"iconoir:bookmark"}
@@ -84,7 +116,8 @@ const Trending = ({ data }) => {
                       styles.bookmarkIcon,
                       isBookmarked ? styles.bookmarked : styles.notBookmarked,
                     ]}
-                  />
+                  /> */}
+                  {renderBookmarkIcon()}
                 </Layout>
                 <Text category="h5">{item.title}</Text>
                 <Text category="p1">{item.subtitle}</Text>

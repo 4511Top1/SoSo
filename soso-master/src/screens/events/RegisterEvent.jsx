@@ -19,6 +19,9 @@ import {
   Button,
 } from "@ui-kitten/components";
 import { Iconify } from "react-native-iconify";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import Modal from "react-native-modal";
+
 import { ScreenView } from "../../components/CustomView";
 import { BackAction } from "../../components/backAction";
 // import { TouchableOpacity } from "react-native-gesture-handler";
@@ -30,7 +33,6 @@ const RegisterEvent = ({ navigation }) => {
   const [username, setUsername] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [agree, setAgree] = React.useState(false);
-  //   const { fromScreen, event } = route.params;
 
   const onCheckedChange = (isChecked) => {
     setChecked(isChecked);
@@ -47,19 +49,11 @@ const RegisterEvent = ({ navigation }) => {
     </Layout>
   );
 
-  //   const navigateToSuccess = (event) => {
-  //     console.log("Navigating to success with event:", event);
-  //     navigation.navigate("FundSuccess", {
-  //       event: event,
-  //       fromScreen: "FundEvent",
-  //     });
-  //   };
-
   return (
     <ScreenView>
       <TopNavigation title={renderTitle} alignment="start" />
       <View>
-        <Text category="h6">Billing information</Text>
+        <Text category="h5">Billing information</Text>
         <Layout style={styles.saveContainer}>
           <Toggle
             status="primary"
@@ -112,13 +106,22 @@ const RegisterEvent = ({ navigation }) => {
             onChangeText={(nextValue) => setEmail(nextValue)}
           />
         </Layout>
-        <CheckBox
-          checked={agree}
-          style={styles.checkBox}
-          onChange={(nextChecked) => setAgree(nextChecked)}
-        >
-          I agree to Terms of Service
-        </CheckBox>
+        <Layout style={{ flexDirection: "row", alignItems: "center" }}>
+          <CheckBox
+            checked={agree}
+            style={styles.checkBox}
+            onChange={(nextChecked) => setAgree(nextChecked)}
+          />
+          <Text>{"   "}</Text>
+          <Text category="s1">I agree to the {""}</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("TermsCondition")}
+          >
+            <Text category="s1" status="primary">
+              Terms of Service
+            </Text>
+          </TouchableOpacity>
+        </Layout>
         <Button
           style={styles.button}
           onPress={() => navigation.navigate("RegistrationSuccess")}
@@ -126,6 +129,7 @@ const RegisterEvent = ({ navigation }) => {
           <Text style={styles.fundText}>Register</Text>
         </Button>
       </View>
+
     </ScreenView>
   );
 };

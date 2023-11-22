@@ -17,16 +17,6 @@ const Splash = ({ navigation }) => {
           style={styles.image}
           source={require("../../assets/images/SoSoWhite.png")}
         />
-        {/* <Button
-          onPress={() =>
-            navigation.navigate("Tabs", {
-              screen: "Tabs",
-              initial: true,
-            })
-          }
-        >
-          Go
-        </Button> */}
       </View>
     </TouchableWithoutFeedback>
 

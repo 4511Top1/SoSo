@@ -45,7 +45,11 @@ const SearchEvents = ({ navigation }) => {
 
   const renderItem = ({ item, index }) => (
     <ListItem
-      title={() => <Text style={styles.historyItem}>{item.title}</Text>}
+      title={() => (
+        <Text category="s1" style={styles.historyItem}>
+          {item.title}
+        </Text>
+      )}
       accessoryLeft={renderItemAccessory}
       onPress={() => navigation.navigate("SearchResults")}
     />
@@ -62,12 +66,11 @@ const SearchEvents = ({ navigation }) => {
       style={{ flexDirection: "row", alignItems: "center", marginLeft: -20 }}
     >
       <BackAction navigation={navigation} />
-      <Text category="h4" status="primary">
+      <Text category="h2" status="primary">
         Search Events
       </Text>
     </Layout>
   );
-
 
   return (
     <ScreenView>
@@ -106,6 +109,6 @@ const styles = StyleSheet.create({
   },
   list: {
     flex: 1,
-    backgroundColor:"#fff"
+    backgroundColor: "#fff",
   },
 });

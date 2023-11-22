@@ -8,7 +8,7 @@ const Verify = ({ navigation }) => {
     <ScreenView>
       <View style={styles.container}>
         <View>
-          <Text status="primary" category="h5">
+          <Text status="primary" category="h4">
             Why verify your account?
           </Text>
           <Text>

@@ -13,9 +13,13 @@ export const EventCard = ({ event, onPress }) => {
       <View style={styles.card} onPress={onPress}>
         <Image source={event.imageUri} style={styles.image} />
         <View style={styles.content}>
-          <View style={styles.textContainer}>
+          {/* <View style={styles.textContainer}>
             <Text style={styles.headerSubtitle}>{event.dateTime}</Text>
             <Text style={styles.headerTitle}>{event.title}</Text>
+          </View> */}
+          <View style={styles.textContainer}>
+            <Text category="p2" appearance="hint">{event.dateTime}</Text>
+            <Text category="h6">{event.title}</Text>
           </View>
           <View style={styles.locationContainer}>
             <View style={styles.leftContainer}>
@@ -25,7 +29,7 @@ export const EventCard = ({ event, onPress }) => {
                 style={styles.LocationIcon}
                 icon={"fluent:location-20-filled"}
               />
-              <Text style={styles.locationText}>{event.locationName}</Text>
+              <Text category="p2" appearance="hint">{event.locationName}</Text>
             </View>
             <View style={styles.rightContainer}>
               <Iconify
