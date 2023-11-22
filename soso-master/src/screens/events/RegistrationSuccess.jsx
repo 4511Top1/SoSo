@@ -43,7 +43,7 @@ const RegistrationSuccess = ({ navigation }) => {
             style={styles.browseEventButton}
             onPress={() => {
               console.log("Navigating to browse events");
-              navigation.navigation("Tabs");
+              navigation.pop(3)
             }}
           >
             Browse other events
@@ -65,8 +65,7 @@ const RegistrationSuccess = ({ navigation }) => {
             Browse other events
           </Button> */}
         </Layout>
-      </View>
-      <View style={{ flex: 1 }}>
+        <View style={{ flex: 1 }}>
         <Modal
           isVisible={isModalVisible}
           style={styles.modal}
@@ -119,6 +118,8 @@ const RegistrationSuccess = ({ navigation }) => {
           </View>
         </Modal>
       </View>
+      </View>
+
     </ScreenView>
   );
 };
@@ -148,6 +149,7 @@ const styles = StyleSheet.create({
   },
   buttonGroup: {
     flex: 1,
+    // backgroundColor:"yellow",
     // justifyContent: "center",
     alignItems: "center",
   },
@@ -204,6 +206,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#4D4352",
   },
   browseEventButton: {
+
     marginTop: 20,
     backgroundColor: "#4D4352",
     padding: 10,

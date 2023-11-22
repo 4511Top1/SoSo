@@ -98,7 +98,7 @@ const DetailsRegist = ({ navigation }) => {
   const renderTitle = () => (
     <Layout style={{ flexDirection: "row", alignItems: "center" }}>
       <BackAction navigation={navigation} />
-      <Text category="h4" status="primary">
+      <Text category="h2" status="primary">
         Details
       </Text>
     </Layout>

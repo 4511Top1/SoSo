@@ -90,7 +90,7 @@ const Details = ({ navigation, route }) => {
   const renderTitle = () => (
     <Layout style={{ flexDirection: "row", alignItems: "center" }}>
       <BackAction navigation={navigation} />
-      <Text category="h4" status="primary">
+      <Text category="h2" status="primary">
         Details
       </Text>
     </Layout>
@@ -112,7 +112,7 @@ const Details = ({ navigation, route }) => {
           </View>
 
           <View style={styles.content}>
-            <Text style={styles.paragraph}>{getDisplayedText(fullText)}</Text>
+            <Text category="p1" style={styles.paragraph}>{getDisplayedText(fullText)}</Text>
             <View style={styles.showMoreButton}>
               {!isExpanded && (
                 <TouchableOpacity onPress={() => setIsExpanded(true)}>

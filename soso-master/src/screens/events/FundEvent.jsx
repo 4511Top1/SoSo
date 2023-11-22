@@ -42,7 +42,7 @@ const FundEvent = ({ navigation, route }) => {
       style={{ flexDirection: "row", alignItems: "center", marginLeft: -16 }}
     >
       <BackAction navigation={navigation} />
-      <Text category="h4" status="primary">
+      <Text category="h2" status="primary">
         Fund Event
       </Text>
     </Layout>
@@ -60,7 +60,7 @@ const FundEvent = ({ navigation, route }) => {
     <ScreenView>
       <TopNavigation title={renderTitle} alignment="start" />
       <View>
-        <Text category="h6">Billing information</Text>
+        <Text category="h5">Billing information</Text>
         <Layout style={styles.saveContainer}>
           {/* <Switch
             style={styles.switch}
@@ -124,7 +124,7 @@ const FundEvent = ({ navigation, route }) => {
           />
         </Layout>
         <Layout style={styles.payContainer}>
-          <Text category="h6">Payment information</Text>
+          <Text category="h5">Payment information</Text>
           <Input
             style={styles.input}
             placeholder="Apple Pay"

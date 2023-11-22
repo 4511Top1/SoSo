@@ -6,7 +6,7 @@ import { Iconify } from "react-native-iconify";
 import { SafeView } from "./components/CustomView";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Home from "./screens/home/home";
-import Events from "./screens/events";
+import Events from "./screens/Events";
 import Feed from "./screens/feed/feed";
 
 // Chat
@@ -27,6 +27,7 @@ import {
   PastEvents,
   Saved,
   Settings,
+
   MenuVerifyID,
   IdentityVerification,
   IdentityVerificationSuccess,

@@ -59,7 +59,7 @@ const RegisterEvent = ({ navigation }) => {
     <ScreenView>
       <TopNavigation title={renderTitle} alignment="start" />
       <View>
-        <Text category="h6">Billing information</Text>
+        <Text category="h5">Billing information</Text>
         <Layout style={styles.saveContainer}>
           <Toggle
             status="primary"

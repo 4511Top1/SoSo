@@ -1,12 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { Divider } from "@ui-kitten/components";
+import { View,  StyleSheet } from "react-native";
+import {Text, Divider } from "@ui-kitten/components";
 
 const TextDivider = ({ text }) => (
   <View style={styles.textDividerContainer}>
     <Divider style={styles.divider} />
     <View style={styles.textContainer}>
-      <Text style={styles.text}>{text}</Text>
+      <Text category="p1">{text}</Text>
     </View>
     <Divider style={styles.divider} />
   </View>

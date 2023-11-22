@@ -81,7 +81,7 @@ const SearchResults = ({ navigation }) => {
       style={{ flexDirection: "row", alignItems: "center", marginLeft: -16 }}
     >
       <BackAction navigation={navigation} />
-      <Text category="h4" status="primary">
+      <Text category="h2" status="primary">
         Search Events
       </Text>
     </Layout>
