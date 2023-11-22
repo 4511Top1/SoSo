@@ -101,11 +101,7 @@ const MyUserProfileEdit = ({ route, navigation }) => {
                     }
                   />
                   <View style={styles.centerIcon}>
-                    <Iconify
-                      size={50}
-                      color={theme["color-basic-400"]}
-                      icon="solar:camera-bold"
-                    />
+                    <Iconify size={50} icon="solar:camera-bold" />
                   </View>
                 </View>
               </TouchableOpacity>
